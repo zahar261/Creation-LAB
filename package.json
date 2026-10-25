@@ -1,0 +1,1 @@
+{"name":"creation-lab","private":true,"scripts":{"test":"node smoke.js index.html"},"devDependencies":{"playwright":"1.49.0"}}
