@@ -143,6 +143,8 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;paddin
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
 footer svg{height:13px;width:auto}
 @media (max-width:820px){.cards3{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.ib kbd{display:none}}
+.fhide{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}.fpick{cursor:pointer;display:inline-block}
+@media (max-width:480px){#bSearch kbd{display:none}header.top .wrap{gap:8px}.tools{gap:4px}header.top .brand{gap:8px;flex:0 1 auto;min-width:0}header.top .brand b{letter-spacing:.06em;font-size:14px}header.top .brand .wm small{font-size:9px;letter-spacing:.08em}header.top .ib{min-width:36px;height:36px;padding:0 8px;font-size:13px}}
 @media (max-width:700px){header.top .wrap{flex-wrap:wrap;row-gap:0;padding-block:8px}nav.menu{order:3;width:100%;margin:0}.tools{margin-inline-start:auto}nav.menu a{flex:1;text-align:center;padding:9px 8px;font-size:14px}}
 @media (max-width:520px){.grid2,.ing-in{grid-template-columns:1fr}.cust{grid-template-columns:1fr 1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rev{opacity:1;transform:none}}
@@ -253,7 +255,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 .svwarn{position:fixed;top:0;inset-inline:0;z-index:95;background:#8a2b1f;color:#fff;padding:10px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;font-weight:700;font-size:14px;line-height:1.5}.svwarn .svb{display:flex;gap:6px;flex:none}.svwarn .btn{min-height:40px}
 .unkrow{padding:10px 0;border-bottom:1px solid var(--line)}
 .pdfov{position:fixed;inset:0;z-index:96;background:#2b2b2b;display:flex;flex-direction:column}.pdfov-bar{display:flex;gap:8px;flex-wrap:wrap;padding:10px 12px;background:#161616;align-items:center}.pdfov-body{flex:1;overflow:auto;padding:12px;-webkit-overflow-scrolling:touch}.pdfpg{margin:0 auto 12px;position:relative;box-shadow:0 2px 12px #0008;background:#fff;overflow:hidden;font:11.5px/1.55 "DejaVu Sans",Verdana,Tahoma,Arial,sans-serif;color:#222}.pdfpg>.pd-page{position:absolute;left:0;top:0;transform-origin:0 0}
-.toast{position:fixed;left:12px;right:12px;bottom:74px;margin-inline:auto;max-width:560px;z-index:75;background:var(--acc);color:var(--acc-ink);border-radius:14px;padding:12px 16px;font-weight:700;box-shadow:0 18px 40px -14px rgba(0,0,0,.7)}
+.toast{position:fixed;left:12px;right:12px;bottom:104px;margin-inline:auto;max-width:560px;z-index:75;background:var(--acc);color:var(--acc-ink);border-radius:14px;padding:12px 16px;font-weight:700;box-shadow:0 18px 40px -14px rgba(0,0,0,.7)}
 .toast .link{color:var(--acc-ink);text-decoration:underline;font-weight:800;margin-inline-start:8px;background:none;border:0;cursor:pointer;font:inherit}
 .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 6px}.flow span{padding:7px 14px;border-radius:99px;background:var(--s1);border:1px solid var(--line);font-size:13px;font-weight:700}.flow i{font-style:normal;color:var(--acc)}
 .strip-h{margin:26px 0 10px;font-size:18px}.pjstrip{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
@@ -506,7 +508,8 @@ body.adj-open{overflow:hidden}
  .recb .dtab:not(.nutt) tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;padding:12px 0;border-bottom:1px solid var(--line);position:relative}
  .recb .dtab:not(.nutt) td{display:block;padding:0;border:0}
  .recb .dtab:not(.nutt) td.c-n{grid-column:1/-1;padding-inline-end:44px}
- .recb .dtab:not(.nutt) td[data-l]:not(.c-s)::before{content:attr(data-l);display:block;font-size:11.5px;color:var(--muted);margin-bottom:3px}
+ .recb .dtab:not(.nutt) tr:nth-child(2) td[data-l]:not(.c-s)::before{content:attr(data-l);display:block;font-size:11.5px;color:var(--muted);margin-bottom:3px}
+ .recb .dtab:not(.nutt) tr{padding:8px 0!important;gap:4px 10px!important}.recb .dtab:not(.nutt) td.c-s{font-size:11.5px}
  .recb .dtab:not(.nutt) td.c-s{font-size:12.5px;color:var(--muted)}.recb .dtab:not(.nutt) td.c-s::before{content:attr(data-l)": ";}
  .recb .dtab:not(.nutt) td.c-x{position:absolute;top:10px;inset-inline-end:0}
  .recb td input[type=number]{width:100%!important;max-width:none!important}
@@ -542,7 +545,7 @@ html{overflow-x:clip}
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
 <polygon transform="translate(0,0)" fill="currentColor" points="0,0 170,0 170,38 46,202 170,202 170,240 0,240 0,202 124,38 0,38"/><g transform="translate(210,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(440,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><rect y="101.0" width="170" height="38"/></g><g transform="translate(650,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(880,0)"><rect width="38" height="240" fill="currentColor"/><path d="M19,19 H100 A47,47 0 0 1 100,113 H19" fill="none" stroke="currentColor" stroke-width="38"/><polygon fill="currentColor" points="38,38 76,38 164,240 120,240"/></g><g transform="translate(1206,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(1436,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><polygon points="0,0 52,0 170,240 118,240"/></g><g transform="translate(1646,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><path transform="translate(1876,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/><path transform="translate(2094,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/>
 
-</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.25-l</span></div></footer>
+</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.26-d</span></div></footer>
 <dialog id="pal" aria-label="Search"><input id="pal-in" class="pal-in" autocomplete="off"><ul id="pal-list" class="pal-list"></ul><div style="padding:8px 16px;color:var(--muted);font-size:13px" id="palhint"></div></dialog>
 <script>
 (function(){try{if(window.top!==window.self&&/(^|\.)zaharcreationlab\.com$|\.github\.io$/i.test(location.hostname)){try{window.top.location.href=location.href}catch(e){document.documentElement.style.display="none"}}}catch(e){}})();
@@ -723,8 +726,8 @@ let L=LS("zm-lang",null)||((navigator.language||"ar").startsWith("en")?"en":"ar"
 const t=k=>(UI[L][k]??UI.ar[k]??k);
 const loc=(o,f)=>(L==="en"&&o.en&&o.en[f]!=null)?o.en[f]:o[f];
 const X=(a,e)=>L==="ar"?a:e;
-const NM={cr:{ar:"كريمة 35%",en:"Cream 35%"},cf:{ar:"ألياف الحمضيات",en:"Citrus fiber"},xan:{ar:"زانثان",en:"Xanthan gum"},lec:{ar:"ليسيثين",en:"Lecithin"},mpc:{ar:"بروتين الحليب المركّز",en:"Milk protein concentrate"},gel:{ar:"جيلاتين",en:"Gelatine"},cot:{ar:"كريم تارتار",en:"Cream of tartar"},inv:{ar:"سكر مقلوب",en:"Invert sugar"},wat:{ar:"ماء",en:"Water"},wx:{ar:"نشا ذرة شمعي",en:"Waxy corn starch"},inu:{ar:"إينولين",en:"Inulin"},ms:{ar:"نشا معدّل",en:"Modified starch"}};
-const NRE={cr:"كريمة 35|cream 35|heavy cream|كريمة الطبخ",cf:"citrus fib|ألياف الحمضيات",xan:"xanthan|زانثان|زنثان",lec:"lecithin|ليسيثين|ليسثين",mpc:"milk protein|بروتين الحليب",gel:"gelatin|جيلاتين|جلاتين",cot:"cream of tartar|كريم تارتار",inv:"invert|مقلوب",wat:"^water$|^ماء$",wx:"waxy",inu:"inulin|إينولين|fructan|فركتان",ms:"modified starch|نشا معدل|نشا معدّل"};
+const NM={cr:{ar:"كريمة 35%",en:"Cream 35%"},cf:{ar:"ألياف الحمضيات",en:"Citrus fiber"},xan:{ar:"زانثان",en:"Xanthan gum"},lec:{ar:"ليسيثين",en:"Lecithin"},mpc:{ar:"بروتين الحليب المركّز",en:"Milk protein concentrate"},gel:{ar:"جيلاتين",en:"Gelatine"},cot:{ar:"كريم تارتار",en:"Cream of tartar"},inv:{ar:"سكر مقلوب",en:"Invert sugar"},wat:{ar:"ماء",en:"Water"},wx:{ar:"نشا ذرة شمعي",en:"Waxy corn starch"},inu:{ar:"إينولين",en:"Inulin"},ms:{ar:"نشا معدّل",en:"Modified starch"},cs:{ar:"نشا ذرة",en:"Cornstarch"},yk:{ar:"صفار بيض",en:"Egg yolk"}};
+const NRE={cr:"كريمة 35|cream 35|heavy cream|كريمة الطبخ",cf:"citrus fib|ألياف الحمضيات",xan:"xanthan|زانثان|زنثان",lec:"lecithin|ليسيثين|ليسثين",mpc:"milk protein|بروتين الحليب",gel:"gelatin|جيلاتين|جلاتين",cot:"cream of tartar|كريم تارتار",inv:"invert|مقلوب",wat:"^water$|^ماء$",wx:"waxy",inu:"inulin|إينولين|fructan|فركتان",ms:"modified starch|نشا معدل|نشا معدّل",cs:"corn ?starch|cornflour|نشا الذرة|نشا ذرة",yk:"yolk|صفار"};
 /* Doses come from the course notes already in the platform's problem texts. est=1 marks a testing starting point, not a course value. */
 const ACT={
  "stale":[{k:"swap",from:"sugar|سكر",to:"inv",v:[10,20,40],est:1},{k:"add",ing:"cf",v:[.5,1,1.5],est:1}],
@@ -740,7 +743,10 @@ const ACT={
  "marshmallow-set":[{k:"add",ing:"gel",v:[5,5.5,6]}],
  "fat-sugar-less-cake":[{k:"add",ing:"cf",v:[1,1.25,1.5]},{k:"cut",from:"egg|بيض|butter|زبدة|oil|زيت",v:[10,25,50]}],
  "less-sugar":[{k:"swap",from:"sugar|سكر",to:"inu",v:[10,25,40],est:1}],
- "custard-gel-heavy":[{k:"replace",from:"starch|نشا|corn|ذرة",to:"wx"}]
+ "custard-gel-heavy":[{k:"replace",from:"starch|نشا|corn|ذرة",to:"wx"}],
+ "cheesecake-crack":[{k:"atleast",ing:"cs",v:[1,1.25,1.5],need:"cheese|جبن|ماسكاربوني|mascarpone|ricotta|ريكوتا"},{k:"shift",from:"whole egg|بيض كامل|^\\s*(egg|بيض)s?\\s*$",to:"yk",lbl:{ar:"البيض الكامل",en:"whole egg"},v:[5,10,20],need:"cheese|جبن|ماسكاربوني|mascarpone|ricotta|ريكوتا"}],
+ "cheesecake-grainy":[{k:"trim",from:"lemon|ليمون",lbl:{ar:"عصير الليمون",en:"lemon juice"},v:[30,50,70],need:"lemon|ليمون"}],
+ "cheesecake-weep":[{k:"atleast",ing:"cs",v:[1,1.25,1.5],need:"cheese|جبن|ماسكاربوني|mascarpone|ricotta|ريكوتا"}]
 };
 const r01=v=>Math.round(v*10)/10;
 const nm=k=>NM[k][L]||NM[k].en;
@@ -1030,12 +1036,12 @@ let PJ=LS("zm-projects",LS("eq-projects",[])),PJSEL=null,PJTPL="cust:new";
 const tplName=x=>pick(x.name);
 const srcTag=x=>x.src==="c"?t("d_course"):x.src==="b"?t("d_book"):t("d_est");
 function renderDev(){
-  let h=`<div class="wrap"><h1 style="font-size:clamp(30px,5vw,46px)">${esc(t("d_h"))}</h1><p class="lead">${esc(t("d_lead"))}</p>${shareCard()}
-  <div class="card"><h2>1) ${esc(t("d_new"))}</h2><div class="grid2"><div><label for="pjn">${esc(t("d_name"))}</label><input id="pjn" class="field" placeholder="${esc(t("d_nameph"))}"></div>
+  let h=`<div class="wrap"><h1 style="font-size:clamp(30px,5vw,46px)">${esc(t("d_h"))}</h1><p class="lead">${esc(t("d_lead"))}</p>${shareCard()}`;
+  if(PJ.length)h+=`<div class="card"><h2>${esc(t("d_mine"))}</h2><ul class="list">${PJ.map(p=>`<li><button data-pj="${p.id}"><span>${esc(p.name)}</span><i>${p.trials.length} ${esc(t("d_trials"))} ${L==="ar"?"‹":"›"}</i></button></li>`).join("")}</ul></div>`;
+  h+=`  <div class="card"><h2>1) ${esc(t("d_new"))}</h2><div class="grid2"><div><label for="pjn">${esc(t("d_name"))}</label><input id="pjn" class="field" placeholder="${esc(t("d_nameph"))}"></div>
   <div><label for="pjg">${esc(t("d_goal"))}</label><input id="pjg" class="field" placeholder="${esc(t("d_goalph"))}"></div></div>
   <label style="margin-top:12px">${esc(t("d_base"))}</label><div class="tplgrid"><button class="tpl" data-tpl="cust:new" aria-pressed="${PJTPL==="cust:new"}"><strong>${esc(U("blank"))}</strong><span>${esc(U("mine"))}</span></button>${TPL.map(x=>`<button class="tpl" data-tpl="${x.id}" aria-pressed="${x.id===PJTPL}"><strong>${esc(tplName(x))}</strong><span>${esc(x.src==="c"?t("d_course"):t("d_est"))}</span></button>`).join("")}</div>
   <div class="bar"><button class="btn pri" id="pjAdd">${esc(t("d_go"))}</button><button class="btn" type="button" data-imp="new">${esc(X("استيراد وصفتي (لصق)","Import my recipe (paste)"))}</button></div><p class="note" style="margin:0">${esc(t("d_local"))}</p></div>`;
-  if(PJ.length)h+=`<div class="card"><h2>${esc(t("d_mine"))}</h2><ul class="list">${PJ.map(p=>`<li><button data-pj="${p.id}"><span>${esc(p.name)}</span><i>${p.trials.length} ${esc(t("d_trials"))} ${L==="ar"?"‹":"›"}</i></button></li>`).join("")}</ul></div>`;
   h+=`<div id="pjView"></div>${backupCard()}
   <div class="card" id="feedDevCard"${FEED.length?"":" hidden"}><h2>${esc(t("h_daily"))}</h2><p class="lead" style="margin-bottom:4px">${esc(t("daily_lead"))}</p><ul class="feed" id="feedDev">${feedHtml(FEED,8)}</ul></div>
   <p class="note">${esc(t("d_foot"))}</p></div>`;
@@ -1190,6 +1196,9 @@ function prepPdf(){const p=PJ.find(z=>z.id===PJSEL);if(!p)return false;let el=$(
   el.dir=L==="ar"?"rtl":"ltr";el.innerHTML="";document.body.classList.add("pdfp");try{el.innerHTML=pdfPages(p)}catch(e){window.__pe=e.stack;document.body.classList.remove("pdfp");return false}return true}
 function printPdf(){if(!prepPdf())return;
   setTimeout(()=>{try{print()}catch(e){const m=$("#pdfMsg");if(m)m.textContent=U("pdfmsg");document.body.classList.remove("pdfp")}},150)}
+async function saveBlob(blob,name){try{if(window.claude&&claude.use){const d=await claude.use("downloads");if(d){await d.save({filename:name,data:blob});return"saved"}}}catch(e){if(e&&e.code==="declined")return"declined"}
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);return"anchor"}
+window.saveBlob=saveBlob;
 function exportPdf(){openPdfView()}
 const clearSheet=()=>{const e=document.getElementById("pdfSheet");if(e)e.innerHTML=""};
 const PDFLIB=[["https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js","https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"],["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js","https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"]];
@@ -1218,15 +1227,18 @@ document.addEventListener("click",async e=>{const b=e.target.closest&&e.target.c
  if(b.disabled)return;b.disabled=true;
  try{const r=await pdfBuild();
   if(k==="share"){const f=new File([r.blob],r.name,{type:"application/pdf"});if(navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:r.name})}catch(er){if(er&&er.name!=="AbortError")throw er}pdfMsg("");return}}
-  const a=document.createElement("a");a.href=URL.createObjectURL(r.blob);a.download=r.name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);pdfMsg(X("تم إنشاء الملف. إن لم يبدأ التنزيل جرّب «مشاركة / حفظ».","File created. If the download did not start, try Share / Save."))}
- catch(er){document.body.classList.remove("pdfp");clearSheet();pdfMsg(X("تعذّر إنشاء الملف (تحتاج اتصالاً بالإنترنت لأول مرة). يمكنك استخدام «طباعة» واختيار حفظ كـ PDF.","Could not build the file (needs internet the first time). You can use Print and choose Save as PDF."))}
+  const st=await saveBlob(r.blob,r.name);pdfMsg(st==="saved"?X("تم حفظ الملف.","File saved."):st==="declined"?X("أُلغي الحفظ.","Save cancelled."):X("تم إنشاء الملف. إن لم يبدأ التنزيل جرّب «مشاركة / حفظ».","File created. If the download did not start, try Share / Save."))}
+ catch(er){try{if(prepPdf()){const pg=[...document.querySelectorAll("#pdfSheet .pd-page")].map(x=>x.outerHTML).join(""),css=[...document.querySelectorAll("style")].map(x=>x.textContent).join("\n"),p0=PJ.find(z=>z.id===PJSEL),nm=((p0&&p0.name)||"recipe").replace(/[\\/:*?"<>|]+/g," ").trim().slice(0,40)||"recipe";
+   const html='<!doctype html><html lang="'+L+'" dir="'+(L==="ar"?"rtl":"ltr")+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(nm)+'</title><style>'+css+'#pdfSheet{position:static!important;left:0!important;display:block!important}.pd-page{margin:0 auto 12px;box-shadow:0 0 6px #0003}@media print{.pd-page{margin:0;box-shadow:none;break-after:page}.nopr{display:none}}</style></head><body class="pdfp"><div class="nopr" style="text-align:center;padding:10px;font:14px sans-serif">'+esc(X("افتح الملف في المتصفح ثم اطبع واختر «حفظ كـ PDF».","Open this file in a browser, then print and choose “Save as PDF”."))+'</div><div id="pdfSheet">'+pg+'</div></body></html>';
+   document.body.classList.remove("pdfp");clearSheet();const st=await saveBlob(new Blob([html],{type:"text/html"}),"CREATION-LAB "+nm+".html");pdfMsg(st==="declined"?X("أُلغي الحفظ.","Save cancelled."):X("تعذّر تحميل مكتبة PDF هنا، فحفظنا ورقة جاهزة للطباعة (HTML): افتحها واطبع «حفظ كـ PDF».","PDF library unavailable here, so a print-ready sheet (HTML) was saved: open it and print to PDF."));return}}catch(e2){}
+  document.body.classList.remove("pdfp");clearSheet();pdfMsg(X("تعذّر إنشاء الملف (تحتاج اتصالاً بالإنترنت لأول مرة). يمكنك استخدام «طباعة» واختيار حفظ كـ PDF.","Could not build the file (needs internet the first time). You can use Print and choose Save as PDF."))}
  finally{b.disabled=false}});
 addEventListener("resize",pdfFit);
 addEventListener("beforeprint",()=>{if(!document.body.classList.contains("pdfp")&&(location.hash||"").replace("#","")==="dev"&&PJSEL)prepPdf()});
 addEventListener("afterprint",()=>{document.body.classList.remove("pdfp");const e=document.getElementById("pdfSheet");if(e)e.innerHTML=""})
 /* ---------- 3D dessert studio (own canvas renderer, no external libs) ---------- */
 const ST3={
-ar:{title:"استوديو الشكل ثلاثي الأبعاد",lead:"ركّب شكل الحلا طبقة فوق طبقة، دوّره بإصبعك أو الفأرة، وشوف الحجم والوزن لكل طبقة.",
+ar:{lib:"قوالب جاهزة من المكتبة",imp:"استيراد مجسّم (STL / OBJ)",impHint:"ارفع ملف مجسّم ثلاثي الأبعاد لقالبك.",vsz:"الحجم الأقصى 10 ميغابايت.",empty:"لا توجد طبقات بعد. أضف طبقة.",title:"استوديو الشكل ثلاثي الأبعاد",lead:"ركّب شكل الحلا طبقة فوق طبقة، دوّره بإصبعك أو الفأرة، وشوف الحجم والوزن لكل طبقة.",
  pre:"قوالب جاهزة",addl:"+ إضافة طبقة",lname:"اسم الطبقة",type:"الشكل",w:"القطر / العرض",d:"العمق",top:"القطر العلوي",hole:"قطر الفتحة",h:"الارتفاع",col:"اللون",dens:"الكثافة g/cm³",glaze:"لامع (جلاز)",
  up:"للأعلى",down:"للأسفل",del:"حذف",vol:"الحجم",wt:"الوزن",tvol:"الحجم الكلي",twt:"الوزن الكلي",por:"عدد الحصص",perp:"وزن الحصة",useb:"اعتمد الوزن كحجم تشغيلة",
  expl:"تفكيك الطبقات",cut:"مقطع داخلي",auto:"دوران تلقائي",snap:"حفظ صورة",reset:"إعادة ضبط الزاوية",ml:"مل",cm:"سم",noWeb:"المتصفح لا يدعم الرسم هنا.",
@@ -1234,7 +1246,7 @@ ar:{title:"استوديو الشكل ثلاثي الأبعاد",lead:"ركّب �
  ty_round:"دائري",ty_square:"مربع",ty_rect:"مستطيل",ty_dome:"قبة",ty_sphere:"كرة / بيضاوي",ty_frustum:"مخروط مقطوع",ty_ring:"حلقة / كعكة",ty_hex:"سداسي",ty_heart:"قلب",
  p_entremet:"أنتريميه دائري",p_square:"مربع",p_dome:"قبة",p_tier:"كيكة طبقات",p_heart:"قلب",p_ring:"حلقة",
  n_biscuit:"قاعدة / بسكويت",n_creme:"كريمي / إنسرت",n_mousse:"موس",n_glaze:"جلاز",n_dome:"قبة موس",n_t1:"طبقة سفلية",n_t2:"طبقة وسطى",n_t3:"طبقة علوية",n_ring:"كعكة",n_new:"طبقة جديدة"},
-en:{title:"3D shape studio",lead:"Stack your dessert layer by layer, rotate it with a finger or mouse, and see each layer's volume and weight.",
+en:{lib:"Ready-made library moulds",imp:"Import a 3D model (STL / OBJ)",impHint:"Upload a 3D model file of your mould.",vsz:"Maximum size 10 MB.",empty:"No layers yet. Add a layer.",title:"3D shape studio",lead:"Stack your dessert layer by layer, rotate it with a finger or mouse, and see each layer's volume and weight.",
  pre:"Presets",addl:"+ Add layer",lname:"Layer name",type:"Shape",w:"Diameter / width",d:"Depth",top:"Top diameter",hole:"Hole diameter",h:"Height",col:"Colour",dens:"Density g/cm³",glaze:"Glossy glaze",
  up:"Move up",down:"Move down",del:"Delete",vol:"Volume",wt:"Weight",tvol:"Total volume",twt:"Total weight",por:"Portions",perp:"Per portion",useb:"Use weight as batch size",
  expl:"Explode layers",cut:"Cross-section",auto:"Auto-rotate",snap:"Save image",reset:"Reset view",ml:"ml",cm:"cm",noWeb:"This browser can't draw here.",
@@ -1468,8 +1480,8 @@ function studioMount(p){
    <button class="btn sm" id="st-reset" type="button">${esc(S3("reset"))}</button></div>
   <div class="st-lib noprint"><div class="st-libh"><b>${esc(S3("lib"))}</b></div>
    <div id="st-libgrid" class="st-grid"></div>
-   <details class="st-imp" open><summary>${esc(S3("imp"))}</summary><p class="small" style="margin:8px 0">${esc(S3("impHint"))} ${esc(S3("vsz"))}</p><input type="file" id="st-file" accept=".stl,.obj" class="field"><div id="st-impbox"></div></details>
-   <div class="st-img" style="margin-top:14px"><b>${esc(L==="ar"?"صورة مرجعية":"Reference image")}</b><p class="small" style="margin:8px 0">${esc(L==="ar"?"أضف صورة للشكل (من جوالك أو الكاميرا). تظهر مع المشروع وفي ملف PDF.":"Add a picture of the shape (from your phone or camera). It shows with the project and in the PDF.")}</p><input type="file" id="st-img" accept="image/*" class="field"><div id="st-imgbox"></div></div></div>
+   <details class="st-imp" open><summary>${esc(S3("imp"))}</summary><p class="small" style="margin:8px 0">${esc(S3("impHint"))} ${esc(S3("vsz"))}</p><label class="btn sm fpick" for="st-file">${esc(L==="ar"?"اختر ملفاً":"Choose file")}</label><input type="file" id="st-file" accept=".stl,.obj" class="fhide"><div id="st-impbox"></div></details>
+   <div class="st-img" style="margin-top:14px"><b>${esc(L==="ar"?"صورة مرجعية":"Reference image")}</b><p class="small" style="margin:8px 0">${esc(L==="ar"?"أضف صورة للشكل (من جوالك أو الكاميرا). تظهر مع المشروع وفي ملف PDF.":"Add a picture of the shape (from your phone or camera). It shows with the project and in the PDF.")}</p><label class="btn sm fpick" for="st-img">${esc(L==="ar"?"اختر صورة":"Choose image")}</label><input type="file" id="st-img" accept="image/*" class="fhide"><div id="st-imgbox"></div></div></div>
   <div id="st-list"></div><div class="bar noprint"><button class="btn" id="st-add" type="button">${esc(S3("addl"))}</button></div><div id="st-sum" class="st-sum"></div>`;
   const cv=$(".st-cv",host),ctx=cv.getContext&&cv.getContext("2d");
   if(!ctx){$(".st-wrap",host).innerHTML=`<p class="note">${esc(S3("noWeb"))}</p>`;return}
@@ -1609,7 +1621,7 @@ function renderCalc(){
   <div class="card"><h2>${esc(t("c_comp"))}</h2><div id="comp"></div></div>
   <div class="bar"><button class="btn" id="bOrig">${esc(t("c_orig"))}</button><button class="btn" id="bEmpty">${esc(t("c_empty"))}</button><button class="btn" id="bAdd">${esc(t("c_addrow"))}</button></div>
   <div id="rows"></div><div id="tot" class="card" style="margin:10px 0"></div>
-  <div class="grid2" style="margin-top:14px"><div><label for="ref">${esc(t("c_ref"))}</label><select id="ref" class="field"></select></div><div><label for="kg">${esc(t("c_kg"))}</label><input id="kg" class="field" type="number" inputmode="decimal" min="0" step="any" value="${esc(W.kg??10)}"></div></div>
+  <div class="grid2" style="margin-top:14px"><div><label for="ref">${esc(t("c_ref"))}</label><select id="ref" class="field"></select></div><div><label for="kg">${esc(t("c_kg"))}</label><input id="kg" class="field" type="number" inputmode="decimal" min="0" step="any" value="${esc(W.kg??(()=>{const t0=W.rows.reduce((a,r)=>a+num(r.g),0);return t0>0?Math.round(t0)/1000:10})())}"></div></div>
   <div class="card"><h2>${esc(t("c_alg"))}</h2><div id="extra"></div></div>
   <div class="card"><h2>${esc(t("c_imp"))}</h2><p class="lead" style="margin-bottom:12px;font-size:16px">${esc(t("c_impp"))}</p>
    <div class="grid2"><div><label for="swap">${esc(t("c_swap"))}</label><input id="swap" class="field" type="number" min="0" step="any" value="17.5"></div><div><label for="fiber">${esc(t("c_fib"))}</label><input id="fiber" class="field" type="number" min="0" step="any" value="0.5"></div></div>
@@ -1734,7 +1746,7 @@ function renderAll(){applyChrome();{const h=$("#aboutHost");if(h)h.innerHTML=abo
 let LAZYD={};const LAZYF={library:()=>renderLibrary(),materials:()=>renderMaterials()};
 function route(noAnim){
   const p0=(location.hash||"#home").slice(1).split("/")[0];const p=PAGES.includes(p0)?p0:"home";
-  const go=()=>{if(LAZYF[p]&&!LAZYD[p]){LAZYD[p]=1;LAZYF[p]()}$$(".page").forEach(s=>s.classList.toggle("on",s.id==="p-"+p));$$("#nav a").forEach(a=>a.dataset.p===({rules:"library",suppliers:"library",materials:"library",solve:"dev",calc:"dev"}[p]||p)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));if(!noAnim)scrollTo(0,0);if(p==="home"&&!noAnim)countUp()};
+  const go=()=>{{const ah=document.getElementById("aboutHost");if(ah)ah.hidden=p!=="home"}if(LAZYF[p]&&!LAZYD[p]){LAZYD[p]=1;LAZYF[p]()}$$(".page").forEach(s=>s.classList.toggle("on",s.id==="p-"+p));$$("#nav a").forEach(a=>a.dataset.p===({rules:"library",suppliers:"library",materials:"library",solve:"dev",calc:"dev"}[p]||p)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));if(!noAnim)scrollTo(0,0);if(p==="home"&&!noAnim)countUp()};
   if(!noAnim&&document.startViewTransition&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.startViewTransition(go);else go();
 }
 addEventListener("hashchange",()=>route());
@@ -1761,13 +1773,36 @@ const B3={ar:{start:"ابدأ من هنا",startS:"اختر ما تريد فعل
   shr:"Share link",shrCopy:"Copy link",shrOk:"Link copied",shrIn:"A project shared with you",shrAdd:"Add to my projects",shrIgn:"Ignore",shrBad:"Invalid link",none:"No projects yet"}};
 const B=k=>(B3[L]||B3.en)[k];
 /* --- active project (persisted) --- */
-{const a=LS("zm-active",null);PJSEL=PJ.some(z=>z.id===a)?a:null}
+{const a=LS("zm-active",null);PJSEL=PJ.some(z=>z.id===a)?a:(PJ.length?PJ[0].id:null)}
 const actP=()=>PJ.find(z=>z.id===PJSEL)||null;
 function saveAll(){LSS("zm-projects",PJ);LSS("zm-active",PJSEL)}
 /* --- ingredient matching with the materials database --- */
 const _mm=new Map();
 const _UA=()=>LS("zm-alias",{});
 function aliasMat(k){const s=" "+k.replace(/[()%\d.,\-\/:+]+/g," ").replace(/\s+/g," ").trim()+" ",has=r=>r.test(s),n70=/70/.test(k);
+ if(has(/ (فيلادلفيا|philadelphia) /))return"creamcheese";
+ if(has(/ قيمر /))return"qashta";
+ if(has(/ سمن /))return"ghee";
+ if(has(/ شورتنج /))return"shortening";
+ if(has(/ عسل /)){if(has(/ (اسود|مولاس) /))return"molasses";return"honey"}
+ if(has(/ (شراب|سيروب) /)&&has(/ (الجلوكوز|جلوكوز) /))return"glucose";
+ if(has(/ (نشاء|نشا) /)&&!has(/ (بطاطس|تابيوكا|ذره|قمح|معدل|شمعي) /))return"cstarch";
+ if(has(/ (جلاتين|جيلاتين) /))return"gelatine";
+ if(has(/ لوز /)&&has(/ (مقشر|شرائح|مفروم|كامل) /))return"almond";
+ if(has(/ (عين الجمل|جوز) /)&&!has(/ هند /))return"walnut";
+ if(has(/ (توت العليق|رازبري) /))return"raspfresh";
+ if(has(/ قشر /)&&has(/ (ليمون|برتقال|لايم) /))return"citrusflavor";
+ if(has(/ ثلج /))return"water";
+ if(has(/ الكاكاو /))return"cocoa";
+ if(has(/ (بيستاشيو|بستاشيو) /)&&has(/ معجون /))return"pistachiopaste";
+ if(has(/ (ماسكربوني|ماسكاربوني) /))return"mascarpone";
+ if(has(/ ماء /)&&has(/ الورد /))return"rosewater";
+ if(has(/ ماء /)&&has(/ زهر /))return"orangewater";
+ if(has(/ (جل لون|لون غذائي|ملونات غذائيه|ملون غذائي) /))return"gelcolor";
+ if(has(/ ايسومالت /))return"isomalt";
+ if(has(/ (اغار|اجار) /))return"agar";
+ if(has(/ (براليني|بالين|برالين) /))return"praline";
+ if(has(/ فستق /)&&has(/ معجون /))return"pistachiopaste";
  if(has(/ cornstarch /))return"cstarch";
  if(has(/ trimoline /))return"invert";
  if(has(/ (citric|ستريك) /))return"citricacid";
@@ -1877,7 +1912,7 @@ function pushRec(p,rec){const R=recsOf(p);if(p._fresh){R.length=0;delete p._fres
 function openProject(id){PJSEL=id;saveAll();renderDev();location.hash="#dev";setTimeout(()=>{const v=$("#pjView");if(v)v.scrollIntoView({behavior:"smooth"})},80)}
 function afterAdd(p,msg){saveAll();pjBar();renderDev();toast((msg||B("toAdd"))+" «"+p.name+"»",B("toOpen"))}
 /* --- calculator <-> project --- */
-function calcToRec(){const a=analyze(W.rows),kg=Math.max(.001,num((($("#kg")||{}).value))||10),f=a.total>0?kg*1000/a.total:1,name=(($("#rname")||{}).value||"").trim()||t("c_defname");
+function calcToRec(){const a=analyze(W.rows),kg=Math.max(.001,num((($("#kg")||{}).value))||(a.total>0?a.total/1000:10)),f=a.total>0?kg*1000/a.total:1,name=(($("#rname")||{}).value||"").trim()||t("c_defname");
  const rows=W.rows.filter(r=>num(r.g)>0).map(r=>{const nm=nameOf(r),ne=(()=>{const i=ingOf(r);return i&&i.en?i.en:nm})(),v=Math.round(num(r.g)*f*10)/10;return{n:nm,ne,o:v,m:v,_p:num(r.price)}});
  return{name,kg,rows}}
 function recFromCalc(){const x=calcToRec(),p=ensureProject(x.name);p.prices=p.prices||{};
@@ -1955,7 +1990,7 @@ function backupCard(){return `<div class="card noprint" id="bkCard"><h2>${esc(B(
 function shareCard(){if(!SHARE)return"";return `<div class="card noprint" style="border-color:var(--acc)"><h2>${esc(B("shrIn"))}: ${esc(SHARE.name||"")}</h2><div class="bar"><button class="btn pri" data-shr="add">${esc(B("shrAdd"))}</button><button class="btn ghost" data-shr="ign">${esc(B("shrIgn"))}</button></div></div>`}
 function bkExport(){LSS("zm-lastbk",Date.now());const d={};BKK.forEach(k=>{try{const v=localStorage.getItem(k);if(v!=null)d[k]=JSON.parse(v)}catch(e){}});
  const blob=new Blob([JSON.stringify({app:"creation-lab",v:1,ts:new Date().toISOString(),data:d})],{type:"application/json"}),a=document.createElement("a");
- a.href=URL.createObjectURL(blob);a.download="creation-lab-backup-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+ saveBlob(blob,"creation-lab-backup-"+new Date().toISOString().slice(0,10)+".json")}
 function bkShow(msg,go){const e=$("#bkMsg");if(!e)return;e.innerHTML=(msg?`<p class="note" style="margin:10px 0">${esc(msg)}</p>`:"")+(go?`<div class="bar"><button class="btn pri" data-bk="go">${esc(B("bkGo"))}</button><button class="btn ghost" data-bk="cancel">${esc(B("bkCancel"))}</button></div>`:"")}
 function bkRead(f){const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||o.app!=="creation-lab"||!o.data)throw 0;BK=o.data;const n=(BK["zm-projects"]||[]).length,m=Object.keys(BK["zm-matsup"]||{}).length;
   bkShow((L==="ar"?`يحتوي الملف على ${n} مشروع و${m} سعراً/مورداً. سيُدمج مع ما لديك دون حذف شيء.`:`The file holds ${n} projects and ${m} material prices/suppliers. It will be merged with yours; nothing is deleted.`),true)}catch(e){BK=null;bkShow(B("bkBad"))}};r.readAsText(f)}
@@ -1963,7 +1998,7 @@ function bkMerge(){if(!BK)return;const D=BK;
  (D["zm-projects"]||[]).forEach(q=>{if(q&&q.id&&!PJ.some(z=>z.id===q.id))PJ.push(q)});
  MS=Object.assign({},D["zm-matsup"]||{},MS);
  const mergeArr=k=>{const cur=LS(k,[]),seen=new Set(cur.map(x=>JSON.stringify(x)));(D[k]||[]).forEach(x=>{if(!seen.has(JSON.stringify(x)))cur.push(x)});LSS(k,cur)};
- mergeArr("zm-recipes");mergeArr("zm-comps");LSS("zm-matsup",MS);saveAll();BK=null;renderAll();bkShow(B("bkOk"))}
+ mergeArr("zm-recipes");mergeArr("zm-comps");LSS("zm-matsup",MS);if(!PJSEL&&PJ.length)PJSEL=PJ[0].id;saveAll();BK=null;renderAll();bkShow(B("bkOk"))}
 async function shareMake(){const p=actP();if(!p)return;const c=JSON.parse(JSON.stringify(p));delete c._fresh;
  try{const k=await packObj({app:"creation-lab",v:1,p:c}),url=location.href.split("#")[0]+"#share="+k;
   try{await navigator.clipboard.writeText(url);toast(B("shrOk"))}catch(e){const ta=document.createElement("textarea");ta.value=url;ta.className="field";ta.rows=3;const host=$("#bkMsg")||document.body;host.appendChild(ta);ta.select();toast(B("shrCopy"))}}catch(e){toast(B("shrBad"))}}
@@ -2004,7 +2039,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.recdel){const p=P();if(p&&recsOf(p).length>1){p.recs=p.recs.filter(z=>z.id!==b.dataset.recdel);sv()}return}
   if(b.dataset.radd){const r=RR(b.dataset.radd);if(r){r.rows.push({n:"",ne:"",o:0,m:0});sv()}return}
   if(b.dataset.rdel){const[id,k]=b.dataset.rdel.split("#"),r=RR(id);if(r&&r.rows.length>1){r.rows.splice(+k,1);r.ref=null;sv()}return}
-  if(b.dataset.pj){PJSEL=b.dataset.pj;renderPjView();$("#pjView").scrollIntoView({behavior:"smooth"});return}
+  if(b.dataset.pj){PJSEL=b.dataset.pj;LSS("zm-active",PJSEL);renderPjView();$("#pjView").scrollIntoView({behavior:"smooth"});return}
   if(b.id==="trAdd"){const p=PJ.find(z=>z.id===PJSEL);if(!p)return;const c=$("#trc").value.trim(),r=$("#trr").value.trim();if(!c&&!r)return;p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:c||"—",res:r||"—"});LSS("zm-projects",PJ);renderDev();return}
   if(b.id==="pjDel"){if(confirm(t("d_delq"))){PJ=PJ.filter(z=>z.id!==PJSEL);PJSEL=null;LSS("zm-projects",PJ);renderDev()}return}
   // calc
@@ -2065,7 +2100,7 @@ document.addEventListener("change",e=>{
   if(el.classList.contains("s-ing")){const r=W.rows.find(x=>x.id===el.closest(".ing").dataset.id);if(r){r.ing=el.value;renderRows()}return}
   if(el.id==="ref"){W.refId=el.value;updateOut();return}
   {const P=()=>PJ.find(z=>z.id===PJSEL),RR=id=>{const p=P();return p&&recsOf(p).find(z=>z.id===id)},sv=()=>{LSS("zm-projects",PJ);svLater()};
-  if(el.hasAttribute("data-rb")){const r=RR(el.dataset.rb);if(r){const nb=Math.max(.001,Number(el.value)||1),f=nb/(r.batch||1);r.rows.forEach(z=>{z.o=f1(z.o*f);z.m=f1(z.m*f)});r.batch=nb;const p=P();if(r===p.recs[0])p.batch=nb;sv()}return}
+  if(el.hasAttribute("data-rb")){const r=RR(el.dataset.rb);if(r){const nb=Math.max(.001,Number(el.value)||1),pv=(z,k)=>{const q=z["_"+k];return q!=null&&Math.abs(q-z[k])<.06?q:+z[k]||0},To=r.rows.reduce((a,z)=>a+pv(z,"o"),0),Tm=r.rows.reduce((a,z)=>a+pv(z,"m"),0),fo=To>0?nb*1000/To:nb/(r.batch||1),fm=Tm>0?nb*1000/Tm:nb/(r.batch||1);r.rows.forEach(z=>{const o=pv(z,"o")*fo,m=pv(z,"m")*fm;z._o=o;z._m=m;z.o=f1(o);z.m=f1(m)});r.batch=nb;const p=P();if(r===p.recs[0])p.batch=nb;sv()}return}
   if(el.hasAttribute("data-rt")){const r=RR(el.dataset.rt);if(r&&el.value){const p=P(),snap=JSON.stringify(r),was0=r===p.recs[0],tpl0=p.tpl,nm0=rnm(r);const nr=matRec(p,{id:r.id,tpl:el.value,batch:r.batch});Object.keys(r).forEach(k=>delete r[k]);Object.assign(r,nr);if(was0)p.tpl=el.value;sv();
    toast(X("تم استبدال «"+nm0+"» بوصفة جديدة. كل تعديلاتك عليها حُذفت.","Replaced “"+nm0+"” with another recipe. Your edits to it were removed."),X("تراجع","Undo"),()=>{const q=P(),rr=q&&recsOf(q).find(z=>z.id===r.id);if(!rr)return;Object.keys(rr).forEach(k=>delete rr[k]);Object.assign(rr,JSON.parse(snap));if(was0)q.tpl=tpl0;sv();toast(X("تم التراجع","Undone"))},20000)}return}
   if(el.hasAttribute("data-rbl")){const r=RR(el.dataset.rbl);if(r){r.bl=Math.min(60,Math.max(0,Number(el.value)||0));sv()}return}
@@ -2123,8 +2158,11 @@ function actText(a){const v=a.val;
  if(a.k==="cut")return X("قلّل البيض والدهن "+v+"% وعوّض بالماء","Cut egg and fat by "+v+"% and add water instead");
  if(a.k==="setpct")return X("اضبط "+nm(a.ing)+" على "+v+"%","Set "+nm(a.ing)+" to "+v+"%");
  if(a.k==="replace")return X("استبدل النشا بـ "+nm(a.to),"Replace the starch with "+nm(a.to));
+ if(a.k==="atleast")return X("ارفع "+nm(a.ing)+" إلى "+v+"% على الأقل من الخليط","Raise "+nm(a.ing)+" to at least "+v+"% of the mix");
+ if(a.k==="shift")return X("حوّل "+v+"% من "+(a.lbl?a.lbl.ar:"")+" إلى "+nm(a.to),"Move "+v+"% of the "+(a.lbl?a.lbl.en:"")+" to "+nm(a.to));
+ if(a.k==="trim")return X("قلّل "+(a.lbl?a.lbl.ar:"")+" "+v+"%","Reduce the "+(a.lbl?a.lbl.en:"")+" by "+v+"%");
  if(a.k==="ratio")return X("اضبط نسبة الدهون إلى الماء على "+v+" بإضافة كريمة 35%","Set the fat to water ratio to "+v+" by adding 35% cream")}
-function actUnit(a){return a.k==="ratio"?X("نسبة دهون : ماء","fat : water"):a.k==="swap"?X("% من السكر","% of sugar"):a.k==="cut"?X("% تخفيض","% cut"):X("% من الخليط","% of mix")}
+function actUnit(a){return a.k==="ratio"?X("نسبة دهون : ماء","fat : water"):a.k==="swap"?X("% من السكر","% of sugar"):(a.k==="cut"||a.k==="trim"||a.k==="shift")?X("% تخفيض","% cut"):X("% من الخليط","% of mix")}
 function waterPctRows(rows){let t=0,w=0;rows.forEach(z=>{const g=+z.m||0;t+=g;const id=rowMat(z),i=id&&ING[id];if(i)w+=g*num(i.water)/100});return t>0?w/t*100:0}
 function adjPlan(rec,items){const rows=rec.rows.map(z=>Object.assign({},z)),log=[];
  const tot=()=>rows.reduce((s,z)=>s+(+z.m||0),0);
@@ -2142,6 +2180,12 @@ function adjPlan(rec,items){const rows=rec.rows.map(z=>Object.assign({},z)),log=
   else if(a.k==="cut"){const re=new RegExp(a.from,"i"),tg=rows.filter(z=>re.test(rowTxt(z))&&(+z.m||0)>0);
    if(!tg.length){log.push({ok:0,txt:X("لا يوجد بيض أو دهن في الوصفة","No egg or fat in the recipe")});return}
    let rm=0;tg.forEach(z=>{const d=z.m*v/100;rm+=d;z.m=r01(z.m-d)});bump("wat",rm);log.push({ok:1,txt:actText({k:"cut",val:v})})}
+  else if(a.k==="atleast"){const T=tot(),z=findRow(rows,a.ing),cur=z?(+z.m||0):0,tgt=v*T/100;
+   if(cur>=tgt-.05){log.push({ok:0,txt:X(nm(a.ing)+" موجود أصلاً بنسبة "+r01(cur/T*1000)/10+"% وهي كافية","Already at "+r01(cur/T*1000)/10+"% of the mix, which is enough")});return}
+   bump(a.ing,tgt-cur);log.push({ok:1,txt:actText({k:"atleast",ing:a.ing,val:v})})}
+  else if(a.k==="shift"||a.k==="trim"){const re=new RegExp(a.from,"i"),tg=rows.filter(z=>re.test(rowTxt(z))&&(+z.m||0)>0);
+   if(!tg.length){log.push({ok:0,txt:X("لا يوجد «"+(a.lbl?a.lbl.ar:"")+"» في الوصفة","No “"+(a.lbl?a.lbl.en:"")+"” in the recipe")});return}
+   let rm=0;tg.forEach(z=>{const d=z.m*v/100;rm+=d;z.m=r01(z.m-d)});if(a.k==="shift")bump(a.to,rm);log.push({ok:1,txt:actText({k:a.k,to:a.to,lbl:a.lbl,val:v})})}
   else if(a.k==="setpct"){const z=findRow(rows,a.ing);if(!z){log.push({ok:0,txt:nm(a.ing)+X(" غير موجود في الوصفة"," is not in the recipe")});return}
    const Tw=tot()-(+z.m||0);z.m=r01(v*Tw/(100-v));log.push({ok:1,txt:actText({k:"setpct",ing:a.ing,val:v})})}
   else if(a.k==="replace"){const re=new RegExp(a.from,"i"),tg=rows.filter(z=>re.test(rowTxt(z))&&!new RegExp(NRE[a.to],"i").test(rowTxt(z)));
@@ -2173,7 +2217,7 @@ function adjRender(){const p=ADJ.p,rec=ADJ.rec;if(!p||!rec)return;
  if(has){
   body+=`<div class="adjbox"><h4>${esc(X("طبّق على وصفتك","Apply to your recipe"))}</h4>${R.length>1?`<label class="small">${esc(X("الوصفة","Recipe"))}</label><select class="field" id="adjrec">${R.map(z=>`<option value="${z.id}"${z.id===rec.id?" selected":""}>${esc(rnm(z)||U("mine"))}</option>`).join("")}</select>`:`<p class="small" style="margin:0 0 8px">${esc(X("الوصفة: ","Recipe: "))}<b>${esc(rnm(rec)||U("mine"))}</b></p>`}
    ${ADJ.items.some(z=>z.a.k==="ratio")?(()=>{let F=0,W=0;rec.rows.forEach(z=>{const g=+z.m||0,id=rowMat(z),i=id&&ING[id];if(i){F+=g*num(i.fat)/100;W+=g*num(i.water)/100}});const T=rec.rows.reduce((q,z)=>q+(+z.m||0),0);return W>0?`<p class="note" style="margin:0 0 8px"><b>${esc(X("قراءة وصفتك: ","Your recipe: "))}</b>${esc(X("دهون "+Math.round(F/T*1000)/10+"% مقابل ماء "+Math.round(W/T*1000)/10+"%، نسبة الدهون إلى الماء "+Math.round(F/W*100)/100+".","fat "+Math.round(F/T*1000)/10+"% vs water "+Math.round(W/T*1000)/10+"%, fat to water "+Math.round(F/W*100)/100+"."))}</p>`:""})():""}
-   ${ADJ.items.map((it,i)=>{const a=it.a;return `<div class="adja"><label class="adjon"><input type="checkbox" data-aon="${i}"${it.on?" checked":""}> <span id="adjt${i}">${esc(actText({k:a.k,ing:a.ing,to:a.to,val:it.val}))}</span></label>${a.k!=="replace"?`<div class="adjv"><input type="range" id="adjs${i}" min="${a.v[0]}" max="${a.v[2]}" step="${a.v[2]<3?0.05:0.5}" value="${it.val}" data-av="${i}" aria-label="${esc(actUnit(a))}"><input class="field" id="adjn${i}" type="number" min="${a.v[0]}" max="${a.v[2]}" step="any" value="${it.val}" data-avn="${i}"><span class="small">${esc(actUnit(a))}</span></div><div class="small adjrng">${esc(X("المدى: ","Range: "))}${a.v[0]}–${a.v[2]}${a.est?" · "+esc(X("نقطة انطلاق للتجربة","testing starting point")):""}</div>`:""}</div>`}).join("")}
+   ${ADJ.items.map((it,i)=>{const a=it.a;return `<div class="adja"><label class="adjon"><input type="checkbox" data-aon="${i}"${it.on?" checked":""}> <span id="adjt${i}">${esc(actText({k:a.k,ing:a.ing,to:a.to,lbl:a.lbl,val:it.val}))}</span></label>${a.k!=="replace"?`<div class="adjv"><input type="range" id="adjs${i}" min="${a.v[0]}" max="${a.v[2]}" step="${a.v[2]<3?0.05:0.5}" value="${it.val}" data-av="${i}" aria-label="${esc(actUnit(a))}"><input class="field" id="adjn${i}" type="number" min="${a.v[0]}" max="${a.v[2]}" step="any" value="${it.val}" data-avn="${i}"><span class="small">${esc(actUnit(a))}</span></div><div class="small adjrng">${esc(X("المدى: ","Range: "))}${a.v[0]}–${a.v[2]}${a.est?" · "+esc(X("نقطة انطلاق للتجربة","testing starting point")):""}</div>`:""}</div>`}).join("")}
    <div id="adjprev"></div></div>`}
  else body+=`<div class="adjbox"><p class="note" style="margin:0 0 10px">${esc(X("هذا الحل يعتمد على الطريقة أو الحرارة أو اختيار المكوّن، فلا يوجد تغيير رقمي آمن أطبّقه تلقائياً. سجّله كتغيير لتجربتك القادمة.","This fix depends on method, temperature or ingredient choice, so there is no safe numeric change to apply automatically. Log it as a change for your next trial."))}</p><div class="bar" style="margin:0"><button type="button" class="btn pri" data-alog="1">${esc(X("سجّله كتغيير","Log as a change"))}</button></div></div>`;
  adjShell(X("حل مشكلة أو تعديل وصفة","Solve a problem or adjust a recipe"),body);if(has)adjPreview()}
@@ -2182,7 +2226,7 @@ function adjPreview(){const p=ADJ.p,rec=ADJ.rec,box=document.getElementById("adj
    <div class="adjcomp"><div><b class="small">${esc(X("قبل","Before"))}</b>${compBar(p,rec)}</div><div><b class="small">${esc(X("بعد","After"))}</b>${compBar(p,{rows:plan.rows})}</div></div>
    <div class="bar"><button type="button" class="btn pri" data-aapply="1"${plan.log.some(x=>x.ok)?"":" disabled"}>${esc(X("طبّق التعديل","Apply the change"))}</button></div>
    <p class="note" style="margin:6px 0 0">${esc(X("يُحفظ نسخة من الوصفة قبل التعديل ويمكنك التراجع، ويُسجَّل التغيير في سجل التجارب.","A copy of the recipe is saved before the change so you can undo it, and the change is logged in the trial log."))}</p>`;
- ADJ.items.forEach((it,i)=>{const t=document.getElementById("adjt"+i);if(t)t.textContent=actText({k:it.a.k,ing:it.a.ing,to:it.a.to,val:it.val})})}
+ ADJ.items.forEach((it,i)=>{const t=document.getElementById("adjt"+i);if(t)t.textContent=actText({k:it.a.k,ing:it.a.ing,to:it.a.to,lbl:it.a.lbl,val:it.val})})}
 function adjLog(p,title,sum,res){p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:title+(sum?" — "+sum:""),res:res||"—"});
  const line=title+": "+(sum||"—");if(!String(p.changes||"").includes(line))p.changes=(p.changes?p.changes+"\n":"")+line}
 function adjApply(){const p=ADJ.p,rec=ADJ.rec,pr=DATA.PROBLEMS.find(z=>z.id===ADJ.prob);if(!p||!rec||!pr)return;
@@ -2207,16 +2251,17 @@ const _TB=[[/ملح|salt/i,18],[/سكر|sugar/i,12.5],[/دقيق|طحين|flour|
 const _dens=n=>/عسل|honey/i.test(n)?1.4:/جلوكوز|glucose|sorbitol|سوربيتول|سيروب|syrup|انفرت|إنفرت|invert/i.test(n)?1.3:/زيت|oil/i.test(n)?.92:/حليب|milk/i.test(n)?1.03:1;
 const _pick=(T,n)=>{for(const r of T)if(r[0].test(n))return r[1];return 0};
 function _numVal(t){let m;if((m=/^(\d+)\s+(\d+)\/(\d+)$/.exec(t)))return +m[1]+(+m[2])/(+m[3]);if((m=/^(\d+)\/(\d+)$/.exec(t)))return(+m[1])/(+m[2]);if(/^\d{1,3},\d{3}$/.test(t))return parseFloat(t.replace(",",""));return parseFloat(t.replace(",","."))}
-function parseRecipe(text){const rows=[],notes=[],skipped=[],seen={};
+function parseRecipe(text){const rows=[],notes=[],skipped=[],seen={},pct=[];
  _ad(text).split(/\n+/).forEach(raw=>{let line=raw.trim();if(!line)return;
-  let s=line.replace(/(\d)?\s*([½¼¾⅓⅔])/g,(m,d,f)=>(d?d+" ":"")+{"½":"1/2","¼":"1/4","¾":"3/4","⅓":"1/3","⅔":"2/3"}[f]).replace(/(^|\s)نصف(?=\s)/g,"$11/2").replace(/(^|\s)ربع(?=\s)/g,"$11/4").replace(/^\s*(?:[-–—•*●▪·]+|\d+\s*[.)](?=\s))\s*/,"").replace(/٪/g,"%");
+  let s=line.replace(/(\d)?\s*([½¼¾⅓⅔])/g,(m,d,f)=>(d?d+" ":"")+{"½":"1/2","¼":"1/4","¾":"3/4","⅓":"1/3","⅔":"2/3"}[f]).replace(/(^|\s)(?:نصف|نص)(?=\s)/g,"$11/2").replace(/(^|\s)ربع(?=\s)/g,"$11/4").replace(/(^|\s)ثلث(?=\s)/g,"$11/3").replace(/^\s*(?:[-–—•*●▪·]+|\d+\s*[.)](?=\s))\s*/,"").replace(/٪/g,"%");
   const NR=/(\d+\s+\d+\/\d+|\d+\/\d+|\d+(?:[.,]\d+)?)/g,C=[];let m;
   while((m=NR.exec(s))){const end=m.index+m[0].length,after=s.slice(end);if(/^\s*%/.test(after))continue;if(m.index>0&&/\d/.test(s[m.index-1]))continue;
    const t=after.replace(/^\s*/,"");let u=null,ul=0;for(const [re,k] of _UN){const q=re.exec(t);if(q){u=k;ul=(after.length-t.length)+q[0].length;break}}
    C.push({i:m.index,end,u,ul,tok:m[0],v:_numVal(m[0])})}
-  if(!C.length){if(/(رشة|رشه|pinch)/i.test(s)){const n0=s.replace(/(رشة|رشه|pinches|pinch)(\s+of)?/ig," ").replace(/[:\-–—•*|\t=()\[\]]+/g," ").replace(/\s+/g," ").trim();if(n0){rows.push({n:n0,g:.5});notes.push(n0+": "+X("رشة ← 0.5 غ (تقدير)","a pinch ← 0.5 g (estimate)"));return}}skipped.push({l:line,w:/%/.test(line)?X("نسبة وليست وزناً","a percentage, not a weight"):X("لا توجد كمية","no quantity")});return}
+  if(!C.length){if(/(رشة|رشه|pinch)/i.test(s)){const n0=s.replace(/(رشة|رشه|pinches|pinch)(\s+of)?/ig," ").replace(/[:\-–—•*|\t=()\[\]]+/g," ").replace(/\s+/g," ").trim();if(n0){rows.push({n:n0,g:.5});notes.push(n0+": "+X("رشة ← 0.5 غ (تقدير)","a pinch ← 0.5 g (estimate)"));return}}{const pm=/^(.*?)(\d+(?:[.,]\d+)?)\s*%\s*(.*)$/.exec(s.replace(/[:\-–—•*|\t=]+/g," "));if(pm){const pn=(pm[1]+" "+pm[3]).replace(/\s+/g," ").trim().replace(/[,،;.]+$/,"").trim(),pv=parseFloat(pm[2].replace(",","."));if(pn&&pv>0)pct.push({n:pn,g:pv,l:line})}}skipped.push({l:line,w:/%/.test(line)?X("نسبة وليست وزناً","a percentage, not a weight"):X("لا توجد كمية","no quantity")});return}
   const c=C.find(z=>z.u)||(C[0].i===0?C[0]:C[C.length-1]);
-  let name=(s.slice(0,c.i)+" "+s.slice(c.end+c.ul)).replace(/[:\-–—•*|\t=()\[\]]+/g," ").replace(/\s+/g," ").trim().replace(/^(?:من|of)\s+/i,"").trim();
+  let name=(s.slice(0,c.i)+" "+s.slice(c.end+c.ul)).replace(/[:\-–—•*|\t=()\[\]]+/g," ").replace(/\s+/g," ").trim().replace(/^(?:من|of)\s+/i,"").trim().replace(/^[,،;.]+|[,،;.]+$/g,"").trim();
+  if(!name&&c.u==="pc"&&/بيض/.test(s.slice(c.end,c.end+c.ul)))name="بيض";
   if(!name||!(c.v>0)){skipped.push({l:line,w:X("لا يوجد اسم أو الكمية صفر","no name, or zero quantity")});return}
   let g=c.v,u=c.u,approx=false;
   const egg=_pick(_EGG,name);
@@ -2236,6 +2281,7 @@ function parseRecipe(text){const rows=[],notes=[],skipped=[],seen={};
   const key=name.toLowerCase().replace(/\s+/g," ");
   if(seen[key]!=null){const r=rows[seen[key]];r.g=Math.round((r.g+g)*10)/10;notes.push(name+": "+X("سطران مكرران دُمجا","duplicate lines merged"));return}
   seen[key]=rows.length;rows.push({n:name,g})});
+ if(!rows.length&&pct.length>=2&&pct.length>=skipped.length-1){pct.forEach(z=>{rows.push({n:z.n,g:z.g})});skipped.length=0;notes.push(X("نسب خباز: أُدخلت كل نسبة كجرام لكل 100 غ دقيق (100% = 100 غ). غيّر حجم الدفعة لتكبيرها.","Baker’s percentages: each percentage was entered as grams per 100 g flour (100% = 100 g). Change the batch size to scale it."))}
  return{rows,notes,skipped}}
 function openImport(mode){ADJ.imp={mode};
  adjShell(X("استيراد وصفتك","Import your recipe"),`<p class="small" style="margin:0 0 8px">${esc(X("الصق وصفتك، مكوّن في كل سطر مع الكمية. مثال:","Paste your recipe, one ingredient per line with the quantity. Example:"))}</p><pre class="adjpre">${esc(X("شوكولاتة حليب 500\nكريمة 35% 300 غ\nقشطة 0.2 كغ","milk chocolate 500\ncream 35% 300 g\nsugar 0.2 kg"))}</pre><textarea class="field" id="impta" rows="9" placeholder="${esc(X("الصق هنا…","Paste here…"))}"></textarea><p class="note" id="impmsg" role="status"></p><div class="bar"><button type="button" class="btn pri" data-impgo="1">${esc(X("استورد","Import"))}</button><button type="button" class="btn ghost" data-adjx="1">${esc(X("إلغاء","Cancel"))}</button></div>`);
@@ -2245,11 +2291,11 @@ function impGo(){const ta=document.getElementById("impta"),msg=document.getEleme
  if((PR.notes.length||PR.skipped.length)&&!(ADJ.imp&&ADJ.imp.ok===ta.value)){ADJ.imp=ADJ.imp||{};ADJ.imp.ok=ta.value;
   msg.innerHTML=`<b>${esc(X("راجع قبل الاستيراد:","Review before importing:"))}</b>`+(PR.notes.length?`<br>${esc(X("حوّلت هذه الوحدات إلى غرامات تقريبية، عدّلها لو لزم:","Converted to approximate grams, adjust if needed:"))}<br>`+PR.notes.map(z=>"• "+esc(z)).join("<br>"):"")+(PR.skipped.length?`<br><b style="color:var(--bad,#b33)">${esc(X("لم أفهم هذه الأسطر ولن تُستورد:","Not understood and will NOT be imported:"))}</b><br>`+PR.skipped.map(z=>"• "+esc(z.l)+" — "+esc(z.w)).join("<br>"):"")+`<br>${esc(X("اضغط «تأكيد» للمتابعة، أو عدّل النص ثم أعد المحاولة.","Press Confirm to continue, or edit the text and try again."))}`;
   const gb=document.querySelector("[data-impgo]");if(gb)gb.textContent=X("تأكيد واستيراد","Confirm and import");return}
- const tot=rows.reduce((s,r)=>s+r.g,0),kg=Math.max(.001,Math.round(tot/10)/100),mode=ADJ.imp&&ADJ.imp.mode;
+ const tot=rows.reduce((s,r)=>s+r.g,0),kg=Math.max(.001,Math.round(tot)/1000),mode=ADJ.imp&&ADJ.imp.mode;
  if(mode==="new"){const n=($("#pjn")||{}).value&&$("#pjn").value.trim()||X("وصفتي","My recipe");const cid="cust:"+Date.now();
   const p={id:"p"+Date.now(),name:n,goal:(($("#pjg")||{}).value||"").trim(),tpl:cid,batch:kg,trials:[],cust:{[cid]:{name:n,rows:rows.map(r=>[r.n,r.g])}}};PJ.unshift(p);PJSEL=p.id}
  else{const p=PJ.find(z=>z.id===PJSEL);if(!p)return;recsOf(p).push({id:"r"+Date.now(),tpl:"cust",name:X("وصفة مستوردة","Imported recipe"),batch:kg,rows:rows.map(r=>({n:r.n,ne:r.n,o:r.g,m:r.g})),meth:{ar:[],en:[]}})}
- saveAll();adjClose();renderDev();setTimeout(()=>{const v=$("#pj-recs");if(v)v.scrollIntoView({behavior:"smooth",block:"start"})},150);toast(rows.length+X(" مكوّن تم استيراده"," ingredients imported"))}
+ saveAll();adjClose();renderDev();setTimeout(()=>{const v=$("#pj-recs");if(v)v.scrollIntoView({behavior:"smooth",block:"start"})},150);toast(L==="ar"?(rows.length===1?"تم استيراد مكوّن واحد":rows.length===2?"تم استيراد مكوّنين":"تم استيراد "+rows.length+(rows.length<=10?" مكوّنات":" مكوّناً")):rows.length+(rows.length===1?" ingredient imported":" ingredients imported"))}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("button,a");if(!b&&!(e.target.classList&&e.target.classList.contains("adj")))return;
  if(e.target.classList&&e.target.classList.contains("adj")){adjClose();return}
  const d=b.dataset;
@@ -2432,7 +2478,7 @@ window.histHtml=histHtml;window.openAdjust=openAdjust;
  const ar=()=>L==="ar";
  const IC={home:'<path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',dev:'<path d="M4 4h16v16H4zM4 9h16M9 9v11"/>',lib:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 1 2-2h13"/>',plus:'<path d="M12 5v14M5 12h14"/>',fix:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>'};
  function tabs(){let e=document.getElementById("tabbar");if(!e){e=document.createElement("nav");e.id="tabbar";e.className="tabbar noprint";e.setAttribute("aria-label","Main");document.body.appendChild(e)}
-  const pg=(location.hash||"#home").slice(1).split("/")[0],cur={rules:"library",suppliers:"library",materials:"library",solve:"dev",calc:"dev"}[pg]||pg;
+  const pg=(location.hash||"#home").slice(1).split("/")[0],cur={rules:"library",suppliers:"library",materials:"library",calc:"dev"}[pg]||pg;
   const a=(k,ic,lb)=>`<a href="#${k}"${cur===k?' aria-current="page"':""}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[ic]}</svg>${lb}</a>`;
   e.innerHTML=a("home","home",ar()?"ابدأ":"Start")+a("dev","dev",ar()?"مشاريعي":"Projects")+`<button type="button" class="plus" data-newpj="1" aria-label="${ar()?"مشروع جديد":"New project"}"><svg viewBox="0 0 24 24" aria-hidden="true">${IC.plus}</svg></button>`+a("library","lib",ar()?"المكتبة":"Library")+a("solve","fix",ar()?"حل مشكلة":"Fix")}
  tabs();addEventListener("hashchange",tabs);new MutationObserver(tabs).observe(document.documentElement,{attributes:true,attributeFilter:["lang","dir"]});document.addEventListener("click",e=>{if(e.target.closest&&e.target.closest("#bLang"))setTimeout(tabs,60)});
