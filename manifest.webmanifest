@@ -1,0 +1,25 @@
+{
+  "name": "CREATION LAB by ZAHAR ANASS",
+  "short_name": "CREATION LAB",
+  "description": "Pastry product development: solve recipe problems, build formulas, log trials. منصة تطوير منتجات الحلويات.",
+  "lang": "ar",
+  "dir": "rtl",
+  "id": "./",
+  "start_url": "./#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#1B0B0C",
+  "theme_color": "#1B0B0C",
+  "categories": ["food", "productivity", "business"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "مشاريعي / Projects", "url": "./#dev" },
+    { "name": "حل مشكلة / Fix a problem", "url": "./#solve" },
+    { "name": "المكتبة / Library", "url": "./#library" }
+  ]
+}

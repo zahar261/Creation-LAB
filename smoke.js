@@ -129,4 +129,52 @@ console.log('10) security: poisoned backup / share link must not run code');
  ok(await p.evaluate(()=>/Baker|الخباز|flour|دقيق/i.test(document.querySelector('.recb .dtab tr').innerText)),"baker's % can be switched on");
  ok(p.errs.length===0,'no JS errors')}
 
+console.log('11) formula science: water activity, POD, PAC');
+{const p=await mk();
+ const sci=async t=>{await newProj(p,t);return p.evaluate(()=>{const d=document.querySelector('.sci');if(!d)return null;const n=d.querySelector('[data-aw]');return{aw:+n.dataset.aw,pod:+d.dataset.pod,pac:+d.dataset.pac}})};
+ let r=await sci('cream 35% 200\ndark chocolate 60% 300');ok(r&&r.aw>0.85&&r.aw<0.92,'ganache 1:1.5 aw in the real range ('+(r&&r.aw)+')');
+ r=await sci('sugar 500\nwater 500');ok(r&&r.aw>0.91&&r.aw<0.95,'50% sugar syrup aw about 0.93 ('+(r&&r.aw)+')');
+ r=await sci('honey 1000');ok(r&&r.aw<0.7,'honey is shelf stable ('+(r&&r.aw)+')');
+ r=await sci('whole milk 640\ncream 35% 140\nsugar 140\ndextrose 40\nskim milk powder 35');
+ const pac=r.pac,pod=r.pod;
+ ok(r.aw>0.95&&pac>22&&pac<32,'ice cream base: aw high, PAC in the gelato range ('+r.aw+', PAC '+pac+')');
+ ok(pod>14&&pod<22,'ice cream base POD ('+pod+')');
+ {const m=await mk(390);await newProj(m,'cream 35% 200\ndark chocolate 60% 300');ok(await m.evaluate(()=>[...document.querySelectorAll('.nutr')].every(d=>{d.open=true;const w=d.querySelector('table').parentElement;return w.scrollWidth<=w.clientWidth+1})),'nutrition + science tables fit a phone screen (values not hidden off-screen)')}
+ ok(p.errs.length===0,'no JS errors')}
+
+console.log('12) PWA files + pinned PDF libraries');
+{const fs=require('fs'),crypto=require('crypto'),html=fs.readFileSync(path.resolve(process.argv[2]||'index.html'),'utf8'),dir=path.dirname(path.resolve(process.argv[2]||'index.html'));
+ const mf=JSON.parse(fs.readFileSync(path.join(dir,'manifest.webmanifest'),'utf8'));
+ ok(/<link rel="manifest" href="manifest.webmanifest">/.test(html)&&!/application\/manifest\+json/.test(html),'real manifest file, no blob: manifest (blocked by CSP)');
+ ok(mf.icons.every(i=>fs.existsSync(path.join(dir,i.src)))&&mf.icons.some(i=>i.sizes==='512x512'),'manifest icons exist (incl. 512px)');
+ ok(fs.existsSync(path.join(dir,'sw.js'))&&/serviceWorker\.register\("sw\.js"\)/.test(html),'service worker for offline use');
+ for(const [file,key] of [['vendor/html2canvas-1.4.1.min.js','SRI_H2C'],['vendor/jspdf-2.5.1.umd.min.js','SRI_JSPDF']]){
+  const want=(html.match(new RegExp(key+'="(sha384-[^"]+)"'))||[])[1],got='sha384-'+crypto.createHash('sha384').update(fs.readFileSync(path.join(dir,file))).digest('base64');
+  ok(want&&want===got,file+' matches its integrity hash')}
+ ok(!/["']https:\/\/[^"']+\.js["'](?![^\]]*?,i:)/.test(html.slice(html.indexOf('const PDFLIB'),html.indexOf('const loadJs'))),'every CDN script carries an integrity hash');
+ const p=await mk();await newProj(p,'milk 650\nsugar 135');await p.evaluate(()=>document.querySelector('[data-pdf]').click());await p.waitForTimeout(800);
+ await p.evaluate(()=>{const b=document.querySelector('[data-pdfact=save],[data-pdfact=dl],[data-pdfact=pdf]');b&&b.click()});await p.waitForTimeout(2500);
+ ok(await p.evaluate(()=>!!(window.jspdf&&window.html2canvas)),'PDF libraries load from the local vendor copy');
+ ok(p.errs.length===0,'no JS errors')}
+
+console.log('13) backup restore keeps custom materials and aliases');
+{const fs=require('fs'),os=require('os');const bk=os.tmpdir()+'/zm-cm-backup.json';
+ fs.writeFileSync(bk,JSON.stringify({app:'creation-lab',v:1,data:{'zm-projects':[],'zm-custmat':[{id:'cm_t1',name:'مادة اختبار',en:'Test stuff',cat:'add',src:'user',water:50,fat:0,protein:0,sugar:50,allergens:[]}],'zm-alias':{'شي غريب':'cm_t1'}}}));
+ const p=await mk();await p.goto(FILE+'#dev');await p.waitForTimeout(700);await p.setInputFiles('#bkFile',bk);await p.waitForTimeout(400);
+ await p.evaluate(()=>document.querySelector('[data-bk=go]').click());await p.waitForTimeout(400);
+ const st=await p.evaluate(()=>({cm:JSON.parse(localStorage.getItem('zm-custmat')||'[]').map(x=>x.id),al:JSON.parse(localStorage.getItem('zm-alias')||'{}')}));
+ ok(st.cm.includes('cm_t1'),'custom material restored');ok(st.al['شي غريب']==='cm_t1','ingredient alias restored');
+ ok(p.errs.length===0,'no JS errors')}
+
+console.log('14) cloud sync never overwrites newer data from another device');
+{const seed=await mk();await newProj(seed,'حليب 100');const PJS=await seed.evaluate(()=>localStorage.getItem('zm-projects'));
+ const run=async remoteTs=>{const c=await b.newContext({viewport:{width:1000,height:900}});const p=await c.newPage();p.errs=[];p.on('pageerror',e=>p.errs.push(e.message));
+  await p.addInitScript(([ts,pjs])=>{try{if(!sessionStorage.getItem('seeded')){sessionStorage.setItem('seeded','1');localStorage.setItem('zm-welcome','1');localStorage.setItem('zm-projects',pjs);
+    localStorage.setItem('zm-cloud',JSON.stringify({access:'a',refresh:'r',email:'t@t.t',uid:'u1'}));localStorage.setItem('zm-cloud-ts',JSON.stringify('2026-10-27T10:00:00.000Z'));localStorage.setItem('zm-cloud-dirty','1')}}catch(e){}
+   window.__posts=0;const F=window.fetch;window.fetch=async(u,o)=>{u=String(u);if(/supabase\.co\/rest\/v1\/user_data/.test(u)){if(o&&o.method==='POST'){window.__posts++;return new Response('[{"updated_at":"2026-10-27T12:00:00.000+00:00"}]',{status:201})}return new Response(JSON.stringify([{data:{'zm-projects':[{id:'premote',name:'remote',recs:[]}]},updated_at:ts}]),{status:200})}return F(u,o)}},[remoteTs,PJS]);
+  await p.goto(FILE+'#dev');await p.waitForFunction(()=>window.__posts>0||document.getElementById('adj'),null,{timeout:8000}).catch(()=>{});await p.waitForTimeout(600);
+  const r=await p.evaluate(()=>({posts:window.__posts,dialog:!!document.getElementById('adj')}));if(p.errs.length)r.errs=p.errs;await c.close();return r};
+ let r=await run('2026-10-27T10:00:00+00:00');ok(r.posts===1&&!r.dialog,'same instant in Supabase format → upload, no false conflict ('+JSON.stringify(r)+')');
+ r=await run('2026-10-27T11:00:00.123456+00:00');ok(r.posts===0&&r.dialog,'cloud copy is newer → ask the user, upload nothing ('+JSON.stringify(r)+')')}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()

@@ -5,12 +5,13 @@
 (function(){try{var h=location.hostname;if(!/(^|\.)(zaharcreationlab\.com|github\.io)$/.test(h))return;
 if(top!==self){try{top.location=self.location}catch(e){document.documentElement.innerHTML=""}return}
 var m=document.createElement("meta");m.httpEquiv="Content-Security-Policy";
-m.content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'";
+m.content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://*.supabase.co; object-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests";
 document.head.appendChild(m)}catch(e){}})();</script>
 
 <meta charset="utf-8"><meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0A0A0A">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>CREATION LAB by ZAHAR ANASS | Product Development</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230A0A0A'/%3E%3Cg transform='translate(6 5) scale(.75)' fill='none' stroke='%23D9A441' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5'/%3E%3Ccircle cx='24' cy='35' r='3' fill='%23D9A441'/%3E%3C/g%3E%3C/svg%3E">
 <meta name="description" content="Pastry product development platform: solve recipe problems, generate recipes, and log trials. منصة تطوير منتجات الحلويات.">
 <style>:root{color-scheme:dark;--hot:#8E1A33;--hot-ink:#fff;--bg:#1B0B0C;--s1:#2A1112;--s2:#341515;--line:#553633;--ink:#F0E9DD;--muted:#B5AB9B;--acc:#CDA98F;--acc-ink:#2A1112;--acc2:#ACA494;--coffee:#795D4C;--flint:#6F6A61;--cab:#4D0A18;--tam:#341515;--napa:#ACA494;--ok:#7FB069;--glow:rgba(205,169,143,.14);--r:14px}
@@ -530,6 +531,7 @@ html{overflow-x:clip}
 .nov{margin-top:10px}.nov>summary{cursor:pointer;font-weight:700;color:var(--acc)}
 .pd-nb{margin:0 0 2mm;padding:2mm 3mm;border-radius:1.5mm;font-size:11px;border:.3mm solid #4D0A18;background:#F6EAEC;color:#341515}.pd-nb.off{border-color:#2e9b63;background:#e5f6ec;color:#12452a}.pd-nb.ov{border-color:#3a7bc0;background:#e6f0fb;color:#14375a}
 #pj-docs>summary{cursor:pointer;font-weight:800;font-size:1.05rem;list-style:none;padding:2px 0}#pj-docs>summary::-webkit-details-marker{display:none}#pj-docs>summary:after{content:"＋";float:inline-end;opacity:.6}#pj-docs[open]>summary:after{content:"－"}#pj-docs>summary small{font-weight:500;opacity:.65;font-size:.8rem}#pj-docs[open]>summary{margin-bottom:10px}
+.nutr .nutt{width:100%;min-width:0!important}.nutr .nutt td,.nutr .nutt th{white-space:normal}.nutr .nutt td:not(:first-child),.nutr .nutt th:not(:first-child){text-align:end}.sci .nutt{table-layout:fixed}.sci .nutt td{white-space:normal}.sci .nutt td:last-child{width:32%;text-align:end}.sci-bad{border-inline-start:4px solid #C0392B}.sci-mid{border-inline-start:4px solid #D9A441}.sci-ok{border-inline-start:4px solid var(--ok)}
 </style>
 </head>
 <body>
@@ -727,7 +729,7 @@ function cleanData(v,d){d=d||0;if(d>12||v==null||typeof v!=="object")return v;
  return v}
 window.cleanData=cleanData;window.JP=JP;
 const LS=(k,d)=>{try{const v=cleanData(JP(localStorage.getItem(k)));return v==null?d:v}catch(e){try{if(k==="zm-projects"){const raw=localStorage.getItem(k);if(raw){localStorage.setItem("zm-corrupt",raw);window.__corrupt=1}}}catch(_){}return d}};
-let _sfT=0,_sfK="";const LSS=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));if(k==="zm-projects"&&window.__cloudDirty)window.__cloudDirty();if(k===_sfK){_sfK="";const w=document.getElementById("svwarn");if(w&&w.dataset.k==="fail")w.remove()}return true}catch(e){_sfK=k;const n=Date.now();if(n-_sfT>6000){_sfT=n;try{svBanner("fail")}catch(_){}}return false}};
+let _sfT=0,_sfK="";const LSS=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));if(window.__cloudDirty&&/^zm-(projects|recipes|comps|matsup|alias|custmat)$/.test(k))window.__cloudDirty();if(k===_sfK){_sfK="";const w=document.getElementById("svwarn");if(w&&w.dataset.k==="fail")w.remove()}return true}catch(e){_sfK=k;const n=Date.now();if(n-_sfT>6000){_sfT=n;try{svBanner("fail")}catch(_){}}return false}};
 function svBanner(kind){let e=document.getElementById("svwarn");if(!e){e=document.createElement("div");e.id="svwarn";e.className="svwarn noprint";e.setAttribute("role","alert");document.body.appendChild(e)}e.dataset.k=kind;
  const T={fail:[X("⚠ لم يُحفظ آخر تغيير: مساحة التخزين في المتصفح ممتلئة. نزّل نسخة احتياطية الآن، ثم احذف صوراً أو مشاريع قديمة.","⚠ Your last change was not saved: browser storage is full. Download a backup now, then remove old images or projects."),X("نزّل نسخة","Download backup"),"bk"],
   corrupt:[X("⚠ تعذّرت قراءة بياناتك المحفوظة. حفظنا نسخة من الملف التالف، ويمكنك تنزيلها لاسترجاع ما أمكن.","⚠ Your saved data could not be read. A copy of the damaged file was kept; download it to recover what you can."),X("نزّل الملف التالف","Download damaged file"),"raw"],
@@ -1093,7 +1095,7 @@ function recBlock(p,r,i,n){const T=recTotals(r),ri=refIdx(r),rf=r.rows[ri]||{o:0
   ${r.rows.every(z=>!String(z.n||"").trim()&&!(+z.m))?`<p class="note">${esc(X("اكتب اسم المكوّن وكميته بالغرام في الصف الفارغ، أو اضغط «استيراد وصفتي» في أعلى الصفحة والصق وصفتك كاملة وسأقرأها لك.","Type the ingredient and its grams in the empty row, or press “Import my recipe” at the top and paste the whole recipe."))}</p>`:""}<div style="overflow-x:auto"><table class="dtab" style="margin-top:12px;min-width:520px"><tr><th>${esc(U("ing"))}</th><th>${esc(U("o"))}</th><th>${esc(U("m"))}</th>${r.bk?`<th>${esc(bpLab(r))}</th>`:""}<th>${esc(U("pb"))}</th><th></th></tr>
   ${r.rows.map((z,k)=>`<tr><td class="c-n"><input class="field" autocomplete="off" value="${esc(rin(z))}" aria-label="${esc(U("ing"))}" data-rr="${r.id}#${k}#n"></td><td data-l="${esc(U("o"))}"><input class="field" type="number" min="0" step="any" value="${esc(z.o)}" aria-label="${esc(U("o"))}" data-rr="${r.id}#${k}#o" style="max-width:96px"></td><td data-l="${esc(U("m"))}"><input class="field" type="number" min="0" step="any" value="${esc(z.m)}" aria-label="${esc(U("m"))}" data-rr="${r.id}#${k}#m" style="max-width:96px"></td>${r.bk?`<td class="c-s" data-l="${esc(U("bp"))}">${rf.m>0&&z.m>0?(z.m/rf.m*100).toFixed(1)+"%":"—"}</td>`:""}<td class="c-s" data-l="${esc(U("pb"))}">${T.m>0?(z.m/T.m*100).toFixed(1)+"%":"—"}</td><td class="c-x"><button class="btn sm ghost" data-rdel="${r.id}#${k}" aria-label="x">×</button></td></tr>`).join("")}
   <tr><td><b>${esc(U("tot"))}</b></td><td><b>${T.o}</b></td><td><b>${T.m}</b></td>${r.bk?"<td></td>":""}<td></td><td></td></tr></table></div>
-  ${compBar(p,r)}${window.nutriHtml?window.nutriHtml(p,r):""}<div class="bar noprint"><button class="btn sm" data-radd="${esc(r.id)}">${esc(U("addrow"))}</button><button class="btn sm" data-rcalc="${esc(r.id)}">${esc(B("toCalc"))}</button><button class="btn sm pri" data-adjrec="${esc(r.id)}">${esc(X("حل مشكلة / تعديل","Fix / adjust"))}</button><span style="flex:1"></span><label style="margin:0;display:flex;align-items:center;gap:6px"><input type="checkbox" data-rbk="${esc(r.id)}"${r.bk?" checked":""}> ${esc(X("إظهار نسبة الخباز (للعجائن)","Show baker's % (for doughs)"))}</label>${r.bk?`<label style="margin:0">${esc(U("ref"))}</label><select class="field" data-rref="${esc(r.id)}" style="max-width:220px">${r.rows.map((z,k)=>`<option value="${k}"${k===ri?" selected":""}>${esc(rin(z)||"—")}</option>`).join("")}</select>`:""}</div>
+  ${compBar(p,r)}${window.nutriHtml?window.nutriHtml(p,r):""}${window.sciHtml?window.sciHtml(p,r):""}<div class="bar noprint"><button class="btn sm" data-radd="${esc(r.id)}">${esc(U("addrow"))}</button><button class="btn sm" data-rcalc="${esc(r.id)}">${esc(B("toCalc"))}</button><button class="btn sm pri" data-adjrec="${esc(r.id)}">${esc(X("حل مشكلة / تعديل","Fix / adjust"))}</button><span style="flex:1"></span><label style="margin:0;display:flex;align-items:center;gap:6px"><input type="checkbox" data-rbk="${esc(r.id)}"${r.bk?" checked":""}> ${esc(X("إظهار نسبة الخباز (للعجائن)","Show baker's % (for doughs)"))}</label>${r.bk?`<label style="margin:0">${esc(U("ref"))}</label><select class="field" data-rref="${esc(r.id)}" style="max-width:220px">${r.rows.map((z,k)=>`<option value="${k}"${k===ri?" selected":""}>${esc(rin(z)||"—")}</option>`).join("")}</select>`:""}</div>
   <label>${esc(U("meth"))}</label><textarea class="field" rows="5" data-rmeth="${esc(r.id)}">${esc(methOf(r,L).join("\n"))}</textarea><p class="small note noprint" style="margin:4px 0 0">${esc(X("الأعداد والأوزان المكتوبة داخل الخطوات (مثل «اقطع 11 قرصاً») ثابتة ولا تتغير مع حجم الدفعة، فراجعها بعد تغيير الكمية.","Counts and weights written inside the steps (e.g. “cut 11 discs”) do not change with the batch size, so review them after changing the quantity."))}</p>
   ${window.histHtml?window.histHtml(r):""}
   ${n>1?`<div class="bar noprint"><button class="btn sm ghost" data-recdel="${esc(r.id)}">${esc(U("rm"))}</button></div>`:""}</div>`}
@@ -1220,8 +1222,10 @@ async function saveBlob(blob,name){try{if(window.claude&&claude.use){const d=awa
 window.saveBlob=saveBlob;
 function exportPdf(){openPdfView()}
 const clearSheet=()=>{const e=document.getElementById("pdfSheet");if(e)e.innerHTML=""};
-const PDFLIB=[["https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js","https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"],["https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js","https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"]];
-const loadJs=u=>new Promise((ok,no)=>{const s=document.createElement("script");s.src=u;s.onload=ok;s.onerror=()=>no(new Error(u));document.head.appendChild(s)});
+/* own copy first (works offline, no third party); CDN copies only as fallback and pinned with Subresource Integrity */
+const SRI_H2C="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H",SRI_JSPDF="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk";
+const PDFLIB=[["vendor/html2canvas-1.4.1.min.js",{u:"https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",i:SRI_H2C},{u:"https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js",i:SRI_H2C}],["vendor/jspdf-2.5.1.umd.min.js",{u:"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",i:SRI_JSPDF},{u:"https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js",i:SRI_JSPDF}]];
+const loadJs=x=>new Promise((ok,no)=>{const s=document.createElement("script"),u=typeof x==="string"?x:x.u;s.src=u;if(x.i){s.integrity=x.i;s.crossOrigin="anonymous";s.referrerPolicy="no-referrer"}s.onload=ok;s.onerror=()=>no(new Error(u));document.head.appendChild(s)});
 const loadAny=async l=>{for(const u of l){try{await loadJs(u);return}catch(e){}}throw new Error("lib")};
 async function pdfLibs(){await Promise.all([window.html2canvas?0:loadAny(PDFLIB[0]),window.jspdf?0:loadAny(PDFLIB[1])])}
 function pdfMsg(m){const e=document.getElementById("pdfovm");if(e)e.textContent=m||""}
@@ -2036,7 +2040,10 @@ function bkMerge(){if(!BK)return;const D=BK;
  (D["zm-projects"]||[]).forEach(q=>{if(q&&q.id&&!PJ.some(z=>z.id===q.id))PJ.push(q)});
  MS=Object.assign({},D["zm-matsup"]||{},MS);
  const mergeArr=k=>{const cur=LS(k,[]),seen=new Set(cur.map(x=>JSON.stringify(x)));(D[k]||[]).forEach(x=>{if(!seen.has(JSON.stringify(x)))cur.push(x)});LSS(k,cur)};
- mergeArr("zm-recipes");mergeArr("zm-comps");LSS("zm-matsup",MS);if(!PJSEL&&PJ.length)PJSEL=PJ[0].id;saveAll();BK=null;renderAll();bkShow(B("bkOk"))}
+ mergeArr("zm-recipes");mergeArr("zm-comps");LSS("zm-matsup",MS);
+ {const cm=LS("zm-custmat",[]);(Array.isArray(D["zm-custmat"])?D["zm-custmat"]:[]).forEach(m=>{if(m&&m.id&&typeof m.name==="string"&&!ING[m.id]&&!cm.some(x=>x.id===m.id)){cm.push(m);DATA.ING_DEFAULTS.push(m);ING[m.id]=m}});LSS("zm-custmat",cm)}
+ {const ua=D["zm-alias"];if(ua&&typeof ua==="object"&&!Array.isArray(ua)){const U=_UA();Object.keys(ua).forEach(k=>{if(U[k]==null&&typeof ua[k]==="string"&&ING[ua[k]])U[k]=ua[k]});LSS("zm-alias",U);_mm.clear()}}
+if(!PJSEL&&PJ.length)PJSEL=PJ[0].id;saveAll();BK=null;renderAll();bkShow(B("bkOk"))}
 async function shareMake(){const p=actP();if(!p)return;const c=JSON.parse(JSON.stringify(p));delete c._fresh;
  try{const k=await packObj({app:"creation-lab",v:1,p:c}),url=location.href.split("#")[0]+"#share="+k;
   try{await navigator.clipboard.writeText(url);toast(B("shrOk"))}catch(e){const ta=document.createElement("textarea");ta.value=url;ta.className="field";ta.rows=3;const host=$("#bkMsg")||document.body;host.appendChild(ta);ta.select();toast(B("shrCopy"))}}catch(e){toast(B("shrBad"))}}
@@ -2428,12 +2435,14 @@ function cRecovery(){const h=location.hash.replace(/^#/,"");if(!/type=recovery/.
    if(r.ok){msg(X("تم تغيير كلمة السر. سجّل الدخول بها الآن.","Password changed. Log in with it now."));setTimeout(()=>ov.remove(),2200)}else msg(X("انتهت صلاحية الرابط. اطلب رابطاً جديداً.","The link has expired. Request a new one."))}
   catch(e){msg(X("لا يوجد اتصال بالخدمة","Cannot reach the service"))}}}
 setTimeout(cRecovery,700);addEventListener("hashchange",()=>setTimeout(cRecovery,50));
+const tsMs=t=>{const n=Date.parse(t||"");return isFinite(n)?n:0},tsEq=(a,b)=>!!a&&!!b&&Math.abs(tsMs(a)-tsMs(b))<2,tsGt=(a,b)=>tsMs(a)-tsMs(b)>=2;
 function cData(){const d={};BKK.forEach(k=>{try{const v=localStorage.getItem(k);if(v!=null)d[k]=JSON.parse(v)}catch(e){}});return d}
 async function cPull(){const r=await cReq("/rest/v1/user_data?select=data,updated_at&user_id=eq."+encodeURIComponent(CL.s.uid));if(!r.ok)throw new Error("pull "+r.status);const a=await r.json();return a[0]||null}
 async function cPush(){if(!CL.s||!cOn())return false;clearTimeout(CL.t);const ts=new Date().toISOString();
- try{const r=await cReq("/rest/v1/user_data",{method:"POST",headers:{Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify({user_id:CL.s.uid,data:cData(),updated_at:ts})});
+ try{const rem=await cPull();if(rem&&rem.data&&(rem.data["zm-projects"]||[]).length&&!tsEq(rem.updated_at,CL.ts)){if(!document.getElementById("adj"))await cFirst();return false}
+  const r=await cReq("/rest/v1/user_data?on_conflict=user_id&select=updated_at",{method:"POST",headers:{Prefer:"resolution=merge-duplicates,return=representation"},body:JSON.stringify({user_id:CL.s.uid,data:cData(),updated_at:ts})});
   if(!r.ok){cMsg(X("تعذّرت المزامنة (","Sync failed (")+r.status+")");return false}
-  CL.ts=ts;try{localStorage.setItem("zm-cloud-ts",JSON.stringify(ts));localStorage.removeItem("zm-cloud-dirty")}catch(e){}cMsg(X("تمت المزامنة ","Synced ")+new Date().toLocaleTimeString());cRender();return true}
+  {const a=await r.json().catch(()=>null);CL.ts=(Array.isArray(a)&&a[0]&&a[0].updated_at)||ts}try{localStorage.setItem("zm-cloud-ts",JSON.stringify(CL.ts));localStorage.removeItem("zm-cloud-dirty")}catch(e){}cMsg(X("تمت المزامنة ","Synced ")+new Date().toLocaleTimeString());cRender();return true}
  catch(e){cMsg(X("لا يوجد اتصال. ستُزامَن التغييرات عند عودة الاتصال.","Offline. Changes will sync when you are back online."));return false}}
 window.__cloudDirty=()=>{try{localStorage.setItem("zm-cloud-dirty","1")}catch(e){}if(!CL.s||!cOn())return;clearTimeout(CL.t);CL.t=setTimeout(cPush,4000)};
 function cApply(d,mode){try{if(mode==="merge"){const cur=PJ.slice(),inc=(d["zm-projects"]||[]);inc.forEach(q=>{if(q&&q.id&&!cur.some(z=>z.id===q.id))cur.push(q)});d=Object.assign({},d,{"zm-projects":cur})}
@@ -2441,11 +2450,10 @@ function cApply(d,mode){try{if(mode==="merge"){const cur=PJ.slice(),inc=(d["zm-p
  location.reload();return true}
 async function cFirst(){try{const rem=await cPull(),dirty=localStorage.getItem("zm-cloud-dirty")==="1",hasLocal=PJ.length>0;
   if(!rem||!rem.data||!(rem.data["zm-projects"]||[]).length){if(hasLocal)await cPush();else cMsg(X("لا توجد بيانات سحابية بعد.","No cloud data yet."));return}
-  CL.ts=rem.updated_at;
-  if(!hasLocal){cApply(rem.data,"replace");return}
-  if(!dirty&&rem.updated_at===LS("zm-cloud-ts","")){cMsg(X("بياناتك محدّثة.","Up to date."));return}
-  if(!dirty&&LS("zm-cloud-ts","")&&rem.updated_at>LS("zm-cloud-ts","")){cApply(rem.data,"replace");return}
-  if(dirty&&rem.updated_at===LS("zm-cloud-ts","")){await cPush();return}
+  if(!hasLocal){CL.ts=rem.updated_at;cApply(rem.data,"replace");return}
+  if(!dirty&&tsEq(rem.updated_at,LS("zm-cloud-ts",""))){CL.ts=rem.updated_at;cMsg(X("بياناتك محدّثة.","Up to date."));return}
+  if(!dirty&&LS("zm-cloud-ts","")&&tsGt(rem.updated_at,LS("zm-cloud-ts",""))){CL.ts=rem.updated_at;cApply(rem.data,"replace");return}
+  if(dirty&&tsEq(rem.updated_at,LS("zm-cloud-ts",""))){CL.ts=rem.updated_at;await cPush();return}
   adjShell(X("بيانات في الجهاز وفي السحابة","Data on this device and in the cloud"),`<p class="small">${esc(X("وُجدت مشاريع في هذا الجهاز وأخرى في حسابك السحابي. اختر ما تفعله (لن يُحذف شيء قبل اختيارك):","Projects exist both on this device and in your account. Choose what to do (nothing is deleted before you choose):"))}</p>
    <div class="bar" style="flex-wrap:wrap"><button type="button" class="btn pri" data-clc="merge">${esc(X("دمج الاثنين (موصى به)","Merge both (recommended)"))}</button><button type="button" class="btn" data-clc="remote">${esc(X("استبدال ما في الجهاز بالسحابة","Replace this device with the cloud"))}</button><button type="button" class="btn" data-clc="local">${esc(X("استبدال السحابة بما في الجهاز","Replace the cloud with this device"))}</button></div>`);
   window.__clRem=rem}
@@ -2509,7 +2517,43 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
  else if(k==="raw"){try{const raw=localStorage.getItem("zm-corrupt")||"",bl=new Blob([raw],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(bl);a.download="creation-lab-damaged-data.json";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}catch(_){}}
  else if(w)w.remove()});
 setTimeout(()=>{if(window.__corrupt){svBanner("corrupt");return}if(!PJ.length)return;const lb=LS("zm-lastbk",0);if(!lb){LSS("zm-lastbk",Date.now());return}if(Date.now()-lb>14*864e5)svBanner("remind")},1800);
-window.nutriHtml=nutriHtml;window.nutriPdf=nutriPdf;
+
+/* ================= FORMULA SCIENCE: water activity, shelf life, sweetness (POD), anti-freezing power (PAC) ================= */
+/* per gram of each sugar type: [POD sweetness (sucrose=100), PAC anti-freezing (sucrose=100), Grover aw coefficient] */
+const SUGT={suc:[100,100,1],glu:[70,190,1.3],inv:[130,190,1.3],lac:[16,100,1],gs:[45,80,.8],tre:[45,100,1],sor:[60,190,2],ery:[70,280,2],iso:[50,100,1],oli:[35,100,.8]};
+const SUGM={dextrose:{glu:1},invert:{inv:1},honey:{inv:1},datesyrup:{inv:1},glucose:{gs:1},trehalose:{tre:1},sorbitol:{sor:1},erythritol:{ery:1},isomalt:{iso:1},oligof:{oli:1},molasses:{suc:.5,inv:.5},neutralglaze:{suc:.6,gs:.4},condensedmilk:{suc:.8,lac:.2},dulce:{suc:.8,lac:.2},milkchoc:{suc:.85,lac:.15},whitechoc:{suc:.8,lac:.2},sa_calw2:{suc:.8,lac:.2},sa_cal823:{suc:.85,lac:.15},ruby:{suc:.85,lac:.15},compound:{suc:.85,lac:.15},gianduja:{suc:.9,lac:.1}};
+const SUGC={dairy:{lac:1},fruit:{inv:1},eggs:{glu:1}};
+function sciAn(p,r){let tot=0,mm=0,W=0,pod=0,pac=0,Es=0,alc=0,sucE=0,lacE=0;
+ r.rows.forEach(z=>{const g=+z.m||0;if(g<=0)return;tot+=g;const id=rowMat(z),i=id&&ING[id];if(!i)return;mm+=g;
+  const w=num(i.water),f=num(i.fat),pr=num(i.protein),su=num(i.sugar),o=Math.max(0,100-w-f-pr-su),sg=g*su/100,og=g*o/100;W+=g*w/100;
+  const mix=SUGM[id]||SUGC[i.cat]||{suc:1};Object.keys(mix).forEach(t=>{const c=SUGT[t],x=sg*mix[t];pod+=x*c[0]/100;pac+=x*c[1]/100;Es+=x*c[2];if(t==="lac")lacE+=x;else if(t==="suc"||t==="tre"||t==="iso")sucE+=x*c[2]});
+  Es+=g*pr/100*1.3;
+  if(i.cat==="alcohol"){alc+=og;pac+=og*7.4;Es+=og*3.5}
+  else if(id==="salt"){pac+=og*5.85;Es+=og*9}
+  else if(i.cat!=="fats"&&i.cat!=="dairy")Es+=og*.8});
+ const bl=Math.min(60,Math.max(0,+r.bl||0)),lost=tot*bl/100,mass=tot-lost,Wf=Math.max(0,W-lost);
+ /* only what can dissolve lowers aw: sucrose ~2 g and lactose ~0.2 g per g of water */
+ const Ed=Es-sucE-lacE+Math.min(sucE,2*Wf)+Math.min(lacE,.2*Wf),e=Wf>0?Ed/Wf:99;
+ /* Grover fits concentrated systems, Money-Born fits dilute ones; take the lower of the two */
+ const aw=Wf<=0?0:e>=11?.48:Math.min(1,1.04-.1*e+.0045*e*e,1/(1+.27*(Ed/342)/(Wf/100)));
+ const k=mass>0?100/mass:0;return{tot,cov:tot>0?mm/tot*100:0,bl,aw,water:Wf*k,solids:mass>0?100-Wf*k:0,pod:pod*k,pac:pac*k,alc:alc*k}}
+function awBand(aw){
+ if(aw>=.95)return["bad",X("سريع التلف جداً: يُحفظ مبرّداً (0–4°م) ويُستهلك خلال أيام قليلة. تنمو فيه معظم البكتيريا.","Highly perishable: keep chilled (0–4 °C) and use within a few days. Most bacteria can grow.")];
+ if(aw>=.91)return["bad",X("قابل للتلف: يحتاج تبريداً. أغلب البكتيريا الممرضة ما زالت قادرة على النمو.","Perishable: needs refrigeration. Most pathogenic bacteria can still grow.")];
+ if(aw>=.85)return["mid",X("تحت حد أغلب البكتيريا الممرضة تقريباً، لكن العفن والخمائر تنمو: تبريد، أو صلاحية قصيرة في درجة الغرفة.","Below the limit of most pathogenic bacteria, but moulds and yeasts grow: refrigerate, or short room-temperature life.")];
+ if(aw>=.75)return["mid",X("الخطر الأساسي عفن وخمائر: صلاحية من أيام إلى أسابيع في درجة الغرفة حسب التغليف والنظافة.","Main risk is moulds and yeasts: days to weeks at room temperature, depending on packaging and hygiene.")];
+ if(aw>=.6)return["ok",X("صلاحية طويلة: لا ينمو إلا عفن متحمّل للجفاف. انتبه لامتصاص الرطوبة.","Long shelf life: only drought-tolerant moulds grow. Watch moisture pick-up.")];
+ return["ok",X("مستقر ميكروبياً. التحدي هنا القوام: امتصاص الرطوبة، التيبّس، وتزهّر الدهن.","Microbially stable. The challenge is texture: moisture pick-up, staling and fat bloom.")]}
+function sciHtml(p,r){const a=sciAn(p,r);if(a.tot<=0||a.cov<=0)return"";const f1=v=>(Math.round(v*10)/10).toString(),bd=awBand(a.aw);
+ const awTxt=a.aw<.5?"< 0.50":a.aw.toFixed(2);
+ const rows=[[X("نشاط الماء aw (تقدير)","Water activity aw (estimate)"),`<b>${awTxt}</b>`],[X("ماء حر في الخليط","Water in the mix"),`<b>${f1(a.water)}%</b>`],[X("المواد الصلبة الكلية","Total solids"),`<b>${f1(a.solids)}%</b>`],[X("قوة التحلية POD (السكروز = 100)","Sweetening power POD (sucrose = 100)"),`<b>${f1(a.pod)}</b>`],[X("قوة منع التجمد PAC","Anti-freezing power PAC"),`<b>${f1(a.pac)}</b>`]];
+ if(a.alc>0)rows.push([X("كحول (تقريبي)","Alcohol (approx.)"),`<b>${f1(a.alc)}%</b>`]);
+ return `<details class="noprint nutr sci" data-pod="${f1(a.pod)}" data-pac="${f1(a.pac)}"><summary>${esc(X("علم التركيبة: نشاط الماء والصلاحية والحلاوة","Formula science: water activity, shelf life, sweetness"))} <span class="nbadge est">${esc(X("تقدير","Estimate"))}</span></summary>
+ <p class="note sci-${bd[0]}" style="margin:8px 0" data-aw="${a.aw.toFixed(3)}"><b>aw ${awTxt}${a.bl>0?esc(X(" بعد الخَبز"," after baking")):""}:</b> ${esc(bd[1])}</p>
+ <div style="overflow-x:auto"><table class="dtab nutt">${rows.map(x=>`<tr><td>${esc(x[0])}</td><td>${x[1]}</td></tr>`).join("")}</table></div>
+ <p class="small" style="margin:8px 0 0">${esc(X("للآيس كريم والجيلاتو: POD بين 16 و20 تقريباً، وPAC بين 24 و28 للتقديم عند −11°م (السوربيه أعلى). للغاناش والحشوات طويلة الصلاحية: الهدف aw أقل من 0.85.","For ice cream and gelato: POD about 16–20 and PAC about 24–28 for serving at −11 °C (sorbet runs higher). For ganache and long-life fillings: aim for aw below 0.85."))}</p>
+ <p class="note" style="margin:6px 0 0">${esc(X("طريقة الحساب: معادلتا Grover وMoney-Born لنشاط الماء من نسب السكريات الذائبة والبروتين والنشويات إلى الماء، ومعاملات POD/PAC القياسية لكل نوع سكر. لا يشمل الحموضة (pH) ولا المواد الحافظة ولا التغليف. هذا تقدير للتطوير فقط؛ قِس aw بجهاز قبل اعتماد أي صلاحية.","Method: the Grover and Money-Born equations for water activity from dissolved sugars, protein and starches relative to water, plus standard POD/PAC factors per sugar type. It ignores acidity (pH), preservatives and packaging. It is a development estimate only; measure aw with a meter before you commit to any shelf life."))}${a.cov<90?" "+esc(X("التغطية "+Math.round(a.cov)+"% فقط.","Coverage is only "+Math.round(a.cov)+"%.")):""}</p></details>`}
+window.nutriHtml=nutriHtml;window.nutriPdf=nutriPdf;window.sciHtml=sciHtml;window.sciAn=sciAn;
 window.histHtml=histHtml;window.openAdjust=openAdjust;
 
 
@@ -2532,12 +2576,9 @@ window.histHtml=histHtml;window.openAdjust=openAdjust;
   d.querySelector("#welX").onclick=close;d.querySelector("#welGo").onclick=()=>{close();document.querySelector("[data-newpj]")&&0;location.hash="#dev"};
   document.addEventListener("keydown",function k(e){if(e.key==="Escape"){close();document.removeEventListener("keydown",k)}});d.querySelector("#welGo").focus()}
  setTimeout(welcome,900);
- /* install + manifest */
- try{const ic="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#9B1B30"/><path d="M18 8h12M20 8v12L10 38a3 3 0 0 0 3 5h22a3 3 0 0 0 3-5L28 20V8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-  const mf={name:"CREATION LAB by ZAHAR ANASS",short_name:"CREATION LAB",start_url:location.href.split("#")[0],display:"standalone",background_color:"#1B0B0C",theme_color:"#1B0B0C",icons:[{src:ic,sizes:"any",type:"image/svg+xml",purpose:"any"}]};
-  const l=document.createElement("link");l.rel="manifest";l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:"application/manifest+json"}));document.head.appendChild(l);
-  const a=document.createElement("link");a.rel="apple-touch-icon";a.href=ic;document.head.appendChild(a);
-  [["apple-mobile-web-app-capable","yes"],["mobile-web-app-capable","yes"],["apple-mobile-web-app-title","CREATION LAB"]].forEach(([n,c])=>{const m=document.createElement("meta");m.name=n;m.content=c;document.head.appendChild(m)})}catch(e){}
+ /* install: the manifest and icons are real files (a blob: manifest is blocked by the site CSP); the service worker gives offline use */
+ try{[["apple-mobile-web-app-capable","yes"],["mobile-web-app-capable","yes"],["apple-mobile-web-app-title","CREATION LAB"]].forEach(([n,c])=>{const m=document.createElement("meta");m.name=n;m.content=c;document.head.appendChild(m)})}catch(e){}
+ try{if("serviceWorker"in navigator&&location.protocol==="https:"&&top===self&&/(^|\.)(zaharcreationlab\.com|github\.io)$/.test(location.hostname))addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}catch(e){}
  let dip=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e;if(document.getElementById("bInstall"))return;const b=document.createElement("button");b.id="bInstall";b.className="ib";b.type="button";b.textContent=ar()?"تثبيت":"Install";b.onclick=async()=>{b.remove();try{dip.prompt();await dip.userChoice}catch(_){}dip=null};document.querySelector(".tools").prepend(b)});
 })();
 })();
