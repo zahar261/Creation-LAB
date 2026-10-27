@@ -10,16 +10,76 @@
   "display": "standalone",
   "background_color": "#1B0B0C",
   "theme_color": "#1B0B0C",
-  "categories": ["food", "productivity", "business"],
+  "categories": [
+    "food",
+    "productivity",
+    "business"
+  ],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
-    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
   ],
   "shortcuts": [
-    { "name": "مشاريعي / Projects", "url": "./#dev" },
-    { "name": "حل مشكلة / Fix a problem", "url": "./#solve" },
-    { "name": "المكتبة / Library", "url": "./#library" }
+    {
+      "name": "مشاريعي / Projects",
+      "url": "./#dev"
+    },
+    {
+      "name": "حل مشكلة / Fix a problem",
+      "url": "./#solve"
+    },
+    {
+      "name": "المكتبة / Library",
+      "url": "./#library"
+    }
+  ],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "screenshots": [
+    {
+      "src": "icons/screens/narrow-home.jpg",
+      "sizes": "780x1688",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "الرئيسية: كمّل مشروعك أو ابدأ وصفة جديدة"
+    },
+    {
+      "src": "icons/screens/narrow-recipe.jpg",
+      "sizes": "780x1688",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "الوصفة والموازنة في شاشة وحدة"
+    },
+    {
+      "src": "icons/screens/wide-recipe.jpg",
+      "sizes": "1280x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "المكوّنات والتوازن جنب بعض"
+    }
   ]
 }

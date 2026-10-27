@@ -5,7 +5,7 @@ let pass=0,fail=0;const ok=(c,m)=>{if(c){pass++;console.log('  ok  ',m)}else{fai
 (async()=>{const b=await chromium.launch();
 const mk=async(w=1000)=>{const c=await b.newContext({viewport:{width:w,height:900}});const p=await c.newPage();p.errs=[];p.on('pageerror',e=>p.errs.push(e.message));await p.addInitScript(()=>{try{localStorage.setItem('zm-welcome','1')}catch(e){}window.print=()=>{window.__printed=(window.__printed||0)+1}});return p};
 const toAr=async p=>{if(await p.evaluate(()=>document.documentElement.lang)!=='ar'){await p.evaluate(()=>document.getElementById('bLang').click());await p.waitForTimeout(400)}};
-const newProj=async(p,txt)=>{await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);await p.fill('#pjn','اختبار');await p.click('[data-imp=new]');await p.fill('#impta',txt);await p.click('[data-impgo]');await p.waitForTimeout(400);await p.click('[data-impgo]',{timeout:1200}).catch(()=>{});await p.waitForTimeout(800)};
+const newProj=async(p,txt)=>{await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);if(!await p.$('#pjn')){await p.evaluate(()=>document.querySelector('[data-newpj]').click());await p.waitForTimeout(400)}await p.fill('#pjn','اختبار');await p.click('[data-imp=new]');await p.fill('#impta',txt);await p.click('[data-impgo]');await p.waitForTimeout(400);await p.click('[data-impgo]',{timeout:1200}).catch(()=>{});await p.waitForTimeout(800)};
 
 console.log('1) pages load without errors (both languages, phone + desktop)');
 for(const w of[390,1280]){const p=await mk(w);for(const h of['home','dev','solve','calc','library','materials','rules','suppliers']){await p.goto(FILE+'#'+h);await p.waitForTimeout(500);await p.evaluate(()=>document.getElementById('bLang').click());await p.waitForTimeout(300)}
@@ -22,7 +22,8 @@ console.log('2) library');
 
 console.log('3) import + nutrition + bake loss + override');
 {const p=await mk();await newProj(p,'حليب 650\nصفار بيض 110\nسكر 135\nنشا ذرة 50\nزبدة 82% 50\nفانيلا 1 حبة');
- const T=()=>p.evaluate(()=>{document.querySelectorAll('.nutr').forEach(d=>d.open=true);const d=document.querySelector('.nutr');return d.innerText.replace(/\s+/g,' ')});
+ await p.evaluate(()=>document.querySelector('[data-wstab$="#nut"]').click());await p.waitForTimeout(200);
+ const T=()=>p.evaluate(()=>{document.querySelectorAll('.nutr').forEach(d=>d.open=true);const d=document.querySelector('[data-pane=nut] .nutr');return d.innerText.replace(/\s+/g,' ')});
  let t=await T();ok(/تقدير/.test(t)&&/قبل الخَبز/.test(t),'badge Estimate + "before baking"');
  const k0=+(t.match(/الطاقة \(سعرة\) ([\d.]+)/)||[])[1];
  await p.fill('[data-rbl]','10');await p.keyboard.press('Tab');await p.waitForTimeout(700);t=await T();const k1=+(t.match(/الطاقة \(سعرة\) ([\d.]+)/)||[])[1];
@@ -125,7 +126,7 @@ console.log('10) security: poisoned backup / share link must not run code');
  await p.evaluate(()=>{const b=document.querySelector('#acl button');b&&b.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true}))});await p.waitForTimeout(300);
  ok((await p.evaluate(()=>[...document.querySelectorAll('input[data-rr$="#n"]')].pop().value)).length>2,'picking a suggestion fills the ingredient');
  ok(!(await p.evaluate(()=>/Baker|الخباز/.test(document.querySelector('.recb .dtab').innerText))),"baker's % hidden by default");
- await p.check('[data-rbk]');await p.waitForTimeout(300);
+ await p.evaluate(()=>document.querySelector('.ws-more').open=true);await p.check('[data-rbk]');await p.waitForTimeout(300);
  ok(await p.evaluate(()=>/Baker|الخباز|flour|دقيق/i.test(document.querySelector('.recb .dtab tr').innerText)),"baker's % can be switched on");
  ok(p.errs.length===0,'no JS errors')}
 
@@ -213,5 +214,26 @@ console.log('16) share options, cost on demand, chocolate from the label');
  await p.check('[data-cchoc]');await p.fill('[data-cv=cocoa]','70');await p.fill('[data-cv=milk]','0');await p.evaluate(()=>document.querySelector('[data-ucsave]').click());await p.waitForTimeout(500);
  const cm=await p.evaluate(()=>JSON.parse(localStorage.getItem('zm-custmat')||'[]').pop());ok(cm&&cm.cat==='choc'&&cm.cb===38&&cm.mf===0,'label chocolate stored with cocoa butter split ('+JSON.stringify(cm&&{cb:cm.cb,mf:cm.mf})+')');
  ok(p.errs.length===0,'no JS errors')}
+
+console.log('17) app interface: home, project list vs workspace, tabs, compare, settings');
+{const p=await mk(390);await p.goto(FILE+'#home');await p.waitForTimeout(800);await toAr(p);
+ ok(await p.evaluate(()=>!!document.querySelector('#dash .dash-big')&&getComputedStyle(document.querySelector('#p-home .lab')).display==='none'),'home opens on the app start screen, presentation tucked away');
+ await p.evaluate(()=>document.querySelector('[data-dashmore]').click());await p.waitForTimeout(200);
+ ok(await p.evaluate(()=>getComputedStyle(document.querySelector('#p-home .lab')).display!=='none'),'"about the platform" shows the presentation');
+ await p.goto(FILE+'#dev');await p.waitForTimeout(700);ok(await p.evaluate(()=>!!document.querySelector('[data-ptype=gb]')),'new project asks the product type');
+ await p.fill('#pjn','غاناش');await p.click('[data-ptype=gb]');await p.click('[data-imp=new]');await p.fill('#impta','كريمة 35% 200\nشوكولاتة داكنة 60% 300\nشراب جلوكوز 30\nسكر محول 30\nزبدة 82% 40');await p.click('[data-impgo]');await p.waitForTimeout(400);await p.click('[data-impgo]',{timeout:1200}).catch(()=>{});await p.waitForTimeout(800);
+ ok(await p.evaluate(()=>document.getElementById('p-dev').dataset.mode==='ws'&&!document.getElementById('pjn')),'opening a project shows only the workspace');
+ ok(await p.evaluate(()=>/5\/7/.test(document.querySelector('.ws-score').innerText)&&document.querySelectorAll('.ws-ind>div').length===4),'summary: score ring + 4 indicators (picked type applied)');
+ ok(await p.evaluate(()=>{const r=document.querySelector('.dtab.ingt tbody tr');return r.getBoundingClientRect().height<70}),'one line per ingredient on a phone');
+ ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no sideways scroll in the workspace at 390px');
+ await p.click('[data-wstab$="#bal"]');await p.waitForTimeout(200);ok(await p.evaluate(()=>document.querySelector('.ws').dataset.tab==='bal'&&getComputedStyle(document.querySelector('[data-pane=bal]')).display!=='none'&&getComputedStyle(document.querySelector('[data-pane=ing]')).display==='none'),'tabs switch panes on a phone');
+ await p.click('.ws-score [data-bauto]');await p.waitForTimeout(500);await p.click('[data-bapply]');await p.waitForTimeout(500);
+ await p.selectOption('[data-bcmp$="#0"]',{index:1});await p.waitForTimeout(400);
+ ok(await p.evaluate(()=>{const t=document.querySelector('.cmpt');return t&&t.rows[0].cells.length===3&&/5\/7/.test(t.innerText)&&/7\/7/.test(t.innerText)}),'compare: current recipe next to the version before balancing (7/7 vs 5/7)');
+ await p.click('[data-wsback]');await p.waitForTimeout(400);ok(await p.evaluate(()=>document.getElementById('p-dev').dataset.mode==='list'&&!!document.getElementById('pjn')),'back button returns to the project list');
+ await p.evaluate(()=>document.querySelector('[data-pj]').click());await p.waitForTimeout(400);
+ await p.evaluate(()=>document.getElementById('bSet').click());await p.waitForTimeout(500);ok(await p.evaluate(()=>!!document.getElementById('bkCard')&&!!document.getElementById('clCard')),'settings button opens backup and account');
+ await p.goto(FILE+'#home');await p.waitForTimeout(600);ok(await p.evaluate(()=>!!document.querySelector('.dash-cont')&&/7\/7/.test(document.querySelector('.dash-cont').innerText)),'home: continue card with the balance score');
+ ok(p.errs.length===0,'no JS errors '+p.errs.slice(0,2).join('|'))}
 
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
