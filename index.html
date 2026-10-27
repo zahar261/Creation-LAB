@@ -529,6 +529,7 @@ html{overflow-x:clip}
 .nbadge-l.est{border-color:#a8801f;background:rgba(168,128,31,.12)}.nbadge-l.off{border-color:#2e9b63;background:rgba(46,155,99,.12)}.nbadge-l.ov{border-color:#3a7bc0;background:rgba(58,123,192,.12)}
 .nov{margin-top:10px}.nov>summary{cursor:pointer;font-weight:700;color:var(--acc)}
 .pd-nb{margin:0 0 2mm;padding:2mm 3mm;border-radius:1.5mm;font-size:11px;border:.3mm solid #4D0A18;background:#F6EAEC;color:#341515}.pd-nb.off{border-color:#2e9b63;background:#e5f6ec;color:#12452a}.pd-nb.ov{border-color:#3a7bc0;background:#e6f0fb;color:#14375a}
+#pj-docs>summary{cursor:pointer;font-weight:800;font-size:1.05rem;list-style:none;padding:2px 0}#pj-docs>summary::-webkit-details-marker{display:none}#pj-docs>summary:after{content:"＋";float:inline-end;opacity:.6}#pj-docs[open]>summary:after{content:"－"}#pj-docs>summary small{font-weight:500;opacity:.65;font-size:.8rem}#pj-docs[open]>summary{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -547,7 +548,7 @@ html{overflow-x:clip}
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
 <polygon transform="translate(0,0)" fill="currentColor" points="0,0 170,0 170,38 46,202 170,202 170,240 0,240 0,202 124,38 0,38"/><g transform="translate(210,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(440,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><rect y="101.0" width="170" height="38"/></g><g transform="translate(650,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(880,0)"><rect width="38" height="240" fill="currentColor"/><path d="M19,19 H100 A47,47 0 0 1 100,113 H19" fill="none" stroke="currentColor" stroke-width="38"/><polygon fill="currentColor" points="38,38 76,38 164,240 120,240"/></g><g transform="translate(1206,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(1436,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><polygon points="0,0 52,0 170,240 118,240"/></g><g transform="translate(1646,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><path transform="translate(1876,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/><path transform="translate(2094,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/>
 
-</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.27-f</span></div></footer>
+</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.27-h</span></div></footer>
 <dialog id="pal" aria-label="Search"><input id="pal-in" class="pal-in" autocomplete="off"><ul id="pal-list" class="pal-list"></ul><div style="padding:8px 16px;color:var(--muted);font-size:13px" id="palhint"></div></dialog>
 <script>
 (function(){try{if(window.top!==window.self&&/(^|\.)zaharcreationlab\.com$|\.github\.io$/i.test(location.hostname)){try{window.top.location.href=location.href}catch(e){document.documentElement.style.display="none"}}}catch(e){}})();
@@ -1043,7 +1044,7 @@ function renderLibrary(){
   h+=`<p class="note">${esc(t("l_note"))}</p></div>`;el.innerHTML=h;
 }
 /* ---------- develop ---------- */
-let PJ=LS("zm-projects",LS("eq-projects",[])),PJSEL=null,PJTPL="cust:new";
+let PJ=LS("zm-projects",LS("eq-projects",[])),PJSEL=null,PJHIDE=null,PJTPL="cust:new";
 const tplName=x=>pick(x.name);
 const srcTag=x=>x.src==="c"?t("d_course"):x.src==="b"?t("d_book"):t("d_est");
 function renderDev(){
@@ -1104,7 +1105,7 @@ document.addEventListener("click",e=>{const h=e.target.closest&&e.target.closest
 document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches&&e.target.matches(".fold>h2,.fold>h3:first-child")){e.preventDefault();foldToggle(e.target)}});
 function renderPjView(){
   const p=PJ.find(z=>z.id===PJSEL),v=$("#pjView");if(!v)return;
-  if(!p){v.innerHTML="";return}
+  if(!p||PJHIDE===PJSEL){v.innerHTML="";return}
   const R=recsOf(p);
   v.innerHTML=`${pjSteps()}<datalist id="dlmat">${DATA.ING_DEFAULTS.map(m=>`<option value="${esc(ingName(m))}">`).join("")}</datalist><div class="card"><h2>${esc(p.name)}</h2>${p.goal?`<p class="lead" style="margin-bottom:8px">${esc(p.goal)}</p>`:""}<p class="note" style="margin:0 0 12px">${esc(U("unl"))}</p><div class="bar" style="margin:0"><button class="btn pri" data-pdf="1">${esc(U("pdf"))}</button><button class="btn" data-shr="make">${esc(B("shr"))}</button></div><p class="note" id="pdfMsg" role="status"></p></div>
   <div id="pj-recs">${R.map((r,i)=>recBlock(p,r,i,R.length)).join("")}</div>
@@ -1114,14 +1115,14 @@ function renderPjView(){
   <ul class="feed">${p.trials.map((z,i)=>`<li><b>${esc(t("d_trial"))} ${i+1}</b> <small>${esc(z.d)}</small><br>${esc(z.ch)}<br><b>${esc(t("d_res"))}:</b> ${esc(z.res)}</li>`).join("")||`<li><small>${esc(t("d_nolog"))}</small></li>`}</ul>
   <div class="noprint"><label for="trc">${esc(t("d_chg"))}</label><input id="trc" class="field" placeholder="${esc(t("d_chgph"))}">
   <label for="trr" style="margin-top:8px">${esc(t("d_res"))}</label><input id="trr" class="field" placeholder="${esc(t("d_resph"))}">
-  <div class="bar"><button class="btn pri" id="trAdd">${esc(t("d_add"))}</button><button class="btn" data-pdf="1">${esc(U("pdf"))}</button><button class="btn ghost" id="pjDel">${esc(t("d_del"))}</button></div>
+  <div class="bar"><button class="btn pri" id="trAdd">${esc(t("d_add"))}</button><button class="btn" id="pjDone">${esc(X("حفظ وإغلاق المشروع","Save & close project"))}</button><button class="btn" data-pdf="1">${esc(U("pdf"))}</button><button class="btn ghost" id="pjDel">${esc(t("d_del"))}</button></div>
   <p class="note">${esc(t("d_tip"))}</p></div></div>
-  <div class="card" id="pj-docs"><h2>${esc(U("docs"))}</h2>
+  <details class="card" id="pj-docs"><summary>${esc(U("docs"))} <small>${esc(X("(اختياري — يظهر في ملف PDF)","(optional — shown in the PDF)"))}</small></summary>
    <label>${esc(U("sub"))}</label><input class="field" data-pf="sub" value="${esc(p.sub||"")}">
    <label>${esc(X("رقم النسخة (يُحسب تلقائياً إن تُرك فارغاً)","Version number (automatic if left empty)"))}</label><input class="field" data-pf="ver" value="${esc(p.ver||"")}" inputmode="numeric" style="max-width:180px">
    <label>${esc(U("chg"))}</label><textarea class="field" rows="4" data-pf="changes">${esc(p.changes||"")}</textarea>
    <label>${esc(U("prob"))}</label><textarea class="field" rows="4" data-pf="problems">${esc(p.problems||"")}</textarea>
-   <label>${esc(U("tst"))}</label><textarea class="field" rows="4" data-pf="tests">${esc(p.tests||"")}</textarea></div>`;
+   <label>${esc(U("tst"))}</label><textarea class="field" rows="4" data-pf="tests">${esc(p.tests||"")}</textarea></details>`;
   studioMount(p);foldInit();
 }
 /* ---------- PDF sheet (print to PDF), layout of the Cake Art Academy recipe sheet ---------- */
@@ -1946,7 +1947,7 @@ addEventListener("hashchange",()=>pjBar());
 function ensureProject(name,goal){let p=actP();if(!p&&PJ.length){p=PJ[0];PJSEL=p.id}
  if(!p){p={id:"p"+Date.now(),name:name||"—",goal:goal||"",tpl:"merin",batch:10,trials:[],_fresh:1};PJ.unshift(p);PJSEL=p.id}return p}
 function pushRec(p,rec){const R=recsOf(p);if(p._fresh){R.length=0;delete p._fresh}R.push(rec)}
-function openProject(id){PJSEL=id;saveAll();renderDev();location.hash="#dev";setTimeout(()=>{const v=$("#pjView");if(v)v.scrollIntoView({behavior:"smooth"})},80)}
+function openProject(id){PJSEL=id;PJHIDE=null;saveAll();renderDev();location.hash="#dev";setTimeout(()=>{const v=$("#pjView");if(v)v.scrollIntoView({behavior:"smooth"})},80)}
 function afterAdd(p,msg){saveAll();pjBar();renderDev();toast((msg||B("toAdd"))+" «"+p.name+"»",B("toOpen"))}
 /* --- calculator <-> project --- */
 function calcToRec(){const a=analyze(W.rows),kg=Math.max(.001,num((($("#kg")||{}).value))||(a.total>0?a.total/1000:10)),f=a.total>0?kg*1000/a.total:1,name=(($("#rname")||{}).value||"").trim()||t("c_defname");
@@ -2076,8 +2077,9 @@ document.addEventListener("click",e=>{
   if(b.dataset.recdel){const p=P();if(p&&recsOf(p).length>1){p.recs=p.recs.filter(z=>z.id!==b.dataset.recdel);sv()}return}
   if(b.dataset.radd){const r=RR(b.dataset.radd);if(r){r.rows.push({n:"",ne:"",o:0,m:0});sv()}return}
   if(b.dataset.rdel){const[id,k]=b.dataset.rdel.split("#"),r=RR(id);if(r&&r.rows.length>1){r.rows.splice(+k,1);r.ref=null;sv()}return}
-  if(b.dataset.pj){PJSEL=b.dataset.pj;LSS("zm-active",PJSEL);renderPjView();$("#pjView").scrollIntoView({behavior:"smooth"});return}
+  if(b.dataset.pj){PJSEL=b.dataset.pj;PJHIDE=null;LSS("zm-active",PJSEL);renderPjView();$("#pjView").scrollIntoView({behavior:"smooth"});return}
   if(b.id==="trAdd"){const p=PJ.find(z=>z.id===PJSEL);if(!p)return;const c=$("#trc").value.trim(),r=$("#trr").value.trim();if(!c&&!r)return;p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:c||"—",res:r||"—"});LSS("zm-projects",PJ);renderDev();return}
+  if(b.id==="pjDone"){PJHIDE=PJSEL;saveAll();renderDev();window.scrollTo({top:0,behavior:"smooth"});toast(X("تم حفظ المشروع في «مشاريعي»","Project saved in “My projects”"));return}
   if(b.id==="pjDel"){if(confirm(t("d_delq"))){PJ=PJ.filter(z=>z.id!==PJSEL);PJSEL=null;LSS("zm-projects",PJ);renderDev()}return}
   // calc
   if(b.classList.contains("s-x")){const id=b.closest(".ing").dataset.id;W.rows=W.rows.filter(r=>r.id!==id);renderRows();return}
@@ -2520,7 +2522,7 @@ window.histHtml=histHtml;window.openAdjust=openAdjust;
   const a=(k,ic,lb)=>`<a href="#${k}"${cur===k?' aria-current="page"':""}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[ic]}</svg>${lb}</a>`;
   e.innerHTML=a("home","home",ar()?"ابدأ":"Start")+a("dev","dev",ar()?"مشاريعي":"Projects")+`<button type="button" class="plus" data-newpj="1" aria-label="${ar()?"مشروع جديد":"New project"}"><svg viewBox="0 0 24 24" aria-hidden="true">${IC.plus}</svg></button>`+a("library","lib",ar()?"المكتبة":"Library")+a("solve","fix",ar()?"حل مشكلة":"Fix")}
  tabs();addEventListener("hashchange",tabs);new MutationObserver(tabs).observe(document.documentElement,{attributes:true,attributeFilter:["lang","dir"]});document.addEventListener("click",e=>{if(e.target.closest&&e.target.closest("#bLang"))setTimeout(tabs,60)});
- document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-newpj]");if(!b)return;e.preventDefault();location.hash="#dev";setTimeout(()=>{const f=document.querySelector("#p-dev input.field");if(f){f.scrollIntoView({block:"center"});f.focus()}},350)});
+ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-newpj]");if(!b)return;e.preventDefault();PJHIDE=PJSEL;location.hash="#dev";try{renderDev()}catch(_){}setTimeout(()=>{const f=document.querySelector("#p-dev input.field");if(f){f.scrollIntoView({block:"center"});f.focus()}},350)});
  /* welcome (first run only) */
  function welcome(){let seen=0;try{seen=localStorage.getItem("zm-welcome")}catch(e){}if(seen)return;
   const d=document.createElement("div");d.className="wel";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");
