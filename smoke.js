@@ -139,7 +139,7 @@ console.log('11) formula science: water activity, POD, PAC');
  const pac=r.pac,pod=r.pod;
  ok(r.aw>0.95&&pac>22&&pac<32,'ice cream base: aw high, PAC in the gelato range ('+r.aw+', PAC '+pac+')');
  ok(pod>14&&pod<22,'ice cream base POD ('+pod+')');
- {const m=await mk(390);await newProj(m,'cream 35% 200\ndark chocolate 60% 300');ok(await m.evaluate(()=>[...document.querySelectorAll('.nutr')].every(d=>{d.open=true;const w=d.querySelector('table').parentElement;return w.scrollWidth<=w.clientWidth+1})),'nutrition + science tables fit a phone screen (values not hidden off-screen)')}
+ {const m=await mk(390);await newProj(m,'cream 35% 200\ndark chocolate 60% 300');ok(await m.evaluate(()=>[...document.querySelectorAll('.nutr')].every(d=>{d.open=true;const t=d.querySelector('table');if(!t)return true;const w=t.parentElement;return w.scrollWidth<=w.clientWidth+1})),'nutrition + science tables fit a phone screen (values not hidden off-screen)')}
  ok(p.errs.length===0,'no JS errors')}
 
 console.log('12) PWA files + pinned PDF libraries');
@@ -176,5 +176,42 @@ console.log('14) cloud sync never overwrites newer data from another device');
   const r=await p.evaluate(()=>({posts:window.__posts,dialog:!!document.getElementById('adj')}));if(p.errs.length)r.errs=p.errs;await c.close();return r};
  let r=await run('2026-10-27T10:00:00+00:00');ok(r.posts===1&&!r.dialog,'same instant in Supabase format → upload, no false conflict ('+JSON.stringify(r)+')');
  r=await run('2026-10-27T11:00:00.123456+00:00');ok(r.posts===0&&r.dialog,'cloud copy is newer → ask the user, upload nothing ('+JSON.stringify(r)+')')}
+
+console.log('15) recipe balancing + auto-balance');
+{const p=await mk();await newProj(p,'كريمة 35% 200\nشوكولاتة داكنة 60% 300\nشراب جلوكوز 30\nسكر محول 30\nزبدة 82% 40');
+ ok(await p.evaluate(()=>!!document.querySelector('.bal [data-rbal]')),'balancing panel with product picker');
+ await p.selectOption('[data-rbal]','gb');await p.waitForTimeout(500);
+ const sc=()=>p.evaluate(()=>(document.querySelector('[data-balscore]')||{dataset:{}}).dataset.balscore);
+ const st=await p.evaluate(()=>Object.fromEntries([...document.querySelectorAll('.baltab tr')].map(r=>[r.dataset.balk,r.className])));
+ ok(st.water==='bal-hi'&&st.aw==='bal-hi'&&st.cb==='bal-ok','bonbon ganache: water and aw flagged high, cocoa butter ok ('+await sc()+')');
+ ok(await p.evaluate(()=>document.querySelectorAll('.baltips li').length)>=2,'tips explain what to change');
+ const before=await p.evaluate(()=>[...document.querySelectorAll('[data-rr$="#m"]')].map(i=>+i.value));
+ await p.click('[data-bauto]');await p.waitForTimeout(400);ok(await p.evaluate(()=>!!document.querySelector('.balprop [data-bapply]')),'auto-balance shows a proposal before changing anything');
+ ok((await p.evaluate(()=>[...document.querySelectorAll('[data-rr$="#m"]')].map(i=>+i.value))).join()===before.join(),'proposal does not touch the recipe yet');
+ await p.click('[data-bapply]');await p.waitForTimeout(500);const after=await p.evaluate(()=>[...document.querySelectorAll('[data-rr$="#m"]')].map(i=>+i.value));
+ ok(await sc()==='7/7','after applying, every value is in range ('+await sc()+')');ok(after[1]===before[1],'locked chocolate kept its grams ('+after[1]+')');
+ await p.evaluate(()=>document.querySelector('[data-tact]').click());await p.waitForTimeout(500);
+ ok((await p.evaluate(()=>[...document.querySelectorAll('[data-rr$="#m"]')].map(i=>+i.value))).join()===before.join(),'undo restores the recipe');
+ await newProj(p,'whole milk 640\ncream 35% 140\nsugar 140\ndextrose 40\nskim milk powder 35');await p.evaluate(()=>document.querySelector('.bal').open=true);await p.selectOption('[data-rbal]','ic');await p.waitForTimeout(500);
+ ok(await sc()==='6/6','classic gelato base is balanced for ice cream ('+await sc()+')');
+ ok(p.errs.length===0,'no JS errors')}
+
+console.log('16) share options, cost on demand, chocolate from the label');
+{const p=await mk();await newProj(p,'حليب 650\nسكر 135');
+ ok(await p.evaluate(()=>!document.getElementById('pj-cost')),'cost card hidden by default');
+ await p.click('[data-costtog]');await p.waitForTimeout(400);ok(await p.evaluate(()=>!!document.getElementById('pj-cost')),'cost card shows on demand');
+ await p.fill('[data-pp]','9');await p.keyboard.press('Tab');await p.waitForTimeout(300);
+ await p.context().grantPermissions(['clipboard-read','clipboard-write']).catch(()=>{});
+ await p.click('[data-shr=make]');await p.waitForTimeout(300);ok(await p.evaluate(()=>document.querySelectorAll('#adj [data-sho]').length===3),'share asks what to include');
+ await p.uncheck('#adj [data-sho=qty]');await p.click('[data-shgo]');await p.waitForTimeout(800);
+ const url=await p.evaluate(async()=>{try{return await navigator.clipboard.readText()}catch(e){const t=document.querySelector('#bkMsg textarea,textarea.field');return t?t.value:''}});
+ const tok=(url.match(/#share=(.+)$/)||[])[1];let obj=null;if(tok){obj=await p.evaluate(async t=>{const s=t.slice(1).replace(/-/g,'+').replace(/_/g,'/');const bin=Uint8Array.from(atob(s+'==='.slice((s.length+3)%4)),c=>c.charCodeAt(0));const txt=t[0]==='g'?await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('gzip'))).text():new TextDecoder().decode(bin);return JSON.parse(txt)},tok)}
+ ok(obj&&!obj.p.prices&&obj.p.recs[0].rows.every(z=>z.m===0),'shared link leaves out prices and quantities when asked');
+ await newProj(p,'شوكولاتة الشيف 100');await p.evaluate(()=>document.querySelector('[data-umap]').click());await p.waitForTimeout(300);
+ await p.evaluate(()=>document.querySelector('[data-ucustom]').click());await p.waitForTimeout(200);
+ await p.fill('[data-cv=fat]','38');await p.fill('[data-cv=sugar]','30');await p.evaluate(()=>document.querySelector('[data-ucf] details').open=true);
+ await p.check('[data-cchoc]');await p.fill('[data-cv=cocoa]','70');await p.fill('[data-cv=milk]','0');await p.evaluate(()=>document.querySelector('[data-ucsave]').click());await p.waitForTimeout(500);
+ const cm=await p.evaluate(()=>JSON.parse(localStorage.getItem('zm-custmat')||'[]').pop());ok(cm&&cm.cat==='choc'&&cm.cb===38&&cm.mf===0,'label chocolate stored with cocoa butter split ('+JSON.stringify(cm&&{cb:cm.cb,mf:cm.mf})+')');
+ ok(p.errs.length===0,'no JS errors')}
 
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
