@@ -278,4 +278,23 @@ console.log('20) privacy policy, device erase, account deletion');
  ok(/حُذف حسابك|permanently deleted/.test(dmsg),'server deletion succeeds, the session is cleared and the user is told');
  ok(p.errs.length===0,'no JS errors');await c.close()}
 
+console.log('21) ingredient matching, vegetable cream, allergens from unknown names');
+{const p=await mk();await p.goto(FILE+'#dev');await p.waitForTimeout(700);
+ const m=await p.evaluate(()=>['cream shees','whipping cream hopla','هوبلا','sugar powder','حليب','كريمة 35%'].map(n=>matchMat(n)+(matchGuess({n})?'?':'')).join());
+ ok(m==='creamcheese?,vegcream,vegcream,powdered,milk,cream','typo and brand names match the right material; typos are flagged as guesses ('+m+')');
+ await newProj(p,'cream shees 300\ncream 35% 200\nwhipping cream hopla 400\nsugar powder 90\ntoasted milk powder 112\npecane sauce 100');
+ await p.evaluate(()=>document.querySelector('[data-wstab$="#nut"]').click());await p.waitForTimeout(200);
+ const t=await p.evaluate(()=>{const d=document.querySelector('[data-pane=nut] .nutr');d.open=true;return d.innerText.replace(/\s+/g,' ')});
+ const fat=+(t.match(/الدهون ([\d.]+)/)||[])[1],sug=+(t.match(/منها سكريات ([\d.]+)/)||[])[1];
+ ok(fat>24&&fat<27&&sug>15&&sug<17,'milk powder cream: fat and sugars match the external check ('+fat+' / '+sug+')');
+ ok(/قد يحتوي أيضاً على: مكسرات/.test(t),'tree nuts flagged from the unknown "pecane sauce"');
+ ok(/مطابقة بالتخمين/.test(t),'guessed matches are listed for confirmation');
+ await p.evaluate(()=>document.querySelector('[data-pane=nut] [data-umap]').click());await p.waitForTimeout(300);
+ const before=await p.evaluate(()=>document.querySelectorAll('#adj [data-uok]').length);await p.evaluate(()=>document.querySelector('#adj [data-uok]').click());await p.waitForTimeout(400);
+ ok(before>0&&await p.evaluate(()=>{const a=JSON.parse(localStorage.getItem('zm-alias')||'{}');return Object.values(a).length>0}),'"Correct ✓" confirms a guess and remembers it');
+ await p.evaluate(()=>document.querySelector('#adj [data-adjx]')&&document.querySelector('#adj [data-adjx]').click());
+ await p.evaluate(()=>document.querySelector('[data-pdf]').click());await p.waitForTimeout(1200);
+ ok(await p.evaluate(()=>/قد يحتوي أيضاً على: مكسرات|May also contain/.test(document.getElementById('pdfov').innerText)),'the PDF shows the possible nut allergen');
+ ok(p.errs.length===0,'no JS errors')}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
