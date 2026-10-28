@@ -236,4 +236,12 @@ console.log('17) app interface: home, project list vs workspace, tabs, compare, 
  await p.goto(FILE+'#home');await p.waitForTimeout(600);ok(await p.evaluate(()=>!!document.querySelector('.dash-cont')&&/7\/7/.test(document.querySelector('.dash-cont').innerText)),'home: continue card with the balance score');
  ok(p.errs.length===0,'no JS errors '+p.errs.slice(0,2).join('|'))}
 
+console.log('18) scrolling: project opens at the top, back-to-top button');
+{const p=await mk(390);await newProj(p,'حليب 650\nسكر 135');
+ ok(await p.evaluate(()=>scrollY<5&&document.querySelector('[data-wsback]').getBoundingClientRect().top>0),'after import the project opens at the top (title and back button visible)');
+ await p.goto(FILE+'#library');await p.waitForTimeout(700);await p.evaluate(()=>scrollTo(0,6000));await p.waitForTimeout(300);
+ ok(await p.evaluate(()=>!document.getElementById('toTop').hidden),'back-to-top button appears on a long page');
+ await p.evaluate(()=>document.getElementById('toTop').click());await p.waitForTimeout(1500);ok(await p.evaluate(()=>scrollY<5),'back-to-top returns to the top');
+ ok(p.errs.length===0,'no JS errors')}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
