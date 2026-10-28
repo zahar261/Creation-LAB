@@ -217,10 +217,8 @@ console.log('16) share options, cost on demand, chocolate from the label');
 
 console.log('17) app interface: home, project list vs workspace, tabs, compare, settings');
 {const p=await mk(390);await p.goto(FILE+'#home');await p.waitForTimeout(800);await toAr(p);
- ok(await p.evaluate(()=>!!document.querySelector('#dash .dash-big')&&document.querySelector('#dash').getBoundingClientRect().top<innerHeight/2),'home opens on the app start screen');
- ok(await p.evaluate(()=>getComputedStyle(document.querySelector('#p-home .lab')).display!=='none'&&document.documentElement.scrollHeight>innerHeight*2.5),'the presentation stays below it, so the home page scrolls down');
- await p.evaluate(()=>document.querySelector('[data-dashmore]').click());await p.waitForTimeout(1200);
- ok(await p.evaluate(()=>scrollY>200),'"about the platform" jumps down to it');await p.evaluate(()=>scrollTo(0,0));
+ ok(await p.evaluate(()=>!!document.querySelector('#dash .dash-big')&&!document.querySelector('#p-home .lab')&&!document.querySelector('[data-dashmore]')),'home is only the app start screen (old presentation removed)');
+ ok(await p.evaluate(()=>{const c=getComputedStyle(document.body).overflowX;return c==='clip'||c==='visible'}),'body is not its own scroll box (iPhone/iPad installed-app scroll lock)');
  await p.goto(FILE+'#dev');await p.waitForTimeout(700);ok(await p.evaluate(()=>!!document.querySelector('[data-ptype=gb]')),'new project asks the product type');
  await p.fill('#pjn','غاناش');await p.click('[data-ptype=gb]');await p.click('[data-imp=new]');await p.fill('#impta','كريمة 35% 200\nشوكولاتة داكنة 60% 300\nشراب جلوكوز 30\nسكر محول 30\nزبدة 82% 40');await p.click('[data-impgo]');await p.waitForTimeout(400);await p.click('[data-impgo]',{timeout:1200}).catch(()=>{});await p.waitForTimeout(800);
  ok(await p.evaluate(()=>document.getElementById('p-dev').dataset.mode==='ws'&&!document.getElementById('pjn')),'opening a project shows only the workspace');
