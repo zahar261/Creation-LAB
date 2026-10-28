@@ -565,6 +565,7 @@ html{overflow-x:clip}
 @media(max-width:480px){#bSearch>span,#bSearch kbd{display:none}#bSearch::before{content:"🔍";font-size:14px}}
 @media(max-width:420px){header.top .ib{min-width:32px;height:32px;padding:0 6px;font-size:12px}header.top .tools{gap:3px}header.top .wrap{gap:8px}}
 .dash-more{width:100%;margin-top:4px}
+.totop{position:fixed;inset-inline-start:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--s1);color:var(--ink);font-size:22px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.35);cursor:pointer}@media(min-width:900px){.totop{bottom:24px}}
 #p-home:not(.home-more)>:not(#dash){display:none}
 .dash-inst{display:flex;gap:10px;align-items:center;background:var(--s1);border:1px dashed var(--acc);border-radius:16px;padding:10px 12px;margin:0 0 12px}.dash-inst>span{font-size:26px}.dash-inst>div{flex:1}.dash-inst p{margin:0}
 /* installed app: no website footer, respect the phone's notch */
@@ -1612,7 +1613,8 @@ function studioMount(p){
    if(ptr.size===2){const a=[...ptr.values()],d=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]);if(pd)E.zoom=Math.max(.4,Math.min(3,E.zoom*d/pd));pd=d}
    E.dirty=true});
   const up=e=>{ptr.delete(e.pointerId);if(!ptr.size)E.drag=false;pd=0};cv.addEventListener("pointerup",up);cv.addEventListener("pointercancel",up);
-  cv.addEventListener("wheel",e=>{e.preventDefault();E.zoom=Math.max(.4,Math.min(3,E.zoom*(e.deltaY>0?.92:1.08)));E.dirty=true},{passive:false});
+  cv.addEventListener("pointerdown",()=>{E.armed=true});cv.addEventListener("pointerleave",()=>{E.armed=false});
+  cv.addEventListener("wheel",e=>{if(!e.ctrlKey&&!E.armed)return;e.preventDefault();E.zoom=Math.max(.4,Math.min(3,E.zoom*(e.deltaY>0?.92:1.08)));E.dirty=true},{passive:false});
   cv.addEventListener("dblclick",()=>{E.theta=-.6;E.phi=.42;E.zoom=1;E.dirty=true});
   /* ---- UI events (scoped to this card) ---- */
   host.addEventListener("input",e=>{const el=e.target;
@@ -2006,7 +2008,7 @@ addEventListener("hashchange",()=>pjBar());
 function ensureProject(name,goal){let p=actP();if(!p&&PJ.length){p=PJ[0];PJSEL=p.id}
  if(!p){p={id:"p"+Date.now(),name:name||"—",goal:goal||"",tpl:"merin",batch:10,trials:[],_fresh:1};PJ.unshift(p);PJSEL=p.id}return p}
 function pushRec(p,rec){const R=recsOf(p);if(p._fresh){R.length=0;delete p._fresh}R.push(rec)}
-function openProject(id){PJSEL=id;PJHIDE=null;saveAll();renderDev();location.hash="#dev";setTimeout(()=>{const v=$("#pjView");if(v)v.scrollIntoView({behavior:"smooth"})},80)}
+function openProject(id){PJSEL=id;PJHIDE=null;saveAll();renderDev();location.hash="#dev";setTimeout(()=>window.scrollTo({top:0}),80)}
 function afterAdd(p,msg){saveAll();pjBar();renderDev();toast((msg||B("toAdd"))+" «"+p.name+"»",B("toOpen"))}
 /* --- calculator <-> project --- */
 function calcToRec(){const a=analyze(W.rows),kg=Math.max(.001,num((($("#kg")||{}).value))||(a.total>0?a.total/1000:10)),f=a.total>0?kg*1000/a.total:1,name=(($("#rname")||{}).value||"").trim()||t("c_defname");
@@ -2138,7 +2140,7 @@ document.addEventListener("click",e=>{
   if(b.id==="inGo"){sendInbox();return}
   // dev
   if(b.dataset.tpl){PJTPL=b.dataset.tpl;$$(".tpl").forEach(x=>x.setAttribute("aria-pressed",x.dataset.tpl===PJTPL));return}
-  if(b.id==="pjAdd"){const n=$("#pjn").value.trim();if(!n)return $("#pjn").focus();const p={id:"p"+Date.now(),name:n,goal:$("#pjg").value.trim(),tpl:PJTPL,batch:10,trials:[]};if(window.PTYPE)p.ptype=window.PTYPE;if(PJTPL==="cust:new"){const cid="cust:"+Date.now();p.tpl=cid;p.cust={[cid]:{name:n,rows:[["",0]]}}}PJ.unshift(p);PJSEL=p.id;LSS("zm-projects",PJ);renderDev();$("#pjView").scrollIntoView({behavior:"smooth"});return}
+  if(b.id==="pjAdd"){const n=$("#pjn").value.trim();if(!n)return $("#pjn").focus();const p={id:"p"+Date.now(),name:n,goal:$("#pjg").value.trim(),tpl:PJTPL,batch:10,trials:[]};if(window.PTYPE)p.ptype=window.PTYPE;if(PJTPL==="cust:new"){const cid="cust:"+Date.now();p.tpl=cid;p.cust={[cid]:{name:n,rows:[["",0]]}}}PJ.unshift(p);PJSEL=p.id;LSS("zm-projects",PJ);renderDev();window.scrollTo({top:0});return}
   if(b.dataset.pdf){exportPdf();return}
   if(b.id==="pjPrint"){exportPdf();return}
   const sv=()=>{LSS("zm-projects",PJ);renderPjView()},P=()=>PJ.find(z=>z.id===PJSEL),RR=id=>{const p=P();return p&&recsOf(p).find(z=>z.id===id)};
@@ -2169,7 +2171,7 @@ document.addEventListener("click",e=>{
   if(b.dataset.lb){LQ.book=b.dataset.lb;renderLibrary();return}
   if(b.dataset.lp){LQ.prod=b.dataset.lp;renderLibrary();setTimeout(()=>{const d=document.querySelector("#p-library details[data-rid]");if(d)d.scrollIntoView({behavior:"smooth",block:"start"})},80);return}
   if(b.dataset.lpdf){const d=b.closest("details");if(d){d.open=true;document.body.dataset.pr="1";$$("#p-library details").forEach(x=>x.toggleAttribute("data-pron",x===d));const done=()=>{delete document.body.dataset.pr;removeEventListener("afterprint",done)};addEventListener("afterprint",done);setTimeout(()=>{try{print()}catch(e){done()}},50)}return}
-  if(b.dataset.lstart){const[rid,ck]=b.dataset.lstart.split("#");const r=RECIPES.find(x=>x.id===rid);if(r){const c=ck!=null&&r.components?r.components[+ck]:null;const tp=libTpl("lib:"+b.dataset.lstart),yk=tp?Math.max(.05,Math.round(tp.rows.reduce((a,z)=>a+z[2],0))/1000):10;const p={id:"p"+Date.now(),name:rl(r,"title")+(c?" — "+c.name:""),goal:"",tpl:"lib:"+b.dataset.lstart,batch:yk,trials:[]};PJ.unshift(p);PJSEL=p.id;LSS("zm-projects",PJ);renderDev();location.hash="#dev";setTimeout(()=>{const v=$("#pjView");if(v)v.scrollIntoView({behavior:"smooth"})},120)}return}
+  if(b.dataset.lstart){const[rid,ck]=b.dataset.lstart.split("#");const r=RECIPES.find(x=>x.id===rid);if(r){const c=ck!=null&&r.components?r.components[+ck]:null;const tp=libTpl("lib:"+b.dataset.lstart),yk=tp?Math.max(.05,Math.round(tp.rows.reduce((a,z)=>a+z[2],0))/1000):10;const p={id:"p"+Date.now(),name:rl(r,"title")+(c?" — "+c.name:""),goal:"",tpl:"lib:"+b.dataset.lstart,batch:yk,trials:[]};PJ.unshift(p);PJSEL=p.id;LSS("zm-projects",PJ);renderDev();location.hash="#dev";setTimeout(()=>{window.scrollTo({top:0})},120)}return}
   // materials
   if(b.dataset.mc){MQ.cat=b.dataset.mc;renderMaterials();return}
   if(b.id==="mCopy"){const lines=DATA.ING_DEFAULTS.filter(m=>MS[m.id]&&(MS[m.id].sup||MS[m.id].brand)).map(m=>`${matName(m)} — ${MS[m.id].sup||""}${MS[m.id].brand?" ("+MS[m.id].brand+")":""}${MS[m.id].price?" — "+MS[m.id].price:""}`);(async()=>{const tx=lines.join("\n")||"—";try{await navigator.clipboard.writeText(tx);b.textContent=t("m_copied")}catch(err){prompt("",tx)}})();return}
@@ -2407,7 +2409,7 @@ function impGo(){const ta=document.getElementById("impta"),msg=document.getEleme
  if(mode==="new"){const n=($("#pjn")||{}).value&&$("#pjn").value.trim()||X("وصفتي","My recipe");const cid="cust:"+Date.now();
   const p={id:"p"+Date.now(),name:n,goal:(($("#pjg")||{}).value||"").trim(),tpl:cid,batch:kg,trials:[],cust:{[cid]:{name:n,rows:rows.map(r=>[r.n,r.g])}}};if(window.PTYPE)p.ptype=window.PTYPE;PJ.unshift(p);PJSEL=p.id}
  else{const p=PJ.find(z=>z.id===PJSEL);if(!p)return;recsOf(p).push({id:"r"+Date.now(),tpl:"cust",name:X("وصفة مستوردة","Imported recipe"),batch:kg,rows:rows.map(r=>({n:r.n,ne:r.n,o:r.g,m:r.g})),meth:{ar:[],en:[]}})}
- saveAll();adjClose();renderDev();setTimeout(()=>{const v=$("#pj-recs");if(v)v.scrollIntoView({behavior:"smooth",block:"start"})},150);toast(L==="ar"?(rows.length===1?"تم استيراد مكوّن واحد":rows.length===2?"تم استيراد مكوّنين":"تم استيراد "+rows.length+(rows.length<=10?" مكوّنات":" مكوّناً")):rows.length+(rows.length===1?" ingredient imported":" ingredients imported"))}
+ saveAll();adjClose();renderDev();window.scrollTo({top:0});toast(L==="ar"?(rows.length===1?"تم استيراد مكوّن واحد":rows.length===2?"تم استيراد مكوّنين":"تم استيراد "+rows.length+(rows.length<=10?" مكوّنات":" مكوّناً")):rows.length+(rows.length===1?" ingredient imported":" ingredients imported"))}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("button,a");if(!b&&!(e.target.classList&&e.target.classList.contains("adj")))return;
  if(e.target.classList&&e.target.classList.contains("adj")){adjClose();return}
  const d=b.dataset;
@@ -2751,6 +2753,9 @@ function dashFill(){const d=document.getElementById("dash");if(!d)return;const l
  ${dashInstall()}
  <button type="button" class="btn ghost dash-more" data-dashmore="1" aria-expanded="false">${esc(X("تعرّف على المنصة وعلومها","About the platform and its science"))}</button></div>`}
 window.dashFill=dashFill;
+{const up=document.createElement("button");up.type="button";up.id="toTop";up.className="totop noprint";up.hidden=true;up.textContent="↑";up.setAttribute("aria-label","Back to top");document.body.appendChild(up);
+ up.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"}));
+ let rq=0;addEventListener("scroll",()=>{if(rq)return;rq=requestAnimationFrame(()=>{rq=0;up.hidden=scrollY<900})},{passive:true})}
 {const h=document.getElementById("p-home");if(h){new MutationObserver(()=>{const d=document.getElementById("dash");if(d&&!d.firstChild)dashFill()}).observe(h,{childList:true});dashFill()}}
 addEventListener("hashchange",()=>{if(/^#?(home)?$/.test(location.hash))dashFill()});
 window.BALP=BALP;window.nutriHtml=nutriHtml;window.nutriPdf=nutriPdf;window.sciHtml=sciHtml;window.sciAn=sciAn;window.balHtml=balHtml;window.balComp=balComp;
