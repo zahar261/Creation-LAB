@@ -243,4 +243,19 @@ console.log('18) scrolling: project opens at the top, back-to-top button');
  await p.evaluate(()=>document.getElementById('toTop').click());await p.waitForTimeout(1500);ok(await p.evaluate(()=>scrollY<5),'back-to-top returns to the top');
  ok(p.errs.length===0,'no JS errors')}
 
+console.log('19) scientific knowledge base and automatic checks');
+{const p=await mk();await p.goto(FILE+'#solve');await p.waitForTimeout(700);
+ ok(await p.evaluate(()=>DATA.PROBLEMS.length>=105&&new Set(DATA.PROBLEMS.map(x=>x.id)).size===DATA.PROBLEMS.length&&DATA.PROBLEMS.every(x=>TYPE_OF[x.id]&&x.en&&(!x.fix||x.fix.length===(x.en.fix||[]).length))),'105+ problems, unique ids, each with a product type and matching AR/EN fixes');
+ ok(await p.evaluate(()=>DATA.SRULES.every(r=>!r.prob||DATA.PROBLEMS.some(x=>x.id===r.prob))),'every automatic check links to an existing problem');
+ await toAr(p);await p.fill('#q','المربى سائلة');await p.waitForTimeout(500);ok(/المربى/.test(await p.evaluate(()=>document.getElementById('p-solve').innerText)),'search finds a new problem (runny jam)');
+ await p.goto(FILE+'#rules');await p.waitForTimeout(500);ok(await p.evaluate(()=>document.querySelectorAll('#p-rules h2').length>=9),'rules page has the new science sections');
+ const hits=async t=>{await newProj(p,t);return p.evaluate(()=>[...document.querySelectorAll('.sritem')].map(x=>x.dataset.sr).join())};
+ ok((await hits('دقيق 500\nماء 330\nخميرة فورية 20\nملح 3')).includes('yeast-high'),'bread: too much yeast and too little salt flagged');
+ ok((await hits('بياض بيض 200\nسكر 120')).includes('meringue-ratio'),'meringue: too little sugar flagged');
+ ok((await hits('دقيق 200\nسكر 200\nزبدة 200\nبيض 200\nبيكنج باودر 16')).includes('bp-high'),'cake: too much baking powder flagged');
+ ok((await hits('كريمة 35% 200\nشوكولاتة داكنة 60% 300'))==='','balanced ganache: no false alerts');
+ await hits('دقيق 500\nماء 330\nخميرة فورية 20\nملح 3');ok(await p.evaluate(()=>!!document.querySelector('.ws-alert')),'summary card shows the alert count');
+ await p.evaluate(()=>document.querySelector('[data-openprob]').click());await p.waitForTimeout(600);ok(await p.evaluate(()=>location.hash==='#solve'&&/البريوش/.test(document.getElementById('p-solve').innerText)),'"causes and fixes" opens the linked problem');
+ ok(p.errs.length===0,'no JS errors')}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
