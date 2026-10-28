@@ -566,7 +566,6 @@ html{overflow-x:clip}
 @media(max-width:420px){header.top .ib{min-width:32px;height:32px;padding:0 6px;font-size:12px}header.top .tools{gap:3px}header.top .wrap{gap:8px}}
 .dash-more{width:100%;margin-top:4px}
 .totop{position:fixed;inset-inline-start:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--s1);color:var(--ink);font-size:22px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.35);cursor:pointer}@media(min-width:900px){.totop{bottom:24px}}
-#p-home:not(.home-more)>:not(#dash){display:none}
 .dash-inst{display:flex;gap:10px;align-items:center;background:var(--s1);border:1px dashed var(--acc);border-radius:16px;padding:10px 12px;margin:0 0 12px}.dash-inst>span{font-size:26px}.dash-inst>div{flex:1}.dash-inst p{margin:0}
 /* installed app: no website footer, respect the phone's notch */
 @media (display-mode: standalone){footer,#aboutHost{display:none!important}header.top{padding-top:env(safe-area-inset-top)}body{overscroll-behavior-y:none}}
@@ -2734,7 +2733,7 @@ document.addEventListener("change",e=>{const el=e.target;if(!el||!el.dataset)ret
  if(el.dataset.rshowo){const p=PJ.find(z=>z.id===PJSEL),r=p&&recsOf(p).find(z=>z.id===el.dataset.rshowo);if(r){r.showO=!!el.checked;LSS("zm-projects",PJ);renderPjView()}}});
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-wstab],#bSet,[data-dashmore]");if(!b)return;
  if(b.id==="bSet"){PJHIDE=PJSEL;location.hash="#dev";try{renderDev()}catch(_){}setTimeout(()=>{const c=document.getElementById("bkCard");if(c)c.scrollIntoView({behavior:"smooth",block:"start"})},120);return}
- if(b.dataset.dashmore!==undefined){const h=document.getElementById("p-home");h.classList.toggle("home-more");b.setAttribute("aria-expanded",String(h.classList.contains("home-more")));return}
+ if(b.dataset.dashmore!==undefined){const n=document.querySelector("#p-home .lab");if(n)n.scrollIntoView({behavior:"smooth",block:"start"});return}
  const[id,k]=b.dataset.wstab.split("#");WSTAB[id]=k;const c=document.querySelector('.ws[data-ws="'+id+'"]');if(!c)return;c.dataset.tab=k;c.querySelectorAll("[data-wstab]").forEach(x=>x.setAttribute("aria-selected",String(x.dataset.wstab.split("#")[1]===k)));if(innerWidth<980)c.querySelector(".seg").scrollIntoView({block:"nearest"})});
 /* home: the app's own start screen above the presentation of the platform */
 function dashScore(p){const r=recsOf(p).find(z=>BALP[balPid(p,z)]&&z.rows.some(q=>(+q.m||0)>0));if(!r)return"";const q=balScore(balVals(p,r,r.rows),BALP[balPid(p,r)].t);return`<span class="bchip ${q.bad?"warn":""}" dir="ltr">${q.n-q.bad}/${q.n}</span>`}
@@ -2751,7 +2750,7 @@ function dashFill(){const d=document.getElementById("dash");if(!d)return;const l
  <div class="dash-big"><button type="button" data-newpj="1"><span>＋</span>${esc(X("وصفة جديدة","New recipe"))}</button><a href="#solve"><span>🩺</span>${esc(X("حل مشكلة","Fix a problem"))}</a><a href="#library"><span>📚</span>${esc(X("المكتبة","Library"))}</a></div>
  ${PJ.length?`<h2>${esc(X("مشاريعي","My projects"))}</h2><ul class="dash-list">${PJ.slice(0,8).map(p=>`<li><button type="button" data-pjopen="${esc(p.id)}"><span>${esc(p.name)}</span>${dashScore(p)||`<span class="small">${esc(X("بدون نوع","No type"))}</span>`}</button></li>`).join("")}</ul>`:""}
  ${dashInstall()}
- <button type="button" class="btn ghost dash-more" data-dashmore="1" aria-expanded="false">${esc(X("تعرّف على المنصة وعلومها","About the platform and its science"))}</button></div>`}
+ <button type="button" class="btn ghost dash-more" data-dashmore="1">${esc(X("تعرّف على المنصة وعلومها ↓","About the platform and its science ↓"))}</button></div>`}
 window.dashFill=dashFill;
 {const up=document.createElement("button");up.type="button";up.id="toTop";up.className="totop noprint";up.hidden=true;up.textContent="↑";up.setAttribute("aria-label","Back to top");document.body.appendChild(up);
  up.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"}));
