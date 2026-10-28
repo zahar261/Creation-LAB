@@ -565,10 +565,12 @@ html{overflow-x:clip}
 @media(max-width:480px){#bSearch>span,#bSearch kbd{display:none}#bSearch::before{content:"🔍";font-size:14px}}
 @media(max-width:420px){header.top .ib{min-width:32px;height:32px;padding:0 6px;font-size:12px}header.top .tools{gap:3px}header.top .wrap{gap:8px}}
 .dash-more{width:100%;margin-top:4px}
+#aboutHost{display:none!important}
 .totop{position:fixed;inset-inline-start:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--s1);color:var(--ink);font-size:22px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.35);cursor:pointer}@media(min-width:900px){.totop{bottom:24px}}
 .dash-inst{display:flex;gap:10px;align-items:center;background:var(--s1);border:1px dashed var(--acc);border-radius:16px;padding:10px 12px;margin:0 0 12px}.dash-inst>span{font-size:26px}.dash-inst>div{flex:1}.dash-inst p{margin:0}
 /* installed app: no website footer, respect the phone's notch */
-@media (display-mode: standalone){footer,#aboutHost{display:none!important}header.top{padding-top:env(safe-area-inset-top)}body{overscroll-behavior-y:none}}
+@media (display-mode: standalone){footer,#aboutHost{display:none!important}header.top{padding-top:env(safe-area-inset-top)}}
+@supports (overflow:clip){body{overflow-x:clip!important}}
 .sci-bad{border-inline-start:4px solid #C0392B}.sci-mid{border-inline-start:4px solid #D9A441}.sci-ok{border-inline-start:4px solid var(--ok)}
 </style>
 </head>
@@ -916,33 +918,8 @@ function labInit(){const cv=$("#labCv");if(!cv)return;if(STG&&STG.stop)STG.stop(
  function frame(t0){if(!cv.isConnected){o.stop();return}if(!document.hidden&&cv.offsetParent&&t0-last>45){last=t0;step();draw()}o.raf=requestAnimationFrame(frame)}
  o.raf=requestAnimationFrame(frame);let rt=0;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{if(cv.isConnected){mols=[];size()}},200)},{passive:true})}
 function renderHome(){
-  const stats=[[DATA.PROBLEMS.length,t("st_p")],[RECIPES.length,t("st_f")],[DATA.ING_DEFAULTS.length,t("st_i")],[DATA.COMPANIES.length,t("st_s")]];
-  const mk=(document.querySelector("header.top .mark")||{outerHTML:""}).outerHTML;
-  $("#p-home").innerHTML=`<div id="dash"></div><section class="lab"><canvas id="labCv" aria-hidden="true"></canvas><div class="lab-glow"></div><div class="wrap lab-in">
-  <div class="mast"><span class="brand mast-brand" style="pointer-events:none">${mk}<span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span></div>
-  <div class="lab-grid">
-   <div class="lab-txt"><div class="eyebrow"><i></i>${esc(t("eyebrow"))}</div><h1>${t("h_title")}</h1><p class="lead">${esc(t("h_sub"))}</p>
-    <form class="hsearch" id="hSearchF" role="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="hSearchI" type="search" autocomplete="off" placeholder="${esc(t("l_hs"))}"><button type="submit">${esc(t("l_hsgo"))}</button></form>
-    <div class="hchips">${["l_hc1","l_hc2","l_hc3","l_hc4"].map(k=>`<button type="button" data-hq="${esc(t(k))}">${esc(t(k))}</button>`).join("")}</div>
-    <div class="bar" style="margin-top:22px"><a class="btn pri" href="#dev">${esc(t("cta1"))}</a><a class="btn ghost" href="#solve">${esc(t("cta2"))}</a></div></div>
-   <div class="orbit" aria-hidden="false"><i class="pulse p1"></i><i class="pulse p2"></i><i class="pulse p3"></i>
-    <div class="ring r1"><span class="sat sa">${satHtml("water")}</span><span class="sat sb">${satHtml("lipid")}</span></div>
-    <div class="ring r2"><span class="sat sa">${satHtml("protein")}</span><span class="sat sb">${satHtml("sugar")}</span></div>
-    <div class="core scope" role="img" aria-label="${esc(L==="ar"?"منظر مجهري لمستحلب":"Microscope view of an emulsion")}"><canvas id="scopeCv"></canvas><span class="sc-gl"></span></div></div>
-  </div>
-  <div class="pills">${["pill1","pill2","pill3","pill4","pill5","pill6"].map(k=>`<span class="pill">${esc(t(k))}</span>`).join("")}</div></div></section>
-  <div class="wrap">
-  ${startSection()}
-  ${secH("02",t("l_homeshelf"),t("sec_lib"))}
-  <div id="homeShelf" class="rev">${homeShelf()}</div>
-  <div class="stats rev">${stats.map(([n,l],i)=>`<div class="stat"><b data-n="${esc(n)}">0</b><span>${esc(l)}</span></div>`).join("")}</div>
-  <details class="molfold rev"><summary>${esc(L==="ar"?"علم المكوّنات الأربعة (اقرأه إن أردت الفهم الأعمق)":"The science: four building blocks (optional reading)")}</summary>${molSection()}</details>
-  ${secH("04",t("pil_h"),t("pil_s"))}
-  <div class="feat5 rev">${[["l_f1","M4 20c0-6 4-9 8-9s8 3 8 9M9 7a3 3 0 1 0 6 0 3 3 0 0 0-6 0"],["l_f2","M3 5h18v12H3zM8 21h8M12 17v4"],["l_f3","M5 3h11l3 3v15H5zM9 10h6M9 14h6"],["l_f4","M12 3l9 5-9 5-9-5zM6 11v5c3 3 9 3 12 0v-5"],["l_f5","M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.5 9.2l5.9-.9z"]].map(([k,d])=>`<div><svg viewBox="0 0 24 24"><path d="${esc(d)}"/></svg>${esc(t(k))}</div>`).join("")}</div>
-  <div id="feedSec"${FEED.length?"":" hidden"}>${secH("05",t("h_daily"),t("daily_lead"))}
-  <div class="card rev" style="margin-top:0"><ul class="feed" id="feedHome">${feedHtml(FEED,3)}</ul></div></div>
-  <div class="band rev"><h2>${esc(t("band_t"))}</h2><p class="lead" style="margin:0 auto 18px">${esc(t("band_p"))}</p><a class="btn pri" href="#dev">${esc(t("cta1"))}</a></div></div>`;
-  countUp();labInit();
+  /* the home page is the app's start screen only (filled by dashFill); the old presentation sections were removed */
+  $("#p-home").innerHTML=`<div id="dash"></div>`;if(window.dashFill)window.dashFill();
 }
 function stageInit(){const st=$("#stage"),cv=$("#stCv");if(!st||!cv)return;const ctx=cv.getContext&&cv.getContext("2d");if(STG&&STG.stop)STG.stop();
   const layers=[lay3({name:"b",w:18,h:1.1,color:"#795D4C",dens:.7}),lay3({name:"c",w:18,h:1.3,color:"#ACA494",dens:1}),lay3({name:"m",w:18,h:4.6,color:"#EADFD0",dens:.55}),lay3({name:"g",w:18,h:.35,color:"#4D0A18",dens:1.3,glaze:true})];
@@ -2750,7 +2727,7 @@ function dashFill(){const d=document.getElementById("dash");if(!d)return;const l
  <div class="dash-big"><button type="button" data-newpj="1"><span>＋</span>${esc(X("وصفة جديدة","New recipe"))}</button><a href="#solve"><span>🩺</span>${esc(X("حل مشكلة","Fix a problem"))}</a><a href="#library"><span>📚</span>${esc(X("المكتبة","Library"))}</a></div>
  ${PJ.length?`<h2>${esc(X("مشاريعي","My projects"))}</h2><ul class="dash-list">${PJ.slice(0,8).map(p=>`<li><button type="button" data-pjopen="${esc(p.id)}"><span>${esc(p.name)}</span>${dashScore(p)||`<span class="small">${esc(X("بدون نوع","No type"))}</span>`}</button></li>`).join("")}</ul>`:""}
  ${dashInstall()}
- <button type="button" class="btn ghost dash-more" data-dashmore="1">${esc(X("تعرّف على المنصة وعلومها ↓","About the platform and its science ↓"))}</button></div>`}
+ </div>`}
 window.dashFill=dashFill;
 {const up=document.createElement("button");up.type="button";up.id="toTop";up.className="totop noprint";up.hidden=true;up.textContent="↑";up.setAttribute("aria-label","Back to top");document.body.appendChild(up);
  up.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"}));
@@ -2782,7 +2759,8 @@ window.histHtml=histHtml;window.openAdjust=openAdjust;window.adjShell=adjShell;w
  setTimeout(welcome,900);
  /* install: the manifest and icons are real files (a blob: manifest is blocked by the site CSP); the service worker gives offline use */
  try{[["apple-mobile-web-app-capable","yes"],["mobile-web-app-capable","yes"],["apple-mobile-web-app-title","CREATION LAB"]].forEach(([n,c])=>{const m=document.createElement("meta");m.name=n;m.content=c;document.head.appendChild(m)})}catch(e){}
- try{if("serviceWorker"in navigator&&location.protocol==="https:"&&top===self&&/(^|\.)(zaharcreationlab\.com|github\.io)$/.test(location.hostname))addEventListener("load",()=>navigator.serviceWorker.register("sw.js").then(reg=>{reg.addEventListener("updatefound",()=>{const w=reg.installing;if(w)w.addEventListener("statechange",()=>{if(w.state==="installed"&&navigator.serviceWorker.controller)toast(ar()?"نسخة جديدة من التطبيق جاهزة":"A new version of the app is ready",ar()?"حدّث":"Refresh",()=>location.reload(),30000)})})}).catch(()=>{}))}catch(e){}
+ try{if("serviceWorker"in navigator&&location.protocol==="https:"&&top===self&&/(^|\.)(zaharcreationlab\.com|github\.io)$/.test(location.hostname)){const had=!!navigator.serviceWorker.controller;let rl=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(!had||rl)return;rl=true;location.reload()})}
+ addEventListener("load",()=>navigator.serviceWorker.register("sw.js").then(reg=>{reg.addEventListener("updatefound",()=>{const w=reg.installing;if(w)w.addEventListener("statechange",()=>{if(w.state==="installed"&&navigator.serviceWorker.controller)toast(ar()?"نسخة جديدة من التطبيق جاهزة":"A new version of the app is ready",ar()?"حدّث":"Refresh",()=>location.reload(),30000)})})}).catch(()=>{}))}catch(e){}
  let dip=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();dip=e;window.__dip=e;try{window.dashFill&&window.dashFill()}catch(_){}if(document.getElementById("bInstall"))return;const b=document.createElement("button");b.id="bInstall";b.className="ib";b.type="button";b.textContent=ar()?"تثبيت":"Install";b.onclick=async()=>{b.remove();try{dip.prompt();await dip.userChoice}catch(_){}dip=null;window.__dip=null;try{window.dashFill&&window.dashFill()}catch(_){}};document.querySelector(".tools").prepend(b)});
 })();
 })();
