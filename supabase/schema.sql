@@ -42,3 +42,19 @@ grant select, insert, update, delete on public.user_data to authenticated;
 --   * Minimum password length: 8 or more, with "leaked password protection" ON
 --   * Site URL and Redirect URLs: https://zaharcreationlab.com only
 --   * Rate limits: keep the defaults (they block password guessing)
+
+-- ---------------------------------------------------------------------------
+-- "Delete my account" button: lets a signed-in user delete their own account
+-- and cloud data. It can only ever delete the caller (auth.uid()).
+create or replace function public.delete_my_account() returns void
+language plpgsql security definer set search_path = public, auth as $$
+begin
+  if auth.uid() is null then
+    raise exception 'not signed in';
+  end if;
+  delete from public.user_data where user_id = auth.uid();
+  delete from auth.users where id = auth.uid();
+end;
+$$;
+revoke all on function public.delete_my_account() from public, anon;
+grant execute on function public.delete_my_account() to authenticated;

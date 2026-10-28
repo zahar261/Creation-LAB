@@ -258,4 +258,24 @@ console.log('19) scientific knowledge base and automatic checks');
  await p.evaluate(()=>document.querySelector('[data-openprob]').click());await p.waitForTimeout(600);ok(await p.evaluate(()=>location.hash==='#solve'&&/البريوش/.test(document.getElementById('p-solve').innerText)),'"causes and fixes" opens the linked problem');
  ok(p.errs.length===0,'no JS errors')}
 
+console.log('20) privacy policy, device erase, account deletion');
+{const p=await mk(390);await p.goto(FILE+'#home');await p.waitForTimeout(600);await toAr(p);
+ ok(await p.evaluate(()=>!!document.querySelector('#dash a[href="#privacy"]')&&!!document.querySelector('footer a[href="#privacy"]')),'start screen and footer link to the privacy policy');
+ await p.goto(FILE+'#privacy');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>{const t=document.getElementById('p-privacy').innerText;return document.getElementById('p-privacy').classList.contains('on')&&/Supabase/.test(t)&&/لا نبيع/.test(t)&&/شروط الاستخدام/.test(t)}),'privacy page renders (data, services, no selling, terms)');
+ await p.evaluate(()=>document.getElementById('bLang').click());await p.waitForTimeout(400);ok(/We do not sell/.test(await p.evaluate(()=>document.getElementById('p-privacy').innerText)),'privacy page follows the language switch');
+ await newProj(p,'حليب 100');p.once('dialog',d=>d.accept());await p.goto(FILE+'#privacy');await p.waitForTimeout(400);
+ await p.evaluate(()=>document.querySelector('[data-wipelocal]').click());await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>!localStorage.getItem('zm-projects')),'erase-device button wipes the projects')}
+{const c=await b.newContext({viewport:{width:1000,height:900}});const p=await c.newPage();p.errs=[];p.on('pageerror',e=>p.errs.push(e.message));
+ await p.addInitScript(()=>{try{if(!sessionStorage.getItem('s')){sessionStorage.setItem('s','1');localStorage.setItem('zm-welcome','1');localStorage.setItem('zm-cloud',JSON.stringify({access:'a',refresh:'r',email:'t@t.t',uid:'u1'}))}}catch(e){}
+  window.__rpc=0;const F=window.fetch;window.fetch=async(u,o)=>{u=String(u);if(/rpc\/delete_my_account/.test(u)){window.__rpc++;return new Response(null,{status:204})}if(/supabase\.co/.test(u))return new Response('[]',{status:200});return F(u,o)}});
+ await p.goto(FILE+'#dev');await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>!!document.querySelector('#clCard [data-cl=del]')),'signed-in account card offers "delete my account"');
+ await p.evaluate(()=>{document.querySelector('#clCard details.danger').open=true});await p.evaluate(()=>document.querySelector('[data-cl=del]').click());await p.waitForTimeout(300);
+ ok(await p.evaluate(()=>window.__rpc===0),'deletion needs the typed confirmation');
+ let dmsg='';p.on('dialog',d=>{dmsg+=d.message();d.accept()});await p.fill('#clDelConf','حذف');await p.evaluate(()=>document.querySelector('[data-cl=del]').click());await p.waitForTimeout(1500);
+ ok(/حُذف حسابك|permanently deleted/.test(dmsg),'server deletion succeeds, the session is cleared and the user is told');
+ ok(p.errs.length===0,'no JS errors');await c.close()}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
