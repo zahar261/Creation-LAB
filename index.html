@@ -2864,8 +2864,8 @@ document.addEventListener("click",async e=>{const b=e.target.closest&&e.target.c
 
 /* ================= RECIPE VERSIONS: save, compare, restore ================= */
 const rowsSig=rows=>JSON.stringify((rows||[]).filter(z=>(+z.m||0)>0).map(z=>[rowKey(z),f1(+z.m||0)]));
-function verPush(r,label,o){o=o||{};if(!r||!r.rows||!r.rows.some(z=>(+z.m||0)>0))return false;r.hist=r.hist||[];const last=r.hist[r.hist.length-1];
- if(o.auto&&last&&rowsSig(last.rows)===rowsSig(r.rows))return false;
+function verPush(r,label,o){o=o||{};if(!r||!r.rows||!r.rows.some(z=>(+z.m||0)>0))return false;r.hist=r.hist||[];
+ if(o.auto&&r.hist.some(h=>rowsSig(h.rows)===rowsSig(r.rows)))return false;
  r.vn=Math.max(r.vn||0,r.hist.reduce((a,h,i)=>Math.max(a,h.v||i+1),0))+1;
  const h={t:Date.now(),v:r.vn,label:String(label||"").slice(0,120),rows:r.rows.map(z=>Object.assign({},z))};if(o.man)h.man=1;if(o.auto)h.auto=1;
  r.hist.push(h);if(r.hist.length>40)r.hist.shift();return true}

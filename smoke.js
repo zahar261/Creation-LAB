@@ -255,7 +255,7 @@ console.log('19) scientific knowledge base and automatic checks');
  ok((await hits('دقيق 200\nسكر 200\nزبدة 200\nبيض 200\nبيكنج باودر 16')).includes('bp-high'),'cake: too much baking powder flagged');
  ok((await hits('كريمة 35% 200\nشوكولاتة داكنة 60% 300'))==='','balanced ganache: no false alerts');
  await hits('دقيق 500\nماء 330\nخميرة فورية 20\nملح 3');ok(await p.evaluate(()=>!!document.querySelector('.ws-alert')),'summary card shows the alert count');
- await p.evaluate(()=>document.querySelector('[data-openprob]').click());await p.waitForTimeout(600);ok(await p.evaluate(()=>location.hash==='#solve'&&/البريوش/.test(document.getElementById('p-solve').innerText)),'"causes and fixes" opens the linked problem');
+ await p.evaluate(()=>document.querySelector('#p-dev [data-openprob]').click());await p.waitForTimeout(600);ok(await p.evaluate(()=>location.hash==='#solve'&&/البريوش/.test(document.getElementById('p-solve').innerText)),'"causes and fixes" opens the linked problem');
  ok(p.errs.length===0,'no JS errors')}
 
 console.log('20) privacy policy, device erase, account deletion');
@@ -309,13 +309,13 @@ console.log('22) versions, product label, production plan, new home');
  await p.evaluate(()=>document.querySelector('#adj [data-hrest]').click());await p.waitForTimeout(400);
  const h=await pj();ok(h.recs[0].rows[1].m===250&&h.recs[0].hist.length===2&&!await p.$('#adj'),'restore brings back the version and keeps the current one as a new version');
  await p.evaluate(()=>{document.querySelector('[data-wsback]').click()});await p.waitForTimeout(300);
- ok((await pj()).recs[0].hist.length===2,'closing without changes does not add a duplicate version');
+ ok((await pj()).recs[0].hist.length===2,'closing on an already-saved state does not add a duplicate version');
  await p.evaluate(()=>document.querySelector('[data-pj]').click());await p.waitForTimeout(400);
  await p.evaluate(()=>{const d=document.getElementById('pj-plan');d.open=true});await p.fill('[data-pl=molds]','3');await p.fill('[data-pl=cav]','24');await p.fill('[data-plg]','10');await p.waitForTimeout(500);
  const pr=await p.evaluate(()=>document.getElementById('planRes').innerText.replace(/\s+/g,' '));
  ok(/756/.test(pr)&&/72/.test(pr),'plan: 3 moulds × 24 × 10 g + 5% loss = 756 g ('+pr.slice(0,80)+')');
  await p.evaluate(()=>document.querySelector('[data-plact=sheet]').click());await p.waitForTimeout(900);
- ok(await p.evaluate(()=>/ورقة الإنتاج/.test(document.getElementById('pdfov').innerText)&&/324/.test(document.getElementById('pdfov').innerText)),'production sheet scales each ingredient (300 g → 324 g)');
+ ok(await p.evaluate(()=>/ورقة الإنتاج/.test(document.getElementById('pdfov').innerText)&&/378/.test(document.getElementById('pdfov').innerText)),'production sheet scales each ingredient (300 g of 600 → 378 g of 756)');
  await p.evaluate(()=>document.querySelector('[data-pdfact=x]').click());
  await p.evaluate(()=>document.querySelector('[data-plact=apply]').click());await p.waitForTimeout(400);
  const ap=await pj();ok(Math.abs(ap.recs[0].rows.reduce((s,z)=>s+z.m,0)-756)<1&&/خطة الإنتاج/.test(ap.recs[0].hist[ap.recs[0].hist.length-1].label),'apply scales the recipe to the plan and saves a version first');
