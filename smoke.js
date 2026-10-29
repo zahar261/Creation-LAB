@@ -338,4 +338,23 @@ console.log('22) versions, product label, production plan, new home');
  ok(await p.evaluate(()=>!/nav_privacy/.test(document.querySelector('footer').innerText)),'footer has no untranslated key');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
+console.log('23) chef name on the PDF');
+{const p=await mk(1280);await newProj(p,'شوكولاتة داكنة 70% 300\nكريمة 35% 250');
+ await p.evaluate(()=>document.querySelector('.ws-acts [data-pdf]').click());await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>/ZAHAR ANASS/.test(document.getElementById('pdfov').innerText)),'without a chef name the sheet keeps the platform credit');
+ await p.evaluate(()=>document.querySelector('[data-pdfact=x]').click());
+ await p.evaluate(()=>document.getElementById('bSet').click());await p.waitForTimeout(500);await p.fill('#chefIn','الشيف سارة');await p.waitForTimeout(200);
+ ok(await p.evaluate(()=>JSON.parse(localStorage.getItem('zm-chef'))==='الشيف سارة'),'settings save the chef name');
+ await p.evaluate(()=>document.querySelector('[data-pj]').click());await p.waitForTimeout(400);
+ await p.evaluate(()=>document.querySelector('.ws-acts [data-pdf]').click());await p.waitForTimeout(900);
+ const t=await p.evaluate(()=>document.getElementById('pdfov').innerText);
+ ok(/إعداد: الشيف سارة/.test(t)&&/الشيف سارة · CREATION LAB/.test(t)&&!/ZAHAR/.test(t),'the sheet header and footer show the chef name');
+ p.once('dialog',d=>d.accept('Chef Sara'));await p.evaluate(()=>document.querySelector('[data-chefask]').click());await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>/BY CHEF SARA/.test(document.getElementById('pdfov').innerText)),'the name can be changed straight from the PDF view');
+ await p.evaluate(()=>document.querySelector('[data-pdfact=x]').click());
+ await p.evaluate(()=>{const d=document.getElementById('pj-docs');d.open=true});await p.fill('[data-pf=chef]','Patisserie Nour');await p.dispatchEvent('[data-pf=chef]','change');await p.waitForTimeout(200);
+ await p.evaluate(()=>document.querySelector('.ws-acts [data-pdf]').click());await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>/BY PATISSERIE NOUR/.test(document.getElementById('pdfov').innerText)),'a project can use its own name');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
