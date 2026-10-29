@@ -571,9 +571,66 @@ html{overflow-x:clip}
 #aboutHost{display:none!important}
 .priv .card{margin:12px 0}.priv h2{font-size:20px;margin-top:0}.priv ul{padding-inline-start:20px;margin:6px 0}.priv li{margin:4px 0}
 .danger{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}.danger summary{cursor:pointer;color:#E07A5F;font-weight:700}.danger-btn{background:#9B2C2C!important;color:#fff!important;border-color:#9B2C2C!important}
-.ft-legal{margin:10px 0 0;font-size:14px}.dash-legal{text-align:center;margin:14px 0 0}.dash-legal a,.ft-legal a{color:var(--muted)}
+.ft-legal{margin:10px 0 0;font-size:14px;grid-column:1/-1;flex-basis:100%}.dash-legal{text-align:center;margin:14px 0 0}.dash-legal a,.ft-legal a{color:var(--muted)}
 .totop{position:fixed;inset-inline-start:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--s1);color:var(--ink);font-size:22px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.35);cursor:pointer}@media(min-width:900px){.totop{bottom:24px}}
 .dash-inst{display:flex;gap:10px;align-items:center;background:var(--s1);border:1px dashed var(--acc);border-radius:16px;padding:10px 12px;margin:0 0 12px}.dash-inst>span{font-size:26px}.dash-inst>div{flex:1}.dash-inst p{margin:0}
+/* home v2 */
+.dash-hero{margin:0 0 14px}
+.dash-q{display:flex;gap:8px;margin:4px 0 0}.dash-q .field{flex:1;min-width:0;margin:0}.dash-q .btn{flex:none}
+.dash-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 16px}
+.dash-grid>*{display:grid;align-content:start;gap:3px;text-align:start;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--s1);color:var(--ink);text-decoration:none;cursor:pointer;font:inherit;min-height:104px;transition:border-color .15s,transform .15s}
+.dash-grid>*:hover{border-color:var(--acc);transform:translateY(-1px)}
+.dash-grid .di{font-size:24px;line-height:1.1}.dash-grid b{font-size:16px}.dash-grid small{color:var(--muted);font-size:13px;line-height:1.4}
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 16px}
+.dash-stats>div{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:10px 8px;text-align:center;display:grid;gap:2px}
+.dash-stats b{font-size:22px;color:var(--acc)}.dash-stats .small{color:var(--muted)}
+.dash-how{margin:0 0 16px}.dash-how ol{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.dash-how li{display:flex;gap:10px;align-items:center;background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.dash-how li b{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--hot);color:#fff}
+.dash-sec{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.dash-sec a{color:var(--acc)}
+.dash-tip{display:grid;gap:4px;justify-items:start;background:var(--s1);border:1px solid var(--line);border-inline-start:4px solid var(--acc);border-radius:16px;padding:12px 14px;margin:0 0 14px}
+.dash-tip>.small{color:var(--acc);font-weight:700}.dash-tip p{margin:0;color:var(--muted)}
+.dash-new{border:1px dashed var(--line);border-radius:16px;padding:10px 14px;margin:0 0 14px}.dash-new>.small{color:var(--acc);font-weight:700}
+.dash-new ul{margin:4px 0 0;padding-inline-start:18px;display:grid;gap:2px;font-size:14px}
+@media (max-width:640px){.dash-grid{grid-template-columns:repeat(2,1fr)}.dash-stats{grid-template-columns:repeat(2,1fr)}.dash-grid>*{min-height:96px;padding:12px}}
+/* versions */
+.vers{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:12px}
+.vers-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0 0 8px}.vers-h b{color:var(--acc)}
+.vers-new{display:flex;gap:8px}.vers-new .field{flex:1;min-width:0;margin:0}.vers-new .btn{flex:none}
+.vers li small{color:var(--muted)}.vers-b{display:flex;gap:6px;flex:none}
+/* production plan */
+.plan{border-bottom:0}.plan>summary{align-items:center;padding:0}.pl-st{display:grid;gap:2px}.plan>summary h2{margin:0}.plan>summary .small{color:var(--muted);font-weight:400}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.plan-c{display:grid;gap:6px;margin:4px 0 8px}.plan-c>div{display:flex;align-items:center;gap:8px;justify-content:space-between}.plan-c .field{max-width:120px;margin:0}
+.plan-t td.up{color:var(--ok,#7FB069)}.plan-t td.dn{color:#E07A5F;font-weight:700}
+@media (max-width:640px){.grid4{grid-template-columns:1fr 1fr}}
+/* product label */
+.lb-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:16px;align-items:start}
+.lb-form .grid2{gap:8px}.lb-form .field{margin:0}.lb-w{grid-column:1/-1}
+.lb-more{margin-top:10px}.lb-more summary{cursor:pointer;color:var(--acc);font-weight:700;font-size:14px}
+.lb-chk{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:14px}.lb-chk .ok{color:var(--ok,#7FB069)}.lb-chk .no{color:var(--muted)}
+.lb-prev{position:sticky;top:0}
+.lb-cta{margin:0 0 8px}
+#adj.lbm .adj-in{width:min(1080px,100%)}
+@media (max-width:820px){.lb-grid{grid-template-columns:1fr}.lb-prev{position:static;order:-1}}
+.flbl{background:#fff;color:#111;border:1.5px solid #111;border-radius:6px;padding:10px 12px;font:12px/1.45 "Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;text-align:start}
+.flbl b{font-weight:800}.flbl small{font-size:10px;color:#444}
+.fl-hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:2px solid #111;padding-bottom:6px;margin-bottom:6px;flex-wrap:wrap}
+.fl-ar{font-size:17px;font-weight:800}.fl-en{font-size:15px;font-weight:800}
+.fl-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}.fl-blk{font-size:11.5px}.fl-blk[dir=ltr]{text-align:left}
+.fl-al{margin:4px 0 0;font-size:11.5px}.fl-al.m b{font-weight:700}
+.fl-nt{width:100%;border-collapse:collapse;border:1.5px solid #111;font-size:11px;margin:6px 0}
+.fl-nt th,.fl-nt td{border-bottom:1px solid #111;padding:2px 5px;text-align:center;vertical-align:middle;color:#111;background:#fff}
+.fl-nt td:first-child{text-align:start}.fl-nt td:first-child span[dir=ltr]{float:left;margin-inline-start:6px}
+.fl-tt{font-size:14px;border-bottom:4px solid #111!important}.fl-tt{display:table-cell}.fl-tt span{display:inline-block;margin:0 8px}
+.fl-sh th{font-size:10px;font-weight:700;border-bottom:2px solid #111}
+.fl-i1 td:first-child{padding-inline-start:16px}.fl-i2 td:first-child{padding-inline-start:28px}.fl-i0 td:first-child span{font-weight:800}
+.fl-sm{font-size:9.5px;margin:0 0 6px;color:#333}
+.fl-inf{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:4px 0 6px}.fl-inf>div{border:1px solid #111;border-radius:3px;padding:3px 5px;display:grid}.fl-inf b{font-size:12px;min-height:15px}
+.fl-ft p{margin:2px 0;font-size:11px}.fl-ft span[dir=ltr]{display:block;text-align:left}
+@media (max-width:480px){.fl-2{grid-template-columns:1fr}.fl-inf{grid-template-columns:1fr 1fr}}
+.pd-lbl{width:150mm;margin:4mm auto 0}.pd-lbl .flbl{font-size:11px}
 /* installed app: no website footer, respect the phone's notch */
 @media (display-mode: standalone){footer,#aboutHost{display:none!important}header.top{padding-top:env(safe-area-inset-top)}}
 @supports (overflow:clip){body{overflow-x:clip!important}}
@@ -596,7 +653,7 @@ html{overflow-x:clip}
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
 <polygon transform="translate(0,0)" fill="currentColor" points="0,0 170,0 170,38 46,202 170,202 170,240 0,240 0,202 124,38 0,38"/><g transform="translate(210,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(440,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><rect y="101.0" width="170" height="38"/></g><g transform="translate(650,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(880,0)"><rect width="38" height="240" fill="currentColor"/><path d="M19,19 H100 A47,47 0 0 1 100,113 H19" fill="none" stroke="currentColor" stroke-width="38"/><polygon fill="currentColor" points="38,38 76,38 164,240 120,240"/></g><g transform="translate(1206,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(1436,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><polygon points="0,0 52,0 170,240 118,240"/></g><g transform="translate(1646,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><path transform="translate(1876,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/><path transform="translate(2094,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/>
 
-</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.27-h</span></div></footer>
+</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.29-a</span></div></footer>
 <dialog id="pal" aria-label="Search"><input id="pal-in" class="pal-in" autocomplete="off"><ul id="pal-list" class="pal-list"></ul><div style="padding:8px 16px;color:var(--muted);font-size:13px" id="palhint"></div></dialog>
 <script>
 (function(){try{if(window.top!==window.self&&/(^|\.)zaharcreationlab\.com$|\.github\.io$/i.test(location.hostname)){try{window.top.location.href=location.href}catch(e){document.documentElement.style.display="none"}}}catch(e){}})();
@@ -835,7 +892,7 @@ function applyChrome(){
   $("#bLang").textContent=L==="ar"?"EN":"ع";$("#bLang").setAttribute("aria-label",L==="ar"?"English":"العربية");
   $("#bSearch span").textContent=t("search");$("#bTheme").setAttribute("aria-label",t("theme"));
   $(".skip").textContent=t("skip");
-  $("#fnote").textContent=t("f_note");{const n=$("#ftNav");if(n)n.innerHTML=`<b>${esc(t("ft_nav"))}</b>`+PAGES.map(p=>`<a href="#${p}">${esc(t("nav_"+(p==="suppliers"?"sup":p)))}</a>`).join("");const c=$("#ftCon");if(c)c.innerHTML="";const y=$("#ftCopy");if(y)y.textContent=t("ft_copy")}
+  $("#fnote").textContent=t("f_note");{const n=$("#ftNav");if(n)n.innerHTML=`<b>${esc(t("ft_nav"))}</b>`+PAGES.filter(p=>p!=="privacy").map(p=>`<a href="#${p}">${esc(t("nav_"+(p==="suppliers"?"sup":p)))}</a>`).join("");const c=$("#ftCon");if(c)c.innerHTML="";const y=$("#ftCopy");if(y)y.textContent=t("ft_copy")}
   $("#pal-in").placeholder=t("pal_ph");$("#palhint").textContent=t("pal_hint");
 }
 function theme(v){const h=document.documentElement;h.dataset.theme=v;LSS("zm-theme",v);$("#bTheme").textContent=v==="dark"?"☾":"☀";$('meta[name=theme-color]').content=v==="dark"?"#1B0B0C":"#EBE6DC"}
@@ -1136,7 +1193,7 @@ function recBlock(p,r,i,n){const T=recTotals(r),ri=refIdx(r),rf=r.rows[ri]||{o:0
   <details class="noprint ws-more"><summary>${esc(X("خيارات الجدول","Table options"))}</summary><label style="margin:6px 0;display:flex;align-items:center;gap:6px"><input type="checkbox" data-rshowo="${esc(r.id)}"${r.showO?" checked":""}> ${esc(X("إظهار الكمية الأصلية بجانب المعدّلة","Show the original amount next to the modified one"))}</label><label style="margin:6px 0;display:flex;align-items:center;gap:6px"><input type="checkbox" data-rbk="${esc(r.id)}"${r.bk?" checked":""}> ${esc(X("إظهار نسبة الخباز (للعجائن)","Show baker's % (for doughs)"))}</label>${r.bk?`<label style="margin:0">${esc(U("ref"))}</label><select class="field" data-rref="${esc(r.id)}" style="max-width:220px">${r.rows.map((z,k)=>`<option value="${k}"${k===ri?" selected":""}>${esc(rin(z)||"—")}</option>`).join("")}</select>`:""}</details>
   </div>
   <div class="ws-pane" data-pane="bal">${window.srHtml?window.srHtml(p,r):""}${window.balHtml?window.balHtml(p,r):""}${window.balCompare?window.balCompare(p,r):""}</div>
-  <div class="ws-pane" data-pane="nut">${window.nutriHtml?window.nutriHtml(p,r):""}${window.sciHtml?window.sciHtml(p,r):""}</div>
+  <div class="ws-pane" data-pane="nut"><div class="bar noprint lb-cta"><button type="button" class="btn sm pri" data-lbopen="1">🏷️ ${esc(X("ملصق المنتج (عربي/إنجليزي)","Product label (Arabic/English)"))}</button></div>${window.nutriHtml?window.nutriHtml(p,r):""}${window.sciHtml?window.sciHtml(p,r):""}</div>
   <div class="ws-pane" data-pane="meth"><label>${esc(U("meth"))}</label><textarea class="field" rows="6" data-rmeth="${esc(r.id)}">${esc(methOf(r,L).join("\n"))}</textarea><p class="small note noprint" style="margin:4px 0 0">${esc(X("الأعداد والأوزان المكتوبة داخل الخطوات (مثل «اقطع 11 قرصاً») ثابتة ولا تتغير مع حجم الدفعة، فراجعها بعد تغيير الكمية.","Counts and weights written inside the steps (e.g. “cut 11 discs”) do not change with the batch size, so review them after changing the quantity."))}</p>
   ${window.histHtml?window.histHtml(r):""}
   ${n>1?`<div class="bar noprint"><button class="btn sm ghost" data-recdel="${esc(r.id)}">${esc(U("rm"))}</button></div>`:""}</div></div></div>`}
@@ -1151,8 +1208,9 @@ function renderPjView(){
   const p=PJ.find(z=>z.id===PJSEL),v=$("#pjView");if(!v)return;
   if(!p||PJHIDE===PJSEL){v.innerHTML="";return}
   const R=recsOf(p);
-  v.innerHTML=`<datalist id="dlmat">${DATA.ING_DEFAULTS.map(m=>`<option value="${esc(ingName(m))}">`).join("")}</datalist><div class="ws-head"><button type="button" class="btn sm ghost noprint" data-wsback="1">${L==="ar"?"›":"‹"} ${esc(X("مشاريعي","My projects"))}</button><h1>${esc(p.name)}</h1>${p.goal?`<p class="lead">${esc(p.goal)}</p>`:""}<div class="bar ws-acts noprint"><button class="btn pri" data-pdf="1">${esc(U("pdf"))}</button><button class="btn" data-shr="make">${esc(B("shr"))}</button><button class="btn ghost" data-costtog="1" aria-pressed="${p.showCost?"true":"false"}">${esc(p.showCost?X("إخفاء التكلفة","Hide cost"):X("التكلفة وهامش الربح","Cost and margin"))}</button></div><p class="note" id="pdfMsg" role="status"></p></div>
+  v.innerHTML=`<datalist id="dlmat">${DATA.ING_DEFAULTS.map(m=>`<option value="${esc(ingName(m))}">`).join("")}</datalist><div class="ws-head"><button type="button" class="btn sm ghost noprint" data-wsback="1">${L==="ar"?"›":"‹"} ${esc(X("مشاريعي","My projects"))}</button><h1>${esc(p.name)}</h1>${p.goal?`<p class="lead">${esc(p.goal)}</p>`:""}<div class="bar ws-acts noprint"><button class="btn pri" data-pdf="1">${esc(U("pdf"))}</button><button class="btn" data-lbopen="1">${esc(X("ملصق المنتج","Product label"))}</button><button class="btn" data-vsave="all">${esc(X("احفظ نسخة","Save version"))}</button><button class="btn" data-shr="make">${esc(B("shr"))}</button><button class="btn ghost" data-costtog="1" aria-pressed="${p.showCost?"true":"false"}">${esc(p.showCost?X("إخفاء التكلفة","Hide cost"):X("التكلفة وهامش الربح","Cost and margin"))}</button></div><p class="note" id="pdfMsg" role="status"></p></div>
   <div id="pj-recs">${R.map((r,i)=>recBlock(p,r,i,R.length)).join("")}</div>
+  ${window.planCard?window.planCard(p):""}
   <div class="card noprint" id="pj-add"><h2>${esc(U("add"))}</h2><div class="grid2"><div><input class="field" id="addq" type="search" placeholder="${esc(X("ابحث عن وصفة (مثال: جاناش، موس، عجينة)…","Search a recipe (e.g. ganache, mousse, dough)…"))}" aria-label="search" style="margin-bottom:6px"><select id="addrec" class="field">${addOpts()}</select></div><div class="bar" style="margin:0"><button class="btn pri" data-addrec="1">${esc(U("add"))}</button><button class="btn" data-addblank="1">${esc(U("blank"))}</button><button class="btn" type="button" data-imp="add">${esc(X("لصق وصفة","Paste a recipe"))}</button></div></div></div>
   ${costCard(p)}<div class="card" id="studio3d"></div>
   <div class="card" id="pj-log"><h3 style="margin-top:0">${esc(t("d_log"))}</h3>
@@ -1256,13 +1314,13 @@ function pdfPages(p){const D=PD[L]||PD.en,U=pdfUnits(p),sheet=$("#pdfSheet");
      else{o+=u.html;i++}}
     return `<section class="pd-page"><div class="pf1"></div><div class="pf2"></div><div class="pd-c">${o}</div>${foot(pi)}</section>`}).join("")}
 function prepPdf(){const p=PJ.find(z=>z.id===PJSEL);if(!p)return false;let el=$("#pdfSheet");if(!el){el=document.createElement("div");el.id="pdfSheet";document.body.appendChild(el)}
-  el.dir=L==="ar"?"rtl":"ltr";el.innerHTML="";document.body.classList.add("pdfp");try{el.innerHTML=pdfPages(p)}catch(e){window.__pe=e.stack;document.body.classList.remove("pdfp");return false}return true}
+  el.dir=L==="ar"?"rtl":"ltr";el.innerHTML="";document.body.classList.add("pdfp");try{el.innerHTML=(window.PDFALT||pdfPages)(p)}catch(e){window.__pe=e.stack;document.body.classList.remove("pdfp");return false}return true}
 function printPdf(){if(!prepPdf())return;
   setTimeout(()=>{try{print()}catch(e){const m=$("#pdfMsg");if(m)m.textContent=U("pdfmsg");document.body.classList.remove("pdfp")}},150)}
 async function saveBlob(blob,name){try{if(window.claude&&claude.use){const d=await claude.use("downloads");if(d){await d.save({filename:name,data:blob});return"saved"}}}catch(e){if(e&&e.code==="declined")return"declined"}
  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);return"anchor"}
 window.saveBlob=saveBlob;
-function exportPdf(){openPdfView()}
+function exportPdf(){window.PDFALT=null;window.PDFNAME="";openPdfView()}
 const clearSheet=()=>{const e=document.getElementById("pdfSheet");if(e)e.innerHTML=""};
 /* own copy first (works offline, no third party); CDN copies only as fallback and pinned with Subresource Integrity */
 const SRI_H2C="sha384-ZZ1pncU3bQe8y31yfZdMFdSpttDoPmOZg2wguVK9almUodir1PghgT0eY7Mrty8H",SRI_JSPDF="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk";
@@ -1278,16 +1336,16 @@ function openPdfView(){if(!prepPdf()){toast(X("ابدأ مشروعاً أولا�
  let ov=document.getElementById("pdfov");if(ov)ov.remove();ov=document.createElement("div");ov.id="pdfov";ov.className="pdfov noprint";ov.setAttribute("role","dialog");ov.setAttribute("aria-modal","true");
  const can=!!(navigator.canShare&&typeof File==="function");
  ov.innerHTML=`<div class="pdfov-bar"><button type="button" class="btn pri" data-pdfact="print">${esc(X("طباعة / حفظ PDF","Print / Save as PDF"))}</button><button type="button" class="btn" data-pdfact="dl">${esc(X("تنزيل PDF (صورة)","Download PDF (image)"))}</button>${can?`<button type="button" class="btn" data-pdfact="share">${esc(X("مشاركة","Share"))}</button>`:""}<button type="button" class="btn ghost" data-pdfact="x">${esc(X("إغلاق","Close"))}</button><span id="pdfovm" role="status" class="small" style="color:#fff">${esc(X("«طباعة / حفظ PDF»: في نافذة الطباعة اختر «حفظ كـ PDF». الملف يكون نصاً قابلاً للنسخ والبحث.","“Print / Save as PDF”: in the print window choose “Save as PDF”. The file keeps real, searchable text."))}</span></div><div class="pdfov-body" dir="${L==="ar"?"rtl":"ltr"}">${pages.map(pg=>`<div class="pdfpg">${pg.outerHTML}</div>`).join("")}</div>`;
- document.body.appendChild(ov);clearSheet();try{const pj=PJ.find(z=>z.id===PJSEL),em=recsOf(pj).filter(r=>!methOf(r,L).length).map(r=>rnm(r)||U("mine"));if(em.length){const mm=document.getElementById("pdfovm");if(mm){mm.textContent=X("تنبيه: لا توجد طريقة عمل في: ","Warning: no method written for: ")+em.join("، ")+X(" — اكتبها في خانة الطريقة (النص الرمادي مجرد مثال غير محفوظ).",". Write it in the method box (the grey text is only an unsaved example).");mm.style.color="#ffd27a"}}}catch(e){}document.body.classList.add("adj-open");pdfFit()}
+ document.body.appendChild(ov);clearSheet();if(!window.PDFALT)try{const pj=PJ.find(z=>z.id===PJSEL),em=recsOf(pj).filter(r=>!methOf(r,L).length).map(r=>rnm(r)||U("mine"));if(em.length){const mm=document.getElementById("pdfovm");if(mm){mm.textContent=X("تنبيه: لا توجد طريقة عمل في: ","Warning: no method written for: ")+em.join("، ")+X(" — اكتبها في خانة الطريقة (النص الرمادي مجرد مثال غير محفوظ).",". Write it in the method box (the grey text is only an unsaved example).");mm.style.color="#ffd27a"}}}catch(e){}document.body.classList.add("adj-open");pdfFit()}
 async function pdfBuild(){await pdfLibs();const p=PJ.find(z=>z.id===PJSEL);if(!p||!prepPdf())throw new Error("no project");
  const pages=[...document.querySelectorAll("#pdfSheet .pd-page")],{jsPDF}=window.jspdf,doc=new jsPDF({unit:"mm",format:"a4",orientation:"portrait",compress:true});
  for(let i=0;i<pages.length;i++){pdfMsg(X("جارٍ بناء الصفحة ","Building page ")+(i+1)+"/"+pages.length);
   const cv=await window.html2canvas(pages[i],{scale:2.5,backgroundColor:"#ffffff",useCORS:true,logging:false,onclone:d=>{const s=d.getElementById("pdfSheet");if(s){s.style.position="static";s.style.left="0";s.style.top="0";s.style.display="block"}d.body.classList.add("pdfp")}});
   if(i)doc.addPage();doc.addImage(cv.toDataURL("image/jpeg",.92),"JPEG",0,0,210,297)}
  document.body.classList.remove("pdfp");clearSheet();const nm=(p.name||"recipe").replace(/[\\/:*?"<>|]+/g," ").trim().slice(0,40)||"recipe";
- return{blob:doc.output("blob"),name:"CREATION-LAB "+nm+".pdf"}}
+ return{blob:doc.output("blob"),name:"CREATION-LAB "+nm+(window.PDFALT&&window.PDFNAME||"")+".pdf"}}
 document.addEventListener("click",async e=>{const b=e.target.closest&&e.target.closest("[data-pdfact]");if(!b)return;const k=b.dataset.pdfact;
- if(k==="x"){const o=document.getElementById("pdfov");if(o)o.remove();document.body.classList.remove("adj-open");return}
+ if(k==="x"){const o=document.getElementById("pdfov");if(o)o.remove();document.body.classList.remove("adj-open");window.PDFALT=null;return}
  if(k==="print"&&(()=>{try{return self===top}catch(e){return false}})()){pdfMsg(X("في نافذة الطباعة اختر «حفظ كـ PDF».","In the print window choose “Save as PDF”."));printPdf();return}
  if(b.disabled)return;b.disabled=true;
  try{const r=await pdfBuild();
@@ -2147,10 +2205,10 @@ document.addEventListener("click",e=>{
   if(b.dataset.radd){const r=RR(b.dataset.radd);if(r){r.rows.push({n:"",ne:"",o:0,m:0});sv()}return}
   if(b.dataset.rdel){const[id,k]=b.dataset.rdel.split("#"),r=RR(id);if(r&&r.rows.length>1){r.rows.splice(+k,1);r.ref=null;sv()}return}
   if(b.dataset.pj){PJSEL=b.dataset.pj;PJHIDE=null;LSS("zm-active",PJSEL);renderDev();window.scrollTo({top:0});return}
-  if(b.dataset.wsback){PJHIDE=PJSEL;renderDev();window.scrollTo({top:0});return}
+  if(b.dataset.wsback){window.verAuto(PJ.find(z=>z.id===PJSEL));PJHIDE=PJSEL;renderDev();window.scrollTo({top:0});return}
   if(b.dataset.ptype!==undefined){window.PTYPE=b.dataset.ptype;document.querySelectorAll("[data-ptype]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));return}
-  if(b.id==="trAdd"){const p=PJ.find(z=>z.id===PJSEL);if(!p)return;const c=$("#trc").value.trim(),r=$("#trr").value.trim();if(!c&&!r)return;p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:c||"—",res:r||"—"});LSS("zm-projects",PJ);renderDev();return}
-  if(b.id==="pjDone"){PJHIDE=PJSEL;saveAll();renderDev();window.scrollTo({top:0,behavior:"smooth"});toast(X("تم حفظ المشروع في «مشاريعي»","Project saved in “My projects”"));return}
+  if(b.id==="trAdd"){const p=PJ.find(z=>z.id===PJSEL);if(!p)return;const c=$("#trc").value.trim(),r=$("#trr").value.trim();if(!c&&!r)return;p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:c||"—",res:r||"—"});window.verAuto(p,X("التجربة ","Trial ")+p.trials.length+": "+(c||r));LSS("zm-projects",PJ);renderDev();return}
+  if(b.id==="pjDone"){window.verAuto(PJ.find(z=>z.id===PJSEL));PJHIDE=PJSEL;saveAll();renderDev();window.scrollTo({top:0,behavior:"smooth"});toast(X("تم حفظ المشروع في «مشاريعي»","Project saved in “My projects”"));return}
   if(b.id==="pjDel"){if(confirm(t("d_delq"))){PJ=PJ.filter(z=>z.id!==PJSEL);PJSEL=null;LSS("zm-projects",PJ);renderDev()}return}
   // calc
   if(b.classList.contains("s-x")){const id=b.closest(".ing").dataset.id;W.rows=W.rows.filter(r=>r.id!==id);renderRows();return}
@@ -2342,15 +2400,13 @@ function adjLog(p,title,sum,res){p.trials.push({d:new Date().toLocaleDateString(
  const line=title+": "+(sum||"—");if(!String(p.changes||"").includes(line))p.changes=(p.changes?p.changes+"\n":"")+line}
 function adjApply(){const p=ADJ.p,rec=ADJ.rec,pr=DATA.PROBLEMS.find(z=>z.id===ADJ.prob);if(!p||!rec||!pr)return;
  const plan=adjPlan(rec,ADJ.items);if(!plan.log.some(x=>x.ok))return;
- rec.hist=rec.hist||[];rec.hist.push({t:Date.now(),label:loc(pr,"title"),rows:rec.rows.map(z=>Object.assign({},z))});if(rec.hist.length>20)rec.hist.shift();
+ window.verPush(rec,X("قبل: ","Before: ")+loc(pr,"title"));
  rec.rows=plan.rows.map(z=>{const c=Object.assign({},z);delete c._new;return c});
  const title=loc(pr,"title"),sum=plan.log.filter(x=>x.ok).map(x=>x.txt).join("؛ ");adjLog(p,title,sum,X("بانتظار التجربة","Awaiting the trial"));
  ADJ.undo={pid:p.id,rid:rec.id};saveAll();adjClose();renderDev();
  const e=$("#toast");e.innerHTML=esc(X("تم تطبيق التعديل على «","Change applied to «")+(rnm(rec)||U("mine"))+"»")+` <button type="button" class="link" data-undo="1">${esc(X("تراجع","Undo"))}</button>`;e.hidden=false;clearTimeout(_tt);_tt=setTimeout(()=>{e.hidden=true},9000)}
 function adjUndo(){const u=ADJ.undo;if(!u)return;const p=PJ.find(z=>z.id===u.pid);if(!p)return;const rec=recsOf(p).find(z=>z.id===u.rid);if(!rec||!rec.hist||!rec.hist.length)return;
  const h=rec.hist.pop();rec.rows=h.rows;p.trials.pop();saveAll();renderDev();toast(X("تم التراجع","Undone"));ADJ.undo=null}
-function histHtml(r){if(!r.hist||!r.hist.length)return"";
- return `<details class="noprint hist"><summary>${esc(X("النسخ السابقة","Previous versions"))} (${r.hist.length})</summary><ul>${r.hist.map((h,i)=>({h,i})).reverse().map(({h,i})=>`<li><span>${esc(new Date(h.t).toLocaleDateString("en-GB"))} · ${esc(h.label)}</span><button type="button" class="btn sm ghost" data-hrest="${r.id}#${i}">${esc(X("استرجع","Restore"))}</button></li>`).join("")}</ul></details>`}
 /* --- paste / import a recipe --- */
 const _ad=s=>String(s).replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/٫/g,".").replace(/،/g,",");
 const _UN=[[/^(?:ملعقة|ملاعق|ملعقه)\s*(?:كبيرة|كبيره|طعام)/,"tbsp"],[/^(?:ملعقة|ملاعق|ملعقه)\s*(?:صغيرة|صغيره|شاي)/,"tsp"],[/^(?:tablespoons?|tbsps?|tbs)(?![a-z])/i,"tbsp"],[/^(?:teaspoons?|tsps?)(?![a-z])/i,"tsp"],[/^(?:ملعقة|ملاعق|ملعقه)(?![\u0600-\u06FF])/,"tbsp"],
@@ -2417,7 +2473,7 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
  if(d.alog){const pr=DATA.PROBLEMS.find(z=>z.id===ADJ.prob);if(pr){adjLog(ADJ.p,loc(pr,"title"),(loc(pr,"fix")||loc(pr,"steps")||[]).slice(0,1).join(""),X("بانتظار التجربة","Awaiting the trial"));saveAll();adjClose();renderDev();toast(X("تم التسجيل في سجل التجارب","Logged in the trial log"))}return}
  if(d.undo){adjUndo();return}
  if(d.hrest){const[rid,i]=d.hrest.split("#"),p=PJ.find(z=>z.id===PJSEL);if(!p)return;const rec=recsOf(p).find(z=>z.id===rid);if(!rec||!rec.hist||!rec.hist[+i])return;
-  rec.hist.push({t:Date.now(),label:X("قبل الاسترجاع","Before restore"),rows:rec.rows.map(z=>Object.assign({},z))});rec.rows=rec.hist[+i].rows.map(z=>Object.assign({},z));saveAll();renderDev();toast(X("تم استرجاع النسخة","Version restored"));return}
+  const vh=rec.hist[+i],vno=window.verNo(vh,+i);window.verPush(rec,X("قبل استرجاع النسخة "+vno,"Before restoring version "+vno));rec.rows=vh.rows.map(z=>Object.assign({},z));saveAll();if(document.getElementById("adj"))adjClose();renderDev();toast(X("تم استرجاع النسخة","Version restored"));return}
  if(d.adjrec){openAdjust(PJSEL,d.adjrec);return}
  if(d.adj){openAdjust(PJSEL,null,d.adj);return}
  if(d.imp){if(d.imp==="new"&&!(($("#pjn")||{}).value||"").trim()){const f=$("#pjn");if(f){f.focus();toast(X("اكتب اسم المنتج أولاً","Write the product name first"))}return}openImport(d.imp);return}
@@ -2715,7 +2771,7 @@ document.addEventListener("change",e=>{const el=e.target;if(!el||!el.dataset)ret
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-bauto],[data-bapply],[data-bcancel]");if(!b)return;const p=PJ.find(z=>z.id===PJSEL),id=b.dataset.bauto||b.dataset.bapply||b.dataset.bcancel,r=p&&recsOf(p).find(z=>z.id===id);if(!r)return;
  if(b.dataset.bcancel){delete BALPROP[id];renderPjView();return}
  if(b.dataset.bauto){if(r.bal===undefined)r.bal=balPid(p,r);BALPROP[id]=balSolve(p,r);(window.WSTAB=window.WSTAB||{})[id]="bal";renderPjView();return}
- const pr=BALPROP[id];if(!pr||!pr.g)return;r.hist=r.hist||[];r.hist.push({t:Date.now(),label:X("قبل الموازنة التلقائية","Before auto-balance"),rows:r.rows.map(z=>Object.assign({},z))});if(r.hist.length>30)r.hist.shift();
+ const pr=BALPROP[id];if(!pr||!pr.g)return;window.verPush(r,X("قبل الموازنة التلقائية","Before auto-balance"));
  const snap=JSON.stringify(r.rows);r.rows.forEach((z,i)=>{z.m=pr.g[i]});r.ref=null;delete BALPROP[id];LSS("zm-projects",PJ);renderPjView();
  toast(X("طُبّقت الموازنة على الوصفة","Balance applied to the recipe"),X("تراجع","Undo"),()=>{r.rows=JSON.parse(snap);r.hist.pop();LSS("zm-projects",PJ);renderPjView();toast(X("تم التراجع","Undone"))},20000)});
 
@@ -2804,13 +2860,181 @@ function dashInstall(){const st=matchMedia("(display-mode: standalone)").matches
 document.addEventListener("click",async e=>{const b=e.target.closest&&e.target.closest("[data-inst]");if(!b)return;
  if(b.dataset.inst==="go"&&window.__dip){const d=window.__dip;window.__dip=null;try{d.prompt();await d.userChoice}catch(_){}const ib=document.getElementById("bInstall");if(ib)ib.remove()}
  else{try{localStorage.setItem("zm-instx","1")}catch(_){}}dashFill()});
-function dashFill(){const d=document.getElementById("dash");if(!d)return;const last=PJ.find(z=>z.id===PJSEL)||PJ[0];
- d.innerHTML=`<div class="wrap dash"><h1>${esc(X("أهلاً شيف 👋","Welcome, chef 👋"))}</h1><p class="lead">${esc(X("وش تبي تسوي اليوم؟","What would you like to do today?"))}</p>
- ${last?`<button type="button" class="dash-cont" data-pjopen="${esc(last.id)}"><span class="small">${esc(X("كمّل آخر مشروع","Continue your last project"))}</span><b>${esc(last.name)}</b>${dashScore(last)}<span class="small">${esc(X((last.trials||[]).length+" تجربة",(last.trials||[]).length+" trials"))}</span></button>`:""}
- <div class="dash-big"><button type="button" data-newpj="1"><span>＋</span>${esc(X("وصفة جديدة","New recipe"))}</button><a href="#solve"><span>🩺</span>${esc(X("حل مشكلة","Fix a problem"))}</a><a href="#library"><span>📚</span>${esc(X("المكتبة","Library"))}</a></div>
- ${PJ.length?`<h2>${esc(X("مشاريعي","My projects"))}</h2><ul class="dash-list">${PJ.slice(0,8).map(p=>`<li><button type="button" data-pjopen="${esc(p.id)}"><span>${esc(p.name)}</span>${dashScore(p)||`<span class="small">${esc(X("بدون نوع","No type"))}</span>`}</button></li>`).join("")}</ul>`:""}
+
+
+/* ================= RECIPE VERSIONS: save, compare, restore ================= */
+const rowsSig=rows=>JSON.stringify((rows||[]).filter(z=>(+z.m||0)>0).map(z=>[rowKey(z),f1(+z.m||0)]));
+function verPush(r,label,o){o=o||{};if(!r||!r.rows||!r.rows.some(z=>(+z.m||0)>0))return false;r.hist=r.hist||[];const last=r.hist[r.hist.length-1];
+ if(o.auto&&last&&rowsSig(last.rows)===rowsSig(r.rows))return false;
+ r.vn=Math.max(r.vn||0,r.hist.reduce((a,h,i)=>Math.max(a,h.v||i+1),0))+1;
+ const h={t:Date.now(),v:r.vn,label:String(label||"").slice(0,120),rows:r.rows.map(z=>Object.assign({},z))};if(o.man)h.man=1;if(o.auto)h.auto=1;
+ r.hist.push(h);if(r.hist.length>40)r.hist.shift();return true}
+function verAuto(p,label){if(!p)return 0;let n=0;recsOf(p).forEach(r=>{if(verPush(r,label||X("حفظ تلقائي","Auto-saved"),{auto:1}))n++});if(n)saveAll();return n}
+const verNo=(h,i)=>h.v||i+1;
+const verDate=t=>new Date(t).toLocaleString("en-GB",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
+function histHtml(r){const H=r.hist||[];
+ return `<div class="noprint hist vers"><div class="vers-h"><b>${esc(X("سجل النسخ","Version history"))}</b><span class="small">${esc(H.length?X(H.length+" نسخة محفوظة",H.length+(H.length===1?" saved version":" saved versions")):X("لا توجد نسخ بعد","No versions yet"))}</span></div>
+ <div class="vers-new"><input class="field" data-vnote="${esc(r.id)}" maxlength="80" placeholder="${esc(X("ملاحظة (اختياري): مثلاً زدت الكريمة 10 غ","Note (optional): e.g. 10 g more cream"))}" aria-label="${esc(X("ملاحظة النسخة","Version note"))}"><button type="button" class="btn sm pri" data-vsave="${esc(r.id)}">${esc(X("احفظ نسخة","Save version"))}</button></div>
+ ${H.length?`<ul>${H.map((h,i)=>({h,i})).reverse().map(({h,i})=>`<li><span><b>${esc(X("النسخة ","Version "))}${verNo(h,i)}</b> <small dir="ltr">${esc(verDate(h.t))}</small>${h.label?`<br><span class="small">${esc(h.label)}</span>`:""}</span><span class="vers-b"><button type="button" class="btn sm" data-hcmp="${esc(r.id)}#${i}">${esc(X("قارن","Compare"))}</button><button type="button" class="btn sm ghost" data-hrest="${esc(r.id)}#${i}">${esc(X("استرجع","Restore"))}</button></span></li>`).join("")}</ul>`:`<p class="small note" style="margin:6px 0 0">${esc(X("كل نسخة تحفظ الكميات كما هي الآن، فتقدر تقارنها لاحقاً أو ترجع لها. المنصة تحفظ نسخة تلقائياً عند تسجيل تجربة أو إغلاق المشروع إذا تغيّرت الكميات.","Each version keeps the amounts as they are now, so you can compare or go back later. The platform also saves one automatically when you log a trial or close the project, if the amounts changed."))}</p>`}</div>`}
+function verCompare(rid,i){const p=actP(),r=p&&recsOf(p).find(z=>z.id===rid),H=(r&&r.hist)||[],h=H[+i];if(!h)return;
+ const A=h.rows,Bn=r.rows,key=z=>rowKey(z)||"#"+String(z.n||""),m=new Map();
+ A.forEach(z=>{if(!(+z.m>0))return;const k=key(z),e=m.get(k)||{z,a:0,b:0};e.a+=+z.m;m.set(k,e)});
+ Bn.forEach(z=>{if(!(+z.m>0))return;const k=key(z),e=m.get(k)||{z,a:0,b:0};e.b+=+z.m;e.z=z;m.set(k,e)});
+ const tr=[...m.values()].map(e=>{const d=r01(e.b-e.a);return `<tr class="${d?"chg":""}"><td>${esc(rin(e.z)||"—")}${!e.a?` <span class="tag c">${esc(X("جديد","new"))}</span>`:!e.b?` <span class="tag">${esc(X("محذوف","removed"))}</span>`:""}</td><td>${r01(e.a)}</td><td><b>${r01(e.b)}</b></td><td class="${d>0?"up":d<0?"dn":""}">${d?(d>0?"+":"")+d:"—"}</td></tr>`}).join("");
+ const sum=rows=>rows.reduce((s,z)=>s+(+z.m||0),0),ind=[],P=BALP[balPid(p,r)];
+ if(P){const qa=balScore(balVals(p,r,A),P.t),qb=balScore(balVals(p,r,Bn),P.t);ind.push([X("التوازن","Balance"),(qa.n-qa.bad)+"/"+qa.n,(qb.n-qb.bad)+"/"+qb.n])}
+ const sa=sciAn(p,{rows:A,bl:r.bl}),sb=sciAn(p,{rows:Bn,bl:r.bl});if(sa.cov>0||sb.cov>0)ind.push([X("نشاط الماء aw","Water activity aw"),sa.aw.toFixed(2),sb.aw.toFixed(2)]);
+ const na=nutrAn(p,{rows:A,bl:r.bl}),nb=nutrAn(p,{rows:Bn,bl:r.bl}),q1=v=>(Math.round(v*10)/10).toString();
+ ind.push([X("السعرات لكل 100 غ","kcal per 100 g"),Math.round(na.kcal),Math.round(nb.kcal)],[X("الدهون %","Fat %"),q1(na.fat),q1(nb.fat)],[X("السكريات %","Sugars %"),q1(na.sugar),q1(nb.sugar)],[X("الوزن الكلي (غ)","Total weight (g)"),r01(sum(A)),r01(sum(Bn))]);
+ const opt=H.map((x,j)=>`<option value="${j}"${j===+i?" selected":""}>${esc(X("النسخة ","Version ")+verNo(x,j)+" · "+verDate(x.t))}</option>`).reverse().join("");
+ adjShell(X("مقارنة النسخ","Compare versions"),`<label class="small" for="hcmpSel">${esc(X("قارن الوصفة الحالية مع:","Compare the current recipe with:"))}</label><select id="hcmpSel" class="field" data-hcmpsel="${esc(r.id)}">${opt}</select>
+  ${h.label?`<p class="note" style="margin:6px 0">${esc(h.label)}</p>`:""}
+  <div style="overflow-x:auto"><table class="dtab adjt"><tr><th>${esc(U("ing"))}</th><th>${esc(X("النسخة ","Version ")+verNo(h,+i))} (${esc(X("غ","g"))})</th><th>${esc(X("الحالية (غ)","Current (g)"))}</th><th>Δ</th></tr>${tr}</table></div>
+  <h4 style="margin:14px 0 6px">${esc(X("المؤشرات","Indicators"))}</h4><div style="overflow-x:auto"><table class="dtab nutt vers-ind"><tr><th></th><th>${esc(X("النسخة ","Version ")+verNo(h,+i))}</th><th>${esc(X("الحالية","Current"))}</th></tr>${ind.map(x=>`<tr${String(x[1])!==String(x[2])?' class="chg"':""}><td>${esc(x[0])}</td><td dir="ltr">${esc(String(x[1]))}</td><td dir="ltr"><b>${esc(String(x[2]))}</b></td></tr>`).join("")}</table></div>
+  <div class="adjcomp"><div><b class="small">${esc(X("النسخة ","Version ")+verNo(h,+i))}</b>${compBar(p,{rows:A})}</div><div><b class="small">${esc(X("الحالية","Current"))}</b>${compBar(p,{rows:Bn})}</div></div>
+  <div class="bar"><button type="button" class="btn pri" data-hrest="${esc(r.id)}#${+i}">${esc(X("استرجع هذه النسخة","Restore this version"))}</button><button type="button" class="btn ghost" data-adjx="1">${esc(X("إغلاق","Close"))}</button></div>
+  <p class="small note" style="margin:6px 0 0">${esc(X("الاسترجاع يحفظ الوصفة الحالية كنسخة أولاً، فما تضيع أي شي.","Restoring saves the current recipe as a version first, so nothing is lost."))}</p>`)}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-vsave],[data-hcmp]");if(!b)return;const p=actP();if(!p)return;
+ if(b.dataset.hcmp){const[rid,i]=b.dataset.hcmp.split("#");verCompare(rid,i);return}
+ const k=b.dataset.vsave,R=k==="all"?recsOf(p):recsOf(p).filter(z=>z.id===k),nf=document.querySelector('[data-vnote="'+k+'"]'),note=(nf&&nf.value.trim())||X("حفظ يدوي","Saved manually");
+ let n=0;R.forEach(r=>{if(verPush(r,note,{man:1}))n++});if(!n){toast(X("أضف كميات للوصفة أولاً","Add amounts to the recipe first"));return}
+ saveAll();renderDev();toast(k==="all"?X("تم حفظ نسخة من كل وصفات المشروع","A version of every recipe in the project was saved"):X("تم حفظ النسخة","Version saved"))});
+document.addEventListener("change",e=>{const el=e.target;if(el&&el.dataset&&el.dataset.hcmpsel)verCompare(el.dataset.hcmpsel,el.value)});
+
+/* ================= PRODUCT LABEL (Arabic + English, laid out for Saudi / Gulf pre-packed food labels) ================= */
+/* daily reference values (2,000 kcal diet) used for the % column */
+const LBDV={kcal:2000,fat:78,sat:20,chol:300,na:2300,carb:275,fib:28,add:50,prot:50};
+const lbClean=s=>String(s||"").replace(/\s*\([^)]*\)/g,"").replace(/\s{2,}/g," ").trim();
+function planUnits(pl){pl=pl||{};const mo=+pl.molds||0,cv=+pl.cav||0;return mo>0&&cv>0?Math.round(mo*cv):Math.max(0,Math.round(+pl.units||0))}
+function planUnitW(p){const c=(p.plan||{}).comp||{};return recsOf(p).reduce((s,r)=>s+(+c[r.id]>0?+c[r.id]:0),0)}
+function lblData(p){const R=recsOf(p),c=(p.plan||{}).comp||{},useP=R.some(r=>+c[r.id]>0);
+ const parts=R.filter(r=>r.rows.some(z=>(+z.m||0)>0)&&(!useP||+c[r.id]>0));
+ let W=0,est=false,aw=0,choc=false;const N={kcal:0,fat:0,sat:0,na:0,carb:0,sugar:0,prot:0,add:0},items=new Map(),al=new Set(),may=new Set(),unk=[];
+ parts.forEach(r=>{const a=nutrAn(p,r);if(a.tot<=0)return;const fin=a.tot*(1-a.bl/100),w=useP?+c[r.id]:fin,k=w/fin;W+=w;if(nBadge(a).cls!=="off")est=true;
+  ["kcal","fat","sat","na","carb","sugar","prot"].forEach(q=>{N[q]+=a[q]*w/100});
+  let add=0;r.rows.forEach(z=>{const g=+z.m||0;if(g<=0)return;const id=rowMat(z),i=id&&ING[id];
+   if(i&&(i.cat==="sugars"||i.cat==="choc"))add+=g*num(i.sugar)/100;if(i&&i.cat==="choc")choc=true;
+   const key=id||"?"+rowKey(z),nm=i?[lbClean(i.name),lbClean(i.en||i.name)]:[String(z.n||z.ne||"").trim(),String(z.ne||z.n||"").trim()];
+   let hasAl=!!(i&&(i.allergens||[]).length);if(!i){const t=(z.n||"")+" "+(z.ne||"");hasAl=ALG_GUESS.some(([,re])=>re.test(t))}
+   const e=items.get(key)||{ar:nm[0],en:nm[1],g:0,al:hasAl};e.g+=g*k;items.set(key,e)});
+  N.add+=(fin>0?add/fin*100:0)*w/100;
+  a.al.forEach(x=>al.add(x));a.alMaybe.forEach(x=>may.add(x));a.unk.forEach(x=>{if(!unk.includes(x))unk.push(x)});
+  const s=sciAn(p,r);if(s.cov>0)aw=Math.max(aw,s.aw)});
+ const per={};Object.keys(N).forEach(q=>{per[q]=W>0?N[q]/W*100:0});per.add=Math.min(per.add,per.sugar);
+ return{W,per,items:[...items.values()].filter(x=>x.g>0).sort((a,b)=>b.g-a.g),al:[...al],may:[...may].filter(x=>!al.has(x)),unk,est,aw,choc,useP,n:parts.length}}
+function lblStore(D){return D.aw>=.91?["يُحفظ مبرّداً بين 0 و4°م","Keep refrigerated at 0–4 °C"]:D.aw>=.85?["يُحفظ مبرّداً","Keep refrigerated"]:D.choc?["يُحفظ في مكان بارد وجاف (15–18°م) بعيداً عن الشمس","Store in a cool, dry place (15–18 °C) away from sunlight"]:["يُحفظ في مكان بارد وجاف","Store in a cool, dry place"]}
+function lblHtml(p){const D=lblData(p),l=p.lab||{},st=lblStore(D),uw=planUnitW(p),net=+l.net||(uw>0?Math.round(uw):0),sv=+l.serv||0;
+ const ingA=l.ingAr?esc(l.ingAr):D.items.map(x=>x.al?`<b>${esc(x.ar)}</b>`:esc(x.ar)).join("، "),ingE=l.ingEn?esc(l.ingEn):D.items.map(x=>x.al?`<b>${esc(x.en)}</b>`:esc(x.en)).join(", ");
+ const alA=D.al.map(a=>(ALG[a]||{ar:a}).ar).join("، "),alE=D.al.map(a=>(ALG[a]||{en:a}).en).join(", ");
+ const mayA=[D.may.map(a=>(ALG[a]||{ar:a}).ar).join("، "),String(l.may||"").trim()].filter(Boolean).join("، "),mayE=[D.may.map(a=>(ALG[a]||{en:a}).en).join(", "),String(l.mayEn||"").trim()].filter(Boolean).join(", ");
+ const ext={trans:l.trans,chol:l.chol,fib:l.fib},v=k=>ext.hasOwnProperty(k)?(ext[k]===""||ext[k]==null||!isFinite(+ext[k])?null:+ext[k]):D.per[k];
+ const R=[["الطاقة","Energy","kcal","",0,0],["الدهون الكلية","Total fat","fat","g",1,0],["الدهون المشبعة","Saturated fat","sat","g",1,1],["الدهون المتحولة","Trans fat","trans","g",1,1],["الكوليسترول","Cholesterol","chol","mg",0,0],["الصوديوم","Sodium","na","mg",0,0],["الكربوهيدرات الكلية","Total carbohydrates","carb","g",1,0],["الألياف الغذائية","Dietary fibre","fib","g",1,1],["السكريات الكلية","Total sugars","sugar","g",1,1],["السكريات المضافة","Added sugars","add","g",1,2],["البروتين","Protein","prot","g",1,0]];
+ const fmtv=(x,dp)=>x==null?"—":dp?(Math.round(x*10)/10).toString():Math.round(x).toString(),un=u=>u==="g"?"g / غ":u==="mg"?"mg / ملغ":"";
+ const cell=(k,u,dp,f)=>{const x=v(k);if(x==null)return"—";if(k==="kcal")return `${Math.round(x*f)} kcal<br><small>${Math.round(x*f*4.184)} kJ</small>`;return fmtv(x*f,dp)+" "+(u==="mg"?"mg":"g")};
+ const dv=(k,f)=>{const x=v(k);return x==null||!LBDV[k]?"":Math.round(x*f/LBDV[k]*100)+"%"};
+ const info=[["الوزن الصافي","Net weight",net?net+" g":""],["تاريخ الإنتاج","Production date",l.prod||""],["تاريخ الانتهاء","Expiry date",l.exp||""],["رقم التشغيلة","Batch no.",l.batch||""]];
+ return `<div class="flbl" dir="rtl"><div class="fl-hd"><div class="fl-ar">${esc(l.name||p.name||"")}</div>${l.nameEn?`<div class="fl-en" dir="ltr">${esc(l.nameEn)}</div>`:""}</div>
+ <div class="fl-2"><div class="fl-blk"><b>المكونات:</b> ${ingA||"—"}${alA?`<p class="fl-al"><b>يحتوي على: ${esc(alA)}</b></p>`:""}${mayA?`<p class="fl-al m"><b>قد يحتوي على آثار من: ${esc(mayA)}</b></p>`:""}</div>
+ <div class="fl-blk" dir="ltr"><b>Ingredients:</b> ${ingE||"—"}${alE?`<p class="fl-al"><b>Contains: ${esc(alE)}</b></p>`:""}${mayE?`<p class="fl-al m"><b>May contain traces of: ${esc(mayE)}</b></p>`:""}</div></div>
+ <table class="fl-nt"><tr><th class="fl-tt" colspan="${sv>0?4:2}"><span>حقائق غذائية</span><span dir="ltr">Nutrition Facts</span></th></tr>
+ <tr class="fl-sh"><th></th><th>لكل 100 غ<br><span dir="ltr">per 100 g</span></th>${sv>0?`<th>للحصة ${sv} غ<br><span dir="ltr">per serving ${sv} g</span></th><th>% *</th>`:""}</tr>
+ ${R.map(([ar,en,k,u,dp,ind])=>`<tr class="fl-i${ind}"><td><span>${esc(ar)}</span><span dir="ltr">${esc(en)}</span></td><td dir="ltr">${cell(k,u,dp,1)}</td>${sv>0?`<td dir="ltr">${cell(k,u,dp,sv/100)}</td><td dir="ltr">${dv(k,sv/100)}</td>`:""}</tr>`).join("")}</table>
+ ${sv>0?`<p class="fl-sm">* النسبة من القيمة اليومية المرجعية على أساس نظام غذائي 2000 سعرة. <span dir="ltr">* % Daily Value based on a 2,000 kcal diet.</span>${net&&sv?` · ${Math.round(net/sv*10)/10} حصة في العبوة <span dir="ltr">servings per pack</span>`:""}</p>`:""}
+ <div class="fl-inf">${info.map(([ar,en,val])=>`<div><small>${ar} <span dir="ltr">${en}</span></small><b dir="ltr">${esc(val)||"&nbsp;"}</b></div>`).join("")}</div>
+ <div class="fl-ft"><p><b>طريقة الحفظ:</b> ${esc(l.storeAr||st[0])} <span dir="ltr"><b>Storage:</b> ${esc(l.storeEn||st[1])}</span></p>${l.maker||l.makerEn?`<p><b>المنتِج:</b> ${esc(l.maker||"")} <span dir="ltr">${l.makerEn?`<b>Produced by:</b> ${esc(l.makerEn)}`:""}</span></p>`:""}${l.origin||l.originEn?`<p><b>بلد المنشأ:</b> ${esc(l.origin||"")} <span dir="ltr">${l.originEn?`<b>Country of origin:</b> ${esc(l.originEn)}`:""}</span></p>`:""}</div></div>`}
+function lblCheck(p){const l=p.lab||{},D=lblData(p),uw=planUnitW(p),ok=(c,ar,en)=>({c:!!c,t:X(ar,en)});
+ return[ok(l.name||p.name,"اسم المنتج","Product name"),ok(D.items.length,"قائمة المكونات (من الأكثر للأقل)","Ingredient list (heaviest first)"),ok(!D.unk.length,"كل المكونات معروفة لتحديد الحساسية","Every ingredient identified for allergens"),ok(+l.net||uw>0,"الوزن الصافي","Net weight"),ok(l.prod,"تاريخ الإنتاج","Production date"),ok(l.exp,"تاريخ الانتهاء","Expiry date"),ok(l.maker,"اسم المنتِج وعنوانه","Producer name and address"),ok(l.origin,"بلد المنشأ","Country of origin"),ok(l.batch,"رقم التشغيلة","Batch number"),ok(!D.est,"قيم غذائية من تحليل أو ملصقات رسمية","Nutrition from lab analysis or official labels")]}
+function lblSide(p){const D=lblData(p),C=lblCheck(p),miss=C.filter(x=>!x.c).length;
+ return `<ul class="lb-chk">${C.map(x=>`<li class="${x.c?"ok":"no"}">${x.c?"✓":"⚠"} ${esc(x.t)}</li>`).join("")}</ul>
+ ${miss?`<p class="small note" style="margin:4px 0 0">${esc(X("باقي "+miss+" من "+C.length+" قبل ما يصير الملصق جاهزاً للبيع.",miss+" of "+C.length+" left before the label is ready for sale."))}</p>`:`<p class="small" style="margin:4px 0 0;color:var(--ok,#7FB069)">${esc(X("الملصق مكتمل ✓","The label is complete ✓"))}</p>`}
+ ${D.unk.length?`<p class="note warn" style="margin:6px 0">${esc(X("⚠ مكونات غير معروفة للمنصة: ","⚠ Ingredients unknown to the platform: "))}${esc(D.unk.join(X("، ",", ")))}. ${esc(X("حدّدها من تبويب «المكوّنات» قبل الطباعة.","Identify them from the Ingredients tab before printing."))}</p>`:""}
+ ${D.est?`<p class="note warn" style="margin:6px 0">${esc(X("القيم الغذائية تقديرية. للمنتج المعروض للبيع اعتمد تحليلاً مخبرياً وأدخل قيمه من «تعديل القيم يدوياً» في تبويب القيم.","Nutrition values are estimates. For a product on sale, use a lab analysis and enter it under “Edit the values manually” in the Nutrition tab."))}</p>`:""}
+ ${D.n>1&&!D.useP?`<p class="note" style="margin:6px 0">${esc(X("المشروع فيه أكثر من وصفة، فحسبنا الملصق من أوزان الدفعات. لنسب المنتج النهائي الصحيحة (مثل قشرة وحشوة) اكتب وزن كل وصفة في القطعة في «خطة الإنتاج».","The project has several recipes, so the label uses the batch weights. For the true proportions of the finished product (e.g. shell and filling), enter each recipe's weight per piece in “Production plan”."))}</p>`:""}`}
+const LBF=[["name","اسم المنتج (عربي)","Product name (Arabic)","text"],["nameEn","اسم المنتج (إنجليزي)","Product name (English)","text"],["net","الوزن الصافي (غ)","Net weight (g)","number"],["serv","وزن الحصة (غ)","Serving size (g)","number"],["prod","تاريخ الإنتاج","Production date","date"],["exp","تاريخ الانتهاء","Expiry date","date"],["batch","رقم التشغيلة","Batch number","text"],["maker","المنتِج والعنوان (عربي)","Producer and address (Arabic)","text"],["makerEn","المنتِج والعنوان (إنجليزي)","Producer and address (English)","text"],["origin","بلد المنشأ (عربي)","Country of origin (Arabic)","text"],["originEn","بلد المنشأ (إنجليزي)","Country of origin (English)","text"]];
+const LBF2=[["storeAr","طريقة الحفظ (عربي)","Storage (Arabic)","text"],["storeEn","طريقة الحفظ (إنجليزي)","Storage (English)","text"],["may","قد يحتوي على آثار من (عربي)","May contain traces of (Arabic)","text"],["mayEn","قد يحتوي على آثار من (إنجليزي)","May contain traces of (English)","text"],["ingAr","قائمة المكونات بصياغتك (عربي)","Your own ingredient list (Arabic)","area"],["ingEn","قائمة المكونات بصياغتك (إنجليزي)","Your own ingredient list (English)","area"],["trans","الدهون المتحولة لكل 100 غ (من التحليل)","Trans fat per 100 g (from analysis)","number"],["chol","الكوليسترول ملغ لكل 100 غ (من التحليل)","Cholesterol mg per 100 g (from analysis)","number"],["fib","الألياف لكل 100 غ (من التحليل)","Fibre per 100 g (from analysis)","number"]];
+function openLabel(){const p=actP();if(!p){toast(X("ابدأ مشروعاً أولاً","Start a project first"));return}p.lab=p.lab||{};const l=p.lab,D=lblData(p),st=lblStore(D),uw=planUnitW(p);
+ const ph={name:p.name,net:uw>0?Math.round(uw):"",storeAr:st[0],storeEn:st[1],maker:X("مثال: حلويات زهار، الرياض، حي النخيل","e.g. Zahar Pastry, Riyadh"),origin:X("مثال: المملكة العربية السعودية","e.g. Saudi Arabia"),originEn:"e.g. Saudi Arabia",may:X("مثال: فول سوداني","e.g. peanut"),ingAr:X("فارغ = تُكتب تلقائياً من الوصفة","Empty = written from the recipe"),ingEn:"Empty = written from the recipe"};
+ const fld=([k,ar,en,ty])=>`<div class="${ty==="area"?"lb-w":""}"><label class="small" for="lb_${k}">${esc(X(ar,en))}</label>${ty==="area"?`<textarea id="lb_${k}" class="field" rows="2" data-lb="${k}" placeholder="${esc(ph[k]||"")}">${esc(l[k]||"")}</textarea>`:`<input id="lb_${k}" class="field" type="${ty}"${ty==="number"?' min="0" step="any" inputmode="decimal"':""} data-lb="${k}" value="${esc(l[k]==null?"":l[k])}" placeholder="${esc(ph[k]||"")}">`}</div>`;
+ adjShell(X("ملصق المنتج","Product label"),`<p class="note" style="margin:0 0 10px">${esc(X("ملصق بالعربي والإنجليزي مرتّب حسب متطلبات بطاقة الأغذية المعبأة في السعودية والخليج: المكونات من الأكثر للأقل، مسببات الحساسية بخط عريض، الحقائق الغذائية، التواريخ، والحفظ. القيم تُحسب من وصفتك وتتحدّث معها.","An Arabic and English label laid out to the requirements for pre-packed food labels in Saudi Arabia and the Gulf: ingredients heaviest first, allergens in bold, nutrition facts, dates and storage. The values come from your recipe and update with it."))}</p>
+  <div class="lb-grid"><div class="lb-form"><div class="grid2">${LBF.map(fld).join("")}</div>
+   <details class="lb-more"><summary>${esc(X("خيارات إضافية: الحفظ، آثار الحساسية، صياغة المكونات، قيم التحليل","More: storage, allergen traces, ingredient wording, lab values"))}</summary><div class="grid2">${LBF2.map(fld).join("")}</div></details>
+   <h4 style="margin:12px 0 4px">${esc(X("جاهزية الملصق","Label readiness"))}</h4><div id="lbSide">${lblSide(p)}</div></div>
+   <div class="lb-prev"><div id="lbPrev">${lblHtml(p)}</div></div></div>
+  <div class="bar"><button type="button" class="btn pri" data-lbact="pdf">${esc(X("ورقة للطباعة (PDF)","Print sheet (PDF)"))}</button><button type="button" class="btn" data-lbact="png">${esc(X("تنزيل صورة الملصق (PNG)","Download label image (PNG)"))}</button><button type="button" class="btn ghost" data-adjx="1">${esc(X("إغلاق","Close"))}</button></div><p class="small note" id="lbMsg" role="status" style="margin:4px 0 0"></p>`).classList.add("lbm")}
+let _lbT=0;
+document.addEventListener("input",e=>{const el=e.target;if(!el.dataset||el.dataset.lb==null)return;const p=actP();if(!p)return;p.lab=p.lab||{};const k=el.dataset.lb;let v=el.value;if(el.type==="number")v=v===""?"":Math.max(0,+v||0);p.lab[k]=typeof v==="string"?v.slice(0,600):v;if(p.lab[k]==="")delete p.lab[k];
+ const pv=document.getElementById("lbPrev"),sd=document.getElementById("lbSide");if(pv)pv.innerHTML=lblHtml(p);if(sd)sd.innerHTML=lblSide(p);clearTimeout(_lbT);_lbT=setTimeout(()=>{saveAll();try{svLater()}catch(_){}},400)});
+function lblSheet(p){return `<section class="pd-page"><div class="pf1"></div><div class="pf2"></div><div class="pd-c"><div class="pd-h"><div class="pd-ac">CREATION LAB</div><h1>${esc(X("ملصق المنتج","Product label"))}: ${esc((p.lab&&p.lab.name)||p.name)}</h1><div class="pd-sub">${esc(X("مسودة للطباعة والقص. راجع كل البيانات قبل الاستخدام.","Draft to print and cut. Check every detail before use."))}</div></div>
+ <div class="pd-lbl">${lblHtml(p)}</div><p class="pd-n2">${esc(lblData(p).est?X("تنبيه: القيم الغذائية في هذا الملصق تقديرية محسوبة من قاعدة مواد المنصة، ولا تصلح لمنتج معروض للبيع قبل اعتمادها بتحليل مخبري.","Note: the nutrition values on this label are estimates from the platform's materials data and are not fit for a product on sale until confirmed by lab analysis."):X("القيم الغذائية من مصادر رسمية أو أدخلها الشيف يدوياً.","Nutrition values are from official sources or were entered by the chef."))}</p></div><div class="pd-ft"><b>CREATION LAB</b><br>zaharcreationlab.com</div></section>`}
+function openSheet(fn,suffix){window.PDFALT=fn;window.PDFNAME=suffix||"";adjClose();openPdfView()}
+document.addEventListener("click",async e=>{const b=e.target.closest&&e.target.closest("[data-lbact],[data-lbopen]");if(!b)return;
+ if(b.dataset.lbopen!==undefined){openLabel();return}const p=actP();if(!p)return;
+ if(b.dataset.lbact==="pdf"){saveAll();openSheet(lblSheet,X(" - ملصق"," - label"));return}
+ if(b.dataset.lbact==="png"){const m=document.getElementById("lbMsg"),el=document.querySelector("#lbPrev .flbl");if(!el)return;b.disabled=true;if(m)m.textContent=X("جارٍ تجهيز الصورة…","Preparing the image…");
+  try{await pdfLibs();const cv=await window.html2canvas(el,{scale:3,backgroundColor:"#ffffff",logging:false});const bl=await new Promise(ok=>cv.toBlob(ok,"image/png"));const nm=((p.lab&&p.lab.name)||p.name||"label").replace(/[\\/:*?"<>|]+/g," ").trim().slice(0,40);const st=await saveBlob(bl,"CREATION-LAB "+nm+" label.png");if(m)m.textContent=st==="declined"?X("أُلغي الحفظ.","Save cancelled."):X("تم إنشاء صورة الملصق.","Label image created.")}
+  catch(er){if(m)m.textContent=X("تعذّر إنشاء الصورة هنا. استعمل «ورقة للطباعة».","Could not build the image here. Use “Print sheet”.")}finally{b.disabled=false}}});
+
+/* ================= PRODUCTION PLAN: pieces, moulds, losses, production sheet ================= */
+function planRows(p){const pl=p.plan||{},c=pl.comp||{},u=planUnits(pl),loss=Math.min(50,Math.max(0,pl.loss==null?5:+pl.loss||0));
+ return recsOf(p).map(r=>{const g=+c[r.id]||0,need=u*g*(1+loss/100),have=recTotals(r).m;return{r,g,need,have}})}
+function planRes(p){const pl=p.plan||{},u=planUnits(pl),R=planRows(p),uw=planUnitW(p),any=R.some(x=>x.need>0);
+ if(!u||!any)return `<p class="small note" style="margin:6px 0 0">${esc(!u?X("اكتب عدد القطع (أو عدد القوالب وتجاويفها) عشان نحسب الكميات.","Enter the number of pieces (or moulds and cavities) to calculate the amounts."):X("اكتب وزن كل وصفة في القطعة الواحدة.","Enter each recipe's weight per piece."))}</p>`;
+ return `<div style="overflow-x:auto"><table class="dtab nutt plan-t"><tr><th>${esc(X("الوصفة","Recipe"))}</th><th>${esc(X("المطلوب (غ)","Needed (g)"))}</th><th>${esc(X("الدفعة الحالية (غ)","Current batch (g)"))}</th><th></th></tr>${R.filter(x=>x.need>0).map(x=>{const d=x.have-x.need;return `<tr><td>${esc(rnm(x.r)||U("mine"))}</td><td dir="ltr"><b>${Math.ceil(x.need)}</b></td><td dir="ltr">${Math.round(x.have)}</td><td class="${d>=0?"up":"dn"}">${d>=0?esc(X("تكفي ✓","Enough ✓")):esc(X("ينقص ","Short ")+Math.ceil(-d)+X(" غ"," g"))}</td></tr>`}).join("")}</table></div>
+ <p class="small" style="margin:6px 0 0">${esc(X(u+" قطعة × "+r01(uw)+" غ = "+r01(u*uw/1000)+" كغ منتج نهائي، مع فاقد "+(pl.loss==null?5:+pl.loss||0)+"%.",u+" pieces × "+r01(uw)+" g = "+r01(u*uw/1000)+" kg of finished product, with "+(pl.loss==null?5:+pl.loss||0)+"% loss."))}</p>`}
+function planCard(p){const pl=p.plan||{},c=pl.comp||{},R=recsOf(p),u=planUnits(pl),num1=(k,ar,en,ph)=>`<div><label class="small" for="pl_${k}">${esc(X(ar,en))}</label><input id="pl_${k}" class="field" type="number" min="0" step="any" inputmode="decimal" data-pl="${k}" value="${esc(pl[k]==null?"":pl[k])}" placeholder="${esc(ph)}"></div>`;
+ return `<details class="card noprint plan" id="pj-plan"${u||pl.open?" open":""}><summary><span class="pl-st"><h2>${esc(X("خطة الإنتاج","Production plan"))}</h2><span class="small">${esc(u?X(u+" قطعة",u+" pieces"):X("كم قطعة تبي؟ المنصة تحسب الكميات وتطلع ورقة الإنتاج","How many pieces? The platform works out the amounts and the production sheet"))}</span></span></summary>
+ <div class="grid4">${num1("molds","عدد القوالب","Moulds","3")}${num1("cav","تجاويف القالب","Cavities per mould","24")}${num1("units","أو عدد القطع مباشرة","Or the number of pieces","72")}${num1("loss","الفاقد %","Loss %","5")}</div>
+ <p class="small note" style="margin:6px 0">${esc(X("إذا كتبت القوالب والتجاويف تُحسب القطع منها. الفاقد هو ما يبقى في الأواني وكيس الحلواني (5–10% عادة).","If you enter moulds and cavities, the pieces are calculated from them. Loss is what stays in bowls and piping bags (usually 5–10%)."))}</p>
+ <label class="small">${esc(X("وزن كل وصفة في القطعة الواحدة (غ)","Weight of each recipe in one piece (g)"))}</label>
+ <div class="plan-c">${R.map(r=>`<div><span>${esc(rnm(r)||U("mine"))}</span><input class="field" type="number" min="0" step="any" inputmode="decimal" data-plg="${esc(r.id)}" value="${esc(c[r.id]==null?"":c[r.id])}" placeholder="${esc(X("مثال: 8","e.g. 8"))}" aria-label="${esc(X("غ للقطعة","g per piece"))}"></div>`).join("")}</div>
+ <div id="planRes">${planRes(p)}</div>
+ <div class="bar"><button type="button" class="btn pri" data-plact="apply">${esc(X("طبّق الكميات على الوصفات","Apply the amounts to the recipes"))}</button><button type="button" class="btn" data-plact="sheet">${esc(X("ورقة الإنتاج (PDF)","Production sheet (PDF)"))}</button><button type="button" class="btn ghost" data-lbopen="1">${esc(X("ملصق المنتج","Product label"))}</button></div></details>`}
+let _plT=0;
+document.addEventListener("input",e=>{const el=e.target;if(!el.dataset||(el.dataset.pl==null&&el.dataset.plg==null))return;const p=actP();if(!p)return;p.plan=p.plan||{};const v=el.value===""?null:Math.max(0,+el.value||0);
+ if(el.dataset.pl!=null){if(v==null)delete p.plan[el.dataset.pl];else p.plan[el.dataset.pl]=el.dataset.pl==="loss"?Math.min(50,v):v}else{p.plan.comp=p.plan.comp||{};if(v==null)delete p.plan.comp[el.dataset.plg];else p.plan.comp[el.dataset.plg]=v}
+ const out=document.getElementById("planRes");if(out)out.innerHTML=planRes(p);const sm=document.querySelector("#pj-plan>summary .small"),u=planUnits(p.plan);if(sm&&u)sm.textContent=X(u+" قطعة",u+" pieces");
+ clearTimeout(_plT);_plT=setTimeout(()=>{saveAll();try{svLater()}catch(_){}},400)});
+document.addEventListener("toggle",e=>{const d=e.target;if(d&&d.id==="pj-plan"){const p=actP();if(p){p.plan=p.plan||{};p.plan.open=d.open?1:0}}},true);
+function planSheet(p){const pl=p.plan||{},u=planUnits(pl),R=planRows(p).filter(x=>x.need>0),uw=planUnitW(p),D=PD[L]||PD.en,today=new Date().toLocaleDateString("en-GB");
+ const blk=x=>{const r=x.r,T=recTotals(r).m||1,f=x.need/T,st=methOf(r,L);return{h:4+r.rows.filter(z=>+z.m>0).length+st.reduce((s,t)=>s+Math.ceil(String(t).length/95),0),html:`<h3 class="pd-rn">${esc(rnm(r)||U("mine"))} <small>— ${Math.ceil(x.need)} ${esc(X("غ","g"))} (${esc(X(x.g+" غ للقطعة",x.g+" g per piece"))})</small></h3>
+  <table class="pd-t"><colgroup><col style="width:9%"><col style="width:55%"><col style="width:20%"><col style="width:16%"></colgroup><tr><th>✓</th><th style="text-align:start">${esc(D.ing)}</th><th>${esc(X("الكمية (غ)","Amount (g)"))}</th><th>%</th></tr>${r.rows.filter(z=>+z.m>0).map(z=>`<tr><td>☐</td><td style="text-align:start">${esc(rin(z))}</td><td><b class="pd-nm">${r01(z.m*f)}</b></td><td class="pd-nm">${r01(z.m/T*100)}%</td></tr>`).join("")}<tr class="tt"><td></td><td><b>${esc(D.tot)}</b></td><td><b class="pd-nm">${r01(x.need)}</b></td><td></td></tr></table>
+  ${st.length?`<ol class="pd-l">${st.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`:""}`}};
+ const head=`<div class="pd-h"><div class="pd-ac">CREATION LAB</div><h1>${esc(X("ورقة الإنتاج","Production sheet"))}: ${esc(p.name)}</h1></div>
+ <div class="pd-meta"><div><small>${esc(X("التاريخ","Date"))}</small><b class="pd-nm">${esc(today)}</b></div><div><small>${esc(X("عدد القطع","Pieces"))}</small><b class="pd-nm">${u}</b></div><div><small>${esc(X("وزن القطعة","Piece weight"))}</small><b><span class="pd-nm">${r01(uw)}</span> ${esc(X("غ","g"))}</b></div><div><small>${esc(X("الفاقد","Loss"))}</small><b class="pd-nm">${pl.loss==null?5:+pl.loss||0}%</b></div></div>
+ ${+pl.molds>0&&+pl.cav>0?`<p class="pd-goal">${esc(X(pl.molds+" قوالب × "+pl.cav+" تجويف",pl.molds+" moulds × "+pl.cav+" cavities"))}</p>`:""}`;
+ const fin=`<div class="pd-fin">${esc(X("المنفّذ","Made by"))}: <span class="ln"></span><br>${esc(X("رقم التشغيلة","Batch no."))}: <span class="ln"></span><br>${esc(X("ملاحظات","Notes"))}: <span class="ln"></span></div>`;
+ const pages=[];let cur=[],h=12;R.map(blk).forEach(b=>{if(cur.length&&h+b.h>52){pages.push(cur);cur=[];h=0}cur.push(b.html);h+=b.h});pages.push(cur);
+ return pages.map((pg,i)=>`<section class="pd-page"><div class="pf1"></div><div class="pf2"></div><div class="pd-c">${i?"":head}${pg.join("")}${i===pages.length-1?fin:""}</div><div class="pd-ft"><b>CREATION LAB</b><br>zaharcreationlab.com · ${i+1}/${pages.length}</div></section>`).join("")}
+function planScale(r,need){const T=recTotals(r).m;if(!(T>0)||!(need>0))return;const f=need/T;r.rows.forEach(z=>{z.m=f1((+z.m||0)*f);z.o=f1((+z.o||0)*f);delete z._m;delete z._o});r.batch=Math.round(need)/1000}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-plact]");if(!b)return;const p=actP();if(!p)return;const R=planRows(p).filter(x=>x.need>0);
+ if(!R.length){toast(X("اكتب عدد القطع ووزن كل وصفة في القطعة أولاً","Enter the pieces and each recipe's weight per piece first"));return}
+ if(b.dataset.plact==="sheet"){saveAll();openSheet(planSheet,X(" - ورقة الإنتاج"," - production sheet"));return}
+ R.forEach(x=>{verPush(x.r,X("قبل تطبيق خطة الإنتاج","Before applying the production plan"));planScale(x.r,x.need);if(x.r===p.recs[0])p.batch=x.r.batch});
+ saveAll();renderDev();toast(X("تم ضبط كميات الوصفات حسب خطة الإنتاج، وحُفظت نسخة قبل التغيير","Recipe amounts set to the production plan; a version was saved before the change"))});
+
+/* ================= HOME: start screen ================= */
+function dashStats(){let rc=0,vc=0,bal=0;PJ.forEach(p=>{recsOf(p).forEach(r=>{if(!r.rows.some(z=>(+z.m||0)>0))return;rc++;vc+=(r.hist||[]).length;const P=BALP[balPid(p,r)];if(P){const q=balScore(balVals(p,r,r.rows),P.t);if(!q.bad)bal++}})});return{pj:PJ.length,rc,vc,bal}}
+function dashTip(){const L1=(DATA.PROBLEMS||[]).filter(x=>loc(x,"title")&&loc(x,"cause"));if(!L1.length)return"";const d=Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5),pr=L1[d%L1.length],c=String(loc(pr,"cause")||"");
+ return `<div class="dash-tip"><span class="small">${esc(X("مشكلة وحلها اليوم","Today's problem and fix"))}</span><b>${esc(loc(pr,"title"))}</b><p class="small">${esc(c.length>170?c.slice(0,165).replace(/\s+\S*$/,"")+"…":c)}</p><button type="button" class="btn sm" data-openprob="${esc(pr.id)}">${esc(X("الأسباب والحلول ←","Causes and fixes →"))}</button></div>`}
+function dashFill(){const d=document.getElementById("dash");if(!d)return;const last=PJ.find(z=>z.id===PJSEL)||PJ[0],hr=new Date().getHours(),S0=PJ.length?dashStats():null;
+ const greet=L==="ar"?(hr<12?"صباح الخير شيف 👋":"مساء الخير شيف 👋"):(hr<12?"Good morning, chef 👋":hr<18?"Good afternoon, chef 👋":"Good evening, chef 👋");
+ const lr=last?recsOf(last):[],lv=lr.reduce((s,r)=>s+(r.hist||[]).length,0);
+ const T=[["new","＋",X("مشروع جديد","New project"),X("ابدأ من صفر أو من وصفة جاهزة","From scratch or a ready recipe")],["#solve","🩺",X("حل مشكلة","Fix a problem"),X("+100 مشكلة بأسبابها وحلولها","100+ problems with causes and fixes")],["lbl","🏷️",X("ملصق المنتج","Product label"),X("عربي وإنجليزي مع الحقائق الغذائية","Arabic & English with nutrition facts")],["plan","🗓️",X("خطة الإنتاج","Production plan"),X("قوالب وكميات وورقة إنتاج","Moulds, amounts and a production sheet")],["#calc","🧮",X("الحاسبة","Calculator"),X("نسب وتكبير وتصغير","Ratios and scaling")],["#library","📚",X("المكتبة","Library"),X("وصفات وقواعد ومواد","Recipes, rules and materials")]];
+ d.innerHTML=`<div class="wrap dash"><div class="dash-hero"><h1>${esc(greet)}</h1><p class="lead">${esc(X("طوّر منتجك بالعلم: وازن الوصفة، احفظ نسخها، اطبع ملصقها، وخطّط لإنتاجها.","Develop your product with science: balance the recipe, keep its versions, print its label and plan its production."))}</p>
+ <form class="dash-q" data-dashq="1" role="search"><input type="search" class="field" id="dashQ" placeholder="${esc(X("صف مشكلتك… مثال: الغاناش انفصل","Describe your problem… e.g. ganache split"))}" aria-label="${esc(X("ابحث عن مشكلة","Search a problem"))}" autocomplete="off"><button type="submit" class="btn pri">${esc(X("ابحث","Search"))}</button></form></div>
+ ${last?`<button type="button" class="dash-cont" data-pjopen="${esc(last.id)}"><span class="small">${esc(X("كمّل آخر مشروع","Continue your last project"))}</span><b>${esc(last.name)}</b><span class="dash-meta">${dashScore(last)}<span class="small">${esc(X(lr.length+" وصفة · "+(last.trials||[]).length+" تجربة · "+lv+" نسخة",lr.length+(lr.length===1?" recipe · ":" recipes · ")+(last.trials||[]).length+" trials · "+lv+" versions"))}</span></span></button>`:""}
+ <div class="dash-grid">${T.map(([k,ic,t1,t2])=>k[0]==="#"?`<a href="${k}"><span class="di">${ic}</span><b>${esc(t1)}</b><small>${esc(t2)}</small></a>`:`<button type="button" ${k==="new"?'data-newpj="1"':`data-dashact="${k}"`}><span class="di">${ic}</span><b>${esc(t1)}</b><small>${esc(t2)}</small></button>`).join("")}</div>
+ ${S0?`<div class="dash-stats">${[[S0.pj,X("مشروع","projects")],[S0.rc,X("وصفة","recipes")],[S0.vc,X("نسخة محفوظة","saved versions")],[S0.bal,X("وصفة متوازنة","balanced recipes")]].map(([n,l])=>`<div><b dir="ltr">${n}</b><span class="small">${esc(l)}</span></div>`).join("")}</div>`:`<div class="dash-how"><h2>${esc(X("كيف تشتغل المنصة","How it works"))}</h2><ol>${[X("أنشئ مشروعاً باسم منتجك، واكتب وصفتك أو الصقها.","Create a project named after your product and type or paste your recipe."),X("شوف التوازن والقيم الغذائية والصلاحية، وعدّل حتى تصير خضراء.","Check the balance, nutrition and shelf life, and adjust until it is green."),X("احفظ النسخة، واطبع الملصق وورقة الإنتاج.","Save the version, then print the label and the production sheet.")].map((s,i)=>`<li><b>${i+1}</b><span>${esc(s)}</span></li>`).join("")}</ol></div>`}
+ ${PJ.length?`<div class="dash-sec"><h2>${esc(X("مشاريعي","My projects"))}</h2>${PJ.length>5?`<a href="#dev" class="small" data-dashall="1">${esc(X("عرض الكل ("+PJ.length+")","See all ("+PJ.length+")"))}</a>`:""}</div><ul class="dash-list">${PJ.slice(0,5).map(p=>`<li><button type="button" data-pjopen="${esc(p.id)}"><span>${esc(p.name)}</span>${dashScore(p)||`<span class="small">${esc(X("بدون نوع","No type"))}</span>`}</button></li>`).join("")}</ul>`:""}
+ ${dashTip()}
+ <div class="dash-new"><span class="small">${esc(X("جديد في المنصة","New on the platform"))}</span><ul><li>${esc(X("سجل النسخ: احفظ، قارن، واسترجع","Version history: save, compare, restore"))}</li><li>${esc(X("ملصق المنتج بالعربي والإنجليزي","Arabic and English product label"))}</li><li>${esc(X("خطة الإنتاج وورقة الإنتاج","Production plan and sheet"))}</li></ul></div>
  ${dashInstall()}
  <p class="small dash-legal"><a href="#privacy">${esc(X("سياسة الخصوصية وشروط الاستخدام","Privacy policy and terms of use"))}</a></p></div>`}
+document.addEventListener("submit",e=>{const f=e.target;if(!f||!f.dataset||!f.dataset.dashq)return;e.preventDefault();const q=((f.querySelector("input")||{}).value||"").trim();S.q=q;S.prob=null;S.type=null;location.hash="#solve";try{renderSolve()}catch(_){}setTimeout(()=>{const i=document.getElementById("q");if(i){i.focus();const n=i.value.length;try{i.setSelectionRange(n,n)}catch(_){}}window.scrollTo({top:0})},120)});
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dashact]");if(!b)return;const k=b.dataset.dashact;
+ if(!PJ.length){toast(X("أنشئ مشروعاً أولاً، وبعدها تقدر تسوي "+(k==="lbl"?"الملصق":"خطة الإنتاج"),"Create a project first, then you can make "+(k==="lbl"?"its label":"its production plan")));const n=document.querySelector("[data-newpj]");if(n)n.click();return}
+ if(!PJSEL||!PJ.some(z=>z.id===PJSEL))PJSEL=PJ[0].id;PJHIDE=null;LSS("zm-active",PJSEL);location.hash="#dev";try{renderDev()}catch(_){}
+ setTimeout(()=>{if(k==="lbl")openLabel();else{const c=document.getElementById("pj-plan");if(c){c.open=true;c.scrollIntoView({block:"start"});const f=c.querySelector("input");if(f)f.focus({preventScroll:true})}}},200)});
 
 /* ================= PRIVACY POLICY AND TERMS OF USE ================= */
 function privHtml(){const A=L==="ar",S=(t,body)=>`<section class="card"><h2>${esc(t)}</h2>${body.map(b=>Array.isArray(b)?`<ul>${b.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p>${esc(b)}</p>`).join("")}</section>`;
@@ -2832,7 +3056,7 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
  try{Object.keys(localStorage).filter(k=>/^(zm-|eq-)/.test(k)&&!/^zm-(theme|lang|welcome)$/.test(k)).forEach(k=>localStorage.removeItem(k))}catch(_){}location.hash="#home";location.reload()});
 /* footer and start-screen links to the policy */
 {const ft=document.querySelector("footer .wrap");if(ft){const p=document.createElement("p");p.className="ft-legal";const fill=()=>{p.innerHTML=`<a href="#privacy">${esc(X("سياسة الخصوصية وشروط الاستخدام","Privacy policy and terms of use"))}</a>`};fill();ft.appendChild(p);new MutationObserver(fill).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]})}}
-window.dashFill=dashFill;
+window.dashFill=dashFill;window.verPush=verPush;window.verAuto=verAuto;window.verNo=verNo;window.planCard=planCard;window.openLabel=openLabel;if(document.getElementById("pj-recs"))try{renderDev()}catch(_){}
 {const up=document.createElement("button");up.type="button";up.id="toTop";up.className="totop noprint";up.hidden=true;up.textContent="↑";up.setAttribute("aria-label","Back to top");document.body.appendChild(up);
  up.addEventListener("click",()=>window.scrollTo({top:0,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"}));
  let rq=0;addEventListener("scroll",()=>{if(rq)return;rq=requestAnimationFrame(()=>{rq=0;up.hidden=scrollY<900})},{passive:true})}

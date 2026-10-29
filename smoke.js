@@ -217,7 +217,7 @@ console.log('16) share options, cost on demand, chocolate from the label');
 
 console.log('17) app interface: home, project list vs workspace, tabs, compare, settings');
 {const p=await mk(390);await p.goto(FILE+'#home');await p.waitForTimeout(800);await toAr(p);
- ok(await p.evaluate(()=>!!document.querySelector('#dash .dash-big')&&!document.querySelector('#p-home .lab')&&!document.querySelector('[data-dashmore]')),'home is only the app start screen (old presentation removed)');
+ ok(await p.evaluate(()=>!!document.querySelector('#dash .dash-grid')&&!document.querySelector('#p-home .lab')&&!document.querySelector('[data-dashmore]')),'home is only the app start screen (old presentation removed)');
  ok(await p.evaluate(()=>{const c=getComputedStyle(document.body).overflowX;return c==='clip'||c==='visible'}),'body is not its own scroll box (iPhone/iPad installed-app scroll lock)');
  await p.goto(FILE+'#dev');await p.waitForTimeout(700);ok(await p.evaluate(()=>!!document.querySelector('[data-ptype=gb]')),'new project asks the product type');
  await p.fill('#pjn','غاناش');await p.click('[data-ptype=gb]');await p.click('[data-imp=new]');await p.fill('#impta','كريمة 35% 200\nشوكولاتة داكنة 60% 300\nشراب جلوكوز 30\nسكر محول 30\nزبدة 82% 40');await p.click('[data-impgo]');await p.waitForTimeout(400);await p.click('[data-impgo]',{timeout:1200}).catch(()=>{});await p.waitForTimeout(800);
@@ -296,5 +296,46 @@ console.log('21) ingredient matching, vegetable cream, allergens from unknown na
  await p.evaluate(()=>document.querySelector('[data-pdf]').click());await p.waitForTimeout(1200);
  ok(await p.evaluate(()=>/قد يحتوي أيضاً على: مكسرات|May also contain/.test(document.getElementById('pdfov').innerText)),'the PDF shows the possible nut allergen');
  ok(p.errs.length===0,'no JS errors')}
+
+console.log('22) versions, product label, production plan, new home');
+{const p=await mk(1280);await newProj(p,'شوكولاتة داكنة 70% 300\nكريمة 35% 250\nزبدة 30\npecane sauce 20');
+ const pj=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('zm-projects'))[0]);
+ await p.evaluate(()=>document.querySelector('.ws-acts [data-vsave=all]').click());await p.waitForTimeout(300);
+ ok((await pj()).recs[0].hist.length===1,'"Save version" stores a snapshot');
+ await p.fill('[data-rr="r0#1#m"]','280');await p.dispatchEvent('[data-rr="r0#1#m"]','change');await p.waitForTimeout(400);
+ await p.evaluate(()=>document.querySelector('[data-wstab$="#meth"]').click());await p.evaluate(()=>document.querySelector('[data-hcmp]').click());await p.waitForTimeout(300);
+ const cmp=await p.evaluate(()=>document.getElementById('adj').innerText.replace(/\s+/g,' '));
+ ok(/250 280 \+30/.test(cmp)&&/التوازن|السعرات/.test(cmp),'compare shows the gram change and the indicators');
+ await p.evaluate(()=>document.querySelector('#adj [data-hrest]').click());await p.waitForTimeout(400);
+ const h=await pj();ok(h.recs[0].rows[1].m===250&&h.recs[0].hist.length===2&&!await p.$('#adj'),'restore brings back the version and keeps the current one as a new version');
+ await p.evaluate(()=>{document.querySelector('[data-wsback]').click()});await p.waitForTimeout(300);
+ ok((await pj()).recs[0].hist.length===2,'closing without changes does not add a duplicate version');
+ await p.evaluate(()=>document.querySelector('[data-pj]').click());await p.waitForTimeout(400);
+ await p.evaluate(()=>{const d=document.getElementById('pj-plan');d.open=true});await p.fill('[data-pl=molds]','3');await p.fill('[data-pl=cav]','24');await p.fill('[data-plg]','10');await p.waitForTimeout(500);
+ const pr=await p.evaluate(()=>document.getElementById('planRes').innerText.replace(/\s+/g,' '));
+ ok(/756/.test(pr)&&/72/.test(pr),'plan: 3 moulds × 24 × 10 g + 5% loss = 756 g ('+pr.slice(0,80)+')');
+ await p.evaluate(()=>document.querySelector('[data-plact=sheet]').click());await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>/ورقة الإنتاج/.test(document.getElementById('pdfov').innerText)&&/324/.test(document.getElementById('pdfov').innerText)),'production sheet scales each ingredient (300 g → 324 g)');
+ await p.evaluate(()=>document.querySelector('[data-pdfact=x]').click());
+ await p.evaluate(()=>document.querySelector('[data-plact=apply]').click());await p.waitForTimeout(400);
+ const ap=await pj();ok(Math.abs(ap.recs[0].rows.reduce((s,z)=>s+z.m,0)-756)<1&&/خطة الإنتاج/.test(ap.recs[0].hist[ap.recs[0].hist.length-1].label),'apply scales the recipe to the plan and saves a version first');
+ await p.evaluate(()=>document.querySelector('.ws-acts [data-lbopen]').click());await p.waitForTimeout(400);
+ await p.fill('#lb_serv','10');await p.fill('#lb_nameEn','Ganache');await p.waitForTimeout(300);
+ const lb=await p.evaluate(()=>document.querySelector('#lbPrev .flbl').innerText.replace(/\s+/g,' '));
+ ok(/المكونات: شوكولاتة داكنة/.test(lb)&&/حقائق غذائية/.test(lb)&&/Nutrition Facts/.test(lb),'label: bilingual ingredients (heaviest first) and nutrition facts');
+ ok(/يحتوي على: .*حليب/.test(lb)&&/قد يحتوي على آثار من: مكسرات/.test(lb),'label: allergens bold, nuts from the unknown pecan sauce as "may contain"');
+ ok(/الوزن الصافي.*10 g|10 g/.test(lb)&&/لكل 100 غ/.test(lb)&&/للحصة 10 غ/.test(lb),'label: net weight from the plan and per-serving column');
+ ok(await p.evaluate(()=>/تاريخ الإنتاج/.test(document.getElementById('lbSide').innerText)),'label readiness lists what is missing');
+ await p.evaluate(()=>document.querySelector('[data-lbact=pdf]').click());await p.waitForTimeout(900);
+ ok(await p.evaluate(()=>!!document.querySelector('#pdfov .flbl')),'label print sheet opens');
+ await p.evaluate(()=>document.querySelector('[data-pdfact=x]').click());
+ ok((await pj()).lab.nameEn==='Ganache','label details are saved with the project');
+ await p.evaluate(()=>{location.hash='#home'});await p.waitForTimeout(500);
+ const hm=await p.evaluate(()=>document.getElementById('dash').innerText.replace(/\s+/g,' '));
+ ok(/خطة الإنتاج/.test(hm)&&/ملصق المنتج/.test(hm)&&/نسخة محفوظة/.test(hm)&&/مشكلة وحلها اليوم/.test(hm),'home: quick actions, stats and the daily problem');
+ await p.fill('#dashQ','انفصل');await p.press('#dashQ','Enter');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>location.hash==='#solve'&&document.getElementById('q').value==='انفصل'),'home search opens the problem solver with the query');
+ ok(await p.evaluate(()=>!/nav_privacy/.test(document.querySelector('footer').innerText)),'footer has no untranslated key');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
