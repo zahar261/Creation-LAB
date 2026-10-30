@@ -214,5 +214,42 @@ const seed3 = [
 ];
 seed3.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 console.log(`  all seed cases: top-1 ${t1}/${seed.length + seed2.length + seed3.length}, top-3 ${t3}/${seed.length + seed2.length + seed3.length}`);
+
+console.log("kb) rules for production and Gulf conditions (batch 4)");
+const fz = sg => R({ milk: 1000, sugar: sg, starch: 60 });
+trio("freeze-thaw: sugar to water", "freeze-thaw-weep", "sugar-low", fz(100), fz(500), fz(330));
+trio("mould: sugar to water (water activity proxy)", "mould-fast", "water-high", ck({ sugar: 150 }), ck({ sugar: 400 }), ck({}));
+const bt = f => [{ n: "butter", g: 500, role: "butter", comp: { w: 1 - f - .02, f, s: .006, p: .009 } }, ...R({ flour: 1000, water: 500, sugar: 100 })];
+trio("laminating butter fat", "laminate-leak", "butter-type", bt(.80), bt(.82), bt(.813));
+trio("butter switch: fat", "butter-switch", "fat-lower", bt(.80), bt(.82), bt(.813));
+const cf = p => [{ n: "flour", g: 250, role: "flour", comp: Object.assign({}, C.flour, { p }) }, ...R({ sugar: 250, butter: 200, egg: 200, milk: 100, bp: 10 })];
+trio("tough cake: flour protein", "cake-tough", "strong-flour", cf(.12), cf(.08), cf(.10));
+trio("tough cake: sugar", "cake-tough", "sugar-low", ck({ sugar: 150 }), ck({}), ck({ sugar: 210 }));
+
+console.log("kb) batch 4 fixes");
+{ const r = fixOf("butter-switch", "fat-lower", bt(.80));
+  const add = r.rows.find(x => x.added);
+  ok(r.ok && add && add.g === 488 && r.rows.find(x => !x.added && x.role === "butter").g === 0 && near(r.after.butterFat, 82, 0.1), "80% butter swapped for 488 g of 82% butter (same fat, less water)"); }
+{ const r = fixOf("freeze-thaw-weep", "sugar-low", fz(100));
+  ok(r.ok && near(r.after.sugarWater, 0.4, 0.01), "freeze-thaw: sugar raised to 0.4 of the water"); }
+{ const r = fixOf("cake-tough", "strong-flour", cf(.12));
+  ok(r.ok && r.rows.find(x => x.role === "flour").g === 200 && r.rows.find(x => x.added && x.role === "starch").g === 50, "tough cake: 20% of the flour swapped for cornstarch"); }
+
+console.log("kb) batch 4 diagnosis");
+const seed4 = [
+  ["freeze-thaw-weep", fz(500), { answers: { freeze: "normal", thaw: "fridge", thick: "modified" } }, "slow-freeze"],
+  ["freeze-thaw-weep", fz(500), { answers: { freeze: "blast", thaw: "fridge", thick: "native" } }, "native-starch"],
+  ["mould-fast", ck({ sugar: 400 }), { answers: { pack: "warm", store: "cold", where: "surface" } }, "packed-warm"],
+  ["mould-fast", ck({ sugar: 400 }), { answers: { pack: "cool", store: "room" } }, "storage-warm"],
+  ["laminate-leak", bt(.82), { answers: { room: "hot", butter: "sheet", rest: "long" } }, "too-warm"],
+  ["laminate-leak", bt(.82), { answers: { room: "ok", butter: "sheet", rest: "short" } }, "short-rest"],
+  ["cake-tough", cf(.08), { answers: { mix: "long", flour: "cake" } }, "overmixed"],
+  ["cake-tough", cf(.12), { answers: { mix: "brief", flour: "bread" } }, "strong-flour"],
+  ["butter-switch", bt(.80), { answers: { change: "dough", fat: "80" } }, "fat-lower"],
+  ["butter-switch", bt(.82), { answers: { change: "melt", fat: "82" } }, "softness"]
+];
+seed4.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS = seed.length + seed2.length + seed3.length + seed4.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS}, top-3 ${t3}/${NS}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
