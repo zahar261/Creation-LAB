@@ -1945,7 +1945,7 @@ let LAZYD={};const LAZYF={library:()=>renderLibrary(),materials:()=>renderMateri
 function route(noAnim){
   const p0=(location.hash||"#home").slice(1).split("/")[0];const p=PAGES.includes(p0)?p0:"home";
   const go=()=>{{const ah=document.getElementById("aboutHost");if(ah)ah.hidden=true}if(LAZYF[p]&&!LAZYD[p]){LAZYD[p]=1;LAZYF[p]()}$$(".page").forEach(s=>s.classList.toggle("on",s.id==="p-"+p));$$("#nav a").forEach(a=>a.dataset.p===({rules:"library",suppliers:"library",materials:"library",solve:"dev",calc:"dev"}[p]||p)?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));if(!noAnim)scrollTo(0,0);if(p==="home"&&!noAnim)countUp()};
-  if(!noAnim&&document.startViewTransition&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.startViewTransition(go);else go();
+  if(!noAnim&&document.startViewTransition&&!matchMedia("(prefers-reduced-motion:reduce)").matches){/* a newer navigation skips the running transition; that rejection is expected, not an error */const vt=document.startViewTransition(go);[vt.ready,vt.finished,vt.updateCallbackDone].forEach(q=>q&&q.catch(()=>{}))}else go();
 }
 addEventListener("hashchange",()=>route());
 /* ================= BRIDGE: links every service to the active project ================= */
