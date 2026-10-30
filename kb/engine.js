@@ -47,6 +47,9 @@
       eggCheese: per(egg + yolk + white, g("cheese")),
       /* fat content of the butter used (Codex minimum is 80%; many pastry butters are 82% or more) */
       butterFat: bg > 0 ? (bf / bg) * 100 : NaN,
+      sugarWhite: per(added, white),
+      butterPct: pct(g("butter")),
+      creamPct: pct(g("cream")),
       flourProtein: fg > 0 ? (fp / fg) * 100 : NaN,
       has: role => rows.some(r => r.role === role && (+r.g || 0) > 0)
     };
@@ -71,6 +74,9 @@
     gelPct: { ar: "الجيلاتين", en: "gelatine", u: "%" },
     eggCheese: { ar: "البيض مقابل الجبن", en: "egg to cheese", u: "" },
     butterFat: { ar: "دهن الزبدة المستعملة", en: "fat in the butter used", u: "%" },
+    sugarWhite: { ar: "السكر مقابل البياض", en: "sugar to egg white", u: "" },
+    butterPct: { ar: "الزبدة المضافة", en: "added butter", u: "%" },
+    creamPct: { ar: "الكريمة", en: "cream", u: "%" },
     flourProtein: { ar: "بروتين الدقيق", en: "flour protein", u: "%" }
   };
   const fmt = (k, v) => (FEAT[k] && FEAT[k].u === "%" ? r1(v) : r2(v));

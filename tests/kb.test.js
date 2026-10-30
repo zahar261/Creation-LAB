@@ -18,7 +18,7 @@ const C = {
   invert: { w: .2, f: 0, s: .8, p: 0 }, glucose: { w: .2, f: 0, s: .8, p: 0 },
   water: { w: 1, f: 0, s: 0, p: 0 }, bp: { w: 0, f: 0, s: 0, p: 0 },
   white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 },
-  cheese: { w: .55, f: .34, s: .03, p: .06 }
+  cheese: { w: .55, f: .34, s: .03, p: .06 }, cocoabutter: { w: 0, f: 1, s: 0, p: 0 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -251,5 +251,37 @@ const seed4 = [
 seed4.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS = seed.length + seed2.length + seed3.length + seed4.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS}, top-3 ${t3}/${NS}`);
+
+console.log("kb) rules for chocolate, mousse and meringue (batch 5)");
+trio("bloom: filling fat", "chocolate-bloom", "fat-migration", ga({ dark: 450, cream: 120, butter: 80 }), owner, ga({ dark: 300, cream: 260, butter: 40, invert: 30 }));
+trio("temper: added butter", "temper-fail", "foreign-fat", R({ dark: 1000, butter: 50 }), R({ dark: 1000 }), R({ dark: 1000, butter: 18 }));
+trio("seize: little water", "chocolate-seize", "little-liquid", R({ dark: 1000, water: 50 }), R({ dark: 1000, cocoabutter: 300 }), R({ dark: 1000 }));
+const md = (cr, mk) => R({ cream: cr, milk: mk, sugar: 100, dark: 200, gelatin: 8 });
+trio("mousse: whipped cream share", "mousse-dense", "cream-low", md(200, 500), md(500, 200), md(380, 320));
+const mg = sg => R({ white: 100, sugar: sg });
+trio("meringue weep: sugar to white", "meringue-weep", "sugar-low", mg(60), mg(150), mg(90));
+trio("meringue whip: sugar to white", "meringue-wont-whip", "sugar-high", mg(250), mg(150), mg(190));
+
+console.log("kb) batch 5 fixes");
+{ const r = fixOf("meringue-weep", "sugar-low", mg(60)); ok(r.ok && r.rows.find(x => x.role === "sugar").g === 100, "meringue: sugar raised to the whites' weight (100 g)"); }
+{ const r = fixOf("meringue-wont-whip", "sugar-high", mg(250)); ok(r.ok && r.rows.find(x => x.role === "sugar").g === 180, "meringue: sugar lowered to 1.8 x whites (180 g)"); }
+{ const r = fixOf("mousse-dense", "cream-low", md(200, 500)); ok(r.ok && near(r.after.creamPct, 45, 0.2), "mousse: cream raised to 45% of the weight"); }
+
+console.log("kb) batch 5 diagnosis");
+const seed5 = [
+  ["chocolate-bloom", owner, { answers: { feel: "dry", store: "fridge", temper: "yes" } }, "sugar-bloom"],
+  ["chocolate-bloom", owner, { answers: { feel: "greasy", store: "warm", temper: "no" } }, "fat-bloom"],
+  ["temper-fail", R({ dark: 1000 }), { answers: { method: "eye", work: "nk" } }, "not-tempered"],
+  ["temper-fail", R({ dark: 1000 }), { answers: { method: "curve", work: "hot", room: "hot" } }, "lost-temper"],
+  ["chocolate-seize", R({ dark: 1000, cocoabutter: 300 }), { answers: { water: "yes", heat: "gentle" } }, "water-contact"],
+  ["chocolate-seize", R({ dark: 1000, cocoabutter: 300 }), { answers: { water: "no", heat: "strong" } }, "overheated"],
+  ["mousse-dense", md(500, 200), { answers: { whip: "stiff", fold: "gentle" } }, "whip-state"],
+  ["meringue-weep", mg(150), { answers: { sugar: "slow", air: "humid", bake: "dry" } }, "humidity"],
+  ["meringue-wont-whip", mg(150), { answers: { fat: "yes", sugar: "foam", how: "never" } }, "fat"],
+  ["meringue-wont-whip", mg(150), { answers: { fat: "no", sugar: "foam", how: "over" } }, "overwhipped"]
+];
+seed5.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS5 = NS + seed5.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS5}, top-3 ${t3}/${NS5}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -8497,6 +8497,1693 @@
     "ar": "سجّل نسبة دهن الزبدة الجديدة من الملصق عشان أقدر أقارن.",
     "en": "Record the new butter's fat from the label so I can compare."
    }
+  },
+  {
+   "id": "chocolate-bloom",
+   "category": "chocolate",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الشوكولاتة طلع عليها أبيض أو صارت باهتة",
+    "en": "Chocolate turned white or dull",
+    "syn": {
+     "ar": [
+      "الشوكولاتة بيضاء",
+      "خطوط بيضاء على الشوكولاتة",
+      "الشوكولاتة باهتة",
+      "البونبون صار رمادي",
+      "الشوكولاتة مغبرة"
+     ],
+     "en": [
+      "chocolate bloom",
+      "white streaks on chocolate",
+      "dull chocolate",
+      "grey bonbons"
+     ]
+    }
+   },
+   "see": {
+    "ar": "طبقة بيضاء أو رمادية على السطح، أو خطوط ولمعة ضايعة.",
+    "en": "A white or grey film on the surface, or streaks and lost shine."
+   },
+   "questions": [
+    {
+     "id": "feel",
+     "ar": "إذا مسحت السطح بإصبعك؟",
+     "en": "If you rub the surface with a finger?",
+     "options": [
+      {
+       "id": "greasy",
+       "ar": "يذوب ويحس دهني",
+       "en": "It melts and feels greasy"
+      },
+      {
+       "id": "dry",
+       "ar": "ناشف ورملي، وما يذوب",
+       "en": "Dry and sandy, does not melt"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "كيف كان التخزين؟",
+     "en": "How was it stored?",
+     "options": [
+      {
+       "id": "fridge",
+       "ar": "من الثلاجة للجو مباشرة",
+       "en": "Straight from the fridge to the room"
+      },
+      {
+       "id": "warm",
+       "ar": "حرارة متغيرة أو فوق 22°م",
+       "en": "Changing, or above 22 °C"
+      },
+      {
+       "id": "stable",
+       "ar": "ثابت 15 إلى 18°م",
+       "en": "Steady 15–18 °C"
+      }
+     ]
+    },
+    {
+     "id": "temper",
+     "ar": "هل الشوكولاتة متمبّرة صح؟",
+     "en": "Was the chocolate properly tempered?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم: لمّاعة وتنكسر بصوت",
+       "en": "Yes: glossy with a snap"
+      },
+      {
+       "id": "no",
+       "ar": "لا أو ما أعرف",
+       "en": "No, or not sure"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "sugar-bloom",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S5",
+      "S8"
+     ],
+     "title": {
+      "ar": "تزهّر السكر من التكثّف",
+      "en": "Sugar bloom from condensation"
+     },
+     "why": {
+      "ar": "لما تطلع الشوكولاتة الباردة لجو حار ورطب، يتكثف الماء على سطحها فيذوّب السكر، ولما يجف يترك بلورات بيضاء. هذا شائع جداً في الخليج.",
+      "en": "When cold chocolate meets warm, humid air, water condenses on it and dissolves sugar; as it dries it leaves white crystals. Very common in the Gulf."
+     },
+     "answers": {
+      "feel": {
+       "dry": 3,
+       "greasy": -2
+      },
+      "store": {
+       "fridge": 3,
+       "stable": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S5"
+       ],
+       "ar": "خزّن على 15 إلى 18°م ورطوبة أقل من 60%. إذا لازم الثلاجة، خلّها في علبة مقفلة وخلّها تدفى داخل العلبة لحرارة الغرفة قبل ما تفتحها.",
+       "en": "Store at 15–18 °C and below 60% humidity. If you must refrigerate, keep it in a sealed box and let it warm to room temperature inside the box before opening.",
+       "tradeoff": {
+        "ar": "يحتاج مكان مضبوط الحرارة والرطوبة.",
+        "en": "Needs a temperature- and humidity-controlled space."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "امسح السطح: البقع الناشفة اللي ما تذوب هي سكر.",
+      "en": "Rub the surface: dry spots that do not melt are sugar."
+     }
+    },
+    {
+     "id": "fat-bloom",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "تزهّر الدهن",
+      "en": "Fat bloom"
+     },
+     "why": {
+      "ar": "إذا الشوكولاتة مو متمبّرة صح، أو تعرّضت لحرارة متغيرة، تتبلور زبدة الكاكاو بشكل خشن وتطلع على السطح بلون أبيض دهني.",
+      "en": "If the chocolate is not well tempered or meets changing temperatures, cocoa butter recrystallises coarsely and surfaces as a greasy white film."
+     },
+     "answers": {
+      "feel": {
+       "greasy": 3,
+       "dry": -2
+      },
+      "store": {
+       "warm": 3,
+       "stable": -1
+      },
+      "temper": {
+       "no": 2,
+       "yes": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5",
+        "S4"
+       ],
+       "ar": "تمبر صح (للداكنة: ذوبان 45 إلى 50°م، تبريد 27 إلى 28°م، شغل 31 إلى 32°م)، وخزّن على حرارة ثابتة 15 إلى 18°م.",
+       "en": "Temper properly (dark: melt 45–50 °C, cool 27–28 °C, work 31–32 °C), and store at a steady 15–18 °C.",
+       "tradeoff": {
+        "ar": "يحتاج ميزان حرارة وتخزين مضبوط.",
+        "en": "Needs a thermometer and controlled storage."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سوّ اختبار التمبير: ورقة صغيرة تتماسك لامعة خلال 5 دقائق على حرارة الغرفة.",
+      "en": "Tempering test: a small strip sets glossy within 5 minutes at room temperature."
+     }
+    },
+    {
+     "id": "fat-migration",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "دهن الحشوة يهاجر للقشرة",
+      "en": "Fat migrating from the filling"
+     },
+     "why": {
+      "ar": "الحشوات الغنية بدهون المكسرات (براليني، جياندوجا) تنتقل دهونها لقشرة الشوكولاتة مع الوقت فتليّنها وتسبب تزهّر.",
+      "en": "Fillings rich in nut fats (praline, gianduja) move their oil into the chocolate shell over time, softening it and causing bloom."
+     },
+     "rule": {
+      "feat": "fat",
+      "when": "above",
+      "range": {
+       "default": [
+        20,
+        40
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S5"
+      ],
+      "note": {
+       "ar": "طبّق هذا على وصفة الحشوة. حد تقديري؛ هجرة الدهن تعتمد أكثر على نوع الدهن من كميته.",
+       "en": "Apply this to the filling recipe. A working limit; migration depends more on the type of fat than the amount."
+      }
+     },
+     "answers": {
+      "temper": {
+       "yes": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "استعمل قشرة أسمك، أو طبقة عازلة رقيقة من زبدة كاكاو، أو أضف زبدة كاكاو للحشوة لتثبيت دهونها، وخزّن على حرارة باردة ثابتة.",
+       "en": "Use a thicker shell, a thin cocoa-butter barrier, or add cocoa butter to the filling to firm its fats, and store cool and steady.",
+       "tradeoff": {
+        "ar": "القشرة الأسمك تغيّر الإحساس في الفم والتكلفة.",
+        "en": "A thicker shell changes mouthfeel and cost."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "خزّن بونبون من نفس الدفعة على 16 و24°م وراقب التزهّر أسبوعياً.",
+      "en": "Store bonbons from one batch at 16 and 24 °C and check bloom weekly."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الشوكولاتة المتزهّرة آمنة للأكل. تقدر تذوّبها وتعيد تمبيرها واستعمالها.",
+     "البونبون المتزهّر: استعمله للتذوق الداخلي أو أعد تقديمه مقطّع."
+    ],
+    "en": [
+     "Bloomed chocolate is safe to eat. You can melt, re-temper and reuse it.",
+     "Bloomed bonbons: use for internal tasting or re-present them cut."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "تمبير صحيح.",
+     "تخزين ثابت 15 إلى 18°م ورطوبة أقل من 60%.",
+     "دفّي العلب المقفلة قبل فتحها بعد الثلاجة.",
+     "قشرة كافية حول حشوات المكسرات."
+    ],
+    "en": [
+     "Proper tempering.",
+     "Steady 15–18 °C and below 60% humidity.",
+     "Warm sealed boxes before opening after the fridge.",
+     "Enough shell around nut fillings."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب التزهّر من التمبير أو التخزين؛ الوصفة تأثر فقط في حشوات المكسرات.",
+    "en": "Most bloom is tempering or storage; the recipe matters only for nut fillings."
+   },
+   "unsure": {
+    "ar": "سوّ اختبار الإصبع: دهني يعني دهن، رملي يعني سكر.",
+    "en": "Do the finger test: greasy means fat, sandy means sugar."
+   }
+  },
+  {
+   "id": "temper-fail",
+   "category": "chocolate",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "medium",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الشوكولاتة ما تتماسك أو ما تطلع من القالب أو بدون لمعة",
+    "en": "Chocolate will not set, release from the mould or shine",
+    "syn": {
+     "ar": [
+      "التمبير ما ضبط",
+      "الشوكولاتة ما تجمد",
+      "الشوكولاتة لاصقة في القالب",
+      "الشوكولاتة ما تلمع",
+      "الشوكولاتة ما تنكسر بصوت"
+     ],
+     "en": [
+      "tempering failed",
+      "chocolate will not set",
+      "sticks to the mould",
+      "no snap",
+      "streaky chocolate"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الشوكولاتة تبقى طرية أو تتماسك ببطء، ما تنفصل عن القالب، باهتة أو فيها خطوط، وما تنكسر بصوت.",
+    "en": "The chocolate stays soft or sets slowly, sticks in the mould, is dull or streaky, and does not snap."
+   },
+   "questions": [
+    {
+     "id": "method",
+     "ar": "كيف تمبّرت؟",
+     "en": "How did you temper?",
+     "options": [
+      {
+       "id": "curve",
+       "ar": "منحنى حرارة بالميزان (ذوبان، تبريد، رفع)",
+       "en": "A temperature curve with a thermometer"
+      },
+      {
+       "id": "eye",
+       "ar": "بالعين أو بدون قياس",
+       "en": "By eye or without measuring"
+      }
+     ]
+    },
+    {
+     "id": "work",
+     "ar": "حرارة الشوكولاتة وقت الصب؟",
+     "en": "Chocolate temperature when using it?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "أعلى من حرارة الشغل (فوق 33°م للداكنة)",
+       "en": "Above working temperature (over 33 °C for dark)"
+      },
+      {
+       "id": "ok",
+       "ar": "حسب الجدول",
+       "en": "As specified"
+      },
+      {
+       "id": "nk",
+       "ar": "ما قستها",
+       "en": "Did not measure"
+      }
+     ]
+    },
+    {
+     "id": "room",
+     "ar": "حرارة المكان؟",
+     "en": "Room temperature?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "فوق 24°م",
+       "en": "Above 24 °C"
+      },
+      {
+       "id": "ok",
+       "ar": "20 إلى 22°م",
+       "en": "20–22 °C"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "not-tempered",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S5",
+      "S4"
+     ],
+     "title": {
+      "ar": "ما انتمبّرت صح",
+      "en": "Not properly tempered"
+     },
+     "why": {
+      "ar": "زبدة الكاكاو تتبلور بأشكال مختلفة. التمبير يطلع الشكل الصحيح اللي يعطي لمعة وصوت وانكماش من القالب. بدونه تتماسك ببطء وتلزق وتطلع باهتة.",
+      "en": "Cocoa butter crystallises in several forms. Tempering makes the right one, which gives shine, snap and shrinkage from the mould. Without it chocolate sets slowly, sticks and is dull."
+     },
+     "answers": {
+      "method": {
+       "eye": 3,
+       "curve": -1
+      },
+      "work": {
+       "nk": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4",
+        "S5"
+       ],
+       "ar": "اتبع منحنى الحرارة من المصنّع (مثال الداكنة: 45 إلى 50 ثم 27 إلى 28 ثم 31 إلى 32°م)، أو استعمل طريقة البذر بشوكولاتة متمبّرة مفرومة.",
+       "en": "Follow the maker's temperature curve (dark example: 45–50, then 27–28, then 31–32 °C), or use the seeding method with chopped tempered chocolate.",
+       "tradeoff": {
+        "ar": "يحتاج ميزان حرارة دقيق ووقت.",
+        "en": "Needs an accurate thermometer and time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الورقة: شريحة تتماسك لامعة خلال 5 دقائق على 20°م.",
+      "en": "Strip test: a sample sets glossy within 5 minutes at 20 °C."
+     }
+    },
+    {
+     "id": "lost-temper",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "التمبير ضاع من الحرارة",
+      "en": "Temper lost to heat"
+     },
+     "why": {
+      "ar": "إذا سخنت الشوكولاتة المتمبّرة فوق حرارة الشغل، تذوب البلورات الصحيحة ويضيع التمبير. والمكان الحار يبطئ التماسك.",
+      "en": "If tempered chocolate warms above working temperature, the good crystals melt and the temper is lost. A hot room also slows setting."
+     },
+     "answers": {
+      "work": {
+       "hot": 3,
+       "ok": -1
+      },
+      "room": {
+       "hot": 2,
+       "ok": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "حافظ على حرارة الشغل بدون زيادة، واشتغل في مكان 20 إلى 22°م، وبرّد القوالب بعد الصب في مكان 15 إلى 18°م (مو فريزر).",
+       "en": "Hold working temperature without going over, work in a 20–22 °C room, and cool moulds after casting at 15–18 °C (not the freezer).",
+       "tradeoff": {
+        "ar": "تكييف المكان في الصيف.",
+        "en": "Air-conditioning the room in summer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة الشوكولاتة كل 10 دقائق أثناء الشغل وسجّلها.",
+      "en": "Measure the chocolate every 10 minutes while working and log it."
+     }
+    },
+    {
+     "id": "foreign-fat",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "دهن غريب مضاف للشوكولاتة",
+      "en": "A foreign fat added to the chocolate"
+     },
+     "why": {
+      "ar": "الزبدة أو الزيت المضاف لشوكولاتة التغطية يخلط مع زبدة الكاكاو ويضعف تبلورها، فتصير أطرى وما تنفصل عن القالب.",
+      "en": "Butter or oil added to coating chocolate mixes with the cocoa butter and weakens its crystallisation, so it turns softer and will not release."
+     },
+     "rule": {
+      "feat": "butterPct",
+      "when": "above",
+      "range": {
+       "default": [
+        0,
+        2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S5"
+      ],
+      "note": {
+       "ar": "لوصفات التغطية والقوالب فقط. في الغاناش الزبدة طبيعية.",
+       "en": "For coating and moulding recipes only. In ganache, butter is normal."
+      }
+     },
+     "answers": {
+      "method": {
+       "curve": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S5"
+       ],
+       "ar": "لا تضيف زبدة أو زيت لشوكولاتة القوالب. إذا تبيها أسيل، أضف زبدة كاكاو (حتى 5 إلى 10%).",
+       "en": "Do not add butter or oil to moulding chocolate. To make it more fluid, add cocoa butter (up to 5–10%).",
+       "tradeoff": {
+        "ar": "زبدة الكاكاو أغلى.",
+        "en": "Cocoa butter costs more."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اصبب قالبين: شوكولاتة صافية ومخلوطة، وقارن الانفصال.",
+      "en": "Cast two moulds, pure and blended chocolate, and compare release."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الشوكولاتة اللي ما انتمبّرت ما تخرب: ذوّبها كاملاً (45 إلى 50°م للداكنة) وأعد التمبير.",
+     "القطع اللاصقة: حطها في مكان بارد 15°م وانتظر قبل ما تفصلها."
+    ],
+    "en": [
+     "Untempered chocolate is not ruined: melt it fully (45–50 °C for dark) and temper again.",
+     "Stuck pieces: put them somewhere cool at 15 °C and wait before releasing."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ميزان حرارة دقيق.",
+     "اتبع منحنى المصنّع.",
+     "مكان شغل 20 إلى 22°م.",
+     "بدون دهون غريبة في شوكولاتة القوالب."
+    ],
+    "en": [
+     "An accurate thermometer.",
+     "Follow the maker's curve.",
+     "A 20–22 °C work room.",
+     "No foreign fats in moulding chocolate."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الشوكولاتة صافية، فالمشكلة من التمبير أو الحرارة.",
+    "en": "If the chocolate is pure, the problem is tempering or heat."
+   },
+   "unsure": {
+    "ar": "سوّ اختبار الورقة، وجاوب سؤال الطريقة.",
+    "en": "Do the strip test and answer the method question."
+   }
+  },
+  {
+   "id": "chocolate-seize",
+   "category": "chocolate",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "medium",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الشوكولاتة تكتلت وصارت ثقيلة وقت الذوبان",
+    "en": "Chocolate seized into a thick lump while melting",
+    "syn": {
+     "ar": [
+      "الشوكولاتة تكتلت",
+      "الشوكولاتة صارت عجينة",
+      "الشوكولاتة احترقت",
+      "الشوكولاتة البيضاء تحببت",
+      "الشوكولاتة ثقلت فجأة"
+     ],
+     "en": [
+      "chocolate seized",
+      "chocolate turned grainy",
+      "burnt chocolate",
+      "white chocolate seized"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الشوكولاتة اللامعة صارت فجأة كتلة ثقيلة محببة، أو صار لونها غامق وريحتها محروقة.",
+    "en": "Glossy chocolate suddenly turns into a thick, grainy mass, or darkens and smells burnt."
+   },
+   "questions": [
+    {
+     "id": "water",
+     "ar": "لمسها ماء أو بخار؟",
+     "en": "Did water or steam touch it?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم أو ممكن (حمام مائي، ملعقة مبللة)",
+       "en": "Yes or maybe (water bath, wet spoon)"
+      },
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      }
+     ]
+    },
+    {
+     "id": "heat",
+     "ar": "كيف ذوّبتها؟",
+     "en": "How did you melt it?",
+     "options": [
+      {
+       "id": "strong",
+       "ar": "مايكرويف لفترات طويلة أو نار مباشرة",
+       "en": "Long microwave bursts or direct heat"
+      },
+      {
+       "id": "gentle",
+       "ar": "حمام مائي هادئ أو مايكرويف على دفعات قصيرة",
+       "en": "Gentle water bath or short microwave bursts"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "water-contact",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S2",
+      "S4"
+     ],
+     "title": {
+      "ar": "قطرات ماء أو بخار",
+      "en": "Drops of water or steam"
+     },
+     "why": {
+      "ar": "قطرة ماء صغيرة تبلل حبيبات السكر والكاكاو فتلصق ببعض وتتحول الشوكولاتة لكتلة. الماء الكثير (مثل الغاناش) يعطي سائل، لكن القليل يكتّلها.",
+      "en": "A little water wets the sugar and cocoa particles so they stick and the chocolate clumps. A lot of water (as in ganache) gives a fluid, but a little seizes it."
+     },
+     "answers": {
+      "water": {
+       "yes": 3,
+       "no": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S4"
+       ],
+       "ar": "استعمل أدوات ناشفة تماماً، ولا تخلّ بخار الحمام المائي يوصل (الوعاء أكبر من القدر والماء ما يغلي).",
+       "en": "Use completely dry tools and keep water-bath steam away (bowl wider than the pan, water not boiling).",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "ذوّب دفعة بأدوات ناشفة وبدون بخار وقارن.",
+      "en": "Melt a batch with dry tools and no steam and compare."
+     }
+    },
+    {
+     "id": "overheated",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "سخنت زيادة",
+      "en": "Overheated"
+     },
+     "why": {
+      "ar": "الشوكولاتة تحترق بسهولة، خصوصاً البيضاء والحليب لأن فيها حليب يتكتل. فوق حوالي 50°م للداكنة و45°م للحليب والبيضاء تثخن وتتغير.",
+      "en": "Chocolate scorches easily, especially white and milk, whose milk solids clump. Above about 50 °C for dark and 45 °C for milk and white it thickens and changes."
+     },
+     "answers": {
+      "heat": {
+       "strong": 3,
+       "gentle": -2
+      },
+      "water": {
+       "no": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "ذوّب على دفعات قصيرة في المايكرويف (20 إلى 30 ثانية) مع التحريك، أو على حمام مائي هادئ، وقِس الحرارة.",
+       "en": "Melt in short microwave bursts (20–30 seconds) with stirring, or over a gentle water bath, and measure.",
+       "tradeoff": {
+        "ar": "أبطأ.",
+        "en": "Slower."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس الحرارة أثناء الذوبان ولا تتجاوز الحد.",
+      "en": "Measure while melting and never exceed the limit."
+     }
+    },
+    {
+     "id": "little-liquid",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S2",
+      "S4"
+     ],
+     "title": {
+      "ar": "سائل قليل مضاف للشوكولاتة",
+      "en": "A small amount of liquid added"
+     },
+     "why": {
+      "ar": "إذا الوصفة تضيف سائل قليل للشوكولاتة (مثل ليكير أو قليل كريمة)، يكون في المنطقة اللي تكتّل فيها. زد السائل لين يصير غاناش، أو امنعه.",
+      "en": "A recipe that adds only a little liquid to chocolate (a liqueur or a splash of cream) sits in the seizing zone. Either add enough to make a ganache or leave it out."
+     },
+     "rule": {
+      "feat": "water",
+      "when": "above",
+      "range": {
+       "default": [
+        0,
+        1
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S4"
+      ],
+      "note": {
+       "ar": "لوصفات الشوكولاتة المذوّبة. إذا الماء كثير (غاناش، 15% فما فوق) هذا طبيعي ومو سبب.",
+       "en": "For melted-chocolate recipes. If water is high (ganache, 15% and above), that is normal and not a cause."
+      }
+     },
+     "answers": {
+      "water": {
+       "yes": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S4"
+       ],
+       "ar": "أضف السائل الدافئ مرة وحدة بكمية كافية لعمل غاناش، أو استعمل نكهات زيتية بدل المائية.",
+       "en": "Add the warm liquid all at once in enough quantity to make a ganache, or use oil-based flavours instead of water-based ones.",
+       "tradeoff": {
+        "ar": "يتغير القوام إلى غاناش.",
+        "en": "The texture becomes a ganache."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الإضافة القليلة بالإضافة الكافية على عيّنتين صغيرتين.",
+      "en": "Compare a small and an ample addition on two small samples."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "المتكتلة من الماء: أضف كريمة أو حليب دافئ تدريجياً واخلط حتى تصير صوص أو غاناش؛ ما تصلح للتمبير بعدها.",
+     "المحروقة: ما ترجع؛ استعملها في عجائن أو تخلّص منها إذا الطعم محروق."
+    ],
+    "en": [
+     "Seized by water: add warm cream or milk gradually and blend into a sauce or ganache; it can no longer be tempered.",
+     "Burnt: it does not recover; use it in doughs or discard if it tastes burnt."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "أدوات ناشفة.",
+     "ذوبان هادئ مع القياس.",
+     "لا تضيف سائل قليل للشوكولاتة."
+    ],
+    "en": [
+     "Dry tools.",
+     "Gentle melting with measuring.",
+     "Do not add a little liquid to chocolate."
+    ]
+   },
+   "notFormula": {
+    "ar": "التكتل غالباً من ماء عرضي أو حرارة زايدة.",
+    "en": "Seizing is usually accidental water or overheating."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الماء أول.",
+    "en": "Answer the water question first."
+   }
+  },
+  {
+   "id": "mousse-dense",
+   "category": "mousse",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الموس ثقيل وفيه هواء قليل",
+    "en": "Mousse is heavy with little air",
+    "syn": {
+     "ar": [
+      "الموس ثقيل",
+      "الموس كثيف",
+      "الموس مو خفيف",
+      "الموس مثل الكريمة",
+      "الموس ما فيه هواء"
+     ],
+     "en": [
+      "dense mousse",
+      "heavy mousse",
+      "mousse not airy",
+      "flat mousse"
+     ]
+    }
+   },
+   "see": {
+    "ar": "قوام كثيف مثل الكريمة بدل ما يكون خفيف وهوائي.",
+    "en": "A dense, creamy texture instead of light and airy."
+   },
+   "questions": [
+    {
+     "id": "whip",
+     "ar": "الكريمة المخفوقة كانت؟",
+     "en": "The whipped cream was?",
+     "options": [
+      {
+       "id": "soft",
+       "ar": "قمم ناعمة (تميل)",
+       "en": "Soft peaks (bending)"
+      },
+      {
+       "id": "stiff",
+       "ar": "قاسية ومحببة",
+       "en": "Stiff and grainy"
+      },
+      {
+       "id": "liquid",
+       "ar": "ما انخفقت كفاية",
+       "en": "Under-whipped"
+      }
+     ]
+    },
+    {
+     "id": "fold",
+     "ar": "كيف خلطت؟",
+     "en": "How did you combine?",
+     "options": [
+      {
+       "id": "gentle",
+       "ar": "طيّ بالسباتولا على دفعات",
+       "en": "Folded by spatula in stages"
+      },
+      {
+       "id": "rough",
+       "ar": "مضرب أو خلط قوي",
+       "en": "Whisk or vigorous mixing"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "whip-state",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S2",
+      "S1"
+     ],
+     "title": {
+      "ar": "الكريمة مو مخفوقة صح",
+      "en": "Cream not whipped correctly"
+     },
+     "why": {
+      "ar": "الكريمة الناقصة الخفق فيها هواء قليل، والزايدة تتكتل وما تختلط بنعومة فتطير الهواء وقت الخلط. القمم الناعمة هي الأنسب للموس.",
+      "en": "Under-whipped cream holds little air, and over-whipped cream clumps and will not fold smoothly, losing air as you mix. Soft peaks suit mousse best."
+     },
+     "answers": {
+      "whip": {
+       "liquid": 3,
+       "stiff": 3,
+       "soft": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخفق الكريمة باردة حتى قمم ناعمة تميل، ولا تكمّل لقمم قاسية.",
+       "en": "Whip the cream cold to soft, bending peaks; do not go to stiff peaks.",
+       "tradeoff": {
+        "ar": "يحتاج مراقبة.",
+        "en": "Needs watching."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "زِن كوب من الموس قبل وبعد التعديل: الأخف فيه هواء أكثر.",
+      "en": "Weigh a cup of mousse before and after: lighter means more air."
+     }
+    },
+    {
+     "id": "deflated",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الهواء طار وقت الخلط",
+      "en": "Air knocked out while combining"
+     },
+     "why": {
+      "ar": "الخلط القوي أو بالمضرب يكسّر فقاعات الكريمة المخفوقة.",
+      "en": "Vigorous mixing or whisking breaks the bubbles in the whipped cream."
+     },
+     "answers": {
+      "fold": {
+       "rough": 3,
+       "gentle": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "أضف ثلث الكريمة أولاً لتخفيف الخليط، ثم اطوِ الباقي بالسباتولا على دفعات بحركة من الأسفل للأعلى.",
+       "en": "Stir in a third of the cream to lighten the base, then fold in the rest with a spatula in stages, from bottom to top.",
+       "tradeoff": {
+        "ar": "أبطأ.",
+        "en": "Slower."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن وزن الكوب بين خلط قوي وطيّ هادئ.",
+      "en": "Compare cup weight between vigorous mixing and gentle folding."
+     }
+    },
+    {
+     "id": "cream-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الكريمة المخفوقة قليلة في الوصفة",
+      "en": "Too little whipped cream in the recipe"
+     },
+     "why": {
+      "ar": "الهواء في الموس يجي من الكريمة المخفوقة (أو الميرنغ). إذا حصتها قليلة، يطلع الموس ثقيل.",
+      "en": "The air in mousse comes from whipped cream (or meringue). With too little of it the mousse is heavy."
+     },
+     "rule": {
+      "feat": "creamPct",
+      "when": "below",
+      "range": {
+       "default": [
+        35,
+        65
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "للموس اللي يعتمد على الكريمة المخفوقة؛ الموس بالميرنغ يختلف.",
+       "en": "For mousses aerated with whipped cream; meringue-based mousses differ."
+      }
+     },
+     "answers": {
+      "whip": {
+       "soft": 1
+      },
+      "fold": {
+       "gentle": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "زد الكريمة حتى تصير حوالي 45% من الوزن.",
+       "en": "Increase the cream to about 45% of the weight.",
+       "op": {
+        "op": "reach",
+        "role": "cream",
+        "feat": "creamPct",
+        "target": 45
+       },
+       "tradeoff": {
+        "ar": "طعم أخف للنكهة الأساسية، وتحتاج جيلاتين أكثر قليلاً.",
+        "en": "Milder base flavour, and it may need a little more gelatine."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اعمل كوب بالنسبة الجديدة وقارن الخفة.",
+      "en": "Make a cup at the new ratio and compare lightness."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الموس الثقيل صالح كحشوة أو كريمة طبقات."
+    ],
+    "en": [
+     "A heavy mousse works as a filling or layer cream."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "كريمة باردة لقمم ناعمة.",
+     "طيّ هادئ على دفعات.",
+     "خليط الأساس 25 إلى 30°م قبل الكريمة."
+    ],
+    "en": [
+     "Cold cream to soft peaks.",
+     "Gentle folding in stages.",
+     "Base at 25–30 °C before the cream."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الكريمة كافية في الوصفة، فالسبب غالباً الخفق أو الطيّ.",
+    "en": "If there is enough cream, the cause is most likely whipping or folding."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الكريمة المخفوقة.",
+    "en": "Answer the whipped cream question."
+   }
+  },
+  {
+   "id": "meringue-weep",
+   "category": "meringue",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الميرنغ يطلع قطرات شراب أو يعرق",
+    "en": "Meringue weeps syrup beads or sweats",
+    "syn": {
+     "ar": [
+      "الميرنغ يعرق",
+      "قطرات على الميرنغ",
+      "الميرنغ يطلع شراب",
+      "الميرنغ صار لزج",
+      "الميرنغ ذاب"
+     ],
+     "en": [
+      "weeping meringue",
+      "beading meringue",
+      "sticky meringue",
+      "meringue sweating"
+     ]
+    }
+   },
+   "see": {
+    "ar": "قطرات ذهبية لزجة على السطح أو سائل تحت الميرنغ، أو صار لزج بعد ساعات.",
+    "en": "Sticky golden beads on the surface or liquid under the meringue, or it turns sticky after hours."
+   },
+   "questions": [
+    {
+     "id": "sugar",
+     "ar": "كيف أضفت السكر؟",
+     "en": "How did you add the sugar?",
+     "options": [
+      {
+       "id": "slow",
+       "ar": "تدريجياً وذاب كاملاً (ما يحس محبب بين الأصابع)",
+       "en": "Gradually until dissolved (not gritty between fingers)"
+      },
+      {
+       "id": "fast",
+       "ar": "مرة وحدة أو بقي محبب",
+       "en": "All at once, or it stayed gritty"
+      }
+     ]
+    },
+    {
+     "id": "air",
+     "ar": "رطوبة المكان؟",
+     "en": "Room humidity?",
+     "options": [
+      {
+       "id": "humid",
+       "ar": "رطب (صيف، قريب من البحر)",
+       "en": "Humid (summer, near the sea)"
+      },
+      {
+       "id": "dry",
+       "ar": "مكيّف وناشف",
+       "en": "Air-conditioned and dry"
+      }
+     ]
+    },
+    {
+     "id": "bake",
+     "ar": "الخبز؟",
+     "en": "Baking?",
+     "options": [
+      {
+       "id": "short",
+       "ar": "قصير أو حرارة عالية",
+       "en": "Short or a hot oven"
+      },
+      {
+       "id": "dry",
+       "ar": "طويل على حرارة منخفضة حتى نشف",
+       "en": "Long and low until dry"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "undissolved",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S2"
+     ],
+     "title": {
+      "ar": "السكر ما ذاب كاملاً",
+      "en": "Sugar not fully dissolved"
+     },
+     "why": {
+      "ar": "حبيبات السكر اللي ما ذابت تسحب الرطوبة وتذوب بعدين على شكل قطرات شراب.",
+      "en": "Undissolved sugar grains draw moisture and later melt into syrup beads."
+     },
+     "answers": {
+      "sugar": {
+       "fast": 3,
+       "slow": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S2"
+       ],
+       "ar": "أضف السكر ملعقة ملعقة بعد ما يرغي البياض، أو استعمل ميرنغ سويسري (تسخين البياض والسكر لين يذوب) أو إيطالي (شراب 118 إلى 121°م).",
+       "en": "Add the sugar a spoonful at a time once the whites foam, or use a Swiss meringue (warm whites and sugar until dissolved) or an Italian one (syrup at 118–121 °C).",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Takes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "افرك قليل من الميرنغ بين أصابعك: لازم يكون ناعم بدون حبيبات.",
+      "en": "Rub a little meringue between your fingers: it should feel smooth, not gritty."
+     }
+    },
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S2",
+      "S1"
+     ],
+     "title": {
+      "ar": "السكر قليل مقابل البياض",
+      "en": "Too little sugar for the whites"
+     },
+     "why": {
+      "ar": "السكر يثبّت الرغوة ويمسك الماء. إذا قليل، الرغوة تفقد ماءها وتطلع سائل.",
+      "en": "Sugar stabilises the foam and holds water. With too little, the foam loses water and leaks."
+     },
+     "rule": {
+      "feat": "sugarWhite",
+      "when": "below",
+      "range": {
+       "default": [
+        0.8,
+        2
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس الحد المستعمل في قواعد المنصة (المعتاد 1:1 إلى 2:1).",
+       "en": "The same limit as the platform's rules (usual 1:1 to 2:1)."
+      }
+     },
+     "answers": {
+      "sugar": {
+       "slow": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "ارفع السكر إلى وزن البياض على الأقل.",
+       "en": "Raise the sugar to at least the weight of the whites.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar"
+        ],
+        "base": "white",
+        "target": 1.0
+       },
+       "tradeoff": {
+        "ar": "أحلى وأثقل قليلاً.",
+        "en": "Sweeter and slightly denser."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الميرنغ بعد 6 ساعات بين النسبتين.",
+      "en": "Compare the meringues after 6 hours at both ratios."
+     }
+    },
+    {
+     "id": "humidity",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "رطوبة الجو",
+      "en": "Air humidity"
+     },
+     "why": {
+      "ar": "السكر يمتص الرطوبة من الجو، فالميرنغ في الجو الرطب يلين ويعرق. هذا شائع في صيف الخليج والمدن الساحلية.",
+      "en": "Sugar absorbs moisture from the air, so meringue softens and sweats in humid weather. Common in Gulf summers and coastal cities."
+     },
+     "answers": {
+      "air": {
+       "humid": 3,
+       "dry": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S8"
+       ],
+       "ar": "اخبز في مكان مكيّف وناشف، وخزّن الميرنغ الناشف في علب محكمة مع مادة ماصة للرطوبة.",
+       "en": "Bake in a dry, air-conditioned space, and store dry meringue in airtight boxes with a desiccant.",
+       "tradeoff": {
+        "ar": "تكلفة علب ومواد ماصة.",
+        "en": "Cost of boxes and desiccant."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "خزّن قطعتين: علبة محكمة ومكشوفة، وقارن بعد يوم.",
+      "en": "Store two pieces, airtight and open, and compare after a day."
+     }
+    },
+    {
+     "id": "underbaked",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "ما نشف كفاية في الفرن",
+      "en": "Not dried enough in the oven"
+     },
+     "why": {
+      "ar": "الميرنغ الناشف يحتاج خبز طويل على حرارة منخفضة. الخبز القصير أو الحار يترك رطوبة في الداخل تطلع بعدين.",
+      "en": "Dry meringue needs a long, low bake. A short or hot bake leaves moisture inside that seeps out later."
+     },
+     "answers": {
+      "bake": {
+       "short": 3,
+       "dry": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخبز على حرارة منخفضة (حوالي 90 إلى 100°م) لين ينشف كامل، وخلّه يبرد داخل الفرن.",
+       "en": "Bake low (about 90–100 °C) until fully dry, and let it cool in the oven.",
+       "tradeoff": {
+        "ar": "يشغل الفرن ساعات.",
+        "en": "Ties up the oven for hours."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اكسر قطعة: الداخل ناشف وهش.",
+      "en": "Break one: the inside is dry and crisp."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الميرنغ اللي عرق: إذا ناشف، أرجعه للفرن المنخفض ينشف. إذا لزج كثير، استعمله مكسّر في طبقات أو إيتون ميس."
+    ],
+    "en": [
+     "Sweating meringue: if dry, return it to a low oven to dry out. If very sticky, crumble it into layers or Eton mess."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "سكر ذايب كاملاً.",
+     "السكر بوزن البياض أو أكثر.",
+     "خبز طويل منخفض.",
+     "تخزين محكم ومكان ناشف."
+    ],
+    "en": [
+     "Fully dissolved sugar.",
+     "Sugar at least the weight of the whites.",
+     "Long, low baking.",
+     "Airtight storage in a dry place."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السكر بوزن البياض أو أكثر، فالسبب غالباً الذوبان أو الرطوبة أو الخبز.",
+    "en": "If the sugar is at least the weight of the whites, the cause is most likely dissolving, humidity or baking."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال السكر أول.",
+    "en": "Answer the sugar question first."
+   }
+  },
+  {
+   "id": "meringue-wont-whip",
+   "category": "meringue",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "البياض ما ينخفق أو الرغوة نزلت",
+    "en": "Egg whites will not whip or the foam collapsed",
+    "syn": {
+     "ar": [
+      "البياض ما يتخفق",
+      "البيض ما يصير ميرنغ",
+      "الميرنغ نزل",
+      "الميرنغ سايل",
+      "البياض ما يمسك قمم"
+     ],
+     "en": [
+      "whites won't whip",
+      "meringue collapsed",
+      "runny meringue",
+      "no peaks"
+     ]
+    }
+   },
+   "see": {
+    "ar": "البياض يبقى سائل ورغوي وما يمسك قمم، أو انخفق ثم نزل وصار محبب.",
+    "en": "The whites stay liquid and foamy without peaks, or whipped then fell and turned grainy."
+   },
+   "questions": [
+    {
+     "id": "fat",
+     "ar": "احتمال دهن أو صفار؟",
+     "en": "Any chance of fat or yolk?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم: قطرة صفار أو وعاء بلاستيك أو دهني",
+       "en": "Yes: a drop of yolk, or a plastic or greasy bowl"
+      },
+      {
+       "id": "no",
+       "ar": "لا، وعاء ستيل نظيف",
+       "en": "No, a clean steel bowl"
+      }
+     ]
+    },
+    {
+     "id": "sugar",
+     "ar": "متى أضفت السكر؟",
+     "en": "When did you add the sugar?",
+     "options": [
+      {
+       "id": "start",
+       "ar": "من البداية كله",
+       "en": "All at the start"
+      },
+      {
+       "id": "foam",
+       "ar": "بعد ما رغى البياض، تدريجياً",
+       "en": "After the whites foamed, gradually"
+      }
+     ]
+    },
+    {
+     "id": "how",
+     "ar": "وش صار بالضبط؟",
+     "en": "What exactly happened?",
+     "options": [
+      {
+       "id": "never",
+       "ar": "ما انخفق أبداً",
+       "en": "It never whipped"
+      },
+      {
+       "id": "over",
+       "ar": "انخفق ثم صار محبب ونزل",
+       "en": "It whipped, then went grainy and fell"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "fat",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S2"
+     ],
+     "title": {
+      "ar": "دهن أو صفار في البياض",
+      "en": "Fat or yolk in the whites"
+     },
+     "why": {
+      "ar": "حتى أثر بسيط من الدهن أو الصفار يمنع بروتينات البياض من تكوين الرغوة.",
+      "en": "Even a trace of fat or yolk stops egg-white proteins from forming a foam."
+     },
+     "answers": {
+      "fat": {
+       "yes": 4,
+       "no": -2
+      },
+      "how": {
+       "never": 2,
+       "over": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S2"
+       ],
+       "ar": "افصل البيض واحدة واحدة في وعاء صغير، واستعمل وعاء ستيل أو زجاج نظيف ومسحه بقليل خل أو ليمون.",
+       "en": "Separate eggs one at a time into a small bowl, and use a clean steel or glass bowl wiped with a little vinegar or lemon.",
+       "tradeoff": {
+        "ar": "خطوة إضافية.",
+        "en": "An extra step."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اخفق بياض نظيف في وعاء جديد: إذا انخفق، فالسبب كان الدهن.",
+      "en": "Whip clean whites in a fresh bowl; if they whip, fat was the cause."
+     }
+    },
+    {
+     "id": "sugar-early",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S2"
+     ],
+     "title": {
+      "ar": "السكر انضاف بدري",
+      "en": "Sugar added too early"
+     },
+     "why": {
+      "ar": "السكر من البداية يبطئ تكوّن الرغوة ويقلل حجمها، لكنه يثبّتها بعدين. الأفضل تضيفه بعد ما يرغي البياض.",
+      "en": "Sugar at the start slows foaming and lowers volume, though it stabilises later. Add it once the whites are foamy."
+     },
+     "answers": {
+      "sugar": {
+       "start": 3,
+       "foam": -2
+      },
+      "how": {
+       "never": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S2"
+       ],
+       "ar": "اخفق البياض لين يصير رغوي ثم أضف السكر تدريجياً.",
+       "en": "Whip the whites until foamy, then add the sugar gradually.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الحجم بين الطريقتين.",
+      "en": "Compare the volume between the two ways."
+     }
+    },
+    {
+     "id": "overwhipped",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S2"
+     ],
+     "title": {
+      "ar": "خفق زايد",
+      "en": "Over-whipped"
+     },
+     "why": {
+      "ar": "الخفق الزايد (خصوصاً بدون سكر كافي) يشد البروتينات زيادة فتتكتل وتطرد الماء والرغوة تنزل.",
+      "en": "Over-whipping (especially with little sugar) over-tightens the proteins so they clump, squeeze out water and the foam collapses."
+     },
+     "answers": {
+      "how": {
+       "over": 3,
+       "never": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S2"
+       ],
+       "ar": "توقف أول ما تمسك قمم لامعة ثابتة، وأضف السكر لأنه يحمي من الخفق الزايد.",
+       "en": "Stop as soon as it holds glossy, firm peaks, and add sugar, which protects against over-whipping.",
+       "tradeoff": {
+        "ar": "يحتاج مراقبة.",
+        "en": "Needs watching."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا الميرنغ لامع وناعم عند التوقف المبكر، فالسبب كان الخفق الزايد.",
+      "en": "If it is glossy and smooth when you stop earlier, over-whipping was the cause."
+     }
+    },
+    {
+     "id": "sugar-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السكر عالي جداً مقابل البياض",
+      "en": "Sugar very high for the whites"
+     },
+     "why": {
+      "ar": "السكر الكثير جداً يثقّل الخليط ويبطئ الخفق كثير، خصوصاً إذا انضاف بدري.",
+      "en": "Very high sugar weighs the mix down and slows whipping a lot, especially if added early."
+     },
+     "rule": {
+      "feat": "sugarWhite",
+      "when": "above",
+      "range": {
+       "default": [
+        0.8,
+        2
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "المعتاد 1:1 إلى 2:1؛ فوق كذا يصير الخفق بطيء جداً.",
+       "en": "Usual 1:1 to 2:1; above that whipping becomes very slow."
+      }
+     },
+     "answers": {
+      "sugar": {
+       "start": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض السكر إلى 1.8 من وزن البياض.",
+       "en": "Lower the sugar to 1.8 times the whites.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar"
+        ],
+        "base": "white",
+        "target": 1.8
+       },
+       "tradeoff": {
+        "ar": "أقل ثباتاً وأقل حلاوة.",
+        "en": "Less stable and less sweet."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن وقت الوصول للقمم بين النسبتين.",
+      "en": "Compare the time to reach peaks at both ratios."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "البياض اللي فيه دهن ما ينقذ للميرنغ؛ استعمله في عجائن.",
+     "المخفوق زيادة: أضف بياض طازج واخفق ثواني ليرجع ناعم."
+    ],
+    "en": [
+     "Whites with fat cannot be saved for meringue; use them in batters.",
+     "Over-whipped: add a fresh white and whip a few seconds to smooth it."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "وعاء ستيل نظيف بدون دهن.",
+     "افصل البيض بحذر.",
+     "السكر بعد الرغوة وتدريجياً.",
+     "توقف عند القمم اللامعة."
+    ],
+    "en": [
+     "A clean, grease-free steel bowl.",
+     "Separate eggs carefully.",
+     "Sugar after foaming, gradually.",
+     "Stop at glossy peaks."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب مشاكل خفق البياض من الدهن أو الطريقة، مو من النسبة.",
+    "en": "Most whipping problems are fat or method, not the ratio."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الدهن أول.",
+    "en": "Answer the fat question first."
+   }
   }
  ]
 }
