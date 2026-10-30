@@ -574,6 +574,51 @@ html{overflow-x:clip}
 .ft-legal{margin:10px 0 0;font-size:14px;grid-column:1/-1;flex-basis:100%}.dash-legal{text-align:center;margin:14px 0 0}.dash-legal a,.ft-legal a{color:var(--muted)}
 .totop{position:fixed;inset-inline-start:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:30;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--s1);color:var(--ink);font-size:22px;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.35);cursor:pointer}@media(min-width:900px){.totop{bottom:24px}}
 .dash-inst{display:flex;gap:10px;align-items:center;background:var(--s1);border:1px dashed var(--acc);border-radius:16px;padding:10px 12px;margin:0 0 12px}.dash-inst>span{font-size:26px}.dash-inst>div{flex:1}.dash-inst p{margin:0}
+/* guided diagnosis: instrument style (design direction, screen 3) */
+.dxw{--dxok:#5FA37A;--dxw:#D2A24C;--dxb:#D9644F;padding-top:12px;padding-bottom:24px}
+:root[data-theme=light] .dxw{--dxok:#2F7D4F;--dxw:#9A6B12;--dxb:#B23A26}
+.dxw h1{font-size:clamp(22px,4vw,28px);margin:0;line-height:1.3}.dxw h2{font-size:16px;margin:0}.dxw h3{font-size:15px;margin:0 0 6px}
+.dxi{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+html[dir=ltr] .dxi{transform:scaleX(-1)}
+.dx-sm{font-size:13.5px;color:var(--muted);margin:4px 0;line-height:1.6}.dx-sm.w{color:var(--dxw)}
+.dx-back{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--muted);text-decoration:none;font-size:14px}
+.dx-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:2px 0 4px}
+.dx-chip{display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:12px;font-size:12px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}.dx-chip.w{color:var(--dxw);border-color:currentColor}
+.dx-steps{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink);margin:12px 0}.dx-steps b{font-weight:600}.dx-steps b.off{color:var(--muted);font-weight:400}.dx-steps i{flex:1;height:1px;background:var(--line)}.dx-n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.dx-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:16px;align-items:start}
+@media (max-width:860px){.dx-grid{grid-template-columns:1fr}}
+.dx-p{background:var(--s1);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px}
+.dx-ph{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.dx-q{border:0;border-bottom:1px solid var(--line);margin:0;padding:12px 0;min-width:0}.dx-q:first-child{padding-top:2px}.dx-q:last-of-type{border-bottom:0}
+.dx-q legend{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:0;margin-bottom:10px}
+.dx-qn{width:22px;height:22px;border-radius:50%;background:var(--s2);display:grid;place-items:center;font-size:12px;font-weight:600;flex:none}
+.dx-opts{display:flex;flex-wrap:wrap;gap:8px}
+.dx-opt{min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-align:start;transition:border-color .12s,background .12s}
+.dx-opt:hover{border-color:var(--muted)}.dx-opt[aria-pressed=true]{border-color:var(--hot);color:var(--ink);background:color-mix(in srgb,var(--hot) 18%,transparent)}
+.dx-opt:focus-visible,.dx-btn:focus-visible,.dxs-i:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.dx-link{background:none;border:0;color:var(--muted);text-decoration:underline;font:inherit;font-size:13px;min-height:44px;cursor:pointer;padding:0}
+.dx-ctx .dx-sel{display:flex;gap:8px;flex-wrap:wrap}.dx-ctx .field{flex:1;min-width:150px;margin:0}
+.dx-unsure{border-inline-start:3px solid var(--dxw);padding:4px 10px;font-size:14px;margin:8px 0}
+.dx-c{padding:12px 0;border-top:1px solid var(--line)}.dx-c.first{border-top:0;padding-top:6px}
+.dx-ct{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.dx-ct b{font-size:15.5px}
+.dx-conf{font-size:12px;border:1px solid currentColor;border-radius:4px;padding:0 6px;white-space:nowrap}.dx-conf.high{color:var(--dxb)}.dx-conf.medium{color:var(--dxw)}.dx-conf.low{color:var(--muted);border-color:var(--line)}
+.dx-bar{height:4px;background:var(--s2);border-radius:2px;margin:8px 0}.dx-bar i{display:block;height:100%;border-radius:2px;background:var(--muted);transition:width .12s}.dx-bar i.high{background:var(--dxb)}.dx-bar i.medium{background:var(--dxw)}
+.dx-tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.dx-tag{font-size:11.5px;border:1px solid var(--line);border-radius:4px;padding:0 6px;color:var(--muted)}
+.dx-tag.ev-established{color:var(--dxok);border-color:currentColor}.dx-tag.ev-estimate{color:var(--dxw);border-style:dashed;border-color:currentColor}
+.dx-src{font-size:12px;color:var(--acc);text-decoration:none}
+.dx-ev{font-size:13.5px;margin:6px 0 0;padding:3px 8px;background:var(--s2);border-radius:4px;display:block}
+.dx-why{font-size:14px;color:var(--muted);margin:8px 0 0;line-height:1.7}
+.dx-t{width:100%;border-collapse:collapse;margin:8px 0;font-size:14px}.dx-t th{font-size:12px;color:var(--muted);font-weight:500;text-align:start;padding:6px 4px;border-bottom:1px solid var(--line)}.dx-t td{padding:8px 4px;border-bottom:1px solid var(--line)}
+.dx-t .n{font-variant-numeric:tabular-nums;text-align:end;direction:ltr;unicode-bidi:isolate}.dx-t .up{color:var(--dxok)}.dx-t .dn{color:var(--dxb)}
+.dx-acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.dx-btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 16px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none}
+.dx-btn.pri{background:var(--hot);border-color:var(--hot);color:var(--hot-ink)}
+.dx-ol{margin:4px 0;padding-inline-start:20px;font-size:14px;line-height:1.8}.dx-safe{border-inline-start:3px solid var(--dxb);padding:2px 10px;font-size:13.5px;margin:8px 0}
+.dx-refs li{font-size:12.5px;color:var(--muted);text-align:left;margin:3px 0}.dx-refs ol{padding-inline-start:0;list-style:none}
+.dxs{border:1px solid var(--line);border-radius:10px;background:var(--s1);padding:12px 14px;margin:14px 0}
+.dxs-h{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.dxs-l{display:grid;gap:0;margin-top:6px}
+.dxs-i{display:flex;align-items:center;gap:10px;min-height:48px;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:15px}.dxs-i span{flex:1}.dxs-i small{color:var(--muted);font-size:12.5px}
+.dxb{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:10px 0}.dxb span{display:grid}
 /* home v2 */
 .dash-hero{margin:0 0 14px}
 .dash-q{display:flex;gap:8px;margin:4px 0 0}.dash-q .field{flex:1;min-width:0;margin:0}.dash-q .btn{flex:none}
@@ -648,6 +693,7 @@ html{overflow-x:clip}
 <main id="main">
  <section id="p-home" class="page"></section><section id="p-solve" class="page"></section><section id="p-dev" class="page"></section>
  <section id="p-calc" class="page"></section><section id="p-library" class="page"></section><section id="p-materials" class="page"></section><section id="p-rules" class="page"></section><section id="p-suppliers" class="page"></section><section id="p-privacy" class="page"></section>
+<section id="p-dx" class="page"></section>
 </main>
 <div class="wrap" id="aboutHost"></div>
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
@@ -875,7 +921,7 @@ const ACT={
 const r01=v=>Math.round(v*10)/10;
 const nm=k=>NM[k][L]||NM[k].en;
 const pick=o=>o[L]||o.ar;
-const PAGES=["home","solve","dev","calc","library","materials","rules","suppliers","privacy"],NAVP=["home","dev","library"],NAVL={home:{ar:"ابدأ",en:"Start"},dev:{ar:"مشاريعي",en:"My projects"},library:{ar:"المكتبة",en:"Library"}};
+const PAGES=["home","solve","dev","calc","library","materials","rules","suppliers","privacy","dx"],NAVP=["home","dev","library"],NAVL={home:{ar:"ابدأ",en:"Start"},dev:{ar:"مشاريعي",en:"My projects"},library:{ar:"المكتبة",en:"Library"}};
 let MS=LS("zm-matsup",{});
 const norm=s=>String(s).replace(/[ً-ْـ]/g,"").replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").toLowerCase();
 const TYPE_IDS=["cake","dough","cream","choc","air","custard","gel","frozen"];
@@ -892,7 +938,7 @@ function applyChrome(){
   $("#bLang").textContent=L==="ar"?"EN":"ع";$("#bLang").setAttribute("aria-label",L==="ar"?"English":"العربية");
   $("#bSearch span").textContent=t("search");$("#bTheme").setAttribute("aria-label",t("theme"));
   $(".skip").textContent=t("skip");
-  $("#fnote").textContent=t("f_note");{const n=$("#ftNav");if(n)n.innerHTML=`<b>${esc(t("ft_nav"))}</b>`+PAGES.filter(p=>p!=="privacy").map(p=>`<a href="#${p}">${esc(t("nav_"+(p==="suppliers"?"sup":p)))}</a>`).join("");const c=$("#ftCon");if(c)c.innerHTML="";const y=$("#ftCopy");if(y)y.textContent=t("ft_copy")}
+  $("#fnote").textContent=t("f_note");{const n=$("#ftNav");if(n)n.innerHTML=`<b>${esc(t("ft_nav"))}</b>`+PAGES.filter(p=>p!=="privacy"&&p!=="dx").map(p=>`<a href="#${p}">${esc(t("nav_"+(p==="suppliers"?"sup":p)))}</a>`).join("");const c=$("#ftCon");if(c)c.innerHTML="";const y=$("#ftCopy");if(y)y.textContent=t("ft_copy")}
   $("#pal-in").placeholder=t("pal_ph");$("#palhint").textContent=t("pal_hint");
 }
 function theme(v){const h=document.documentElement;h.dataset.theme=v;LSS("zm-theme",v);$("#bTheme").textContent=v==="dark"?"☾":"☀";$('meta[name=theme-color]').content=v==="dark"?"#1B0B0C":"#EBE6DC"}
@@ -1040,12 +1086,12 @@ function renderSolve(){
   const cur=S.prob?3:(S.type||S.q.trim())?2:1;
   let h=`<div class="wrap"><h1 style="font-size:clamp(30px,5vw,46px)">${esc(t("s_h"))}</h1><p class="lead">${esc(t("s_lead"))}</p>
   <ol class="steps">${[["step1",1],["step2",2],["step3",3]].map(([k,n])=>`<li class="${n===cur?"on":""}"><b>${n}</b> ${esc(t(k))}</li>`).join("")}</ol>`;
-  if(!S.prob)h+=`<div><label for="q">${esc(t("s_q"))}</label><input id="q" class="field" placeholder="${esc(t("s_qph"))}" autocomplete="off" value="${esc(S.q)}"></div>`;
+  if(!S.prob)h+=`<div><label for="q">${esc(t("s_q"))}</label><input id="q" class="field" placeholder="${esc(t("s_qph"))}" autocomplete="off" value="${esc(S.q)}"></div>`+(window.dxSolveBlock?window.dxSolveBlock(S.q):"");
   const tn=id=>t("types")[id][0];
   if(S.prob){
     const p=DATA.PROBLEMS.find(x=>x.id===S.prob);
     h+=`<div class="crumb">${S.type?`<span>${esc(t("s_prod"))}: <b>${esc(tn(S.type))}</b></span>`:""}<button class="link" data-a="back">${esc(t("s_back"))}</button><button class="link" data-a="reset">${esc(t("s_reset"))}</button></div>`;
-    h+=`<article class="result" tabindex="-1" id="res"><h2 style="margin-top:16px">${esc(loc(p,"title"))}</h2><h3>${esc(t("s_diag"))}</h3><p style="margin:0">${esc(loc(p,"cause"))}</p>`;
+    h+=`<article class="result" tabindex="-1" id="res"><h2 style="margin-top:16px">${esc(loc(p,"title"))}</h2>${window.dxBanner?window.dxBanner(p.id):""}<h3>${esc(t("s_diag"))}</h3><p style="margin:0">${esc(loc(p,"cause"))}</p>`;
     const steps=loc(p,"steps"),fix=loc(p,"fix");
     if(steps)h+=`<h3>${esc(t("s_ord"))}</h3><ol>${steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`;
     if(fix)h+=`<h3>${esc(t("s_do"))}</h3><ul>${fix.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>`;
@@ -2062,7 +2108,7 @@ function compBar(p,r){const a=recAn(p,r);if(a.tot<=0)return"";
 document.body.insertAdjacentHTML("beforeend",'<div id="toast" class="toast noprint" role="status" hidden></div><div id="pjBar" class="pjbar noprint" hidden></div>');
 let _tt=0;function toast(msg,act,fn,ms){window._tfn=fn||null;const e=$("#toast");e.innerHTML=esc(msg)+(act?` <button type="button" class="link" data-tact="1">${esc(act)}</button>`:"");e.hidden=false;clearTimeout(_tt);_tt=setTimeout(()=>{e.hidden=true;window._tfn=null},ms||6000)}
 function pjBar(){const e=$("#pjBar");if(!e)return;const pg=(location.hash||"#home").slice(1).split("/")[0];
- if(!PJ.length||pg==="dev"||pg==="home"||pg===""){e.hidden=true;return}
+ if(!PJ.length||pg==="dev"||pg==="home"||pg===""||pg==="dx"){e.hidden=true;return}
  e.hidden=false;e.innerHTML=`<span class="pb-l">${esc(B("bar"))}</span><select id="pjSel" aria-label="${esc(B("bar"))}">${PJ.map(z=>`<option value="${esc(z.id)}"${z.id===PJSEL?" selected":""}>${esc(z.name)}</option>`).join("")}</select><button type="button" class="btn pri sm" data-pjopen="${esc(PJSEL||PJ[0].id)}">${esc(B("barOpen"))}</button>`;
  if(!PJSEL){PJSEL=PJ[0].id;LSS("zm-active",PJSEL)}}
 document.addEventListener("change",e=>{if(e.target.id==="pjSel"){PJSEL=e.target.value;LSS("zm-active",PJSEL);pjBar()}});
@@ -3044,6 +3090,106 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
  if(!PJSEL||!PJ.some(z=>z.id===PJSEL))PJSEL=PJ[0].id;PJHIDE=null;LSS("zm-active",PJSEL);location.hash="#dev";try{renderDev()}catch(_){}
  setTimeout(()=>{if(k==="lbl")openLabel();else{const c=document.getElementById("pj-plan");if(c){c.open=true;c.scrollIntoView({block:"start"});const f=c.querySelector("input");if(f)f.focus({preventScroll:true})}}},200)});
 
+
+/* ================= GUIDED DIAGNOSIS (knowledge base v2: kb/engine.js + kb/problems.js, loaded on demand) ================= */
+let DXP=null;const DX={id:null,pid:null,rid:null,ans:{}};
+/* old problem ids that now have a guided diagnosis */
+const DXOF={separate:"ganache-split",custard:"pastry-cream-grainy","cake-sink":"cake-sink","tart-shrink":"tart-shell","tart-soggy":"tart-shell","choux-flat":"choux-collapse"};
+function dxLoad(){if(window.KBE&&window.KB_V2)return Promise.resolve();if(!DXP)DXP=Promise.all([window.KBE?0:loadJs("kb/engine.js"),window.KB_V2?0:loadJs("kb/problems.js")]).catch(e=>{DXP=null;throw e});return DXP}
+const dxReady=()=>!!(window.KBE&&window.KB_V2);
+const dxL=o=>o?(L==="ar"?o.ar:o.en)||o.en||o.ar||"":"";
+const dxProb=id=>dxReady()&&window.KB_V2.problems.find(p=>p.id===id);
+/* map a platform material to the engine's ingredient role */
+function dxRole(id,i){
+ if(/^(flour|sa_aloula_\w+|breadflour|cakeflour|wholewheat|semolina)$/.test(id))return"flour";
+ if(/^(cstarch|potatostarch|tapiocastarch|wheatstarch|modstarch|waxystarch|pregel|riceflour)$/.test(id))return"starch";
+ if(id==="egg"||id==="eggpowder")return"egg";if(id==="yolk")return"yolk";if(id==="white"||id==="albumen")return"white";
+ if(/^(milk|sa_milk_full|sa_milk_half|skimmilk|evaporated|buttermilk)$/.test(id))return"milk";
+ if(/^(cream|cream40|sa_whip|sa_fresh|sourcream|qashta)$/.test(id))return"cream";
+ if(/^(butter|sa_butter|amf|ghee|margarine|puffmarg|shortening)$/.test(id))return"butter";
+ if(/^(sugar|sa_osra|powdered|brownsugar|muscovado|dextrose)$/.test(id))return"sugar";
+ if(id==="invert")return"invert";if(id==="glucose"||id==="glupow")return"glucose";if(id==="honey"||id==="datesyrup")return"honey";
+ if(id==="bpowder")return"bp";if(id==="soda")return"soda";if(id==="water")return"water";
+ return i.cat==="choc"?"chocolate":i.cat||"other"}
+function dxRows(r){const out=[];(r.rows||[]).forEach((z,k)=>{const g=+z.m||0;if(g<=0)return;const id=rowMat(z),i=id&&ING[id];
+ out.push({_i:k,n:rin(z)||z.n||"",ne:z.ne||z.n||"",g,role:i?dxRole(id,i):"other",comp:i?{w:num(i.water)/100,f:num(i.fat)/100,s:num(i.sugar)/100,p:num(i.protein)/100}:{w:0,f:0,s:0,p:0},unk:!i})});return out}
+const dxN=s=>norm(String(s||"")).replace(/[؟?!.,،]/g," ").replace(/\s+/g," ").trim();
+function dxMatch(q){if(!dxReady())return[];const n=dxN(q);const P=window.KB_V2.problems;if(!n)return P;
+ return P.filter(p=>[p.symptom.ar,p.symptom.en].concat(p.symptom.syn.ar,p.symptom.syn.en).some(t=>{const s=dxN(t);return s&&(s.includes(n)||n.includes(s)||(n.length>3&&s.split(" ").filter(w=>w.length>2&&n.includes(w)).length>=2))}))}
+const DXCH='<svg class="dxi" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+/* the block on the problem-solving page */
+window.dxSolveBlock=function(q){
+ if(!dxReady()){dxLoad().then(()=>{if(document.querySelector("#p-solve #q, #p-solve .result"))renderSolve()}).catch(()=>{});return""}
+ const list=dxMatch(q);if(!list.length)return"";
+ return `<section class="dxs" aria-label="${esc(X("تشخيص موجّه","Guided diagnosis"))}"><div class="dxs-h"><b>${esc(X("تشخيص موجّه بأرقام وصفتك","Guided diagnosis from your recipe's numbers"))}</b><span class="dx-chip w">${esc(X("جديد · مسودة","New · draft"))}</span></div>
+ <p class="dx-sm">${esc(X("3 أسئلة بضغطة، والمنصة ترتّب الأسباب من وصفتك وإجاباتك، وتحسب التعديل بالغرام.","Three one-tap questions; the platform ranks the causes from your recipe and answers, and computes the change in grams."))}</p>
+ <div class="dxs-l">${list.map(p=>`<a class="dxs-i" href="#dx/${esc(p.id)}"><span>${esc(dxL(p.symptom))}</span><small>${p.causes.length} ${esc(X("أسباب","causes"))}</small>${DXCH}</a>`).join("")}</div></section>`};
+window.dxBanner=function(oldId){const id=DXOF[oldId];if(!id)return"";return `<a class="dxs-i dxb" href="#dx/${esc(id)}"><span><b>${esc(X("جرّب التشخيص الموجّه","Try the guided diagnosis"))}</b><small>${esc(X("يقرأ أرقام وصفتك ويحسب التعديل بالغرام","Reads your recipe's numbers and computes the change in grams"))}</small></span>${DXCH}</a>`};
+
+function dxCtx(){const p=PJ.find(z=>z.id===DX.pid)||PJ.find(z=>z.id===PJSEL)||PJ[0]||null;if(!p)return{p:null,r:null,rows:[]};
+ const R=recsOf(p),r=R.find(z=>z.id===DX.rid)||R[0];DX.pid=p.id;DX.rid=r&&r.id;const pt=r&&balPid(p,r);return{p,r,rows:r?dxRows(r):[],ptype:/^g[btw]$/.test(pt||"")?pt:null}}
+function dxRender(){const el=document.getElementById("p-dx");if(!el)return;const m=/^#dx\/([\w-]+)/.exec(location.hash||"");
+ if(!m){el.innerHTML="";return}
+ if(!dxReady()){el.innerHTML=`<div class="wrap dxw"><p class="dx-sm">${esc(X("جاري تحميل قاعدة المعرفة…","Loading the knowledge base…"))}</p></div>`;dxLoad().then(dxRender).catch(()=>{el.innerHTML=`<div class="wrap dxw"><p class="note warn">${esc(X("تعذّر تحميل قاعدة المعرفة. تأكد من الاتصال وحاول مرة ثانية.","Could not load the knowledge base. Check your connection and try again."))}</p></div>`});return}
+ const P=dxProb(m[1]);if(!P){el.innerHTML=`<div class="wrap dxw"><p class="note">${esc(X("هذا التشخيص غير موجود.","This diagnosis does not exist."))}</p><a class="dx-btn" href="#solve">${esc(X("حل مشكلة","Fix a problem"))}</a></div>`;return}
+ if(DX.id!==P.id){DX.id=P.id;DX.ans={}}
+ const C=dxCtx(),sym=DX.ans.sym||null,opt={answers:DX.ans,ptype:C.ptype,symptom:sym};
+ const d=window.KBE.diagnose(P,C.rows,opt),EV=window.KB_V2.evidence,SR=Object.fromEntries(window.KB_V2.sources.map(s=>[s.id,s]));
+ const top=d.causes.filter(c=>c.score>-1).slice(0,4),shown=top.length?top:d.causes.slice(0,2);
+ const fixC=shown.find(c=>c.fixes.some(f=>f.type==="recipe"&&f.result&&f.result.ok)),fix=fixC&&fixC.fixes.find(f=>f.type==="recipe"&&f.result&&f.result.ok);
+ const lead=shown[0],proc=lead?lead.fixes.filter(f=>f.type==="process"):[],cited=new Set();shown.forEach(c=>(c.src||[]).forEach(s=>cited.add(s)));
+ const unk=C.rows.filter(z=>z.unk).map(z=>z.n);
+ const conf={high:X("عالي","High"),medium:X("متوسط","Medium"),low:X("منخفض","Low")};
+ const qn=P.questions.filter(q=>DX.ans[q.id]).length;
+ const proj=PJ.length?`<div class="dx-ctx"><label class="dx-sm" for="dxPj">${esc(X("الوصفة اللي نشخّصها","Recipe being diagnosed"))}</label><div class="dx-sel"><select id="dxPj" class="field" data-dxpj="1">${PJ.map(p=>`<option value="${esc(p.id)}"${p.id===DX.pid?" selected":""}>${esc(p.name)}</option>`).join("")}</select>${C.p&&recsOf(C.p).length>1?`<select class="field" data-dxr="1" aria-label="${esc(X("الوصفة","Recipe"))}">${recsOf(C.p).map(r=>`<option value="${esc(r.id)}"${r.id===DX.rid?" selected":""}>${esc(rnm(r)||U("mine"))}</option>`).join("")}</select>`:""}</div>${unk.length?`<p class="dx-sm w">${esc(X("مكونات غير معروفة للمنصة ما دخلت في الحساب: ","Ingredients unknown to the platform are not counted: "))}${esc(unk.join(X("، ",", ")))}</p>`:""}</div>`
+  :`<div class="dx-ctx"><p class="dx-sm">${esc(X("ما عندك مشروع، فالتشخيص يعتمد على إجاباتك فقط. أضف وصفتك عشان المنصة تقرأ أرقامها.","You have no project, so the diagnosis uses your answers only. Add your recipe so the platform can read its numbers."))}</p><button type="button" class="dx-btn" data-newpj="1">${esc(X("مشروع جديد","New project"))}</button></div>`;
+ el.innerHTML=`<div class="wrap dxw">
+ <a class="dx-back" href="#solve">${DXCH}${esc(X("حل مشكلة","Fix a problem"))}</a>
+ <div class="dx-head"><h1>${esc(dxL(P.symptom))}</h1><span class="dx-chip w">${esc(X("مسودة · بانتظار مراجع","Draft · awaiting review"))}</span></div>
+ <p class="dx-sm">${esc(dxL(P.see))}</p>
+ <div class="dx-steps" aria-hidden="true"><b>${esc(X("الوصفة","Recipe"))}</b><i></i><b class="${qn?"":"off"}">${esc(X("الأسئلة","Questions"))} <span class="dx-n">${qn}/${P.questions.length}</span></b><i></i><b>${esc(X("التشخيص","Diagnosis"))}</b></div>
+ <div class="dx-grid"><div>
+  <div class="dx-p">${proj}</div>
+  <div class="dx-p">${P.questions.map((q,i)=>`<fieldset class="dx-q"><legend><span class="dx-qn">${i+1}</span>${esc(dxL(q))}</legend><div class="dx-opts">${q.options.map(o=>`<button type="button" class="dx-opt" data-dxa="${esc(q.id)}:${esc(o.id)}" aria-pressed="${DX.ans[q.id]===o.id}">${esc(dxL(o))}</button>`).join("")}</div></fieldset>`).join("")}
+   ${qn?`<button type="button" class="dx-link" data-dxreset="1">${esc(X("امسح الإجابات","Clear answers"))}</button>`:""}</div>
+  <p class="dx-sm">${esc(X("الأسئلة تغيّر الترتيب فوراً. التشخيص يستعمل أرقام وصفتك الحالية مع إجاباتك.","Answers re-rank the causes at once. The diagnosis uses your current recipe's numbers with your answers."))}</p>
+ </div><div>
+  <div class="dx-p" aria-live="polite"><div class="dx-ph"><h2>${esc(X("التشخيص","Diagnosis"))}</h2><span class="dx-sm">${esc(X("مرتّب حسب الاحتمال","Ranked by likelihood"))}</span></div>
+   ${d.unsure?`<p class="dx-unsure">${esc(dxL(d.check))}</p>`:""}
+   ${shown.map((c,i)=>`<div class="dx-c${i?"":" first"}"><div class="dx-ct"><b>${esc(dxL(c.title))}</b><span class="dx-conf ${c.conf}">${esc(conf[c.conf])}</span></div>
+    <div class="dx-bar"><i class="${c.conf}" style="width:${Math.max(8,Math.min(100,(c.score+2)*12))}%"></i></div>
+    <div class="dx-tags"><span class="dx-tag">${esc(c.kind==="formula"?X("الوصفة","Recipe"):X("التنفيذ","Process"))}</span><span class="dx-tag ev-${esc(c.evidence)}">${esc(dxL(EV[c.evidence]))}</span>${(c.src||[]).map(s=>`<a class="dx-src" href="#dxsrc-${esc(s)}">[${esc(s.slice(1))}]</a>`).join("")}</div>
+    ${c.explain.map(e=>`<p class="dx-ev">${esc(dxL(e))}</p>`).join("")}
+    ${i===0?`<p class="dx-why">${esc(dxL(c.why))}</p>`:""}</div>`).join("")}
+  </div>
+  ${lead&&proc.length?`<div class="dx-p"><h3>${esc(X("عدّل التنفيذ","Change the process"))}</h3>${proc.map(f=>`<p>${esc(dxL(f))}</p><p class="dx-sm"><b>${esc(X("الثمن: ","Trade-off: "))}</b>${esc(dxL(f.tradeoff))}</p>`).join("")}<p class="dx-sm"><b>${esc(X("كيف تتأكد: ","How to verify: "))}</b>${esc(dxL(lead.verify))}</p></div>`:""}
+  ${fix?`<div class="dx-p dx-fix"><h3>${esc(X("عدّل الوصفة عشان ما يتكرر","Change the recipe so it does not happen again"))}</h3><p class="dx-sm">${esc(dxL(fixC.title))}: ${esc(dxL(fix))}</p>
+   <table class="dx-t"><tr><th>${esc(U("ing"))}</th><th>${esc(X("الحالي","Now"))}</th><th>${esc(X("المقترح","Proposed"))}</th><th>Δ</th></tr>${fix.result.diff.map(x=>`<tr><td>${esc(L==="ar"?x.n:x.ne)}</td><td class="n">${x.from}</td><td class="n"><b>${x.to}</b></td><td class="n ${x.d>0?"up":"dn"}">${x.d>0?"+":""}${x.d}</td></tr>`).join("")}</table>
+   <p class="dx-sm"><b>${esc(X("الثمن: ","Trade-off: "))}</b>${esc(dxL(fix.tradeoff))}</p><p class="dx-sm"><b>${esc(X("كيف تتأكد: ","How to verify: "))}</b>${esc(dxL(fixC.verify))}</p>
+   <div class="dx-acts"><button type="button" class="dx-btn pri" data-dxapply="${esc(fixC.id)}">${esc(X("طبّق على الوصفة","Apply to the recipe"))}</button><button type="button" class="dx-btn" data-dxlog="${esc(fixC.id)}">${esc(X("سجّل كتجربة فقط","Log as a trial only"))}</button><span class="dx-sm">${esc(X("تُحفظ نسخة قبل التغيير وتقدر تتراجع.","A version is saved first and you can undo."))}</span></div></div>`:""}
+  <div class="dx-p"><h3>${esc(X("أنقذ الدفعة الحين","Rescue the batch now"))}</h3><ol class="dx-ol">${(L==="ar"?P.rescue.ar:P.rescue.en).map(s=>`<li>${esc(s)}</li>`).join("")}</ol>${P.rescue.safety?`<p class="dx-safe">${esc(dxL(P.rescue.safety))}</p>`:""}
+   <p class="dx-sm"><b>${esc(X("متى المشكلة مو من الوصفة: ","When it is not the recipe: "))}</b>${esc(dxL(P.notFormula))}</p></div>
+  <div class="dx-p dx-refs"><h3>${esc(X("المصادر","Sources"))}</h3><ol>${[...cited].concat(P.rescue.safety?P.rescue.safety.src||[]:[]).filter((s,i,a)=>a.indexOf(s)===i).map(s=>`<li id="dxsrc-${esc(s)}" dir="ltr">[${esc(s.slice(1))}] ${esc(SR[s]?SR[s].cite:s)}</li>`).join("")}</ol>
+   <p class="dx-sm">${esc(X("مسودة: الأرقام المعلّمة «تقدير عمل» تنتظر اعتماد مراجع. النص بصياغتنا، بدون نسخ من الكتب.","Draft: figures marked “working estimate” await expert review. Text is in our own words, not copied from the books."))}</p></div>
+ </div></div></div>`}
+function dxApply(cid,logOnly){const P=dxProb(DX.id),C=dxCtx();if(!P||!C.p||!C.r)return;
+ const d=window.KBE.diagnose(P,C.rows,{answers:DX.ans,ptype:C.ptype,symptom:DX.ans.sym||null}),c=d.causes.find(x=>x.id===cid),f=c&&c.fixes.find(x=>x.type==="recipe"&&x.result&&x.result.ok);if(!f)return;
+ const r=C.r,p=C.p,title=dxL(P.symptom)+" — "+dxL(c.title),sum=f.result.diff.map(x=>(L==="ar"?x.n:x.ne)+" "+x.from+"→"+x.to+X(" غ"," g")).join(X("، ",", "));
+ if(logOnly){p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:X("تشخيص: ","Diagnosis: ")+title+" — "+sum,res:X("بانتظار التجربة","Awaiting the trial")});saveAll();toast(X("تم التسجيل في سجل التجارب","Logged in the trial log"));return}
+ const snap=r.rows.map(z=>Object.assign({},z));window.verPush(r,X("قبل: ","Before: ")+title);
+ f.result.rows.forEach(z=>{if(z._i!=null&&r.rows[z._i])r.rows[z._i].m=z.g;else if(z.added)r.rows.push({n:z.n,ne:z.ne||z.n,o:0,m:z.g})});
+ p.trials.push({d:new Date().toLocaleDateString("en-GB"),ch:X("تشخيص: ","Diagnosis: ")+title+" — "+sum,res:X("بانتظار التجربة","Awaiting the trial")});saveAll();dxRender();
+ toast(X("تم تطبيق التعديل على «","Change applied to «")+(rnm(r)||U("mine"))+"»",X("تراجع","Undo"),()=>{r.rows=snap;if(r.hist&&r.hist.length)r.hist.pop();p.trials.pop();saveAll();dxRender();toast(X("تم التراجع","Undone"))},12000)}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dxa],[data-dxreset],[data-dxapply],[data-dxlog]");if(!b)return;
+ if(b.dataset.dxa){const[q,o]=b.dataset.dxa.split(":");if(DX.ans[q]===o)delete DX.ans[q];else DX.ans[q]=o;const y=scrollY;dxRender();scrollTo(0,y);return}
+ if(b.dataset.dxreset){DX.ans={};dxRender();return}
+ if(b.dataset.dxapply){dxApply(b.dataset.dxapply,false);return}
+ if(b.dataset.dxlog){dxApply(b.dataset.dxlog,true)}});
+document.addEventListener("change",e=>{const el=e.target;if(!el||!el.dataset)return;if(el.dataset.dxpj){DX.pid=el.value;DX.rid=null;dxRender()}else if(el.dataset.dxr){DX.rid=el.value;dxRender()}});
+addEventListener("hashchange",()=>{if((location.hash||"").startsWith("#dx/"))dxRender()});
+if((location.hash||"").startsWith("#dx/"))dxRender();
+new MutationObserver(()=>{if((location.hash||"").startsWith("#dx/"))dxRender()}).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+
 /* ================= PRIVACY POLICY AND TERMS OF USE ================= */
 function privHtml(){const A=L==="ar",S=(t,body)=>`<section class="card"><h2>${esc(t)}</h2>${body.map(b=>Array.isArray(b)?`<ul>${b.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p>${esc(b)}</p>`).join("")}</section>`;
  const ig=`<a href="https://www.instagram.com/zahar_anass_" target="_blank" rel="noopener">Instagram @zahar_anass_</a>`;
@@ -3079,7 +3225,7 @@ window.histHtml=histHtml;window.openAdjust=openAdjust;window.adjShell=adjShell;w
  const ar=()=>L==="ar";
  const IC={home:'<path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>',dev:'<path d="M4 4h16v16H4zM4 9h16M9 9v11"/>',lib:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 1 2-2h13"/>',plus:'<path d="M12 5v14M5 12h14"/>',fix:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/>'};
  function tabs(){let e=document.getElementById("tabbar");if(!e){e=document.createElement("nav");e.id="tabbar";e.className="tabbar noprint";e.setAttribute("aria-label","Main");document.body.appendChild(e)}
-  const pg=(location.hash||"#home").slice(1).split("/")[0],cur={rules:"library",suppliers:"library",materials:"library",calc:"dev"}[pg]||pg;
+  const pg=(location.hash||"#home").slice(1).split("/")[0],cur={rules:"library",suppliers:"library",materials:"library",calc:"dev",dx:"solve"}[pg]||pg;
   const a=(k,ic,lb)=>`<a href="#${k}"${cur===k?' aria-current="page"':""}><svg viewBox="0 0 24 24" aria-hidden="true">${IC[ic]}</svg>${lb}</a>`;
   e.innerHTML=a("home","home",ar()?"ابدأ":"Start")+a("dev","dev",ar()?"مشاريعي":"Projects")+`<button type="button" class="plus" data-newpj="1" aria-label="${ar()?"مشروع جديد":"New project"}"><svg viewBox="0 0 24 24" aria-hidden="true">${IC.plus}</svg></button>`+a("library","lib",ar()?"المكتبة":"Library")+a("solve","fix",ar()?"حل مشكلة":"Fix")}
  tabs();addEventListener("hashchange",tabs);new MutationObserver(tabs).observe(document.documentElement,{attributes:true,attributeFilter:["lang","dir"]});document.addEventListener("click",e=>{if(e.target.closest&&e.target.closest("#bLang"))setTimeout(tabs,60)});
