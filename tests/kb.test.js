@@ -16,7 +16,8 @@ const C = {
   flour: { w: .13, f: .012, s: .003, p: .10 }, strong: { w: .13, f: .015, s: .003, p: .13 },
   butter: { w: .16, f: .82, s: .006, p: .009 }, dark: { w: .01, f: .42, s: .29, p: .08 },
   invert: { w: .2, f: 0, s: .8, p: 0 }, glucose: { w: .2, f: 0, s: .8, p: 0 },
-  water: { w: 1, f: 0, s: 0, p: 0 }, bp: { w: 0, f: 0, s: 0, p: 0 }
+  water: { w: 1, f: 0, s: 0, p: 0 }, bp: { w: 0, f: 0, s: 0, p: 0 },
+  white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -116,5 +117,54 @@ console.log(`  seed cases: top-1 ${t1}/${seed.length}, top-3 ${t3}/${seed.length
 { const m = KBE.diagnoseMany([P("tart-shell"), P("cake-sink")], tt({}), {});
   ok(m.length > 5 && m[0].score >= m[m.length - 1].score && m.some(c => c.entry === "cake-sink"), "several symptoms combine into one ranked list"); }
 
+
+console.log("kb) rules for creams and ganache (batch 2)");
+trio("pastry cream thin: starch", "pastry-cream-thin", "starch-low", pc({ starch: 50 }), pc({ starch: 80 }), pc({ starch: 66 }));
+const an = s => R(Object.assign({ milk: 500, cream: 500, yolk: 200 }, s));
+trio("anglaise sugar", "anglaise-curdled", "sugar-low", an({ sugar: 60 }), an({ sugar: 200 }), an({ sugar: 120 }));
+const wc = s => R(Object.assign({ cream: 500, sugar: 40 }, s));
+trio("whipped cream fat", "whipped-cream-fail", "fat-low", wc({ milk: 200 }), wc({}), wc({ milk: 70 }));
+const bc = s => R(Object.assign({ butter: 500, white: 150, sugar: 250 }, s));
+trio("buttercream fat to water", "buttercream-split", "water-high", bc({ water: 150 }), bc({}), bc({ water: 50 }));
+const ms = g => R({ cream: 500, milk: 200, sugar: 100, dark: 200, gelatin: g });
+trio("mousse gelatine", "mousse-not-set", "gelatin-low", ms(4), ms(8), ms(7));
+trio("ganache soft: water (bonbon)", "ganache-soft", "water-high", owner, ga({ dark: 450, cream: 120, butter: 80 }), ga({ dark: 350, cream: 200, butter: 30, invert: 20 }), "gb");
+trio("ganache grainy: sugar to water", "ganache-grainy", "sugar-crystal", ga({ dark: 450, cream: 100, sugar: 60 }), owner, ga({ dark: 450, cream: 130, sugar: 20 }));
+const cb = s => R(Object.assign({ sugar: 100 }, s));
+trio("baked custard yolk", "baked-custard-fail", "egg-low", cb({ cream: 700, milk: 300, yolk: 60 }), cb({ cream: 500, yolk: 100 }), cb({ cream: 500, yolk: 60, sugar: 60 }));
+
+console.log("kb) batch 2 fixes");
+{ const r = fixOf("whipped-cream-fail", "fat-low", wc({ milk: 200 }));
+  ok(r.ok && near(r.after.fat, 30, 0.1) && r.diff[0].d < 0, "whipped cream: milk reduced until fat is 30%"); }
+{ const r = fixOf("buttercream-split", "water-high", bc({ water: 150 }));
+  ok(r.ok && near(r.after.fatWater, 1.6, 0.02), "buttercream: butter raised to fat 1.6 x water"); }
+{ const r = fixOf("mousse-not-set", "gelatin-low", ms(4));
+  ok(r.ok && near(r.after.gelPct, 0.9, 0.05) && r.rows.find(x => x.role === "gelatin").g > 4, "mousse: gelatine raised to 0.9%"); }
+{ const r = fixOf("ganache-soft", "water-high", owner, { ptype: "gb" });
+  ok(r.ok && near(r.after.water, 21, 0.2) && r.diff[0].n === "cream" && r.diff[0].d < 0, "soft ganache: cream reduced until water is 21% (" + (r.after && r.after.water.toFixed(2)) + ")"); }
+{ const d = KBE.diagnose(P("ganache-grainy"), ga({ dark: 450, cream: 100, sugar: 60 }), {}), c = d.causes.find(x => x.id === "sugar-crystal");
+  const sw = c.fixes[0].result, rc = c.fixes[1].result;
+  ok(sw.ok && sw.rows.find(x => x.added && x.role === "invert").g === 30 && sw.rows.find(x => x.role === "sugar").g === 30, "grainy ganache: half the sugar swapped for invert sugar");
+  ok(rc.ok && near(rc.after.sugarWater, 1.8, 0.02), "grainy ganache: or cream raised until sugars are 1.8 x water"); }
+{ const r = fixOf("baked-custard-fail", "egg-low", cb({ cream: 700, milk: 300, yolk: 60 }));
+  ok(r.ok && near(r.after.yolkPct, 10, 0.1), "baked custard: yolk raised to 10%"); }
+{ const d = KBE.diagnose(P("ganache-grainy"), ga({ dark: 450, cream: 100 }), {}), c = d.causes.find(x => x.id === "sugar-crystal");
+  ok(!c.fixes[0].result.ok && c.fixes[1].result.ok, "with no added sugar the invert swap is refused and the cream fix is offered"); }
+
+console.log("kb) batch 2 diagnosis");
+const seed2 = [
+  ["pastry-cream-thin", pc({ starch: 80 }), { answers: { when: "later", boil: "no" } }, "amylase"],
+  ["anglaise-curdled", an({ sugar: 200 }), { answers: { temp: "hot", heat: "direct" } }, "overheated"],
+  ["whipped-cream-fail", wc({}), { answers: { result: "butter", speed: "high" } }, "overwhipped"],
+  ["buttercream-split", bc({}), { answers: { look: "soupy", meringue: "warm" } }, "too-warm"],
+  ["mousse-not-set", ms(8), { answers: { fruit: "fresh", time: "long" } }, "enzymes"],
+  ["ganache-soft", owner, { ptype: "gb", answers: { choc: "dark", set: "good", use: "cut" } }, "water-high"],
+  ["ganache-soft", ga({ dark: 450, cream: 120, butter: 80 }), { ptype: "gb", answers: { choc: "milk", set: "good" } }, "milk-fat"],
+  ["ganache-grainy", ga({ dark: 450, cream: 100, sugar: 60 }), { answers: { feel: "sandy", when: "days" } }, "sugar-crystal"],
+  ["ganache-grainy", owner, { answers: { feel: "waxy", temp: "cycle" } }, "fat-bloom"],
+  ["baked-custard-fail", cb({ cream: 500, yolk: 100 }), { answers: { result: "holes", bake: "hot", jiggle: "firm" } }, "overbaked"]
+];
+seed2.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+console.log(`  all seed cases: top-1 ${t1}/${seed.length + seed2.length}, top-3 ${t3}/${seed.length + seed2.length}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

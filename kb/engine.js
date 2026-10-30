@@ -40,6 +40,9 @@
       fatFlour: per(F, flour),
       eggFlour: per(egg + yolk + white, flour),
       fatWater: per(F, W),
+      /* sugars per gram of water: sucrose saturates near 2 g per g of water at room temperature */
+      sugarWater: per(S, W),
+      gelPct: pct(g("gelatin")),
       flourProtein: fg > 0 ? (fp / fg) * 100 : NaN,
       has: role => rows.some(r => r.role === role && (+r.g || 0) > 0)
     };
@@ -60,6 +63,8 @@
     fatFlour: { ar: "الدهون مقابل الدقيق", en: "fat to flour", u: "" },
     eggFlour: { ar: "البيض مقابل الدقيق", en: "egg to flour", u: "" },
     fatWater: { ar: "الدهون مقابل الماء", en: "fat to water", u: "" },
+    sugarWater: { ar: "السكريات مقابل الماء", en: "sugars to water", u: "" },
+    gelPct: { ar: "الجيلاتين", en: "gelatine", u: "%" },
     flourProtein: { ar: "بروتين الدقيق", en: "flour protein", u: "%" }
   };
   const fmt = (k, v) => (FEAT[k] && FEAT[k].u === "%" ? r1(v) : r2(v));

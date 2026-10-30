@@ -360,7 +360,7 @@ console.log('23) chef name on the PDF');
 console.log('24) guided diagnosis (knowledge base v2)');
 {const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx'))return;sessionStorage.setItem('dx','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'كيك',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'كيك',rows:[['دقيق',250],['سكر',300],['زبدة',200],['بيض',200],['حليب',120],['بيكنج باودر',16]]}}}]));localStorage.setItem('zm-active','"p1"')});
  await p.goto(FILE+'#solve');await p.waitForTimeout(900);await toAr(p);
- ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i').length===5),'the solve page lists the five guided diagnoses');
+ ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i[href^="#dx/"]').length===6&&/13/.test((document.querySelector('#p-solve a.dxs-all')||{}).textContent||'')),'the solve page shows six guided diagnoses and a link to all 13');
  await p.fill('#q','الغاناش انفصل');await p.waitForTimeout(400);
  ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-solve .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/ganache-split'}),'searching in chef words finds the matching guided diagnosis');
  await p.goto(FILE+'#dx/cake-sink');await p.waitForTimeout(800);
@@ -375,6 +375,21 @@ console.log('24) guided diagnosis (knowledge base v2)');
  await p.evaluate(()=>document.querySelector('#toast [data-tact]').click());await p.waitForTimeout(300);
  ok(await p.evaluate(()=>{const r=JSON.parse(localStorage.getItem('zm-projects'))[0].recs[0];return r.rows.find(z=>/بيكنج/.test(z.n)).m===16&&!(r.hist||[]).length}),'undo restores the recipe');
  ok(await p.evaluate(()=>document.querySelectorAll('#p-dx .dx-refs li').length>=1&&!/nav_dx/.test(document.querySelector('footer').innerText)&&document.documentElement.scrollWidth<=390),'sources are listed, no untranslated keys, no horizontal scroll');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
+console.log('25) guided diagnosis: creams and ganache, list page, project entry');
+{const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx2'))return;sessionStorage.setItem('dx2','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'موس',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'موس',rows:[['كريمة 35%',500],['حليب',200],['سكر',100],['جيلاتين',4]]}}}]));localStorage.setItem('zm-active','"p1"')});
+ await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);
+ await p.evaluate(()=>document.querySelector('[data-dxgo]').click());await p.waitForTimeout(800);
+ ok(await p.evaluate(()=>location.hash==='#dx'&&document.querySelectorAll('#p-dx .dxs-i').length>=13&&document.querySelectorAll('#p-dx .dxs-g').length>=6),'"Diagnose a problem" in the project opens the grouped list of all diagnoses');
+ await p.fill('#dxQ','الموس ما مسك');await p.waitForTimeout(300);
+ ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-dx .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/mousse-not-set'}),'the list search finds the mousse diagnosis from chef words');
+ await p.evaluate(()=>document.querySelector('#p-dx a[href="#dx/mousse-not-set"]').click());await p.waitForTimeout(700);
+ await p.click('[data-dxa="fruit:no"]');await p.waitForTimeout(200);
+ ok(await p.evaluate(()=>document.querySelector('#p-dx .dx-c b').textContent.includes('الجيلاتين')&&/الجيلاتين في وصفتك 0.5%/.test(document.querySelector('#p-dx .dx-c').innerText)),'the gelatine level is read from the recipe (4 g in 804 g = 0.5%)');
+ ok(await p.evaluate(()=>{const t=document.querySelector('#p-dx .dx-t');return !!t&&/جيلاتين/.test(t.innerText)}),'a computed gelatine fix is offered');
+ await p.goto(FILE+'#solve');await p.waitForTimeout(500);await p.fill('#q','كريمة الزبدة سايلة');await p.waitForTimeout(400);
+ ok(await p.evaluate(()=>[...document.querySelectorAll('#p-solve .dxs-i')].some(a=>a.getAttribute('href')==='#dx/buttercream-split')),'the solve page finds the buttercream diagnosis');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
