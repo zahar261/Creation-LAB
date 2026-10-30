@@ -60,6 +60,11 @@
    "id": "S9",
    "type": "regulation",
    "cite": "Codex Alimentarius (1971, amended 2018). Standard for Butter, CXS 279-1971. Rome: FAO/WHO."
+  },
+  {
+   "id": "S10",
+   "type": "regulation",
+   "cite": "Codex Alimentarius (1979, amended 2015). Standard for Foods for Special Dietary Use for Persons Intolerant to Gluten, CXS 118-1979. Rome: FAO/WHO."
   }
  ],
  "problems": [
@@ -10183,6 +10188,1586 @@
    "unsure": {
     "ar": "جاوب سؤال الدهن أول.",
     "en": "Answer the fat question first."
+   }
+  },
+  {
+   "id": "bread-dense",
+   "category": "yeast",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "العجينة ما خمرت أو الخبز طلع كثيف",
+    "en": "Dough did not rise or the bread came out dense",
+    "syn": {
+     "ar": [
+      "العجينة ما خمرت",
+      "العجين ما انتفخ",
+      "الخبز ثقيل",
+      "البريوش كثيف",
+      "الخميرة ما اشتغلت"
+     ],
+     "en": [
+      "dough did not rise",
+      "dense bread",
+      "heavy brioche",
+      "yeast not working"
+     ]
+    }
+   },
+   "see": {
+    "ar": "العجينة ما تضاعف حجمها، والخبز منخفض وقوامه كثيف أو مطاطي.",
+    "en": "The dough does not double, and the bread is low with a dense or rubbery crumb."
+   },
+   "questions": [
+    {
+     "id": "water",
+     "ar": "حرارة الماء أو الحليب وقت العجن؟",
+     "en": "Water or milk temperature when mixing?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "حار (فوق 45°م)",
+       "en": "Hot (above 45 °C)"
+      },
+      {
+       "id": "ok",
+       "ar": "فاتر أو بارد",
+       "en": "Lukewarm or cool"
+      }
+     ]
+    },
+    {
+     "id": "proof",
+     "ar": "كم خمّرت؟",
+     "en": "How long did it proof?",
+     "options": [
+      {
+       "id": "short",
+       "ar": "أقل من الوقت أو ما تضاعف",
+       "en": "Less than planned, or it did not double"
+      },
+      {
+       "id": "ok",
+       "ar": "لين تضاعف",
+       "en": "Until it doubled"
+      }
+     ]
+    },
+    {
+     "id": "yeast",
+     "ar": "الخميرة؟",
+     "en": "The yeast?",
+     "options": [
+      {
+       "id": "old",
+       "ar": "قديمة أو مفتوحة من فترة",
+       "en": "Old or open for a while"
+      },
+      {
+       "id": "fresh",
+       "ar": "جديدة",
+       "en": "Fresh"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "yeast-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S3",
+      "S7"
+     ],
+     "title": {
+      "ar": "الخميرة قليلة",
+      "en": "Too little yeast"
+     },
+     "why": {
+      "ar": "الخميرة تنتج الغاز اللي ينفخ العجينة. إذا قليلة مقابل الدقيق، التخمير يطول ويطلع الخبز منخفض إذا ما انتظرت.",
+      "en": "Yeast makes the gas that raises the dough. With too little for the flour, proofing drags on and the bread is low unless you wait."
+     },
+     "rule": {
+      "feat": "yeastFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.6,
+        2.5
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S3"
+      ],
+      "note": {
+       "ar": "بالخميرة الفورية؛ الطازجة تنحسب بثلث وزنها. التخمير البارد الطويل يستعمل أقل عن قصد.",
+       "en": "As instant yeast; fresh counts at a third of its weight. Long cold proofs use less on purpose."
+      }
+     },
+     "answers": {
+      "proof": {
+       "ok": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S3"
+       ],
+       "ar": "ارفع الخميرة الفورية إلى حوالي 1% من وزن الدقيق.",
+       "en": "Raise instant yeast to about 1% of the flour weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "yeast"
+        ],
+        "base": "flour",
+        "target": 0.01
+       },
+       "tradeoff": {
+        "ar": "التخمير أسرع، ونكهة أقل من التخمير الطويل.",
+        "en": "Faster proofing, less flavour than a long proof."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "علّم مستوى العجينة في الوعاء وسجّل الوقت لين تتضاعف.",
+      "en": "Mark the dough level and log the time to double."
+     }
+    },
+    {
+     "id": "yeast-dead",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S7"
+     ],
+     "title": {
+      "ar": "الخميرة ماتت أو ضعيفة",
+      "en": "Yeast killed or weak"
+     },
+     "why": {
+      "ar": "الماء الحار جداً (فوق حوالي 50°م) يقتل الخميرة، والخميرة القديمة أو المفتوحة تفقد قوتها، خصوصاً في الحر والرطوبة.",
+      "en": "Very hot water (above about 50 °C) kills yeast, and old or opened yeast loses strength, especially in heat and humidity."
+     },
+     "answers": {
+      "water": {
+       "hot": 3,
+       "ok": -1
+      },
+      "yeast": {
+       "old": 3,
+       "fresh": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "استعمل ماء فاتر أو بارد (حرارة العجينة النهائية 24 إلى 27°م تقريباً)، واختبر الخميرة: ملعقة مع سكر في ماء فاتر لازم ترغي خلال 10 دقائق.",
+       "en": "Use lukewarm or cool water (final dough around 24–27 °C), and test the yeast: a spoon with sugar in warm water should foam within 10 minutes.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة العجينة بعد العجن وسجّلها.",
+      "en": "Measure the dough temperature after mixing and log it."
+     }
+    },
+    {
+     "id": "underproofed",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "التخمير ناقص",
+      "en": "Underproofed"
+     },
+     "why": {
+      "ar": "إذا انخبزت العجينة قبل ما تتضاعف، يكون الغاز قليل والخبز كثيف.",
+      "en": "Baked before it doubles, the dough has little gas and the bread is dense."
+     },
+     "answers": {
+      "proof": {
+       "short": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "خمّر لين تتضاعف وترجع ببطء لما تضغطها بإصبعك، بدل ما تعتمد على الوقت فقط.",
+       "en": "Proof until it doubles and springs back slowly when pressed, rather than by time alone.",
+       "tradeoff": {
+        "ar": "وقت أطول أحياناً.",
+        "en": "Sometimes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الإصبع: الأثر يرجع ببطء ويبقى جزئياً.",
+      "en": "Finger test: the dent springs back slowly and partly remains."
+     }
+    },
+    {
+     "id": "salt-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "الملح عالي",
+      "en": "Too much salt"
+     },
+     "why": {
+      "ar": "الملح الزايد يبطئ الخميرة ويشد الغلوتين، فيقل الانتفاخ.",
+      "en": "Too much salt slows the yeast and tightens the gluten, so rise drops."
+     },
+     "rule": {
+      "feat": "saltFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        1.8,
+        2.2
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S3"
+      ],
+      "note": {
+       "ar": "نفس النطاق المستعمل في قواعد المنصة (1.8 إلى 2.2% من الدقيق).",
+       "en": "The same range as the platform's rules (1.8–2.2% of flour)."
+      }
+     },
+     "answers": {
+      "proof": {
+       "ok": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "اضبط الملح على 2% من وزن الدقيق.",
+       "en": "Set the salt to 2% of the flour weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "salt"
+        ],
+        "base": "flour",
+        "target": 0.02
+       },
+       "tradeoff": {
+        "ar": "طعم أقل ملوحة.",
+        "en": "Less salty taste."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن وقت التضاعف بين النسبتين.",
+      "en": "Compare the time to double at both levels."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "إذا العجينة ما خمرت بعد وقت كافي، اعجن معها خميرة جديدة مذوّبة في قليل ماء فاتر وأعد التخمير.",
+     "الخبز الكثيف يصلح للتحميص أو فتات أو بودينغ خبز."
+    ],
+    "en": [
+     "If the dough has not risen after enough time, knead in fresh yeast dissolved in a little warm water and proof again.",
+     "Dense bread works for toast, crumbs or bread pudding."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ماء فاتر، وحرارة عجينة 24 إلى 27°م.",
+     "خميرة جديدة مخزّنة مقفلة وباردة.",
+     "خمّر لين يتضاعف، مو بالوقت فقط.",
+     "الملح 1.8 إلى 2.2% من الدقيق."
+    ],
+    "en": [
+     "Lukewarm water, dough at 24–27 °C.",
+     "Fresh yeast stored sealed and cool.",
+     "Proof until doubled, not by time alone.",
+     "Salt 1.8–2.2% of the flour."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الخميرة والملح ضمن النطاق، فالسبب غالباً حرارة الماء أو التخمير.",
+    "en": "If yeast and salt are within range, the cause is most likely water temperature or proofing."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الماء والخميرة أول.",
+    "en": "Answer the water and yeast questions first."
+   }
+  },
+  {
+   "id": "dough-overproofed",
+   "category": "yeast",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "العجينة خمرت زيادة ونزلت أو طعمها حامض",
+    "en": "Dough over-proofed and collapsed or tastes sour",
+    "syn": {
+     "ar": [
+      "العجينة خمرت زيادة",
+      "العجينة نزلت في الفرن",
+      "ريحة خميرة قوية",
+      "الخبز حامض",
+      "العجينة سايحة"
+     ],
+     "en": [
+      "overproofed dough",
+      "dough collapsed in the oven",
+      "strong yeast smell",
+      "sour bread"
+     ]
+    }
+   },
+   "see": {
+    "ar": "العجينة انتفخت كثير ثم نزلت قبل الفرن أو فيه، والسطح مجعّد، وريحة أو طعم خميرة قوي.",
+    "en": "The dough rose a lot then fell before or in the oven, with a wrinkled top and a strong yeasty smell or taste."
+   },
+   "questions": [
+    {
+     "id": "room",
+     "ar": "حرارة مكان التخمير؟",
+     "en": "Proofing temperature?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "حار (فوق 30°م أو جو الخليج بدون تكييف)",
+       "en": "Hot (above 30 °C or a Gulf room without AC)"
+      },
+      {
+       "id": "ok",
+       "ar": "24 إلى 28°م",
+       "en": "24–28 °C"
+      }
+     ]
+    },
+    {
+     "id": "time",
+     "ar": "مدة التخمير؟",
+     "en": "Proofing time?",
+     "options": [
+      {
+       "id": "long",
+       "ar": "أطول من المخطط",
+       "en": "Longer than planned"
+      },
+      {
+       "id": "ok",
+       "ar": "حسب المخطط",
+       "en": "As planned"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "too-warm",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "التخمير في مكان حار",
+      "en": "Proofing too warm"
+     },
+     "why": {
+      "ar": "الحرارة تسرّع الخميرة كثير. في جو حار العجينة توصل حدها بسرعة وتتجاوزه قبل ما تنتبه.",
+      "en": "Heat speeds yeast up a lot. In a warm room the dough reaches its peak fast and passes it before you notice."
+     },
+     "answers": {
+      "room": {
+       "hot": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "استعمل ماء بارد في العجن وخمّر على 24 إلى 28°م، أو قلّل الخميرة في الصيف وراقب العجينة بدل الساعة.",
+       "en": "Mix with cold water and proof at 24–28 °C, or use less yeast in summer and watch the dough, not the clock.",
+       "tradeoff": {
+        "ar": "يحتاج مراقبة أو غرفة مكيفة.",
+        "en": "Needs watching or an air-conditioned room."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل حرارة الغرفة ووقت التضاعف لكل دفعة.",
+      "en": "Log room temperature and time to double for each batch."
+     }
+    },
+    {
+     "id": "too-long",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "تخمير أطول من اللازم",
+      "en": "Proofed too long"
+     },
+     "why": {
+      "ar": "إذا طال التخمير، يضعف الغلوتين ويطلع الغاز، فتنزل العجينة في الفرن.",
+      "en": "Over a long proof the gluten weakens and gas escapes, so the dough falls in the oven."
+     },
+     "answers": {
+      "time": {
+       "long": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "اخبز لما الأثر يرجع ببطء عند الضغط. إذا ما يرجع أبداً، تجاوزت الحد.",
+       "en": "Bake when a dent springs back slowly. If it does not spring back at all, it has gone too far.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الإصبع قبل كل دفعة.",
+      "en": "Finger test before each batch."
+     }
+    },
+    {
+     "id": "yeast-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "الخميرة عالية",
+      "en": "Too much yeast"
+     },
+     "why": {
+      "ar": "الخميرة الكثيرة تسرّع التخمير وتعطي طعم وريحة خميرة قوية.",
+      "en": "Lots of yeast speeds proofing and gives a strong yeasty smell and taste."
+     },
+     "rule": {
+      "feat": "yeastFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0.6,
+        2.5
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S3"
+      ],
+      "note": {
+       "ar": "قواعد المنصة تنبّه فوق 3% للفورية. العجائن الحلوة الغنية تحتاج أكثر قليلاً.",
+       "en": "The platform's rules warn above 3% instant. Rich sweet doughs need slightly more."
+      }
+     },
+     "answers": {
+      "room": {
+       "ok": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S3"
+       ],
+       "ar": "خفّض الخميرة الفورية إلى حوالي 1.5% من الدقيق.",
+       "en": "Lower instant yeast to about 1.5% of the flour.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "yeast"
+        ],
+        "base": "flour",
+        "target": 0.015
+       },
+       "tradeoff": {
+        "ar": "تخمير أبطأ.",
+        "en": "Slower proofing."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الريحة والطعم ووقت التخمير.",
+      "en": "Compare smell, taste and proofing time."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "العجينة المخمّرة زيادة قبل الخبز: اضغطها، أعد تشكيلها، وخمّرها مرة ثانية لوقت أقصر."
+    ],
+    "en": [
+     "Overproofed dough before baking: knock it back, reshape and proof again for a shorter time."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ماء بارد في الصيف.",
+     "خمّر 24 إلى 28°م.",
+     "راقب العجينة مو الساعة."
+    ],
+    "en": [
+     "Cold water in summer.",
+     "Proof at 24–28 °C.",
+     "Watch the dough, not the clock."
+    ]
+   },
+   "notFormula": {
+    "ar": "في الخليج أغلب التخمير الزايد من الحرارة.",
+    "en": "In the Gulf most overproofing is from heat."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الحرارة أول.",
+    "en": "Answer the temperature question first."
+   }
+  },
+  {
+   "id": "croissant-dense",
+   "category": "laminated",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الكرواسون من الداخل كثيف مثل الخبز",
+    "en": "Croissant is dense and bready inside",
+    "syn": {
+     "ar": [
+      "الكرواسون مثل الخبز",
+      "ما فيه فراغات داخل الكرواسون",
+      "الكرواسون كثيف",
+      "الطبقات ما بانت"
+     ],
+     "en": [
+      "bready croissant",
+      "no honeycomb",
+      "dense croissant",
+      "no layers"
+     ]
+    }
+   },
+   "see": {
+    "ar": "المقطع الداخلي كثيف بدون فراغات خلية النحل، والطبقات مختلطة.",
+    "en": "The inside is dense without the honeycomb, and the layers are merged."
+   },
+   "questions": [
+    {
+     "id": "proof",
+     "ar": "التخمير قبل الخبز؟",
+     "en": "Proofing before baking?",
+     "options": [
+      {
+       "id": "short",
+       "ar": "قصير، والقطع ما تهتز لما تحرك الصينية",
+       "en": "Short; pieces did not wobble when the tray moved"
+      },
+      {
+       "id": "ok",
+       "ar": "لين انتفخت وتهتز",
+       "en": "Until puffy and wobbling"
+      }
+     ]
+    },
+    {
+     "id": "butter",
+     "ar": "الزبدة وقت الطيّ؟",
+     "en": "The butter while folding?",
+     "options": [
+      {
+       "id": "broke",
+       "ar": "تكسّرت قطع أو ذابت",
+       "en": "Broke into pieces or melted"
+      },
+      {
+       "id": "ok",
+       "ar": "طبقة متصلة مرنة",
+       "en": "A continuous, pliable layer"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "underproofed",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "تخمير ناقص",
+      "en": "Underproofed"
+     },
+     "why": {
+      "ar": "الكرواسون يحتاج تخمير كافي قبل الفرن. الناقص يطلع كثيف والزبدة تسيل.",
+      "en": "Croissants need full proofing before the oven. Underproofed ones are dense and leak butter."
+     },
+     "answers": {
+      "proof": {
+       "short": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "خمّر على 24 إلى 27°م لين تنتفخ القطع وتهتز لما تحرك الصينية (ساعتين أو أكثر حسب العجينة).",
+       "en": "Proof at 24–27 °C until the pieces are puffy and wobble when the tray moves (two hours or more depending on the dough).",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Takes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اقطع وحدة بعد الخبز: لازم تشوف فراغات منتظمة.",
+      "en": "Cut one after baking: you should see even holes."
+     }
+    },
+    {
+     "id": "butter-broke",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1",
+      "S3"
+     ],
+     "title": {
+      "ar": "طبقة الزبدة تكسّرت أو ذابت",
+      "en": "The butter layer broke or melted"
+     },
+     "why": {
+      "ar": "الطبقات تتكوّن لأن الزبدة طبقة متصلة. إذا تكسّرت (باردة جداً) أو ذابت (دافئة)، تختلط بالعجينة ويطلع خبز.",
+      "en": "Layers exist because the butter is a continuous sheet. If it breaks (too cold) or melts (too warm), it mixes into the dough and you get bread."
+     },
+     "answers": {
+      "butter": {
+       "broke": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خلّ الزبدة والعجينة بنفس الليونة، والزبدة مرنة على حوالي 12 إلى 16°م، وافتح تشخيص «الزبدة تطلع من الكرواسون» للحرارة.",
+       "en": "Keep butter and dough equally firm, with the butter pliable at about 12–16 °C, and open the “Butter leaks from croissants” diagnosis for temperature.",
+       "tradeoff": {
+        "ar": "يحتاج تحكم بالحرارة.",
+        "en": "Needs temperature control."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اقطع العجينة بعد الطيّات: لازم تشوف خطوط زبدة متصلة.",
+      "en": "Cut the dough after folding: you should see continuous butter lines."
+     }
+    },
+    {
+     "id": "stiff-dough",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "العجينة ناشفة وقاسية",
+      "en": "Dough too stiff"
+     },
+     "why": {
+      "ar": "العجينة الناشفة أقسى من الزبدة فتمزقها وقت الفرد، والطبقات تنقطع.",
+      "en": "A dry dough is firmer than the butter and tears it while rolling, breaking the layers."
+     },
+     "rule": {
+      "feat": "waterFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.5,
+        0.68
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S3"
+      ],
+      "note": {
+       "ar": "الماء المضاف (ماء وحليب وبيض) للدقيق في عجينة الكرواسون، بدون زبدة الطبقات؛ نطاق تقديري.",
+       "en": "Added water (water, milk, egg) to flour in croissant dough, excluding the laminating butter; a working range."
+      }
+     },
+     "answers": {
+      "butter": {
+       "broke": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S3"
+       ],
+       "ar": "زد الماء أو الحليب حتى تصير النسبة 0.56.",
+       "en": "Increase water or milk until the ratio is 0.56.",
+       "op": {
+        "op": "reach",
+        "role": [
+         "water",
+         "milk"
+        ],
+        "feat": "waterFlour",
+        "target": 0.56
+       },
+       "tradeoff": {
+        "ar": "عجينة ألين وأصعب في الحر.",
+        "en": "A softer dough, harder to handle in heat."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صعوبة الفرد والطبقات بين النسبتين.",
+      "en": "Compare rolling effort and layers at both ratios."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الكرواسون الكثيف يصلح لكرواسون اللوز (مشبّع بشراب وكريمة لوز ويعاد خبزه)."
+    ],
+    "en": [
+     "Dense croissants work as almond croissants (soaked in syrup, filled with almond cream and rebaked)."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "تخمير كامل لين تهتز القطع.",
+     "زبدة مرنة بنفس ليونة العجينة.",
+     "مكان بارد للطيّ."
+    ],
+    "en": [
+     "Full proofing until the pieces wobble.",
+     "Pliable butter as firm as the dough.",
+     "A cool place to fold."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب الكرواسون الكثيف من التخمير أو حرارة الطيّ.",
+    "en": "Most dense croissants are proofing or folding temperature."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال التخمير أول.",
+    "en": "Answer the proofing question first."
+   }
+  },
+  {
+   "id": "cookies-hard",
+   "category": "cookies",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الكوكيز قاسي وناشف",
+    "en": "Cookies are hard and dry",
+    "syn": {
+     "ar": [
+      "الكوكيز قاسي",
+      "الكوكيز ناشف",
+      "الكوكيز مثل الحجر",
+      "الكوكيز ينكسر",
+      "الكوكيز يقسى بعد يوم"
+     ],
+     "en": [
+      "hard cookies",
+      "dry cookies",
+      "rock-hard cookies",
+      "cookies harden after a day"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الكوكيز قاسي وناشف بدل ما يكون طري من النص، أو يقسى بسرعة بعد يوم.",
+    "en": "The cookies are hard and dry instead of soft in the centre, or harden fast after a day."
+   },
+   "questions": [
+    {
+     "id": "bake",
+     "ar": "متى طلّعته من الفرن؟",
+     "en": "When did you take them out?",
+     "options": [
+      {
+       "id": "brown",
+       "ar": "لما صار كله ذهبي وناشف",
+       "en": "When fully golden and dry"
+      },
+      {
+       "id": "soft",
+       "ar": "والوسط لسه طري",
+       "en": "With the centre still soft"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "التخزين؟",
+     "en": "Storage?",
+     "options": [
+      {
+       "id": "open",
+       "ar": "مكشوف",
+       "en": "Uncovered"
+      },
+      {
+       "id": "sealed",
+       "ar": "علبة محكمة",
+       "en": "An airtight box"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overbaked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "انخبز زيادة",
+      "en": "Overbaked"
+     },
+     "why": {
+      "ar": "الكوكيز يكمل يستوي على الصينية الحارة. إذا طلع ناشف تماماً، يبرد قاسي.",
+      "en": "Cookies keep baking on the hot tray. Taken out fully dry, they cool hard."
+     },
+     "answers": {
+      "bake": {
+       "brown": 3,
+       "soft": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "طلّعه لما الأطراف ذهبية والوسط لسه طري، وخلّه يبرد على الصينية 5 دقائق.",
+       "en": "Take them out when the edges are golden and the centre is still soft, and let them rest on the tray 5 minutes.",
+       "tradeoff": {
+        "ar": "يحتاج مراقبة لكل فرن.",
+        "en": "Needs watching per oven."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صينيتين بفرق دقيقتين في الوقت.",
+      "en": "Compare two trays two minutes apart."
+     }
+    },
+    {
+     "id": "fat-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الدهن قليل",
+      "en": "Too little fat"
+     },
+     "why": {
+      "ar": "الدهن يطري الكوكيز ويقصّر الغلوتين. إذا قليل، يطلع قاسي.",
+      "en": "Fat tenderises cookies and shortens gluten. With too little they come out hard."
+     },
+     "rule": {
+      "feat": "fatFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.4,
+        0.85
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق انتشار الكوكيز.",
+       "en": "Same range as cookie spread."
+      }
+     },
+     "answers": {
+      "bake": {
+       "soft": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "زد الزبدة حتى تصير الدهون 0.6 من وزن الدقيق.",
+       "en": "Increase the butter until fat is 0.6 times the flour weight.",
+       "op": {
+        "op": "reach",
+        "role": "butter",
+        "feat": "fatFlour",
+        "target": 0.6
+       },
+       "tradeoff": {
+        "ar": "ينتشر أكثر.",
+        "en": "Spreads more."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام بعد يوم بين الوصفتين.",
+      "en": "Compare texture after a day."
+     }
+    },
+    {
+     "id": "dry-storage",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "التخزين مكشوف",
+      "en": "Stored uncovered"
+     },
+     "why": {
+      "ar": "الكوكيز الطري يفقد رطوبته للجو ويقسى.",
+      "en": "Soft cookies lose moisture to the air and harden."
+     },
+     "answers": {
+      "store": {
+       "open": 3,
+       "sealed": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "خزّنه في علبة محكمة بعد ما يبرد.",
+       "en": "Store in an airtight box once cool.",
+       "tradeoff": {
+        "ar": "تكلفة علب.",
+        "en": "Cost of boxes."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن قطعتين بعد يوم: محكمة ومكشوفة.",
+      "en": "Compare two after a day, sealed and open."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "حط شريحة خبز مع الكوكيز في علبة محكمة ليلة، يمتص منها رطوبة ويطرى.",
+     "أو فتّته لقاعدة تشيز كيك."
+    ],
+    "en": [
+     "Put a slice of bread with the cookies in an airtight box overnight; they absorb moisture and soften.",
+     "Or crumble them for a cheesecake base."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "طلّعه والوسط طري.",
+     "علب محكمة.",
+     "دهن كافي."
+    ],
+    "en": [
+     "Take out with a soft centre.",
+     "Airtight boxes.",
+     "Enough fat."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب الكوكيز القاسي من الخبز الزايد.",
+    "en": "Most hard cookies are overbaked."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الخبز.",
+    "en": "Answer the baking question."
+   }
+  },
+  {
+   "id": "cookies-nospread",
+   "category": "cookies",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الكوكيز ما انتشر وبقي كور",
+    "en": "Cookies did not spread and stayed as balls",
+    "syn": {
+     "ar": [
+      "الكوكيز ما انتشر",
+      "الكوكيز بقي كورة",
+      "الكوكيز سميك",
+      "الكوكيز مثل الكيك"
+     ],
+     "en": [
+      "cookies don't spread",
+      "cookies stay as balls",
+      "thick cookies",
+      "cakey cookies"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الكوكيز يبقى كور سميكة أو قوامه مثل الكيك.",
+    "en": "The cookies stay thick balls or turn cakey."
+   },
+   "questions": [
+    {
+     "id": "chill",
+     "ar": "العجينة كانت؟",
+     "en": "The dough was?",
+     "options": [
+      {
+       "id": "frozen",
+       "ar": "مجمّدة أو باردة جداً",
+       "en": "Frozen or very cold"
+      },
+      {
+       "id": "cool",
+       "ar": "مبرّدة عادي",
+       "en": "Normally chilled"
+      }
+     ]
+    },
+    {
+     "id": "flour",
+     "ar": "كيف كلت الدقيق؟",
+     "en": "How did you measure the flour?",
+     "options": [
+      {
+       "id": "cup",
+       "ar": "بالكوب",
+       "en": "By cup"
+      },
+      {
+       "id": "scale",
+       "ar": "بالميزان",
+       "en": "By scale"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السكر قليل مقابل الدقيق",
+      "en": "Too little sugar for the flour"
+     },
+     "why": {
+      "ar": "السكر يذوب في الفرن ويخلي العجينة تنتشر. إذا قليل أو الدقيق كثير، تبقى سميكة.",
+      "en": "Sugar melts in the oven and lets the dough spread. With too little, or too much flour, it stays thick."
+     },
+     "rule": {
+      "feat": "sugarFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.6,
+        1.2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق انتشار الكوكيز.",
+       "en": "Same range as cookie spread."
+      }
+     },
+     "answers": {
+      "flour": {
+       "cup": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "ارفع السكر إلى 0.9 من وزن الدقيق.",
+       "en": "Raise the sugar to 0.9 times the flour.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar"
+        ],
+        "base": "flour",
+        "target": 0.9
+       },
+       "tradeoff": {
+        "ar": "أحلى وأقرمش من الأطراف.",
+        "en": "Sweeter and crisper at the edges."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس قطر الكوكيز بعد الخبز.",
+      "en": "Measure the baked diameter."
+     }
+    },
+    {
+     "id": "too-cold",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "العجينة باردة جداً",
+      "en": "Dough too cold"
+     },
+     "why": {
+      "ar": "العجينة المجمّدة تتماسك قبل ما تلحق الزبدة تذوب وتنتشر.",
+      "en": "Frozen dough sets before the butter melts and spreads."
+     },
+     "answers": {
+      "chill": {
+       "frozen": 3,
+       "cool": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خلّ العجينة 10 إلى 15 دقيقة على الطاولة قبل الخبز، أو اضغط الكور قليلاً.",
+       "en": "Let the dough sit 10–15 minutes before baking, or flatten the balls slightly.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اخبز كرة مجمّدة وكرة مدفّاة وقارن.",
+      "en": "Bake a frozen and a tempered ball and compare."
+     }
+    },
+    {
+     "id": "flour-cup",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الدقيق زايد من القياس بالكوب",
+      "en": "Extra flour from cup measuring"
+     },
+     "why": {
+      "ar": "الكوب ممكن يعطي دقيق أكثر بكثير من المكتوب حسب طريقة التعبئة.",
+      "en": "A cup can hold much more flour than written, depending on how it is filled."
+     },
+     "answers": {
+      "flour": {
+       "cup": 3,
+       "scale": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S1"
+       ],
+       "ar": "زِن الدقيق بالميزان دائماً.",
+       "en": "Always weigh the flour.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "زِن كوب الدقيق مرتين وقارن.",
+      "en": "Weigh a cup of flour twice and compare."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الكوكيز السميك صالح للأكل؛ للدفعة الجاية اضغط الكور قبل الخبز."
+    ],
+    "en": [
+     "Thick cookies are fine to eat; for the next batch flatten the balls before baking."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "زِن الدقيق.",
+     "عجينة مبرّدة مو مجمّدة.",
+     "سكر كافي."
+    ],
+    "en": [
+     "Weigh the flour.",
+     "Chilled, not frozen, dough.",
+     "Enough sugar."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السكر ضمن النطاق، فالسبب غالباً برودة العجينة أو القياس.",
+    "en": "If sugar is in range, the cause is most likely dough temperature or measuring."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال العجينة والقياس.",
+    "en": "Answer the dough and measuring questions."
+   }
+  },
+  {
+   "id": "gf-crumbly",
+   "category": "glutenfree",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "medium",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الكيك أو الخبز الخالي من الغلوتين يتفتت",
+    "en": "Gluten-free cake or bread crumbles",
+    "syn": {
+     "ar": [
+      "الخالي من الغلوتين يتفتت",
+      "كيك بدون غلوتين ينكسر",
+      "الخبز الخالي من القلوتين ناشف",
+      "جلوتين فري يتفتت"
+     ],
+     "en": [
+      "gluten-free crumbles",
+      "gf cake falls apart",
+      "dry gluten-free bread"
+     ]
+    }
+   },
+   "see": {
+    "ar": "المنتج يتفتت لما تقطعه، ناشف أو رملي، وما يمسك شكله.",
+    "en": "The product crumbles when cut, is dry or sandy, and does not hold together."
+   },
+   "questions": [
+    {
+     "id": "binder",
+     "ar": "فيه رابط (زانثان أو سيليوم)؟",
+     "en": "Is there a binder (xanthan or psyllium)?",
+     "options": [
+      {
+       "id": "none",
+       "ar": "لا",
+       "en": "No"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      }
+     ]
+    },
+    {
+     "id": "rest",
+     "ar": "رتّحت الخليط قبل الخبز؟",
+     "en": "Did the batter rest before baking?",
+     "options": [
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم، 20 إلى 30 دقيقة",
+       "en": "Yes, 20–30 minutes"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "binder-low",
+     "kind": "formula",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S7"
+     ],
+     "title": {
+      "ar": "ما في رابط يعوّض الغلوتين",
+      "en": "No binder to replace gluten"
+     },
+     "why": {
+      "ar": "الغلوتين هو اللي يمسك العجائن العادية. بدونه تحتاج رابط مثل الزانثان أو السيليوم يمسك الماء ويربط المكونات.",
+      "en": "Gluten holds ordinary doughs together. Without it you need a binder such as xanthan or psyllium to hold water and bind the ingredients."
+     },
+     "rule": {
+      "feat": "binderFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.3,
+        2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S7"
+      ],
+      "note": {
+       "ar": "الزانثان عادة 0.5 إلى 1% للكيك، والسيليوم أكثر للخبز؛ نطاق تقديري.",
+       "en": "Xanthan is usually 0.5–1% for cakes, psyllium more for bread; a working range."
+      }
+     },
+     "answers": {
+      "binder": {
+       "none": 3,
+       "yes": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S7"
+       ],
+       "ar": "أضف زانثان حوالي 0.5 إلى 1% من وزن الدقيق والنشا للكيك، أو سيليوم للخبز، واخلطه مع المكونات الناشفة.",
+       "en": "Add xanthan at about 0.5–1% of the flour and starch for cakes, or psyllium for bread, mixed with the dry ingredients.",
+       "tradeoff": {
+        "ar": "الكثير منه يعطي قوام لزج ومطاطي.",
+        "en": "Too much gives a gummy, rubbery texture."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اخبز دفعة صغيرة بالرابط وقارن التماسك عند القطع.",
+      "en": "Bake a small batch with the binder and compare how it cuts."
+     }
+    },
+    {
+     "id": "liquid-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S7"
+     ],
+     "title": {
+      "ar": "السوائل قليلة",
+      "en": "Too little liquid"
+     },
+     "why": {
+      "ar": "دقيق الأرز والنشويات تمتص ماء أكثر من دقيق القمح، فالوصفات المحوّلة غالباً تطلع ناشفة.",
+      "en": "Rice flour and starches absorb more water than wheat flour, so converted recipes often come out dry."
+     },
+     "answers": {
+      "rest": {
+       "no": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S7"
+       ],
+       "ar": "زد السائل 10 إلى 15% وراقب قوام الخليط، ورتّحه 20 إلى 30 دقيقة قبل الخبز.",
+       "en": "Add 10–15% more liquid, watch the batter, and rest it 20–30 minutes before baking.",
+       "tradeoff": {
+        "ar": "الكثير يخلي الوسط لزج.",
+        "en": "Too much leaves a gummy centre."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن قوام الخليط والمنتج بعد التعديل.",
+      "en": "Compare batter and crumb after the change."
+     }
+    },
+    {
+     "id": "no-rest",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S7"
+     ],
+     "title": {
+      "ar": "ما ارتاح الخليط",
+      "en": "The batter did not rest"
+     },
+     "why": {
+      "ar": "الدقيق الخالي من الغلوتين يحتاج وقت يتشرب الماء. الخبز مباشرة يعطي قوام رملي.",
+      "en": "Gluten-free flours need time to absorb water. Baking straight away gives a sandy texture."
+     },
+     "answers": {
+      "rest": {
+       "no": 3,
+       "yes": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S7"
+       ],
+       "ar": "رتّح الخليط 20 إلى 30 دقيقة قبل الخبز.",
+       "en": "Rest the batter 20–30 minutes before baking.",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اخبز نصف الخليط فوراً والنصف بعد الراحة وقارن.",
+      "en": "Bake half immediately and half after resting, and compare."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "المتفتت يصلح لفتات أو قاعدة أو ترايفل خالي من الغلوتين."
+    ],
+    "en": [
+     "Crumbled pieces work as gluten-free crumbs, a base or trifle."
+    ],
+    "safety": {
+     "ar": "إذا تبيعه «خالي من الغلوتين»، لازم يكون أقل من 20 ملغ غلوتين لكل كغ، وتمنع التلوث: أدوات وأسطح منفصلة، ومكونات معتمدة خالية من الغلوتين (الشوفان مثلاً كثير ما يكون ملوّث).",
+     "en": "If you sell it as gluten-free, it must contain under 20 mg of gluten per kg, and you must prevent cross-contact: separate tools and surfaces, and certified gluten-free ingredients (oats, for example, are often contaminated).",
+     "src": [
+      "S10"
+     ]
+    }
+   },
+   "prevent": {
+    "ar": [
+     "رابط مناسب.",
+     "سوائل أكثر من الوصفة العادية.",
+     "راحة للخليط.",
+     "أدوات منفصلة لمنع التلوث."
+    ],
+    "en": [
+     "A suitable binder.",
+     "More liquid than a wheat recipe.",
+     "Rest the batter.",
+     "Separate tools to prevent cross-contact."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا فيه رابط كافي، فالسبب غالباً السوائل أو الراحة.",
+    "en": "If there is enough binder, the cause is most likely liquid or resting."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الرابط أول.",
+    "en": "Answer the binder question first."
    }
   }
  ]
