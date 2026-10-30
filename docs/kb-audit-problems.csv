@@ -1,0 +1,106 @@
+﻿id,product_type,title_ar,title_en,categories,est_causes,fix_items,numeric_auto_fix,calc_link,linked_rules,source,single_value_numbers,ranges,mentions_process,evidence_level
+stale,cake,"الكيكة تيبس بعد يوم أو يومين","Cake goes stale after a day or two",sponge+shelf,2,3,yes,yes,,third-party course (uncited),0,0,yes,unrated
+separate,cream,"الغناش أو الكريمة ينفصل ويظهر الزيت","Ganache or cream separates and oil appears",ganache,7,4,yes,no,,third-party course (uncited),0,0,no,unrated
+which-emul,cream+air,"أي مستحلب أختار؟","Which emulsifier should I choose?",ganache,2,0,no,no,,third-party course (uncited),0,0,no,unrated
+wo,cream,"مستحلب ماء في زيت لا يثبت","Water-in-oil emulsion will not hold",ganache,1,3,no,no,,third-party course (uncited),0,0,no,unrated
+sponge,cake+air,"الإسفنج ينهار أو لا تثبت بنيته","Sponge collapses or the structure does not set",sponge,2,5,no,no,,third-party course (uncited),0,0,yes,unrated
+alcohol-air,air,"أريد هواءً خفيفاً (air) في سائل فيه كحول","I want a light air in a liquid containing alcohol",,1,4,no,no,,third-party course (uncited),4,0,no,unrated
+custard,custard,"كريمة الباتسيير أو الكاسترد حبيبية أو غير لامعة","Pastry cream or custard is grainy or dull",custard,2,3,no,no,,third-party course (uncited),0,0,no,unrated
+less-sugar,cream+custard,"أريد تقليل السكر دون أن تفقد الوصفة ثباتها","I want to cut the sugar without losing stability",,2,2,yes,no,,third-party course (uncited),0,0,no,unrated
+viscosity,cream+custard,"اللزوجة غير مناسبة (سائلة أو ثقيلة)","Viscosity is wrong (too runny or too heavy)",,4,3,no,no,,third-party course (uncited),0,0,no,unrated
+freeze,cake+cream,"القوام يتضرر بعد التجميد والإذابة","Texture is damaged after freezing and thawing",frozen,1,2,no,no,,none,0,0,no,unrated
+meringue-flex,air,"الميرنغ بالبيض الطازج يتيبس ويفقد المرونة عند الدمج","French meringue with fresh egg whites turns stiff and loses flexibility when folded",meringue,3,3,yes,no,,third-party course (uncited),5,0,no,unrated
+pasteurized-white,air,"بياض البيض المبستر لا يرتفع جيداً","Pasteurized egg white does not rise well",meringue,2,3,no,no,,third-party course (uncited),0,0,no,unrated
+fat-kills-foam,air,"الرغوة تنهار عند إضافة دهن (شوكولاتة، مكسرات، صفار)","Foam collapses when fat is added (chocolate, nuts, yolk)",choc+mousse+meringue,2,3,no,no,,third-party course (uncited),0,0,no,unrated
+alcohol-limit,air+cream,"الرغوة لا تثبت مع الكحول","Foam does not hold with alcohol",meringue,2,3,no,no,,third-party course (uncited),2,0,no,unrated
+overwhipped,air+cake,"الرغوة خشنة ومتحبّبة بعد الخفق الزائد","Foam is coarse and grainy after over-whipping",meringue,2,3,no,no,,third-party course (uncited),0,0,no,unrated
+lumps,cream+custard,"كتل في الكريمة عند إضافة النشا أو الألياف أو الصمغ","Lumps in the cream when adding starch, fiber or gum",,2,3,no,no,,third-party course (uncited),0,0,no,unrated
+starch-temp,custard,"الكاسترد لم يثخن أو رقّ بعد الطبخ","Custard did not thicken or thinned after cooking",custard,8,5,no,no,,third-party course (uncited),3,2,yes,unrated
+custard-gel-heavy,custard,"الكاسترد متماسك جداً (هلامي) وأريده كريمياً","Custard is too firm (gelled) and I want it creamy",custard,4,3,yes,no,,third-party course (uncited),1,0,yes,unrated
+acid-starch,cream+custard,"الكريمة الحمضية (ليمون، باشن فروت) رقّت أو تقطعت","Acidic cream (lemon, passion fruit) thinned or broke",jam,2,3,yes,no,,third-party course (uncited),2,1,no,unrated
+casein-acid,cream,"كريمي بالحمضيات (ليمون) انفصل أو تقطع مع الوقت","Citrus creamy split or curdled over time",custard+ganache,3,3,no,no,,third-party course (uncited),1,0,no,unrated
+citrus-fiber-dose,cream+air,"ما كمية ألياف الحمضيات المناسبة؟ ولا تعمل مع البرالين؟","How much citrus fiber? And does it work with praline?",caramel,2,4,yes,no,cf-high,third-party course (uncited),6,0,no,unrated
+lecithin-high-fat,cream,"الكريمي بالبرالين أو المكسرات دهني وينفصل","Creamy with praline or nuts is oily and separates",ganache+caramel,2,3,yes,no,,third-party course (uncited),0,1,no,unrated
+water-ganache,cream,"أريد غناش بالماء بدل الكريمة (بدون طعم ألبان)","I want a water ganache instead of cream (no dairy taste)",ganache,3,3,yes,no,,third-party course (uncited),0,3,no,unrated
+emulsifier-melt,cream+air,"المستحلب لا يذوب أو يظهر حبيبات","Emulsifier does not dissolve or leaves grains",ganache,1,2,no,no,,third-party course (uncited),1,0,yes,unrated
+freeze-split,cream+cake+custard,"الكريمي ينفصل بعد التجميد والإذابة","Creamy separates after freezing and thawing",ganache+frozen,2,3,yes,no,,third-party course (uncited),1,1,no,unrated
+syneresis,cream+custard,"ماء يخرج من الكريمة أو الحشوة مع الوقت (سينيريسيس)","Water leaks from the cream or filling over time (syneresis)",indus,6,6,yes,no,,third-party course (uncited),1,2,yes,unrated
+xanthan-slimy,cream+custard+air,"القوام لزج ومطاطي (صمغي)","Texture is slimy and gummy",jam,1,3,yes,no,xan-high,third-party course (uncited),1,2,no,unrated
+soy-foam,air+cake,"رغوة بروتينات نباتية (صويا، بطاطس) غير ثابتة","Plant-protein foam (soy, potato) is unstable",meringue,2,3,no,no,,third-party course (uncited),1,0,yes,unrated
+marshmallow-set,air+gel,"المارشميلو لا يثبت أو ينكمش","Marshmallow does not set or shrinks",jam,3,3,yes,no,,third-party course (uncited),0,1,yes,unrated
+pectin-fail,cream+gel,"البكتين لا يتجلّط في الكريمة أو المربى","Pectin does not set in the cream or jam",jam,3,3,no,no,,third-party course (uncited),0,0,no,unrated
+inulin-hydrolysis,cream+gel+air,"الإينولين لا يعطي القوام الكريمي المتوقع","Inulin does not give the expected creamy texture",,2,3,no,no,,third-party course (uncited),0,0,yes,unrated
+sponge-soak,cake,"الإسفنج يمتص رطوبة الكريمة ويصير طرياً جداً","Sponge soaks up moisture from the cream and gets too soft",sponge,1,3,no,no,,third-party course (uncited),0,0,no,unrated
+fat-sugar-less-cake,cake,"أريد تقليل الدهن أو البيض في الكيك","I want less fat or egg in the cake",sponge,2,2,yes,no,,third-party course (uncited),1,1,no,unrated
+cake-sink,cake,"الكيكة تهبط في المنتصف بعد الخبز","Cake sinks in the middle after baking",sponge,5,5,no,no,bp-high,none,0,3,yes,unrated
+cake-dome,cake,"الكيكة تنتفخ كقبة وتتشقق من الوسط","Cake domes and cracks in the centre",sponge,2,4,no,no,,none,0,1,yes,unrated
+cake-dense,cake,"الكيكة ثقيلة وكثيفة (غير هشّة)","Cake is heavy and dense",sponge,5,4,no,no,,none,1,0,yes,unrated
+fruit-sink,cake,"الفواكه أو قطع الشوكولاتة تغوص إلى قاع الكيكة","Fruit or chocolate pieces sink to the bottom of the cake",sponge+short+choc+jam,3,4,no,no,,none,0,0,no,unrated
+tart-shrink,dough,"عجينة التارت تنكمش وتنزل عن جدران القالب","Tart dough shrinks and slides down the sides",short,4,4,no,no,,none,0,1,yes,unrated
+tart-soggy,dough,"قاعدة التارت تتبلل وتفقد القرمشة","Tart base goes soggy and loses crispness",short,4,4,no,no,,none,0,0,yes,unrated
+cookies-spread,dough,"البسكويت أو الكوكيز ينتشر ويصير رقيقاً","Cookies spread and turn thin",cookie,6,4,no,no,,none,0,3,no,unrated
+choux-flat,dough,"عجينة الشو (إكلير) لا تنتفخ أو تنهار بعد الخروج","Choux does not rise or collapses after baking",choux,6,4,no,no,,none,0,2,yes,unrated
+laminate-leak,dough,"الزبدة تتسرب من العجين الورقي (كرواسون، ميلفاي)","Butter leaks out of laminated dough (croissant, puff)",lamin,4,4,no,no,,none,2,1,no,unrated
+macaron-fail,dough+air,"الماكارون أجوف، أو بلا قدم، أو متشقق","Macarons are hollow, footless or cracked",meringue,6,5,no,no,,none,0,2,yes,unrated
+choc-bloom,choc,"الشوكولاتة عليها طبقة بيضاء أو رمادية (Bloom)","Chocolate has a white or grey film (bloom)",choc,4,4,no,no,,none,1,1,yes,unrated
+choc-seize,choc+cream,"الشوكولاتة تتحول فجأة إلى كتلة خشنة (Seize)","Chocolate suddenly turns into a grainy lump (seizing)",choc,3,4,no,no,,none,1,0,no,unrated
+temper-fail,choc,"التمبرة فاشلة: الشوكولاتة لا تتصلب أو لا تلمع","Tempering fails: chocolate does not set or lacks shine",choc,3,5,no,no,,none,0,11,yes,unrated
+caramel-crystal,choc,"الكراميل أو شراب السكر يتبلور ويصير رملياً","Caramel or sugar syrup crystallises and turns sandy",caramel,4,4,no,no,caramel-crystal,none,0,1,yes,unrated
+caramel-texture,choc,"الكراميل أقسى أو أطرى مما أريد","Caramel is harder or softer than I want",caramel,2,4,no,no,,none,1,3,yes,unrated
+ganache-firmness,cream+choc,"الغناش أقسى أو أطرى من المطلوب","Ganache is firmer or softer than wanted",ganache,1,4,no,no,,none,1,1,no,unrated
+cream-wont-whip,air,"كريمة الخفق لا ترتفع ولا تتماسك","Whipping cream will not whip or hold",meringue,5,4,no,no,,none,1,2,no,unrated
+cream-to-butter,air,"كريمة الخفق تحولت إلى حبيبات زبدة","Whipped cream turns grainy and buttery",mousse+meringue,1,4,no,no,,none,0,1,no,unrated
+buttercream-split,cream,"كريمة الزبدة تتقطع أو تنفصل","Buttercream curdles or splits",custard+ganache,3,4,no,no,,none,0,1,yes,unrated
+meringue-weep,air,"الميرنغ يبكي (قطرات شراب) أو يتعرق","Meringue weeps syrup beads or sweats",meringue+indus,4,4,no,no,meringue-ratio,none,0,1,yes,unrated
+gelatin-fruit,gel,"الجيلاتين لا يتجلّط مع الأناناس أو الكيوي أو الباباي","Gelatin will not set with pineapple, kiwi or papaya",mousse+jam,4,3,no,no,,none,0,0,no,unrated
+gelatin-rubbery,gel,"الجيلي أو البانا كوتا مطاطي وقاسٍ","Jelly or panna cotta is rubbery and firm",mousse+jam,4,4,no,no,gel-high,none,0,3,yes,unrated
+gelatin-lumps,gel+air,"خيوط أو كتل جيلاتين داخل الموس","Gelatin strings or lumps inside the mousse",mousse,3,3,no,no,,none,0,1,yes,unrated
+curd-scramble,custard,"كيرد الليمون (أو كريمة البيض) يتجبن أو تظهر فيه حبيبات بيض","Lemon curd (or egg cream) scrambles or turns grainy",custard,2,4,no,no,,none,0,1,yes,unrated
+baked-custard-fault,custard,"الكاسترد المخبوز (كريم بروليه/كراميل) به فقاعات أو ثقوب","Baked custard (crème brûlée/caramel) has bubbles or holes",custard+caramel,3,4,no,no,,none,0,2,yes,unrated
+icecream-icy,frozen,"الآيس كريم يحتوي بلورات ثلج وقوامه مثلّج","Ice cream is icy with ice crystals",frozen,4,5,no,no,ic-solids,none,1,2,yes,unrated
+icecream-sandy,frozen,"الآيس كريم ذو قوام رملي","Ice cream has a sandy texture",frozen,2,3,no,no,ic-msnf,none,0,0,yes,unrated
+icecream-hard,frozen,"الآيس كريم قاسٍ جداً ولا يُغرف","Ice cream is rock hard and will not scoop",frozen,4,4,no,no,ic-pac-low,none,0,1,yes,unrated
+glaze-bubbles,gel+cream,"الميرور جليز به فقاعات أو لا يلمع","Mirror glaze has bubbles or lacks shine",glaze,4,4,no,no,,none,0,1,yes,unrated
+cake-wet-bottom,cake,"طبقة لزجة رطبة في قاع الكيكة","A wet, gummy layer at the bottom of the cake",sponge+jam,4,4,no,no,,none,0,2,yes,unrated
+fondant-crack,dough,"الفوندان (عجينة السكر) يتشقق أو يتعرق","Fondant (sugar paste) cracks or sweats",glaze,2,4,no,no,,none,0,0,no,unrated
+cheesecake-crack,custard+gel,"التشيز كيك يتشقق على السطح أو في النصف","Cheesecake cracks on the surface or in the middle",sponge,6,5,yes,no,cheese-egg,none,1,3,yes,unrated
+cheesecake-sink,custard+gel,"التشيز كيك يهبط بعد الخبز","Cheesecake sinks after baking",sponge,4,4,no,no,,none,0,1,yes,unrated
+cheesecake-grainy,custard+gel,"قوام التشيز كيك محبب أو مطاطي","Cheesecake texture is grainy or rubbery",sponge,4,4,yes,no,,none,1,2,yes,unrated
+cheesecake-weep,custard+gel,"التشيز كيك يعرق أو يطلع ماء على السطح","Cheesecake weeps or water beads on the surface",sponge+indus,5,4,yes,no,,none,0,1,no,unrated
+cake-tunnels,cake,"الكيك فيه أنفاق وثقوب كبيرة من الداخل","Cake has tunnels and large holes inside",sponge,4,4,no,no,,none,0,2,yes,unrated
+cake-dry,cake,"الكيك ناشف ويتفتت","Cake is dry and crumbly",sponge,5,5,no,no,,none,0,1,no,unrated
+cake-dark-crust,cake,"القشرة غامقة وسميكة والوسط ما استوى","Crust is dark and thick but the middle is raw",sponge,4,4,no,no,,none,0,1,yes,unrated
+chiffon-collapse,cake+air,"الشيفون أو الجينواز ينكمش ويهبط بعد الفرن","Chiffon or genoise shrinks and sinks after baking",sponge,4,4,no,no,,none,1,0,yes,unrated
+brownie-cakey,cake,"البراونيز طالع مثل الكيك وليس لزجاً","Brownies come out cakey instead of fudgy",sponge,5,4,no,no,,none,0,1,no,unrated
+tart-tough,dough,"عجينة التارت قاسية وصعبة القضم","Tart dough is tough and hard to bite",short,3,4,no,no,,none,0,0,no,unrated
+dough-crumbly,dough,"العجينة تتفتت وتتكسر عند الفرد","Dough crumbles and cracks when rolling",sponge,5,4,no,no,,none,0,1,no,unrated
+cookies-hard,dough,"الكوكيز قاسي وناشف","Cookies are hard and dry",cookie,4,4,no,no,,none,0,0,no,unrated
+cookies-nospread,dough,"الكوكيز ما يتمدد ويبقى كرات سميكة","Cookies don't spread and stay thick balls",cookie,4,4,no,no,,none,0,2,no,unrated
+choux-crack,dough,"الشو أو الإكلير يتشقق بشكل غير منتظم","Choux or eclairs crack unevenly",choux,4,4,no,no,choux-ratio,none,0,1,yes,unrated
+puff-uneven,dough,"العجينة المورقة ترتفع بشكل غير منتظم أو تنكمش","Puff pastry rises unevenly or shrinks",lamin,5,4,no,no,,none,0,0,yes,unrated
+bread-dense,dough,"الخبز أو البريوش ثقيل وما يرتفع","Bread or brioche is dense and doesn't rise",yeast,5,4,no,no,yeast-high+salt-bread+sugar-yeast,none,2,3,no,unrated
+macaron-hollow,dough+air,"الماكرون مجوّف من الداخل","Macarons are hollow inside",meringue,5,4,no,no,,none,0,1,yes,unrated
+macaron-crack,dough+air,"الماكرون يتشقق أو يطلع بدون أقدام","Macarons crack or have no feet",meringue,5,4,no,no,,none,0,1,yes,unrated
+shells-stick,choc,"البونبون يلتصق بالقالب أو يطلع باهتاً","Bonbons stick to the mould or come out dull",choc+shelf,5,4,no,no,,none,0,1,no,unrated
+bonbon-crack,choc,"قشرة البونبون تتشقق أو الحشوة تتسرب وتتخمر","Bonbon shells crack or the filling leaks and ferments",choc+yeast,5,4,no,no,,none,0,3,no,unrated
+white-choc-grainy,choc,"الشوكولاتة البيضاء تصير ثقيلة ومحببة عند الذوبان","White chocolate turns thick and grainy when melting",choc,5,4,no,no,,none,0,1,yes,unrated
+caramel-seize-cream,choc+cream,"الكراميل يتكتل عند إضافة الكريمة","Caramel seizes into lumps when cream goes in",choc+caramel,1,4,no,no,,none,0,0,yes,unrated
+praline-oily,choc+cream,"البرالين زيتي والزيت ينفصل على السطح","Praline paste is oily and the oil separates",ganache+caramel,3,4,no,no,,none,0,2,no,unrated
+sugar-sticky,choc,"ديكورات السكر تلزق وتلين مع الرطوبة","Sugar decorations get sticky and soft in humidity",caramel+gulf,2,4,no,no,,none,0,0,no,unrated
+whipped-ganache-grainy,cream+air,"الغاناش المخفوق محبب أو انفصل","Whipped ganache is grainy or split",ganache+meringue,4,4,no,no,,none,1,0,no,unrated
+buttercream-soupy,cream,"كريمة الزبدة السويسرية أو الإيطالية سائلة","Swiss or Italian buttercream is soupy",ganache,3,4,no,no,,none,0,2,no,unrated
+cream-cheese-frosting-runny,cream,"كريمة الجبن (الفروستنج) سائلة","Cream cheese frosting is runny",,4,4,no,no,,none,0,0,yes,unrated
+pastry-cream-thins,custard+cream,"كريمة الباتسيير تصير سائلة بعد ساعات","Pastry cream turns liquid after a few hours",custard,4,4,no,no,,none,0,1,yes,unrated
+mousse-dense,air,"الموس ثقيل وما فيه هواء","Mousse is dense with little air",mousse,4,4,no,no,,none,1,2,yes,unrated
+mousse-gel-lumps,air+gel,"الموس فيه خيوط أو كتل جيلاتين","Mousse has gelatine strings or lumps",mousse,1,4,no,no,,none,0,1,no,unrated
+italian-meringue-crystal,air,"الشراب يتبلور عند عمل الميرنغ الإيطالي","Syrup crystallises when making Italian meringue",meringue+caramel,4,4,no,no,,none,0,2,yes,unrated
+anglaise-curdle,custard,"الكريمة الإنجليزية تتقطع","Crème anglaise curdles",custard,2,4,no,no,,none,0,1,no,unrated
+creme-brulee-unset,custard,"الكريم بروليه ما يتماسك ويبقى سائلاً","Crème brûlée won't set and stays runny",custard,4,4,no,no,,none,0,1,yes,unrated
+flan-bubbles,custard,"الفلان فيه ثقوب وفقاعات","Flan has holes and bubbles",custard,3,4,no,no,,none,0,1,yes,unrated
+jam-runny,gel,"المربى سائلة وما تتماسك","Jam is runny and won't set",jam,4,4,no,no,pectin-sugar,none,0,3,no,unrated
+pate-fruit-unset,gel,"حلوى الفاكهة (باط دو فروي) لا تتماسك أو لزجة","Pâte de fruit won't set or stays sticky",jam,5,4,no,no,pectin-acid,none,0,2,no,unrated
+agar-weep,gel,"جل الأجار يتشقق ويخرج منه ماء","Agar gel cracks and weeps water",jam+indus,3,4,no,no,agar-high,none,0,2,yes,unrated
+mirror-glaze-thick,gel+cream,"جليز المرآة سميك جداً أو رقيق أو لا يلتصق","Mirror glaze is too thick, too thin or won't stick",glaze,5,4,no,no,,none,0,1,yes,unrated
+icecream-fastmelt,frozen,"الآيس كريم يذوب بسرعة","Ice cream melts fast",frozen,7,4,no,no,ic-pac-high,none,0,3,no,unrated
+sorbet-icy,frozen,"السوربيه قاسٍ ومثلّج","Sorbet is hard and icy",frozen,4,4,no,no,so-sugar,none,0,2,no,unrated
+icecream-gummy,frozen,"الآيس كريم مطاطي أو علكي","Ice cream is gummy or chewy",jam+frozen,4,4,no,no,stab-high,none,0,2,no,unrated

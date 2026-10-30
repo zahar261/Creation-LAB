@@ -1,0 +1,23 @@
+﻿id,label_ar,label_en,why_ar,linked_problem,source,evidence_level
+gel-low,"الجيلاتين قليل","Too little gelatine","أقل من نحو 0.4% من الخليط قد لا يتماسك (المعتاد 0.6-1.5%).",,none,unrated
+gel-high,"الجيلاتين كثير","Too much gelatine","فوق نحو 3% يصير القوام مطاطياً (إلا في المارشملو والجيلي).",gelatin-rubbery,none,unrated
+agar-high,"الأجار كثير","Too much agar","فوق نحو 1.5% يصير الجل هشاً ويطرد الماء (المعتاد 0.5-1%).",agar-weep,none,unrated
+xan-high,"صمغ الزانثان كثير","Too much xanthan","فوق نحو 0.5% يصير القوام لزجاً ومخاطياً (المعتاد 0.2-0.3%).",xanthan-slimy,none,unrated
+cf-high,"ألياف الحمضيات كثيرة","Too much citrus fibre","فوق نحو 2% يثقل القوام (الجرعة في المستحلبات 0.5-1.5%).",citrus-fiber-dose,none,unrated
+bp-high,"مسحوق الخبز كثير","Too much baking powder","فوق نحو 6% من الدقيق: طعم صابوني وارتفاع ثم هبوط (المعتاد 3-5%).",cake-sink,none,unrated
+soda-acid,"البيكربونات بلا حمض","Baking soda without acid","البيكربونات تحتاج حمضاً (لبن، زبادي، عسل، كاكاو طبيعي، ليمون) وإلا بقي طعمها وزاد التحمير.",,none,unrated
+yeast-high,"الخميرة كثيرة","Too much yeast","الفورية فوق نحو 3% من الدقيق (أو الطازجة فوق 6%) تعطي طعم خميرة وتخميراً زائداً.",bread-dense,none,unrated
+salt-bread,"الملح في العجين","Salt in the dough","المعتاد 1.8-2.2% من الدقيق: الأقل يرخي العجين ويضعف الطعم، والأكثر يبطئ الخميرة.",bread-dense,none,unrated
+sugar-yeast,"سكر عالٍ مع الخميرة","High sugar with yeast","السكر فوق نحو 10% من الدقيق يبطئ الخميرة: استعمل خميرة تتحمل السكر وتخميراً أطول.",bread-dense,none,unrated
+meringue-ratio,"سكر قليل في الميرنغ","Little sugar in the meringue","السكر أقل من نحو 0.8 من وزن البياض يعطي ميرنغ غير ثابت يرشح (المعتاد 1:1 إلى 2:1).",meringue-weep,none,unrated
+pectin-sugar,"البكتين الأصفر مع سكر قليل","Yellow pectin with little sugar","البكتين عالي الميثوكسيل يحتاج سكريات نحو 55% وأكثر ليتماسك؛ للسكر القليل استعمل بكتين NH. إن كنت تبخّر جزءاً بالطبخ، أدخل نسبة التبخّر في «فاقد الخَبز» لتحسب المنصة السكر النهائي.",jam-runny,none,unrated
+pectin-acid,"البكتين الأصفر بلا حمض","Yellow pectin without acid","يحتاج حموضة pH نحو 2.8-3.4: أضف حمض الستريك أو الليمون في النهاية.",pate-fruit-unset,none,unrated
+caramel-crystal,"الكراميل بلا مانع تبلور","Caramel without an anti-crystalliser","سكر بلا جلوكوز أو سكر مقلوب أو حمض أكثر عرضة للتبلور والتحبب.",caramel-crystal,none,unrated
+choux-ratio,"نسبة البيض في عجينة الشو","Egg ratio in choux paste","المعتاد أن يكون البيض نحو 1.5-2 ضعف وزن الدقيق: الأقل يجعل العجينة ناشفة وتتشقق، والأكثر يجعلها تسيل وتهبط.",choux-crack,none,unrated
+cheese-egg,"بيض كثير في التشيز كيك","Lots of egg in the cheesecake","البيض فوق نحو 45% من وزن الجبن يعطي قواماً إسفنجياً وميلاً للانتفاخ والتشقق.",cheesecake-crack,none,unrated
+ic-solids,"مواد صلبة قليلة في الآيس كريم","Low solids in the ice cream","المواد الصلبة الكلية أقل من نحو 32%: ماء حر كثير وبلورات ثلج.",icecream-icy,none,unrated
+ic-msnf,"مواد صلبة لبنية كثيرة","High milk solids non-fat","فوق نحو 11% قد يتبلور اللاكتوز فيصير القوام رملياً.",icecream-sandy,none,unrated
+ic-pac-low,"الآيس كريم سيكون قاسياً","Ice cream will be hard","PAC أقل من نحو 22: صعب الغرف على −11°م.",icecream-hard,none,unrated
+ic-pac-high,"الآيس كريم سيذوب بسرعة","Ice cream will melt fast","PAC فوق نحو 32: طري جداً ويذوب بسرعة.",icecream-fastmelt,none,unrated
+so-sugar,"سكر قليل في السوربيه","Low sugar in the sorbet","السكريات أقل من نحو 24%: سوربيه قاسٍ ومثلّج.",sorbet-icy,none,unrated
+stab-high,"مثبت كثير في المثلجات","Too much stabiliser in a frozen dessert","المثبتات فوق نحو 0.5% تجعل القوام مطاطياً (المعتاد 0.2-0.4%).",icecream-gummy,none,unrated
