@@ -55,6 +55,11 @@
    "id": "S8",
    "type": "textbook",
    "cite": "Hartel, R. W., von Elbe, J. H., & Hofberger, R. (2018). Confectionery Science and Technology. Cham: Springer."
+  },
+  {
+   "id": "S9",
+   "type": "regulation",
+   "cite": "Codex Alimentarius (1971, amended 2018). Standard for Butter, CXS 279-1971. Rome: FAO/WHO."
   }
  ],
  "problems": [
@@ -7023,6 +7028,1474 @@
    "unsure": {
     "ar": "جاوب الأسئلة الثلاثة؛ أغلب الأسباب من الطريقة.",
     "en": "Answer all three questions; most causes are method."
+   }
+  },
+  {
+   "id": "freeze-thaw-weep",
+   "category": "industrial",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "medium",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الكريمة أو الحشوة تطرد ماء بعد التجميد والذوبان",
+    "en": "Cream or filling weeps water after freezing and thawing",
+    "syn": {
+     "ar": [
+      "الحشوة طلعت ماي بعد التجميد",
+      "الكريمة تفصل بعد الفريزر",
+      "الكيك المجمد يطلع ماء",
+      "الحشوة صارت إسفنجية بعد التجميد",
+      "ماء في قاعدة الكيكة بعد الذوبان"
+     ],
+     "en": [
+      "weeping after thawing",
+      "filling separates after freezing",
+      "syneresis after freezing",
+      "watery frozen cake"
+     ]
+    }
+   },
+   "see": {
+    "ar": "بعد الذوبان يطلع ماء من الحشوة أو الكريمة، ويصير القوام إسفنجي أو مقطّع، والقاعدة تتشرب.",
+    "en": "After thawing, water seeps from the filling or cream, the texture turns spongy or curdled, and the base soaks up the liquid."
+   },
+   "questions": [
+    {
+     "id": "freeze",
+     "ar": "كيف تجمّد؟",
+     "en": "How do you freeze?",
+     "options": [
+      {
+       "id": "blast",
+       "ar": "مجمّد سريع (بلاست) ثم تخزين",
+       "en": "Blast freezer, then storage"
+      },
+      {
+       "id": "normal",
+       "ar": "فريزر عادي مباشرة",
+       "en": "A normal freezer directly"
+      }
+     ]
+    },
+    {
+     "id": "thaw",
+     "ar": "كيف تذوّب؟",
+     "en": "How do you thaw?",
+     "options": [
+      {
+       "id": "fridge",
+       "ar": "في الثلاجة ببطء",
+       "en": "Slowly in the fridge"
+      },
+      {
+       "id": "room",
+       "ar": "على حرارة الغرفة",
+       "en": "At room temperature"
+      }
+     ]
+    },
+    {
+     "id": "thick",
+     "ar": "وش يمسك الحشوة؟",
+     "en": "What sets the filling?",
+     "options": [
+      {
+       "id": "native",
+       "ar": "نشا ذرة عادي أو دقيق",
+       "en": "Ordinary cornstarch or flour"
+      },
+      {
+       "id": "modified",
+       "ar": "نشا معدّل للتجميد",
+       "en": "Freeze-thaw modified starch"
+      },
+      {
+       "id": "gel",
+       "ar": "جيلاتين أو كريمة فقط",
+       "en": "Gelatine or cream only"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "native-starch",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S7"
+     ],
+     "title": {
+      "ar": "نشا عادي ما يتحمل التجميد",
+      "en": "Native starch does not tolerate freezing"
+     },
+     "why": {
+      "ar": "جل النشا العادي يرجع يتبلور مع البرودة والتجميد فيعصر الماء منه. النشا المعدّل للتجميد مصنوع عشان ما يطرد الماء.",
+      "en": "A native starch gel re-crystallises in the cold and squeezes out water. Freeze-thaw modified starch is made not to weep."
+     },
+     "answers": {
+      "thick": {
+       "native": 3,
+       "modified": -2,
+       "gel": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S7"
+       ],
+       "ar": "استعمل نشا معدّل مخصص للتجميد والذوبان (اسأل مورّدك عن نوع «freeze-thaw stable») بنفس الكمية تقريباً، وجرّبه على دفعة صغيرة.",
+       "en": "Use a freeze-thaw stable modified starch (ask your supplier) at about the same amount, and trial it on a small batch.",
+       "tradeoff": {
+        "ar": "أغلى، وقوامه وطعمه يختلفان قليلاً عن الكلاسيكي.",
+        "en": "Costs more, and its texture and taste differ slightly from the classic."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "جمّد وذوّب عيّنتين (عادي ومعدّل) بنفس الطريقة، وزِن الماء اللي يطلع بعد 24 ساعة.",
+      "en": "Freeze and thaw two samples (native and modified) the same way and weigh the water released after 24 hours."
+     }
+    },
+    {
+     "id": "slow-freeze",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8",
+      "S3"
+     ],
+     "title": {
+      "ar": "تجميد بطيء يكوّن بلورات ثلج كبيرة",
+      "en": "Slow freezing forms large ice crystals"
+     },
+     "why": {
+      "ar": "التجميد البطيء يكوّن بلورات ثلج كبيرة تمزّق القوام، ولما تذوب يطلع الماء. التجميد السريع يعطي بلورات صغيرة.",
+      "en": "Slow freezing grows large ice crystals that tear the structure, so water escapes on thawing. Fast freezing makes small crystals."
+     },
+     "answers": {
+      "freeze": {
+       "normal": 3,
+       "blast": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "جمّد بمجمّد سريع حتى يوصل القلب −18°م بأسرع وقت، ثم انقله للتخزين، وغلّف محكم.",
+       "en": "Blast freeze until the core reaches −18 °C as fast as possible, then move to storage, wrapped airtight.",
+       "tradeoff": {
+        "ar": "يحتاج مجمّد سريع وكهرباء أكثر.",
+        "en": "Needs a blast freezer and more power."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة القلب بالميزان وسجّل الوقت حتى −18°م.",
+      "en": "Probe the core and log the time to reach −18 °C."
+     }
+    },
+    {
+     "id": "thaw-cycle",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "ذوبان سريع أو تقلب الحرارة",
+      "en": "Fast thawing or temperature swings"
+     },
+     "why": {
+      "ar": "الذوبان على حرارة الغرفة، أو فتح الفريزر كثير، أو النقل بدون تبريد، يذوّب البلورات ويعيد تجميدها أكبر، فيزيد الماء المفصول.",
+      "en": "Thawing at room temperature, frequent freezer opening or unrefrigerated transport melt and refreeze crystals larger, so more water separates."
+     },
+     "answers": {
+      "thaw": {
+       "room": 3,
+       "fridge": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "ذوّب في الثلاجة (2 إلى 5°م) 8 إلى 12 ساعة، وحافظ على سلسلة التبريد بدون انقطاع.",
+       "en": "Thaw in the fridge (2–5 °C) for 8–12 hours and keep the cold chain unbroken.",
+       "tradeoff": {
+        "ar": "تخطيط مسبق للطلبات.",
+        "en": "Orders must be planned ahead."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "ذوّب قطعتين: ثلاجة وحرارة غرفة، وقارن الماء.",
+      "en": "Thaw two pieces, fridge and room temperature, and compare the water."
+     }
+    },
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "السكر قليل مقابل الماء",
+      "en": "Too little sugar for the water"
+     },
+     "why": {
+      "ar": "السكر يخفض نقطة التجمد ويمسك الماء، فيقل الثلج المتكوّن. الحشوة القليلة السكر يتجمد أغلب مائها.",
+      "en": "Sugar lowers the freezing point and binds water, so less ice forms. In a low-sugar filling most of the water freezes."
+     },
+     "rule": {
+      "feat": "sugarWater",
+      "when": "below",
+      "range": {
+       "default": [
+        0.3,
+        1.5
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "حد تقديري للحشوات المجمّدة؛ يحتاج اعتماد مراجع.",
+       "en": "A working limit for frozen fillings; pending review."
+      }
+     },
+     "answers": {
+      "thick": {
+       "gel": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S8"
+       ],
+       "ar": "زد السكر حتى تصير السكريات 0.4 من وزن الماء، أو بدّل جزءاً منه بجلوكوز أو دكستروز لحلاوة أقل.",
+       "en": "Increase sugar until sugars are 0.4 times the water, or use glucose or dextrose for part of it to keep sweetness lower.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "sugarWater",
+        "target": 0.4
+       },
+       "tradeoff": {
+        "ar": "أحلى، وقوام أطرى في الفريزر.",
+        "en": "Sweeter, and softer in the freezer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "جمّد وذوّب عيّنة بالنسبة الجديدة وقارن الماء المفصول.",
+      "en": "Freeze and thaw a sample at the new ratio and compare the water released."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الحشوة اللي طردت ماء ما ترجع. لا تعيد تجميدها.",
+     "إذا القاعدة تشربت قليلاً: قدّمها نفس اليوم أو استعملها بشكل ثاني."
+    ],
+    "en": [
+     "A filling that has wept does not recover; do not refreeze it.",
+     "If the base soaked a little, serve it the same day or repurpose it."
+    ],
+    "safety": {
+     "ar": "لا تعيد تجميد منتج ذاب فيه كريمة أو بيض. ذوّبه في الثلاجة واستعمله خلال يوم إلى يومين.",
+     "en": "Do not refreeze a thawed product containing cream or egg. Thaw it in the fridge and use within one to two days.",
+     "src": [
+      "S3"
+     ]
+    }
+   },
+   "prevent": {
+    "ar": [
+     "نشا معدّل للتجميد.",
+     "تجميد سريع حتى −18°م في القلب.",
+     "ذوبان في الثلاجة.",
+     "سلسلة تبريد بدون انقطاع."
+    ],
+    "en": [
+     "Freeze-thaw modified starch.",
+     "Fast freezing to −18 °C core.",
+     "Thaw in the fridge.",
+     "An unbroken cold chain."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا تستعمل نشا معدّل والسكر كافي، فالسبب غالباً طريقة التجميد أو الذوبان.",
+    "en": "If you use modified starch and enough sugar, the cause is most likely how you freeze or thaw."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال نوع النشا أول.",
+    "en": "Answer the starch question first."
+   }
+  },
+  {
+   "id": "mould-fast",
+   "category": "industrial",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "high",
+   "rescuable": false,
+   "symptom": {
+    "ar": "المنتج يعفّن بسرعة",
+    "en": "The product moulds quickly",
+    "syn": {
+     "ar": [
+      "الكيك عفّن",
+      "طلع عفن",
+      "الحلى يخرب بسرعة",
+      "نقاط خضراء على الكيك",
+      "الصلاحية قصيرة",
+      "المنتج خرب قبل وقته"
+     ],
+     "en": [
+      "cake goes mouldy",
+      "mould on product",
+      "short shelf life",
+      "green spots on cake"
+     ]
+    }
+   },
+   "see": {
+    "ar": "بقع عفن (بيضاء أو خضراء أو سوداء) تطلع قبل الصلاحية المتوقعة، غالباً على السطح أو داخل العبوة.",
+    "en": "Mould spots (white, green or black) appear before the expected shelf life, often on the surface or inside the pack."
+   },
+   "questions": [
+    {
+     "id": "pack",
+     "ar": "متى تغلّف المنتج؟",
+     "en": "When do you pack the product?",
+     "options": [
+      {
+       "id": "warm",
+       "ar": "وهو دافئ",
+       "en": "While still warm"
+      },
+      {
+       "id": "cool",
+       "ar": "بعد ما يبرد كاملاً",
+       "en": "After it has fully cooled"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "وين يتخزّن ويتعرض؟",
+     "en": "Where is it stored and displayed?",
+     "options": [
+      {
+       "id": "room",
+       "ar": "حرارة الغرفة أو مكان دافئ",
+       "en": "Room temperature or a warm place"
+      },
+      {
+       "id": "cold",
+       "ar": "مبرّد",
+       "en": "Chilled"
+      }
+     ]
+    },
+    {
+     "id": "where",
+     "ar": "وين يطلع العفن أول؟",
+     "en": "Where does the mould appear first?",
+     "options": [
+      {
+       "id": "surface",
+       "ar": "على السطح أو جوا العبوة",
+       "en": "On the surface or inside the pack"
+      },
+      {
+       "id": "inside",
+       "ar": "داخل الحشوة أو بين الطبقات",
+       "en": "Inside the filling or between layers"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "packed-warm",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "التغليف وهو دافئ",
+      "en": "Packed while warm"
+     },
+     "why": {
+      "ar": "المنتج الدافئ يطلع بخار يتكثف داخل العبوة، فيرطّب السطح ويسرّع العفن.",
+      "en": "A warm product releases steam that condenses inside the pack, wetting the surface and speeding mould."
+     },
+     "answers": {
+      "pack": {
+       "warm": 3,
+       "cool": -2
+      },
+      "where": {
+       "surface": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S3"
+       ],
+       "ar": "برّد المنتج كاملاً في مكان نظيف قبل التغليف، وتأكد ما في قطرات داخل العبوة.",
+       "en": "Cool the product fully in a clean area before packing, and check there are no droplets inside the pack.",
+       "tradeoff": {
+        "ar": "يحتاج مساحة ووقت تبريد.",
+        "en": "Needs cooling space and time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "غلّف دفعتين: وحدة دافئة ووحدة باردة، وسجّل يوم ظهور العفن.",
+      "en": "Pack two batches, one warm and one cool, and log the day mould appears."
+     }
+    },
+    {
+     "id": "storage-warm",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S3",
+      "S8"
+     ],
+     "title": {
+      "ar": "التخزين دافئ ورطب",
+      "en": "Warm, humid storage"
+     },
+     "why": {
+      "ar": "العفن ينمو أسرع بكثير في الحرارة والرطوبة. حرارة الغرفة في الخليج (25 إلى 30°م) تقصّر الصلاحية بوضوح مقارنة بالتبريد.",
+      "en": "Mould grows much faster in warmth and humidity. Gulf room temperatures (25–30 °C) clearly shorten shelf life compared with chilling."
+     },
+     "answers": {
+      "store": {
+       "room": 3,
+       "cold": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "خزّن المنتجات الطرية والمحشية مبرّدة، وحدد الصلاحية بتجربة تخزين على نفس الظروف.",
+       "en": "Keep soft and filled products chilled, and set the shelf life by a storage trial under the same conditions.",
+       "tradeoff": {
+        "ar": "تكلفة تبريد، والتبريد يسرّع تيبّس الكيك.",
+        "en": "Cooling cost, and chilling speeds cake staling."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "خزّن عيّنات على حرارة الغرفة ومبرّدة، وافحصها يومياً.",
+      "en": "Store samples at room temperature and chilled, and check them daily."
+     }
+    },
+    {
+     "id": "hygiene",
+     "kind": "equipment",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "تلوّث بعد الخبز",
+      "en": "Contamination after baking"
+     },
+     "why": {
+      "ar": "الخبز يقتل جراثيم العفن، فالعفن غالباً يجي بعد الخبز: من الهواء، أو أسطح التقطيع، أو الأيدي، أو الحشوات والفاكهة الطازجة.",
+      "en": "Baking kills mould spores, so mould usually arrives afterwards: from air, cutting surfaces, hands, or fresh fillings and fruit."
+     },
+     "answers": {
+      "where": {
+       "inside": 2,
+       "surface": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S3"
+       ],
+       "ar": "نظّف وعقّم أسطح التبريد والتقطيع والأدوات، واستعمل قفازات، وغطِّ المنتج أثناء التبريد.",
+       "en": "Clean and sanitise cooling and cutting surfaces and tools, use gloves, and cover the product while it cools.",
+       "tradeoff": {
+        "ar": "وقت ومواد تنظيف.",
+        "en": "Cleaning time and materials."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعة بعد تنظيف كامل للأسطح بدفعة عادية.",
+      "en": "Compare a batch made after a full surface clean with a normal batch."
+     }
+    },
+    {
+     "id": "water-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "الماء الحر عالي (السكر قليل مقابل الماء)",
+      "en": "High free water (little sugar for the water)"
+     },
+     "why": {
+      "ar": "كل ما كان السكر قليل مقابل الماء، ارتفع نشاط الماء وصار المنتج بيئة أسهل للعفن.",
+      "en": "The less sugar for the water, the higher the water activity and the easier it is for mould."
+     },
+     "rule": {
+      "feat": "sugarWater",
+      "when": "below",
+      "range": {
+       "default": [
+        0.8,
+        2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "مؤشر تقريبي لنشاط الماء فقط. تقدير نشاط الماء الكامل موجود في تبويب «القيم والصلاحية» للوصفة.",
+       "en": "Only a rough proxy for water activity; the full water-activity estimate is in the recipe's Nutrition and shelf-life tab."
+      }
+     },
+     "answers": {
+      "store": {
+       "room": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S8"
+       ],
+       "ar": "زد السكر حتى تصير السكريات 0.9 من وزن الماء، أو بدّل جزءاً منه بسكر محوّل أو جلسرين يمسك الماء أكثر.",
+       "en": "Increase sugar until sugars are 0.9 times the water, or swap part for invert sugar or glycerol, which bind water better.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "sugarWater",
+        "target": 0.9
+       },
+       "tradeoff": {
+        "ar": "أحلى، وقد يتغيّر القوام واللون.",
+        "en": "Sweeter, and texture and colour may change."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن تقدير نشاط الماء في المنصة قبل وبعد، ثم أكّد بتجربة تخزين.",
+      "en": "Compare the platform's water-activity estimate before and after, then confirm with a storage trial."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "المنتج الطري اللي ظهر فيه عفن: تخلّص منه كاملاً، ولا تقطع الجزء المعفّن فقط، لأن العفن يمتد داخل المنتجات الطرية."
+    ],
+    "en": [
+     "A soft product with visible mould must be discarded entirely; do not just cut off the mouldy part, because mould spreads inside soft foods."
+    ],
+    "safety": {
+     "ar": "لا تبيع أي منتج فيه عفن. افحص الدفعة كاملة، ونظّف مكان التخزين قبل الدفعة الجاية.",
+     "en": "Never sell a product with mould. Check the whole batch and clean the storage area before the next batch.",
+     "src": [
+      "S3"
+     ]
+    }
+   },
+   "prevent": {
+    "ar": [
+     "برّد كاملاً قبل التغليف.",
+     "تخزين مبرّد للمنتجات الطرية.",
+     "تعقيم أسطح التقطيع والتبريد.",
+     "حدد الصلاحية بتجربة تخزين حقيقية."
+    ],
+    "en": [
+     "Cool fully before packing.",
+     "Chilled storage for soft products.",
+     "Sanitise cutting and cooling surfaces.",
+     "Set shelf life by a real storage trial."
+    ]
+   },
+   "notFormula": {
+    "ar": "العفن غالباً من التغليف أو التخزين أو النظافة؛ الوصفة تأثيرها على السرعة فقط.",
+    "en": "Mould is usually packing, storage or hygiene; the recipe only affects how fast it comes."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال التغليف والتخزين أول.",
+    "en": "Answer the packing and storage questions first."
+   }
+  },
+  {
+   "id": "laminate-leak",
+   "category": "industrial",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "medium",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الزبدة تطلع من الكرواسون أو الميل فاي",
+    "en": "Butter leaks from croissants or puff pastry",
+    "syn": {
+     "ar": [
+      "الزبدة تسيح من الكرواسون",
+      "الكرواسون يطلع زيت في الفرن",
+      "الطبقات ما طلعت",
+      "الميل فاي ما انتفخ",
+      "الزبدة انكسرت داخل العجينة"
+     ],
+     "en": [
+      "butter leaking from croissants",
+      "croissants pool butter",
+      "no layers in puff pastry",
+      "butter broke in the dough"
+     ]
+    }
+   },
+   "see": {
+    "ar": "زبدة تسيل في الصينية وقت الخبز أو التخمير، والطبقات قليلة أو مختلطة، والقطع منخفضة.",
+    "en": "Butter pools on the tray during proofing or baking, the layers are few or merged, and the pieces are low."
+   },
+   "questions": [
+    {
+     "id": "room",
+     "ar": "حرارة المطبخ أو غرفة التخمير؟",
+     "en": "Kitchen or proofer temperature?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "فوق 26°م",
+       "en": "Above 26 °C"
+      },
+      {
+       "id": "ok",
+       "ar": "تحت 24°م",
+       "en": "Below 24 °C"
+      }
+     ]
+    },
+    {
+     "id": "butter",
+     "ar": "نوع زبدة الطبقات؟",
+     "en": "Which laminating butter?",
+     "options": [
+      {
+       "id": "table",
+       "ar": "زبدة عادية للمائدة",
+       "en": "Ordinary table butter"
+      },
+      {
+       "id": "sheet",
+       "ar": "زبدة طبقات (شيت) أو 82% فما فوق",
+       "en": "Laminating sheet butter, or 82% and above"
+      }
+     ]
+    },
+    {
+     "id": "rest",
+     "ar": "الراحة بين الطيّات؟",
+     "en": "Rest between folds?",
+     "options": [
+      {
+       "id": "short",
+       "ar": "أقل من 20 دقيقة أو بدون",
+       "en": "Under 20 minutes or none"
+      },
+      {
+       "id": "long",
+       "ar": "30 دقيقة أو أكثر في الثلاجة",
+       "en": "30 minutes or more chilled"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "too-warm",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "المطبخ أو التخمير حار",
+      "en": "Kitchen or proofer too warm"
+     },
+     "why": {
+      "ar": "إذا لانت الزبدة وقت الفرد، تختلط بالعجينة بدل ما تبقى طبقة. وفي التخمير فوق حوالي 28°م تذوب الزبدة وتسيل قبل الفرن.",
+      "en": "If the butter softens while rolling, it mixes into the dough instead of staying a layer. When proofing above about 28 °C, the butter melts and runs before baking."
+     },
+     "answers": {
+      "room": {
+       "hot": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "افرد في مكان بارد (تحت 22°م إذا تقدر)، وخمّر الكرواسون على 24 إلى 27°م مع رطوبة، وارجع العجينة للثلاجة أول ما تلين.",
+       "en": "Laminate somewhere cool (below 22 °C if possible), proof croissants at 24–27 °C with humidity, and return the dough to the fridge as soon as it softens.",
+       "tradeoff": {
+        "ar": "تخمير أبطأ ووقت إنتاج أطول.",
+        "en": "Slower proofing and longer production."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة المطبخ وغرفة التخمير وسجّلها مع كل دفعة.",
+      "en": "Log the kitchen and proofer temperature with every batch."
+     }
+    },
+    {
+     "id": "butter-type",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1",
+      "S9"
+     ],
+     "title": {
+      "ar": "الزبدة ما تناسب الطبقات",
+      "en": "The butter is not suited to laminating"
+     },
+     "why": {
+      "ar": "زبدة الطبقات أكثر دهناً وأقل ماء ومرنة على حرارة الفرد. الزبدة العادية 80% أطرى وفيها ماء أكثر، فتنكسر أو تذوب أسرع.",
+      "en": "Laminating butter has more fat, less water and stays plastic at rolling temperature. Ordinary 80% butter is softer with more water, so it breaks or melts sooner."
+     },
+     "rule": {
+      "feat": "butterFat",
+      "when": "below",
+      "range": {
+       "default": [
+        81,
+        84
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S9"
+      ],
+      "note": {
+       "ar": "يعتمد على نسبة الدهن المسجّلة لمادة الزبدة في المنصة. الحد الأدنى في مواصفة الدستور الغذائي 80%.",
+       "en": "Relies on the fat recorded for the butter material in the platform. The Codex minimum is 80%."
+      }
+     },
+     "answers": {
+      "butter": {
+       "table": 3,
+       "sheet": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "established",
+       "src": [
+        "S9"
+       ],
+       "ar": "استعمل زبدة 82% فما فوق بوزن أقل يعطي نفس كمية الدهن.",
+       "en": "Use 82% or higher butter at a lower weight giving the same fat.",
+       "op": {
+        "op": "swap",
+        "from": "butter",
+        "to": "butter",
+        "factor": 0.976,
+        "name": {
+         "ar": "زبدة 82%",
+         "en": "Butter 82%"
+        },
+        "comp": {
+         "w": 0.16,
+         "f": 0.82,
+         "s": 0.006,
+         "p": 0.009
+        }
+       },
+       "tradeoff": {
+        "ar": "أغلى، وقد تحتاج تغيّر المورد.",
+        "en": "Costs more and may need a new supplier."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اعمل دفعتين بنفس الظروف: زبدة عادية وزبدة طبقات، وقارن الطبقات.",
+      "en": "Make two batches under the same conditions, table and sheet butter, and compare the layers."
+     }
+    },
+    {
+     "id": "short-rest",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "راحة قليلة بين الطيّات",
+      "en": "Too little rest between folds"
+     },
+     "why": {
+      "ar": "بدون راحة في البرد، تسخن الزبدة من الفرد والغلوتين يشد، فتنكسر الزبدة وتخترق العجينة.",
+      "en": "Without a chilled rest, the butter warms from rolling and the gluten tightens, so the butter breaks through the dough."
+     },
+     "answers": {
+      "rest": {
+       "short": 3,
+       "long": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "رتّح العجينة 30 دقيقة على الأقل في الثلاجة بعد كل طيّة، وخلّ العجينة والزبدة بنفس الليونة تقريباً.",
+       "en": "Rest the dough at least 30 minutes chilled after each fold, and keep dough and butter at about the same firmness.",
+       "tradeoff": {
+        "ar": "وقت إنتاج أطول.",
+        "en": "Longer production time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قصّ قطعة بعد الخبز وعدّ الطبقات بين دفعة براحة ودفعة بدون.",
+      "en": "Cut a baked piece and count the layers, rested versus not."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "العجينة اللي اختلطت فيها الزبدة: استعملها لمعجنات ما تحتاج طبقات واضحة (مثل قاعدة مالحة أو بريوش مورّق خفيف)."
+    ],
+    "en": [
+     "Dough where the butter has mixed in: use it for products that do not need clear layers (a savoury base or lightly layered brioche)."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "مطبخ بارد وقت الفرد.",
+     "تخمير 24 إلى 27°م.",
+     "زبدة طبقات 82% فما فوق.",
+     "راحة 30 دقيقة بين الطيّات."
+    ],
+    "en": [
+     "A cool kitchen when laminating.",
+     "Proof at 24–27 °C.",
+     "Laminating butter 82% or above.",
+     "30 minutes rest between folds."
+    ]
+   },
+   "notFormula": {
+    "ar": "في الخليج أغلب تسرّب الزبدة من الحرارة، حتى مع زبدة ممتازة.",
+    "en": "In the Gulf most butter leakage is from heat, even with excellent butter."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الحرارة أول.",
+    "en": "Answer the temperature question first."
+   }
+  },
+  {
+   "id": "cake-tough",
+   "category": "industrial",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الكيك مطاطي أو قاسي",
+    "en": "Cake is rubbery or tough",
+    "syn": {
+     "ar": [
+      "الكيك مطاطي",
+      "الكيك قاسي",
+      "الكيك يمطّ",
+      "الكيك علك",
+      "قوام الكيك مثل الخبز"
+     ],
+     "en": [
+      "rubbery cake",
+      "tough cake",
+      "chewy cake",
+      "bready cake"
+     ]
+    }
+   },
+   "see": {
+    "ar": "القوام يمطّ أو قاسي بدل ما يكون طري ويتفتت بنعومة، وأحياناً فيه أنفاق.",
+    "en": "The crumb is chewy or tough instead of soft and tender, sometimes with tunnels."
+   },
+   "questions": [
+    {
+     "id": "mix",
+     "ar": "كم خلطت بعد الدقيق؟",
+     "en": "How long did you mix after the flour?",
+     "options": [
+      {
+       "id": "long",
+       "ar": "كثير بالخلاط",
+       "en": "A lot with the mixer"
+      },
+      {
+       "id": "brief",
+       "ar": "قليل لين اختفى",
+       "en": "Briefly until it disappeared"
+      }
+     ]
+    },
+    {
+     "id": "flour",
+     "ar": "وش نوع الدقيق؟",
+     "en": "Which flour?",
+     "options": [
+      {
+       "id": "bread",
+       "ar": "دقيق خبز أو قوي",
+       "en": "Bread or strong flour"
+      },
+      {
+       "id": "ap",
+       "ar": "متعدد الاستعمال",
+       "en": "All-purpose"
+      },
+      {
+       "id": "cake",
+       "ar": "دقيق كيك أو معجنات",
+       "en": "Cake or pastry flour"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overmixed",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "خلط زايد بعد الدقيق",
+      "en": "Overmixed after the flour"
+     },
+     "why": {
+      "ar": "الخلط مع وجود ماء يطوّر الغلوتين، فيصير الكيك مطاطي وفيه أنفاق.",
+      "en": "Mixing in the presence of water develops gluten, so the cake turns rubbery with tunnels."
+     },
+     "answers": {
+      "mix": {
+       "long": 3,
+       "brief": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "أضف الدقيق على سرعة منخفضة وتوقف أول ما يختفي، وكمّل باليد.",
+       "en": "Add the flour on low speed, stop as soon as it disappears, and finish by hand.",
+       "tradeoff": {
+        "ar": "انتبه لبقع دقيق ما اختلطت.",
+        "en": "Watch for unmixed flour pockets."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعتين: خلط قصير وطويل.",
+      "en": "Compare short and long mixing."
+     }
+    },
+    {
+     "id": "strong-flour",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1",
+      "S7"
+     ],
+     "title": {
+      "ar": "الدقيق قوي على الكيك",
+      "en": "Flour too strong for cake"
+     },
+     "why": {
+      "ar": "دقيق الكيك عادة بروتينه منخفض. الدقيق الأقوى يكوّن غلوتين أكثر. بعض الدقيق المحلي متعدد الاستعمال قريب من دقيق الخبز، فتأكد من مورّدك.",
+      "en": "Cake flour is usually low in protein. Stronger flour forms more gluten. Some local all-purpose flours are close to bread flour, so check with your supplier."
+     },
+     "rule": {
+      "feat": "flourProtein",
+      "when": "above",
+      "range": {
+       "default": [
+        7,
+        10
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "يعتمد على نسبة البروتين المسجلة لمادة الدقيق؛ دقيق الكيك أقل من المعجنات والخبز.",
+       "en": "Relies on the protein recorded for the flour material; cake flour is lower than pastry and bread flour."
+      }
+     },
+     "answers": {
+      "flour": {
+       "bread": 3,
+       "ap": 1,
+       "cake": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "بدّل 20% من الدقيق بنشا ذرة لتقريبه من دقيق الكيك.",
+       "en": "Replace 20% of the flour with cornstarch to bring it closer to cake flour.",
+       "op": {
+        "op": "swap",
+        "from": "flour",
+        "to": "starch",
+        "frac": 0.2,
+        "factor": 1,
+        "name": {
+         "ar": "نشا ذرة",
+         "en": "Cornstarch"
+        },
+        "comp": {
+         "w": 0.12
+        }
+       },
+       "tradeoff": {
+        "ar": "أطرى وأهش، والهيكل أضعف مع الحشوات الثقيلة.",
+        "en": "Softer and more tender, but weaker under heavy fillings."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل نسبة بروتين الدقيق من المورد في مادة الدقيق، وقارن القوام بعد التعديل.",
+      "en": "Record the supplier's flour protein on the flour material and compare the crumb after the change."
+     }
+    },
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السكر قليل",
+      "en": "Too little sugar"
+     },
+     "why": {
+      "ar": "السكر يطري الكيك لأنه يعيق تكوّن الغلوتين ويؤخر تماسك البروتين.",
+      "en": "Sugar tenderises cake by hindering gluten formation and delaying protein setting."
+     },
+     "rule": {
+      "feat": "sugarFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.8,
+        1.25
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S1",
+       "S3"
+      ]
+     },
+     "answers": {
+      "mix": {
+       "brief": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "ارفع السكر إلى وزن الدقيق تقريباً.",
+       "en": "Raise the sugar to about the flour weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar"
+        ],
+        "base": "flour",
+        "target": 1.0
+       },
+       "tradeoff": {
+        "ar": "أحلى وقشرة أغمق.",
+        "en": "Sweeter with a darker crust."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن طراوة القطعتين بعد التبريد.",
+      "en": "Compare tenderness of both after cooling."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الكيك المطاطي يصلح لطبقات مشبّعة بشراب أو للترايفل."
+    ],
+    "en": [
+     "A rubbery cake works for syrup-soaked layers or trifle."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "خلط قصير بعد الدقيق.",
+     "دقيق كيك أو معجنات، واعرف بروتين دقيقك.",
+     "سكر قريب من وزن الدقيق."
+    ],
+    "en": [
+     "Short mixing after the flour.",
+     "Cake or pastry flour, and know your flour's protein.",
+     "Sugar near the flour weight."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الدقيق للكيك والسكر كافي، فالسبب غالباً الخلط.",
+    "en": "If the flour suits cake and sugar is enough, the cause is most likely mixing."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الخلط ونوع الدقيق.",
+    "en": "Answer the mixing and flour questions."
+   }
+  },
+  {
+   "id": "butter-switch",
+   "category": "industrial",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "النتيجة تغيّرت بعد ما بدّلت نوع الزبدة",
+    "en": "Results changed after switching butter",
+    "syn": {
+     "ar": [
+      "غيرت الزبدة وتغيرت الوصفة",
+      "الزبدة الجديدة خربت العجينة",
+      "زبدة 80 بدل 82",
+      "الزبدة المحلية تختلف",
+      "العجينة صارت طرية بعد تغيير الزبدة"
+     ],
+     "en": [
+      "changed butter brand",
+      "new butter ruined the dough",
+      "80% vs 82% butter",
+      "local butter behaves differently"
+     ]
+    }
+   },
+   "see": {
+    "ar": "نفس الوصفة تطلع مختلفة: عجينة أطرى أو تنكمش، أو كريمة زبدة وغاناش ينفصلان، أو كيك قوامه تغيّر.",
+    "en": "The same recipe turns out different: a softer or shrinking dough, buttercream or ganache that splits, or a changed cake crumb."
+   },
+   "questions": [
+    {
+     "id": "change",
+     "ar": "وش اللي تغيّر؟",
+     "en": "What changed?",
+     "options": [
+      {
+       "id": "dough",
+       "ar": "العجينة أطرى أو تنكمش أكثر",
+       "en": "Dough softer or shrinks more"
+      },
+      {
+       "id": "emul",
+       "ar": "كريمة الزبدة أو الغاناش انفصل",
+       "en": "Buttercream or ganache split"
+      },
+      {
+       "id": "melt",
+       "ar": "تذوب أسرع في الحر",
+       "en": "Melts faster in the heat"
+      }
+     ]
+    },
+    {
+     "id": "fat",
+     "ar": "نسبة الدهن في الزبدة الجديدة؟",
+     "en": "Fat in the new butter?",
+     "options": [
+      {
+       "id": "80",
+       "ar": "80% أو ما أعرف (أغلب الزبدة العادية)",
+       "en": "80% or not sure (most table butter)"
+      },
+      {
+       "id": "82",
+       "ar": "82% أو أكثر",
+       "en": "82% or more"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "fat-lower",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S9"
+     ],
+     "title": {
+      "ar": "الزبدة الجديدة دهنها أقل وماؤها أكثر",
+      "en": "The new butter has less fat and more water"
+     },
+     "why": {
+      "ar": "الزبدة 80% فيها ماء حوالي 16 إلى 18%، أكثر من زبدة 82% فما فوق. الفرق بسيط، لكنه يكفي يزيد الغلوتين في العجائن ويخل بالمستحلبات الحساسة.",
+      "en": "80% butter holds about 16–18% water, more than 82%+ butter. The gap is small, but it is enough to strengthen gluten in doughs and upset sensitive emulsions."
+     },
+     "rule": {
+      "feat": "butterFat",
+      "when": "below",
+      "range": {
+       "default": [
+        81,
+        84
+       ]
+      },
+      "evidence": "established",
+      "src": [
+       "S9"
+      ],
+      "note": {
+       "ar": "يعتمد على نسبة الدهن المسجلة لمادة الزبدة. سجّل الزبدة الجديدة بنسبتها من الملصق.",
+       "en": "Relies on the fat recorded for the butter material. Record the new butter with its label value."
+      }
+     },
+     "answers": {
+      "fat": {
+       "80": 2,
+       "82": -2
+      },
+      "change": {
+       "dough": 1,
+       "emul": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "established",
+       "src": [
+        "S9"
+       ],
+       "ar": "إذا رجعت لزبدة 82%، استعمل وزن أقل قليلاً يعطي نفس الدهن وماء أقل.",
+       "en": "If you go back to 82% butter, use a slightly lower weight giving the same fat with less water.",
+       "op": {
+        "op": "swap",
+        "from": "butter",
+        "to": "butter",
+        "factor": 0.976,
+        "name": {
+         "ar": "زبدة 82%",
+         "en": "Butter 82%"
+        },
+        "comp": {
+         "w": 0.16,
+         "f": 0.82,
+         "s": 0.006,
+         "p": 0.009
+        }
+       },
+       "tradeoff": {
+        "ar": "أغلى في الغالب.",
+        "en": "Usually costs more."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اعمل الوصفة بالزبدتين بنفس اليوم والحرارة وقارن.",
+      "en": "Make the recipe with both butters on the same day and temperature and compare."
+     }
+    },
+    {
+     "id": "softness",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "ليونة الزبدة تختلف بين الأنواع",
+      "en": "Butter firmness differs between brands"
+     },
+     "why": {
+      "ar": "كل زبدة لها نقطة ليونة مختلفة حسب تركيب الدهن والموسم، فنفس الحرارة تعطي زبدة أطرى أو أقسى من قبل.",
+      "en": "Each butter softens at a different point depending on its fat makeup and season, so the same temperature gives a softer or harder butter than before."
+     },
+     "answers": {
+      "change": {
+       "melt": 3,
+       "dough": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "قِس حرارة الزبدة وقت الاستعمال، واضبطها حسب النوع الجديد (غالباً تحتاج تبريد أكثر في الحر).",
+       "en": "Measure the butter temperature at use and adjust it for the new brand (in the heat it usually needs more chilling).",
+       "tradeoff": {
+        "ar": "تجارب قليلة لضبط الحرارة الجديدة.",
+        "en": "A few trials to find the new temperature."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل حرارة الزبدة مع كل دفعة لين تثبت النتيجة.",
+      "en": "Log the butter temperature with each batch until results settle."
+     }
+    },
+    {
+     "id": "emulsion-water",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "الماء الإضافي أخل بالمستحلب",
+      "en": "The extra water upset the emulsion"
+     },
+     "why": {
+      "ar": "في كريمة الزبدة والغاناش، الماء الزايد من الزبدة يقرب الخليط من حد الانفصال، خصوصاً إذا الوصفة أصلاً على الحد.",
+      "en": "In buttercream and ganache the extra water from the butter pushes the mix closer to splitting, especially if the recipe was already at the limit."
+     },
+     "answers": {
+      "change": {
+       "emul": 3
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "افتح تشخيص «كريمة الزبدة تقطّعت» أو «الغاناش انفصل» على وصفتك، وقلّل السائل المضاف (عصير، كريمة) قليلاً.",
+       "en": "Open the “Buttercream split” or “Ganache split” diagnosis on your recipe, and slightly reduce the added liquid (juice, cream).",
+       "tradeoff": {
+        "ar": "طعم الفاكهة أو الكريمة أخف قليلاً.",
+        "en": "Slightly milder fruit or cream flavour."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا ثبت المستحلب بعد تقليل السائل، فالسبب كان الماء.",
+      "en": "If the emulsion holds after reducing the liquid, water was the cause."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "كمّل حسب المشكلة: افتح تشخيص المنتج نفسه (عجينة، كريمة زبدة، غاناش)."
+    ],
+    "en": [
+     "Continue by product: open that product's own diagnosis (dough, buttercream, ganache)."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "سجّل كل زبدة في المنصة بنسبة دهنها من الملصق.",
+     "جرّب أي زبدة جديدة على دفعة صغيرة قبل الإنتاج.",
+     "قِس حرارة الزبدة دائماً."
+    ],
+    "en": [
+     "Record every butter in the platform with its label fat.",
+     "Trial any new butter on a small batch before production.",
+     "Always measure butter temperature."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الزبدتين بنفس نسبة الدهن، فالفرق غالباً في ليونتها وحرارتها.",
+    "en": "If both butters have the same fat, the difference is most likely firmness and temperature."
+   },
+   "unsure": {
+    "ar": "سجّل نسبة دهن الزبدة الجديدة من الملصق عشان أقدر أقارن.",
+    "en": "Record the new butter's fat from the label so I can compare."
    }
   }
  ]

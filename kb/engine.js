@@ -14,11 +14,12 @@
 
   function features(rows) {
     const T = rows.reduce((a, r) => a + (+r.g || 0), 0);
-    let W = 0, F = 0, S = 0, P = 0, fp = 0, fg = 0, fw = 0;
+    let W = 0, F = 0, S = 0, P = 0, fp = 0, fg = 0, fw = 0, bf = 0, bg = 0;
     rows.forEach(r => {
       const g = +r.g || 0, c = r.comp || {};
       W += g * (c.w || 0); F += g * (c.f || 0); S += g * (c.s || 0); P += g * (c.p || 0);
       if (r.role === "flour") { fp += g * (c.p || 0); fg += g; fw += g * (c.w || 0); }
+      if (r.role === "butter") { bf += g * (c.f || 0); bg += g; }
     });
     const g = roles => sumRole(rows, [].concat(roles));
     const flour = g("flour"), starch = g("starch"), egg = g("egg"), yolk = g("yolk"), white = g("white");
@@ -44,6 +45,8 @@
       sugarWater: per(S, W),
       gelPct: pct(g("gelatin")),
       eggCheese: per(egg + yolk + white, g("cheese")),
+      /* fat content of the butter used (Codex minimum is 80%; many pastry butters are 82% or more) */
+      butterFat: bg > 0 ? (bf / bg) * 100 : NaN,
       flourProtein: fg > 0 ? (fp / fg) * 100 : NaN,
       has: role => rows.some(r => r.role === role && (+r.g || 0) > 0)
     };
@@ -67,6 +70,7 @@
     sugarWater: { ar: "السكريات مقابل الماء", en: "sugars to water", u: "" },
     gelPct: { ar: "الجيلاتين", en: "gelatine", u: "%" },
     eggCheese: { ar: "البيض مقابل الجبن", en: "egg to cheese", u: "" },
+    butterFat: { ar: "دهن الزبدة المستعملة", en: "fat in the butter used", u: "%" },
     flourProtein: { ar: "بروتين الدقيق", en: "flour protein", u: "%" }
   };
   const fmt = (k, v) => (FEAT[k] && FEAT[k].u === "%" ? r1(v) : r2(v));
@@ -111,10 +115,10 @@
     return rows.map(r => (roles.includes(r.role) ? Object.assign({}, r, { g: (+r.g || 0) * k }) : r));
   }
 
-  /* find k in [0.2, 3] so that feature(feat) reaches target when the roles are scaled by k (bisection) */
+  /* find k in [0.2, 5] so that feature(feat) reaches target when the roles are scaled by k (bisection) */
   function solve(rows, roles, feat, target) {
     const f = k => features(scaleRoles(rows, roles, k))[feat] - target;
-    let a = 0.2, b = 3, fa = f(a), fb = f(b);
+    let a = 0.2, b = 5, fa = f(a), fb = f(b);
     if (!isFinite(fa) || !isFinite(fb) || fa * fb > 0) return null;
     for (let i = 0; i < 50; i++) { const m = (a + b) / 2, fm = f(m); if (fa * fm <= 0) { b = m; fb = fm; } else { a = m; fa = fm; } }
     return (a + b) / 2;
