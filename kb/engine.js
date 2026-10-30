@@ -43,6 +43,7 @@
       /* sugars per gram of water: sucrose saturates near 2 g per g of water at room temperature */
       sugarWater: per(S, W),
       gelPct: pct(g("gelatin")),
+      eggCheese: per(egg + yolk + white, g("cheese")),
       flourProtein: fg > 0 ? (fp / fg) * 100 : NaN,
       has: role => rows.some(r => r.role === role && (+r.g || 0) > 0)
     };
@@ -65,6 +66,7 @@
     fatWater: { ar: "الدهون مقابل الماء", en: "fat to water", u: "" },
     sugarWater: { ar: "السكريات مقابل الماء", en: "sugars to water", u: "" },
     gelPct: { ar: "الجيلاتين", en: "gelatine", u: "%" },
+    eggCheese: { ar: "البيض مقابل الجبن", en: "egg to cheese", u: "" },
     flourProtein: { ar: "بروتين الدقيق", en: "flour protein", u: "%" }
   };
   const fmt = (k, v) => (FEAT[k] && FEAT[k].u === "%" ? r1(v) : r2(v));
