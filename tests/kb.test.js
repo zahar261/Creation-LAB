@@ -17,7 +17,8 @@ const C = {
   butter: { w: .16, f: .82, s: .006, p: .009 }, dark: { w: .01, f: .42, s: .29, p: .08 },
   invert: { w: .2, f: 0, s: .8, p: 0 }, glucose: { w: .2, f: 0, s: .8, p: 0 },
   water: { w: 1, f: 0, s: 0, p: 0 }, bp: { w: 0, f: 0, s: 0, p: 0 },
-  white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 }
+  white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 },
+  cheese: { w: .55, f: .34, s: .03, p: .06 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -166,5 +167,52 @@ const seed2 = [
 ];
 seed2.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 console.log(`  all seed cases: top-1 ${t1}/${seed.length + seed2.length}, top-3 ${t3}/${seed.length + seed2.length}`);
+
+console.log("kb) rules for cakes, tarts, cookies and choux (batch 3)");
+trio("dry cake: sugar", "cake-dry", "sugar-low", ck({ sugar: 150 }), ck({}), ck({ sugar: 210 }));
+trio("dry cake: fat", "cake-dry", "fat-low", ck({ butter: 100 }), ck({}), ck({ butter: 140 }));
+trio("dry cake: liquid", "cake-dry", "liquid-low", ck({ milk: 0 }), ck({}), ck({ milk: 30 }));
+trio("dense cake: baking powder", "cake-dense", "bp-low", ck({ bp: 5 }), ck({}), ck({ bp: 8 }));
+trio("domed cake: liquid", "cake-dome-crack", "liquid-low", ck({ milk: 0 }), ck({}), ck({ milk: 30 }));
+const gn = s => R(Object.assign({ egg: 200, sugar: 125, flour: 125 }, s));
+trio("genoise: egg", "genoise-fail", "egg-low", gn({ egg: 150 }), gn({}), gn({ egg: 180 }));
+trio("tart crack: liquid", "tart-crack", "liquid-low", tt({ egg: 20 }), tt({}), tt({ egg: 37 }));
+trio("tart crack: fat", "tart-crack", "fat-high", tt({ butter: 200 }), tt({}), tt({ butter: 170 }));
+const cc = s => R(Object.assign({ flour: 280, sugar: 300, butter: 226, egg: 100 }, s));
+trio("cookies: sugar", "cookies-spread", "sugar-high", cc({ sugar: 380 }), cc({}), cc({ sugar: 320 }));
+trio("cookies: fat", "cookies-spread", "fat-high", cc({ butter: 330 }), cc({}), cc({ butter: 255 }));
+trio("choux crack: egg", "choux-crack", "paste-dry", ch({ egg: 200 }), ch({}), ch({ egg: 234 }));
+const cs = s => R(Object.assign({ cheese: 850, sugar: 230 }, s));
+trio("cheesecake: egg to cheese", "cheesecake-crack", "egg-high", cs({ egg: 450 }), cs({ egg: 200 }), cs({ egg: 360 }));
+
+console.log("kb) batch 3 fixes");
+{ const r = fixOf("cake-dry", "sugar-low", ck({ sugar: 150 }));
+  ok(r.ok && r.rows.find(x => x.role === "sugar").g === 250, "dry cake: sugar raised to the flour weight (250 g)"); }
+{ const r = fixOf("cake-dense", "bp-low", ck({ bp: 5 }));
+  ok(r.ok && r.rows.find(x => x.role === "bp").g === 10, "dense cake: baking powder raised to 4% (10 g)"); }
+{ const r = fixOf("genoise-fail", "egg-low", gn({ egg: 150 }));
+  ok(r.ok && r.rows.find(x => x.role === "egg").g === 200, "genoise: egg set to 1.6 x 125 g flour = 200 g"); }
+{ const r = fixOf("tart-crack", "liquid-low", tt({ egg: 20 }));
+  ok(r.ok && near(r.after.waterFlour, 0.22, 0.01), "tart crack: egg raised to water 0.22 of flour"); }
+{ const r = fixOf("cookies-spread", "fat-high", cc({ butter: 330 }));
+  ok(r.ok && near(r.after.fatFlour, 0.75, 0.01) && r.diff[0].d < 0, "cookies: butter reduced to fat 0.75 of flour"); }
+{ const r = fixOf("cheesecake-crack", "egg-high", cs({ egg: 450 }));
+  ok(r.ok && near(r.rows.find(x => x.role === "egg").g, 297.5, 1), "cheesecake: egg set to 35% of 850 g cheese"); }
+
+console.log("kb) batch 3 diagnosis");
+const seed3 = [
+  ["cake-dry", ck({}), { answers: { bake: "long", when: "fresh", store: "wrapped" } }, "overbaked"],
+  ["cake-dry", ck({}), { answers: { bake: "ok", when: "nextday", store: "open" } }, "storage"],
+  ["cake-dense", ck({}), { answers: { butter: "cold", mix: "brief", agent: "fresh" } }, "creaming"],
+  ["cake-dense", ck({ bp: 5 }), { answers: { butter: "soft", mix: "brief" } }, "bp-low"],
+  ["cake-dome-crack", ck({}), { answers: { oven: "hot", pan: "ok" } }, "oven-hot"],
+  ["genoise-fail", gn({}), { answers: { whip: "thin", fold: "gentle" } }, "underwhipped"],
+  ["tart-crack", tt({}), { answers: { temp: "cold", mix: "smooth" } }, "too-cold"],
+  ["cookies-spread", cc({}), { answers: { butter: "melted", chill: "no", tray: "warm" } }, "butter-warm"],
+  ["choux-crack", ch({ egg: 200 }), { answers: { paste: "stiff", oven: "mod" } }, "paste-dry"],
+  ["cheesecake-crack", cs({ egg: 200 }), { answers: { mix: "slow", bake: "hot", cool: "slow" } }, "oven"]
+];
+seed3.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+console.log(`  all seed cases: top-1 ${t1}/${seed.length + seed2.length + seed3.length}, top-3 ${t3}/${seed.length + seed2.length + seed3.length}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
