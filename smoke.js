@@ -407,7 +407,8 @@ console.log('27) guided diagnosis: production and Gulf conditions');
  ok(await p.evaluate(()=>[...document.querySelectorAll('#p-dx .dxs-g h2')].some(h=>/التصنيع وظروف الخليج/.test(h.textContent))),'the list has a production and Gulf conditions section');
  await p.goto(FILE+'#dx/laminate-leak');await p.waitForTimeout(700);await p.click('[data-dxa="room:hot"]');await p.waitForTimeout(200);
  const t=await p.evaluate(()=>document.getElementById('p-dx').innerText);
- ok(/المطبخ أو التخمير حار/.test(t.split('\n').slice(0,40).join(' '))&&/دهن الزبدة المستعملة في وصفتك 82%/.test(t)&&/غير مرجّح/.test(t),'hot kitchen ranks first; 82% butter is read from the recipe and judged unlikely');
+ const cs=await p.evaluate(()=>[...document.querySelectorAll('#p-dx .dx-c b')].map(b=>b.textContent));
+ ok(/المطبخ أو التخمير حار/.test(cs[0])&&!cs.some(x=>/الزبدة ما تناسب/.test(x)),'hot kitchen ranks first; with 82% butter in the recipe the butter cause is ruled out ('+cs.join(' | ')+')');
  await p.goto(FILE+'#solve');await p.waitForTimeout(500);await p.fill('#q','الحشوة طلعت ماي بعد التجميد');await p.waitForTimeout(400);
  ok(await p.evaluate(()=>[...document.querySelectorAll('#p-solve .dxs-i')].some(a=>a.getAttribute('href')==='#dx/freeze-thaw-weep')),'chef wording finds the freeze-thaw diagnosis');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
