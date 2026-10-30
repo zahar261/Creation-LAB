@@ -360,7 +360,7 @@ console.log('23) chef name on the PDF');
 console.log('24) guided diagnosis (knowledge base v2)');
 {const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx'))return;sessionStorage.setItem('dx','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'كيك',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'كيك',rows:[['دقيق',250],['سكر',300],['زبدة',200],['بيض',200],['حليب',120],['بيكنج باودر',16]]}}}]));localStorage.setItem('zm-active','"p1"')});
  await p.goto(FILE+'#solve');await p.waitForTimeout(900);await toAr(p);
- ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i').length===5),'the solve page lists the five guided diagnoses');
+ ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i[href^="#dx/"]').length===6&&/13/.test((document.querySelector('#p-solve a.dxs-all')||{}).textContent||'')),'the solve page shows six guided diagnoses and a link to all 13');
  await p.fill('#q','الغاناش انفصل');await p.waitForTimeout(400);
  ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-solve .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/ganache-split'}),'searching in chef words finds the matching guided diagnosis');
  await p.goto(FILE+'#dx/cake-sink');await p.waitForTimeout(800);

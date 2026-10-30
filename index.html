@@ -3127,6 +3127,8 @@ window.dxSolveBlock=function(q){
  return `<section class="dxs" aria-label="${esc(X("تشخيص موجّه","Guided diagnosis"))}"><div class="dxs-h"><b>${esc(X("تشخيص موجّه بأرقام وصفتك","Guided diagnosis from your recipe's numbers"))}</b><span class="dx-chip w">${esc(X("جديد · مسودة","New · draft"))}</span></div>
  <p class="dx-sm">${esc(X("3 أسئلة بضغطة، والمنصة ترتّب الأسباب من وصفتك وإجاباتك، وتحسب التعديل بالغرام.","Three one-tap questions; the platform ranks the causes from your recipe and answers, and computes the change in grams."))}</p>
  <div class="dxs-l">${list.map(p=>`<a class="dxs-i" href="#dx/${esc(p.id)}"><span>${esc(dxL(p.symptom))}</span><small>${p.causes.length} ${esc(X("أسباب","causes"))}</small>${DXCH}</a>`).join("")}${all.length>list.length?`<a class="dxs-i dxs-all" href="#dx">${esc(X("كل التشخيصات ("+all.length+")","All diagnoses ("+all.length+")"))}${DXCH}</a>`:""}</div></section>`};
+/* the solve page may render before this code runs: load the knowledge base when it is shown, then redraw it */
+{const dxSolve=()=>{if(!/^#solve/.test(location.hash||"")||dxReady())return;dxLoad().then(()=>{try{renderSolve()}catch(_){}}).catch(()=>{})};addEventListener("hashchange",dxSolve);dxSolve()}
 window.dxBanner=function(oldId){const id=DXOF[oldId];if(!id)return"";return `<a class="dxs-i dxb" href="#dx/${esc(id)}"><span><b>${esc(X("جرّب التشخيص الموجّه","Try the guided diagnosis"))}</b><small>${esc(X("يقرأ أرقام وصفتك ويحسب التعديل بالغرام","Reads your recipe's numbers and computes the change in grams"))}</small></span>${DXCH}</a>`};
 
 function dxCtx(){const p=PJ.find(z=>z.id===DX.pid)||PJ.find(z=>z.id===PJSEL)||PJ[0]||null;if(!p)return{p:null,r:null,rows:[]};
