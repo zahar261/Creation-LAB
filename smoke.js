@@ -357,4 +357,24 @@ console.log('23) chef name on the PDF');
  ok(await p.evaluate(()=>/BY PATISSERIE NOUR/.test(document.getElementById('pdfov').innerText)),'a project can use its own name');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
+console.log('24) guided diagnosis (knowledge base v2)');
+{const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx'))return;sessionStorage.setItem('dx','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'كيك',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'كيك',rows:[['دقيق',250],['سكر',300],['زبدة',200],['بيض',200],['حليب',120],['بيكنج باودر',16]]}}}]));localStorage.setItem('zm-active','"p1"')});
+ await p.goto(FILE+'#solve');await p.waitForTimeout(900);await toAr(p);
+ ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i').length===5),'the solve page lists the five guided diagnoses');
+ await p.fill('#q','الغاناش انفصل');await p.waitForTimeout(400);
+ ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-solve .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/ganache-split'}),'searching in chef words finds the matching guided diagnosis');
+ await p.goto(FILE+'#dx/cake-sink');await p.waitForTimeout(800);
+ ok(await p.evaluate(()=>document.querySelector('#p-dx .dx-c b').textContent.includes('البيكنج باودر')),'the recipe numbers alone already put the baking powder first');
+ await p.click('[data-dxa="when:oven"]');await p.click('[data-dxa="door:no"]');await p.click('[data-dxa="crumb:ok"]');await p.waitForTimeout(200);
+ const ex=await p.evaluate(()=>document.querySelector('#p-dx .dx-c').innerText.replace(/\s+/g,' '));
+ ok(/6.4%/.test(ex)&&/3–5%/.test(ex)&&/من إجابتك: داخل الفرن/.test(ex),'the explanation quotes the recipe numbers and the answers');
+ ok(await p.evaluate(()=>/16\s*10\s*-6/.test(document.querySelector('#p-dx .dx-t').innerText.replace(/\s+/g,' '))),'the fix is computed in grams: baking powder 16 → 10 g');
+ await p.click('[data-dxapply]');await p.waitForTimeout(400);
+ const a=await p.evaluate(()=>{const P=JSON.parse(localStorage.getItem('zm-projects'))[0],r=P.recs[0];return{bp:r.rows.find(z=>/بيكنج/.test(z.n)).m,h:(r.hist||[]).length,t:P.trials.length}});
+ ok(a.bp===10&&a.h===1&&a.t===1,'apply changes the recipe, saves a version first and logs a trial ('+JSON.stringify(a)+')');
+ await p.evaluate(()=>document.querySelector('#toast [data-tact]').click());await p.waitForTimeout(300);
+ ok(await p.evaluate(()=>{const r=JSON.parse(localStorage.getItem('zm-projects'))[0].recs[0];return r.rows.find(z=>/بيكنج/.test(z.n)).m===16&&!(r.hist||[]).length}),'undo restores the recipe');
+ ok(await p.evaluate(()=>document.querySelectorAll('#p-dx .dx-refs li').length>=1&&!/nav_dx/.test(document.querySelector('footer').innerText)&&document.documentElement.scrollWidth<=390),'sources are listed, no untranslated keys, no horizontal scroll');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
