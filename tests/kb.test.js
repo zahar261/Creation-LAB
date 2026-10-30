@@ -18,7 +18,8 @@ const C = {
   invert: { w: .2, f: 0, s: .8, p: 0 }, glucose: { w: .2, f: 0, s: .8, p: 0 },
   water: { w: 1, f: 0, s: 0, p: 0 }, bp: { w: 0, f: 0, s: 0, p: 0 },
   white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 },
-  cheese: { w: .55, f: .34, s: .03, p: .06 }, cocoabutter: { w: 0, f: 1, s: 0, p: 0 }
+  cheese: { w: .55, f: .34, s: .03, p: .06 }, cocoabutter: { w: 0, f: 1, s: 0, p: 0 },
+  salt: { w: 0, f: 0, s: 0, p: 0 }, yeast: { w: .05, f: 0, s: 0, p: .4 }, yeastfresh: { w: .7, f: 0, s: 0, p: .12 }, binder: { w: .1, f: 0, s: 0, p: 0 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -283,5 +284,40 @@ const seed5 = [
 seed5.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS5 = NS + seed5.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS5}, top-3 ${t3}/${NS5}`);
+
+console.log("kb) rules for yeast, laminated, cookies and gluten-free (batch 6)");
+const br = s => R(Object.assign({ flour: 1000, water: 650, salt: 20, yeast: 10 }, s));
+trio("bread: yeast low", "bread-dense", "yeast-low", br({ yeast: 4 }), br({}), br({ yeast: 8 }));
+trio("bread: salt high", "bread-dense", "salt-high", br({ salt: 30 }), br({}), br({ salt: 21.5 }));
+trio("overproof: yeast high", "dough-overproofed", "yeast-high", br({ yeast: 35 }), br({}), br({ yeast: 23 }));
+ok(KBE.features(R({ flour: 1000, water: 650, salt: 20, yeastfresh: 30 })).yeastFlour === 1, "fresh yeast counts as a third of its weight (30 g fresh = 1% instant)");
+const cr = s => R(Object.assign({ flour: 1000, water: 330, milk: 250, sugar: 100, salt: 20, yeast: 10 }, s));
+trio("croissant: stiff dough", "croissant-dense", "stiff-dough", cr({ water: 200 }), cr({}), cr({ water: 300 }));
+trio("hard cookies: fat", "cookies-hard", "fat-low", cc({ butter: 100 }), cc({}), cc({ butter: 140 }));
+trio("cookies not spreading: sugar", "cookies-nospread", "sugar-low", cc({ sugar: 140 }), cc({}), cc({ sugar: 185 }));
+const gf = x => R({ starch: 400, egg: 200, sugar: 200, butter: 150, binder: x });
+trio("gluten-free: binder", "gf-crumbly", "binder-low", gf(0), gf(3), gf(2));
+
+console.log("kb) batch 6 fixes");
+{ const r = fixOf("bread-dense", "yeast-low", br({ yeast: 4 })); ok(r.ok && r.rows.find(x => x.role === "yeast").g === 10, "bread: instant yeast raised to 1% (10 g)"); }
+{ const r = fixOf("bread-dense", "salt-high", br({ salt: 30 })); ok(r.ok && r.rows.find(x => x.role === "salt").g === 20, "bread: salt set to 2% (20 g)"); }
+{ const r = fixOf("croissant-dense", "stiff-dough", cr({ water: 200 })); ok(r.ok && near(r.after.waterFlour, 0.56, 0.01), "croissant: water raised to 0.56 of flour"); }
+{ const r = fixOf("cookies-nospread", "sugar-low", cc({ sugar: 140 })); ok(r.ok && r.rows.find(x => x.role === "sugar").g === 252, "cookies: sugar raised to 0.9 x 280 g flour = 252 g"); }
+
+console.log("kb) batch 6 diagnosis");
+const seed6 = [
+  ["bread-dense", br({}), { answers: { water: "hot", proof: "ok", yeast: "fresh" } }, "yeast-dead"],
+  ["bread-dense", br({}), { answers: { water: "ok", proof: "short", yeast: "fresh" } }, "underproofed"],
+  ["dough-overproofed", br({}), { answers: { room: "hot", time: "ok" } }, "too-warm"],
+  ["croissant-dense", cr({}), { answers: { proof: "short", butter: "ok" } }, "underproofed"],
+  ["croissant-dense", cr({}), { answers: { proof: "ok", butter: "broke" } }, "butter-broke"],
+  ["cookies-hard", cc({}), { answers: { bake: "brown", store: "sealed" } }, "overbaked"],
+  ["cookies-nospread", cc({}), { answers: { chill: "frozen", flour: "scale" } }, "too-cold"],
+  ["gf-crumbly", gf(0), { answers: { binder: "none", rest: "yes" } }, "binder-low"],
+  ["gf-crumbly", gf(3), { answers: { binder: "yes", rest: "no" } }, "no-rest"]
+];
+seed6.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS6 = NS5 + seed6.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS6}, top-3 ${t3}/${NS6}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

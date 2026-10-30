@@ -50,6 +50,11 @@
       sugarWhite: per(added, white),
       butterPct: pct(g("butter")),
       creamPct: pct(g("cream")),
+      /* instant-yeast equivalent on flour: fresh yeast counts as one third of its weight */
+      yeastFlour: per(g("yeast") + g("yeastfresh") / 3, flour) * 100,
+      saltFlour: per(g("salt"), flour) * 100,
+      /* gluten-free: gums and psyllium on the total flour and starch */
+      binderFlour: per(g("binder"), flour + starch) * 100,
       flourProtein: fg > 0 ? (fp / fg) * 100 : NaN,
       has: role => rows.some(r => r.role === role && (+r.g || 0) > 0)
     };
@@ -77,6 +82,9 @@
     sugarWhite: { ar: "السكر مقابل البياض", en: "sugar to egg white", u: "" },
     butterPct: { ar: "الزبدة المضافة", en: "added butter", u: "%" },
     creamPct: { ar: "الكريمة", en: "cream", u: "%" },
+    yeastFlour: { ar: "الخميرة (فورية) من وزن الدقيق", en: "yeast (instant) on flour weight", u: "%" },
+    saltFlour: { ar: "الملح من وزن الدقيق", en: "salt on flour weight", u: "%" },
+    binderFlour: { ar: "الرابط (زانثان أو سيليوم) من الدقيق والنشا", en: "binder (xanthan or psyllium) on flour and starch", u: "%" },
     flourProtein: { ar: "بروتين الدقيق", en: "flour protein", u: "%" }
   };
   const fmt = (k, v) => (FEAT[k] && FEAT[k].u === "%" ? r1(v) : r2(v));
