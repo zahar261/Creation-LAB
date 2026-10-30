@@ -618,6 +618,7 @@ html[dir=ltr] .dxi{transform:scaleX(-1)}
 .dxs{border:1px solid var(--line);border-radius:10px;background:var(--s1);padding:12px 14px;margin:14px 0}
 .dxs-h{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.dxs-l{display:grid;gap:0;margin-top:6px}
 .dxs-i{display:flex;align-items:center;gap:10px;min-height:48px;border-top:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:15px}.dxs-i span{flex:1}.dxs-i small{color:var(--muted);font-size:12.5px}
+.dxs-g h2{font-size:15px;margin:0 0 4px}.dxs-all{color:var(--muted);font-size:14px}
 .dxb{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin:10px 0}.dxb span{display:grid}
 /* home v2 */
 .dash-hero{margin:0 0 14px}
@@ -699,7 +700,7 @@ html[dir=ltr] .dxi{transform:scaleX(-1)}
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
 <polygon transform="translate(0,0)" fill="currentColor" points="0,0 170,0 170,38 46,202 170,202 170,240 0,240 0,202 124,38 0,38"/><g transform="translate(210,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(440,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><rect y="101.0" width="170" height="38"/></g><g transform="translate(650,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(880,0)"><rect width="38" height="240" fill="currentColor"/><path d="M19,19 H100 A47,47 0 0 1 100,113 H19" fill="none" stroke="currentColor" stroke-width="38"/><polygon fill="currentColor" points="38,38 76,38 164,240 120,240"/></g><g transform="translate(1206,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(1436,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><polygon points="0,0 52,0 170,240 118,240"/></g><g transform="translate(1646,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><path transform="translate(1876,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/><path transform="translate(2094,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/>
 
-</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.29-b</span></div></footer>
+</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.10.30-a</span></div></footer>
 <dialog id="pal" aria-label="Search"><input id="pal-in" class="pal-in" autocomplete="off"><ul id="pal-list" class="pal-list"></ul><div style="padding:8px 16px;color:var(--muted);font-size:13px" id="palhint"></div></dialog>
 <script>
 (function(){try{if(window.top!==window.self&&/(^|\.)zaharcreationlab\.com$|\.github\.io$/i.test(location.hostname)){try{window.top.location.href=location.href}catch(e){document.documentElement.style.display="none"}}}catch(e){}})();
@@ -1234,7 +1235,7 @@ function recBlock(p,r,i,n){const T=recTotals(r),ri=refIdx(r),rf=r.rows[ri]||{o:0
   <table class="dtab ingt"><thead><tr>${lk?`<th class="c-l" title="${esc(X("ثبّت المكوّن في الموازنة التلقائية","Lock for auto-balance"))}">🔒</th>`:""}<th>${esc(U("ing"))}</th>${r.showO?`<th class="c-g">${esc(U("o"))}</th>`:""}<th class="c-g">${esc(X("غ","g"))}</th>${r.bk?`<th class="c-p">${esc(bpLab(r))}</th>`:""}<th class="c-p">%</th><th class="c-x"></th></tr></thead><tbody>
   ${r.rows.map((z,k)=>`<tr>${lk?`<td class="c-l">${(+z.m||0)>0&&rowMat(z)?`<input type="checkbox" data-block="${esc(r.id)}#${k}" aria-label="${esc(X("ثبّت","Lock"))}"${lk.has(rowKey(z))?" checked":""}>`:""}</td>`:""}<td class="c-n"><input class="field" autocomplete="off" value="${esc(rin(z))}" aria-label="${esc(U("ing"))}" data-rr="${r.id}#${k}#n"></td>${r.showO?`<td class="c-g"><input class="field" type="number" min="0" step="any" inputmode="decimal" value="${esc(z.o)}" aria-label="${esc(U("o"))}" data-rr="${r.id}#${k}#o"></td>`:""}<td class="c-g"><input class="field" type="number" min="0" step="any" inputmode="decimal" value="${esc(z.m)}" aria-label="${esc(U("m"))}" data-rr="${r.id}#${k}#m"></td>${r.bk?`<td class="c-p">${rf.m>0&&z.m>0?(z.m/rf.m*100).toFixed(1)+"%":"—"}</td>`:""}<td class="c-p">${T.m>0?(z.m/T.m*100).toFixed(1)+"%":"—"}</td><td class="c-x"><button class="btn sm ghost" data-rdel="${r.id}#${k}" aria-label="x">×</button></td></tr>`).join("")}
   <tr class="tt">${lk?"<td></td>":""}<td><b>${esc(U("tot"))}</b></td>${r.showO?`<td class="c-g"><b>${T.o}</b></td>`:""}<td class="c-g"><b>${T.m}</b></td>${r.bk?"<td></td>":""}<td></td><td></td></tr></tbody></table>
-  <div class="bar noprint"><button class="btn sm pri" data-radd="${esc(r.id)}">${esc(U("addrow"))}</button><button class="btn sm" data-adjrec="${esc(r.id)}">${esc(X("حل مشكلة / تعديل","Fix / adjust"))}</button><button class="btn sm ghost" data-rcalc="${esc(r.id)}">${esc(B("toCalc"))}</button></div>
+  <div class="bar noprint"><button class="btn sm pri" data-radd="${esc(r.id)}">${esc(U("addrow"))}</button><button class="btn sm" data-dxgo="${esc(r.id)}">${esc(X("شخّص مشكلة","Diagnose a problem"))}</button><button class="btn sm" data-adjrec="${esc(r.id)}">${esc(X("حل مشكلة / تعديل","Fix / adjust"))}</button><button class="btn sm ghost" data-rcalc="${esc(r.id)}">${esc(B("toCalc"))}</button></div>
   ${compBar(p,r)}
   <details class="noprint ws-more"><summary>${esc(X("خيارات الجدول","Table options"))}</summary><label style="margin:6px 0;display:flex;align-items:center;gap:6px"><input type="checkbox" data-rshowo="${esc(r.id)}"${r.showO?" checked":""}> ${esc(X("إظهار الكمية الأصلية بجانب المعدّلة","Show the original amount next to the modified one"))}</label><label style="margin:6px 0;display:flex;align-items:center;gap:6px"><input type="checkbox" data-rbk="${esc(r.id)}"${r.bk?" checked":""}> ${esc(X("إظهار نسبة الخباز (للعجائن)","Show baker's % (for doughs)"))}</label>${r.bk?`<label style="margin:0">${esc(U("ref"))}</label><select class="field" data-rref="${esc(r.id)}" style="max-width:220px">${r.rows.map((z,k)=>`<option value="${k}"${k===ri?" selected":""}>${esc(rin(z)||"—")}</option>`).join("")}</select>`:""}</details>
   </div>
@@ -3094,7 +3095,8 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 /* ================= GUIDED DIAGNOSIS (knowledge base v2: kb/engine.js + kb/problems.js, loaded on demand) ================= */
 let DXP=null;const DX={id:null,pid:null,rid:null,ans:{}};
 /* old problem ids that now have a guided diagnosis */
-const DXOF={separate:"ganache-split",custard:"pastry-cream-grainy","cake-sink":"cake-sink","tart-shrink":"tart-shell","tart-soggy":"tart-shell","choux-flat":"choux-collapse"};
+const DXOF={separate:"ganache-split",custard:"pastry-cream-grainy","cake-sink":"cake-sink","tart-shrink":"tart-shell","tart-soggy":"tart-shell","choux-flat":"choux-collapse","starch-temp":"pastry-cream-thin","pastry-cream-thins":"pastry-cream-thin","acid-starch":"pastry-cream-thin","anglaise-curdle":"anglaise-curdled","curd-scramble":"anglaise-curdled","cream-wont-whip":"whipped-cream-fail","cream-to-butter":"whipped-cream-fail","buttercream-split":"buttercream-split","buttercream-soupy":"buttercream-split","gelatin-fruit":"mousse-not-set","ganache-firmness":"ganache-soft","creme-brulee-unset":"baked-custard-fail","baked-custard-fault":"baked-custard-fail","flan-bubbles":"baked-custard-fail"};
+const DXCAT={custard:["الكريمات والكاسترد","Creams and custards"],cream:["الكريمة المخفوقة وكريمة الزبدة","Whipped cream and buttercream"],ganache:["الغاناش","Ganache"],mousse:["الموس","Mousses"],cake:["الكيك","Cakes"],dough:["التارت والعجائن","Tarts and doughs"],choux:["الشو","Choux"]};
 function dxLoad(){if(window.KBE&&window.KB_V2)return Promise.resolve();if(!DXP)DXP=Promise.all([window.KBE?0:loadJs("kb/engine.js"),window.KB_V2?0:loadJs("kb/problems.js")]).catch(e=>{DXP=null;throw e});return DXP}
 const dxReady=()=>!!(window.KBE&&window.KB_V2);
 const dxL=o=>o?(L==="ar"?o.ar:o.en)||o.en||o.ar||"":"";
@@ -3109,6 +3111,7 @@ function dxRole(id,i){
  if(/^(butter|sa_butter|amf|ghee|margarine|puffmarg|shortening)$/.test(id))return"butter";
  if(/^(sugar|sa_osra|powdered|brownsugar|muscovado|dextrose)$/.test(id))return"sugar";
  if(id==="invert")return"invert";if(id==="glucose"||id==="glupow")return"glucose";if(id==="honey"||id==="datesyrup")return"honey";
+ if(id==="gelatine"||id==="gelsheet")return"gelatin";
  if(id==="bpowder")return"bp";if(id==="soda")return"soda";if(id==="water")return"water";
  return i.cat==="choc"?"chocolate":i.cat||"other"}
 function dxRows(r){const out=[];(r.rows||[]).forEach((z,k)=>{const g=+z.m||0;if(g<=0)return;const id=rowMat(z),i=id&&ING[id];
@@ -3120,16 +3123,16 @@ const DXCH='<svg class="dxi" viewBox="0 0 24 24" aria-hidden="true"><path d="M15
 /* the block on the problem-solving page */
 window.dxSolveBlock=function(q){
  if(!dxReady()){dxLoad().then(()=>{if(document.querySelector("#p-solve #q, #p-solve .result"))renderSolve()}).catch(()=>{});return""}
- const list=dxMatch(q);if(!list.length)return"";
+ const all=dxMatch(q),list=q&&q.trim()?all:all.slice(0,6);if(!all.length)return"";
  return `<section class="dxs" aria-label="${esc(X("تشخيص موجّه","Guided diagnosis"))}"><div class="dxs-h"><b>${esc(X("تشخيص موجّه بأرقام وصفتك","Guided diagnosis from your recipe's numbers"))}</b><span class="dx-chip w">${esc(X("جديد · مسودة","New · draft"))}</span></div>
  <p class="dx-sm">${esc(X("3 أسئلة بضغطة، والمنصة ترتّب الأسباب من وصفتك وإجاباتك، وتحسب التعديل بالغرام.","Three one-tap questions; the platform ranks the causes from your recipe and answers, and computes the change in grams."))}</p>
- <div class="dxs-l">${list.map(p=>`<a class="dxs-i" href="#dx/${esc(p.id)}"><span>${esc(dxL(p.symptom))}</span><small>${p.causes.length} ${esc(X("أسباب","causes"))}</small>${DXCH}</a>`).join("")}</div></section>`};
+ <div class="dxs-l">${list.map(p=>`<a class="dxs-i" href="#dx/${esc(p.id)}"><span>${esc(dxL(p.symptom))}</span><small>${p.causes.length} ${esc(X("أسباب","causes"))}</small>${DXCH}</a>`).join("")}${all.length>list.length?`<a class="dxs-i dxs-all" href="#dx">${esc(X("كل التشخيصات ("+all.length+")","All diagnoses ("+all.length+")"))}${DXCH}</a>`:""}</div></section>`};
 window.dxBanner=function(oldId){const id=DXOF[oldId];if(!id)return"";return `<a class="dxs-i dxb" href="#dx/${esc(id)}"><span><b>${esc(X("جرّب التشخيص الموجّه","Try the guided diagnosis"))}</b><small>${esc(X("يقرأ أرقام وصفتك ويحسب التعديل بالغرام","Reads your recipe's numbers and computes the change in grams"))}</small></span>${DXCH}</a>`};
 
 function dxCtx(){const p=PJ.find(z=>z.id===DX.pid)||PJ.find(z=>z.id===PJSEL)||PJ[0]||null;if(!p)return{p:null,r:null,rows:[]};
  const R=recsOf(p),r=R.find(z=>z.id===DX.rid)||R[0];DX.pid=p.id;DX.rid=r&&r.id;const pt=r&&balPid(p,r);return{p,r,rows:r?dxRows(r):[],ptype:/^g[btw]$/.test(pt||"")?pt:null}}
 function dxRender(){const el=document.getElementById("p-dx");if(!el)return;const m=/^#dx\/([\w-]+)/.exec(location.hash||"");
- if(!m){el.innerHTML="";return}
+ if(!m){if(/^#dx\/?$/.test(location.hash||""))dxList(el);else el.innerHTML="";return}
  if(!dxReady()){el.innerHTML=`<div class="wrap dxw"><p class="dx-sm">${esc(X("جاري تحميل قاعدة المعرفة…","Loading the knowledge base…"))}</p></div>`;dxLoad().then(dxRender).catch(()=>{el.innerHTML=`<div class="wrap dxw"><p class="note warn">${esc(X("تعذّر تحميل قاعدة المعرفة. تأكد من الاتصال وحاول مرة ثانية.","Could not load the knowledge base. Check your connection and try again."))}</p></div>`});return}
  const P=dxProb(m[1]);if(!P){el.innerHTML=`<div class="wrap dxw"><p class="note">${esc(X("هذا التشخيص غير موجود.","This diagnosis does not exist."))}</p><a class="dx-btn" href="#solve">${esc(X("حل مشكلة","Fix a problem"))}</a></div>`;return}
  if(DX.id!==P.id){DX.id=P.id;DX.ans={}}
@@ -3172,6 +3175,19 @@ function dxRender(){const el=document.getElementById("p-dx");if(!el)return;const
   <div class="dx-p dx-refs"><h3>${esc(X("المصادر","Sources"))}</h3><ol>${[...cited].concat(P.rescue.safety?P.rescue.safety.src||[]:[]).filter((s,i,a)=>a.indexOf(s)===i).map(s=>`<li id="dxsrc-${esc(s)}" dir="ltr">[${esc(s.slice(1))}] ${esc(SR[s]?SR[s].cite:s)}</li>`).join("")}</ol>
    <p class="dx-sm">${esc(X("مسودة: الأرقام المعلّمة «تقدير عمل» تنتظر اعتماد مراجع. النص بصياغتنا، بدون نسخ من الكتب.","Draft: figures marked “working estimate” await expert review. Text is in our own words, not copied from the books."))}</p></div>
  </div></div></div>`}
+
+function dxList(el){if(!dxReady()){el.innerHTML=`<div class="wrap dxw"><p class="dx-sm">${esc(X("جاري تحميل قاعدة المعرفة…","Loading the knowledge base…"))}</p></div>`;dxLoad().then(()=>dxList(el)).catch(()=>{});return}
+ const P=window.KB_V2.problems,q=DX.q||"",list=dxMatch(q),groups={};list.forEach(p=>{(groups[p.category]=groups[p.category]||[]).push(p)});
+ const ctx=dxCtx();
+ el.innerHTML=`<div class="wrap dxw"><a class="dx-back" href="#solve">${DXCH}${esc(X("حل مشكلة","Fix a problem"))}</a>
+ <div class="dx-head"><h1>${esc(X("التشخيص الموجّه","Guided diagnosis"))}</h1><span class="dx-chip w">${esc(X(P.length+" مشكلة · مسودة",P.length+" problems · draft"))}</span></div>
+ <p class="dx-sm">${esc(X("اختر المشكلة: 3 أسئلة بضغطة، والمنصة ترتّب الأسباب من أرقام وصفتك وإجاباتك وتحسب التعديل بالغرام.","Pick the problem: three one-tap questions, then the platform ranks the causes from your recipe and answers and computes the change in grams."))}${ctx.r?" "+esc(X("الوصفة: ","Recipe: "))+"<b>"+esc((ctx.p.name||"")+(recsOf(ctx.p).length>1?" · "+(rnm(ctx.r)||U("mine")):""))+"</b>":""}</p>
+ <div class="dx-p"><label class="dx-sm" for="dxQ">${esc(X("صف المشكلة بكلامك","Describe the problem in your words"))}</label><input id="dxQ" class="field" type="search" autocomplete="off" value="${esc(q)}" placeholder="${esc(X("مثال: الموس ما مسك","e.g. mousse not setting"))}" style="margin:0"></div>
+ <div id="dxLs">${dxListBody(groups)}</div></div>`}
+function dxListBody(groups){const ks=Object.keys(groups);if(!ks.length)return `<p class="dx-sm">${esc(X("ما لقيت تشخيصاً بهذا الوصف. جرّب كلمة ثانية، أو ابحث في «حل مشكلة».","No guided diagnosis matches. Try another word, or search in “Fix a problem”."))}</p>`;
+ return ks.map(k=>`<section class="dx-p dxs-g"><h2>${esc(X((DXCAT[k]||[k,k])[0],(DXCAT[k]||[k,k])[1]))}</h2><div class="dxs-l">${groups[k].map(p=>`<a class="dxs-i" href="#dx/${esc(p.id)}"><span>${esc(dxL(p.symptom))}</span><small>${p.causes.length} ${esc(X("أسباب","causes"))}</small>${DXCH}</a>`).join("")}</div></section>`).join("")}
+document.addEventListener("input",e=>{if(e.target&&e.target.id==="dxQ"){DX.q=e.target.value;const b=document.getElementById("dxLs");if(b){const g={};dxMatch(DX.q).forEach(p=>{(g[p.category]=g[p.category]||[]).push(p)});b.innerHTML=dxListBody(g)}}});
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dxgo]");if(!b)return;DX.pid=PJSEL;DX.rid=b.dataset.dxgo;location.hash="#dx"});
 function dxApply(cid,logOnly){const P=dxProb(DX.id),C=dxCtx();if(!P||!C.p||!C.r)return;
  const d=window.KBE.diagnose(P,C.rows,{answers:DX.ans,ptype:C.ptype,symptom:DX.ans.sym||null}),c=d.causes.find(x=>x.id===cid),f=c&&c.fixes.find(x=>x.type==="recipe"&&x.result&&x.result.ok);if(!f)return;
  const r=C.r,p=C.p,title=dxL(P.symptom)+" — "+dxL(c.title),sum=f.result.diff.map(x=>(L==="ar"?x.n:x.ne)+" "+x.from+"→"+x.to+X(" غ"," g")).join(X("، ",", "));
@@ -3186,9 +3202,9 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
  if(b.dataset.dxapply){dxApply(b.dataset.dxapply,false);return}
  if(b.dataset.dxlog){dxApply(b.dataset.dxlog,true)}});
 document.addEventListener("change",e=>{const el=e.target;if(!el||!el.dataset)return;if(el.dataset.dxpj){DX.pid=el.value;DX.rid=null;dxRender()}else if(el.dataset.dxr){DX.rid=el.value;dxRender()}});
-addEventListener("hashchange",()=>{if((location.hash||"").startsWith("#dx/"))dxRender()});
-if((location.hash||"").startsWith("#dx/"))dxRender();
-new MutationObserver(()=>{if((location.hash||"").startsWith("#dx/"))dxRender()}).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+addEventListener("hashchange",()=>{if(/^#dx(\/|$)/.test(location.hash||""))dxRender()});
+if(/^#dx(\/|$)/.test(location.hash||""))dxRender();
+new MutationObserver(()=>{if(/^#dx(\/|$)/.test(location.hash||""))dxRender()}).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
 
 /* ================= PRIVACY POLICY AND TERMS OF USE ================= */
 function privHtml(){const A=L==="ar",S=(t,body)=>`<section class="card"><h2>${esc(t)}</h2>${body.map(b=>Array.isArray(b)?`<ul>${b.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p>${esc(b)}</p>`).join("")}</section>`;
