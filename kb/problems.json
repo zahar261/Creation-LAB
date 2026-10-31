@@ -65,6 +65,11 @@
    "id": "S10",
    "type": "regulation",
    "cite": "Codex Alimentarius (1979, amended 2015). Standard for Foods for Special Dietary Use for Persons Intolerant to Gluten, CXS 118-1979. Rome: FAO/WHO."
+  },
+  {
+   "id": "S11",
+   "type": "textbook",
+   "cite": "Goff, H. D., & Hartel, R. W. (2013). Ice Cream, 7th ed. New York: Springer."
   }
  ],
  "problems": [
@@ -11768,6 +11773,1607 @@
    "unsure": {
     "ar": "جاوب سؤال الرابط أول.",
     "en": "Answer the binder question first."
+   }
+  },
+  {
+   "id": "jam-runny",
+   "category": "jam",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "المربى أو الجيلي ما تماسك وبقي سايل",
+    "en": "Jam or jelly did not set and stayed runny",
+    "syn": {
+     "ar": [
+      "المربى سايل",
+      "المربى ما جمد",
+      "الجيلي ما مسك",
+      "البكتين ما اشتغل",
+      "الكونفيتير سايل"
+     ],
+     "en": [
+      "runny jam",
+      "jam won't set",
+      "pectin not setting",
+      "jelly too thin"
+     ]
+    }
+   },
+   "see": {
+    "ar": "المربى يبقى سايل بعد ما يبرد، أو يمسك ضعيف ويسيل لما تقطعه.",
+    "en": "The jam stays runny after cooling, or sets weakly and runs when cut."
+   },
+   "questions": [
+    {
+     "id": "pectin",
+     "ar": "نوع البكتين؟",
+     "en": "Pectin type?",
+     "options": [
+      {
+       "id": "hm",
+       "ar": "عادي (عالي الميثوكسيل) أو بكتين الفاكهة نفسها",
+       "en": "Regular (high methoxyl) or the fruit's own pectin"
+      },
+      {
+       "id": "nh",
+       "ar": "NH أو منخفض السكر",
+       "en": "NH or low-sugar pectin"
+      }
+     ]
+    },
+    {
+     "id": "acid",
+     "ar": "أضفت ليمون أو حمض الستريك؟",
+     "en": "Did you add lemon or citric acid?",
+     "options": [
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      }
+     ]
+    },
+    {
+     "id": "cook",
+     "ar": "كيف عرفت إنه استوى؟",
+     "en": "How did you judge it was done?",
+     "options": [
+      {
+       "id": "time",
+       "ar": "بالوقت أو بالعين",
+       "en": "By time or by eye"
+      },
+      {
+       "id": "test",
+       "ar": "ميزان حرارة أو ريفراكتوميتر أو اختبار الصحن البارد",
+       "en": "Thermometer, refractometer or the cold-plate test"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S2",
+      "S8"
+     ],
+     "title": {
+      "ar": "السكر قليل للبكتين العادي",
+      "en": "Too little sugar for regular pectin"
+     },
+     "why": {
+      "ar": "البكتين العادي ما يتماسك إلا مع سكر عالي (حوالي 55% فأكثر في المنتج النهائي) وحموضة. مع سكر أقل يبقى سايل.",
+      "en": "Regular pectin only sets with high sugar (about 55% or more in the finished product) and acid. With less sugar it stays runny."
+     },
+     "rule": {
+      "feat": "sugar",
+      "when": "below",
+      "range": {
+       "default": [
+        55,
+        70
+       ]
+      },
+      "evidence": "established",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "محسوب على الوصفة قبل التبخير. إذا تبخّر جزء بالطبخ، أدخل نسبة التبخر في «فاقد الخَبز» لتحسب المنصة النهائي.",
+       "en": "Calculated on the recipe before evaporation. If some cooks off, enter the evaporation as bake loss so the platform computes the final value."
+      }
+     },
+     "answers": {
+      "pectin": {
+       "hm": 2,
+       "nh": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "ارفع السكر حتى تصير السكريات حوالي 60%، أو بدّل البكتين بنوع NH للوصفات القليلة السكر.",
+       "en": "Raise the sugar until sugars are about 60%, or switch to NH pectin for low-sugar recipes.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "sugar",
+        "target": 60
+       },
+       "tradeoff": {
+        "ar": "أحلى بكثير، ويغطي على طعم الفاكهة.",
+        "en": "Much sweeter, masking fruit flavour."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الصحن البارد: قطرة على صحن من الفريزر تتجعد لما تدفعها بإصبعك.",
+      "en": "Cold-plate test: a drop on a frozen plate wrinkles when you push it."
+     }
+    },
+    {
+     "id": "acid-low",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "الحموضة ناقصة",
+      "en": "Not enough acid"
+     },
+     "why": {
+      "ar": "البكتين العادي يحتاج حموضة (pH حوالي 2.8 إلى 3.4) عشان يتماسك. الفواكه الحلوة القليلة الحموضة تحتاج ليمون أو حمض.",
+      "en": "Regular pectin needs acidity (pH about 2.8–3.4) to set. Sweet, low-acid fruits need lemon or acid."
+     },
+     "answers": {
+      "acid": {
+       "no": 3,
+       "yes": -2
+      },
+      "pectin": {
+       "hm": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "أضف عصير ليمون أو محلول حمض الستريك في آخر الطبخ، وقِس الـ pH إذا عندك جهاز.",
+       "en": "Add lemon juice or citric acid solution at the end of cooking, and measure the pH if you have a meter.",
+       "tradeoff": {
+        "ar": "أكثر حموضة في الطعم.",
+        "en": "A tarter taste."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس pH عيّنة باردة: لازم يكون بين 2.8 و3.4 تقريباً.",
+      "en": "Measure a cool sample's pH: it should be roughly 2.8–3.4."
+     }
+    },
+    {
+     "id": "undercooked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "ما انطبخ كفاية",
+      "en": "Not cooked long enough"
+     },
+     "why": {
+      "ar": "لازم يتبخر ماء كافي عشان يوصل السكر للتركيز المطلوب (حوالي 65 إلى 68 درجة بريكس، أو 104 إلى 105°م عند سطح البحر).",
+      "en": "Enough water must evaporate for the sugar to reach the needed concentration (about 65–68 °Brix, or 104–105 °C at sea level)."
+     },
+     "answers": {
+      "cook": {
+       "time": 3,
+       "test": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S8"
+       ],
+       "ar": "اطبخ حتى 104 إلى 105°م أو 65 إلى 68 بريكس، أو حتى ينجح اختبار الصحن البارد.",
+       "en": "Cook to 104–105 °C or 65–68 °Brix, or until the cold-plate test passes.",
+       "tradeoff": {
+        "ar": "الطبخ الأطول يغمق اللون ويضعف طعم الفاكهة الطازج.",
+        "en": "Longer cooking darkens the colour and dulls fresh fruit flavour."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل الحرارة أو البريكس عند الإيقاف لكل دفعة.",
+      "en": "Log the temperature or Brix at stopping for each batch."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "أرجع المربى للنار، أضف ليمون إذا ناقص حموضة، واطبخه لين ينجح اختبار الصحن البارد."
+    ],
+    "en": [
+     "Return the jam to the heat, add lemon if acid is lacking, and cook until the cold-plate test passes."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "البكتين المناسب لنسبة السكر.",
+     "حموضة كافية.",
+     "قياس الحرارة أو البريكس."
+    ],
+    "en": [
+     "The right pectin for the sugar level.",
+     "Enough acid.",
+     "Measure temperature or Brix."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السكر كافي والبكتين مناسب، فالسبب غالباً الطبخ أو الحموضة.",
+    "en": "If sugar is enough and the pectin suits it, the cause is most likely cooking or acidity."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال نوع البكتين أول.",
+    "en": "Answer the pectin question first."
+   }
+  },
+  {
+   "id": "caramel-grainy",
+   "category": "caramel",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الكراميل تبلّر وصار محبب",
+    "en": "Caramel crystallised and turned grainy",
+    "syn": {
+     "ar": [
+      "الكراميل تسكّر",
+      "الكراميل صار رملي",
+      "الكراميل محبب",
+      "السكر تبلّر وقت الطبخ",
+      "التوفي صار حبيبات"
+     ],
+     "en": [
+      "grainy caramel",
+      "caramel crystallized",
+      "sugar seized while cooking",
+      "sandy toffee"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الشراب أو الكراميل صار عكر وفيه حبيبات بيضاء، أو تحوّل لكتلة رملية.",
+    "en": "The syrup or caramel turns cloudy with white grains, or becomes a sandy mass."
+   },
+   "questions": [
+    {
+     "id": "stir",
+     "ar": "حرّكت الشراب وهو يغلي؟",
+     "en": "Did you stir the syrup while it boiled?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      },
+      {
+       "id": "no",
+       "ar": "لا، أو حرّكت القدر فقط",
+       "en": "No, or only swirled the pan"
+      }
+     ]
+    },
+    {
+     "id": "walls",
+     "ar": "جوانب القدر؟",
+     "en": "The pan sides?",
+     "options": [
+      {
+       "id": "crystals",
+       "ar": "فيها حبيبات سكر ما ذابت",
+       "en": "Undissolved sugar crystals on them"
+      },
+      {
+       "id": "clean",
+       "ar": "نظّفتها بفرشاة مبللة",
+       "en": "Brushed clean with a wet brush"
+      }
+     ]
+    },
+    {
+     "id": "when",
+     "ar": "متى صار التبلر؟",
+     "en": "When did it crystallise?",
+     "options": [
+      {
+       "id": "cook",
+       "ar": "أثناء الطبخ",
+       "en": "While cooking"
+      },
+      {
+       "id": "later",
+       "ar": "بعد أيام في المنتج",
+       "en": "Days later in the product"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "seeding",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "بذور سكر أو تحريك",
+      "en": "Sugar seeds or stirring"
+     },
+     "why": {
+      "ar": "الشراب المركّز مشبع زيادة؛ أي بلورة سكر على جدار القدر أو التحريك وقت الغليان يبدأ تبلر يمتد للكل.",
+      "en": "Concentrated syrup is supersaturated; any sugar crystal on the pan wall, or stirring while it boils, starts crystallisation that spreads through it all."
+     },
+     "answers": {
+      "stir": {
+       "yes": 3,
+       "no": -1
+      },
+      "walls": {
+       "crystals": 3,
+       "clean": -1
+      },
+      "when": {
+       "cook": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "ذوّب السكر كاملاً قبل الغليان، ونظّف جوانب القدر بفرشاة مبللة، ولا تحرّك بعد الغليان (حرّك القدر نفسه إذا لازم).",
+       "en": "Dissolve the sugar fully before boiling, brush the pan sides with a wet brush, and do not stir once boiling (swirl the pan if needed).",
+       "tradeoff": {
+        "ar": "يحتاج انتباه.",
+        "en": "Needs attention."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا بقي الشراب صافي لين النهاية بهذي الطريقة، فالسبب كان البذور.",
+      "en": "If the syrup stays clear to the end this way, seeding was the cause."
+     }
+    },
+    {
+     "id": "doctor-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "ما في جلوكوز أو سكر محوّل",
+      "en": "No glucose or invert sugar"
+     },
+     "why": {
+      "ar": "الجلوكوز والسكر المحوّل يعيقان تبلر السكروز. الكراميل من سكر أبيض فقط أكثر عرضة للتبلر.",
+      "en": "Glucose and invert sugar hinder sucrose crystallisation. Caramel made from white sugar only crystallises more easily."
+     },
+     "rule": {
+      "feat": "doctorPct",
+      "when": "below",
+      "range": {
+       "default": [
+        10,
+        40
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "نسبة الجلوكوز والسكر المحوّل والعسل من مجموع السكريات المضافة؛ نطاق تقديري.",
+       "en": "Glucose, invert sugar and honey as a share of all added sugars; a working range."
+      }
+     },
+     "answers": {
+      "when": {
+       "later": 2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "بدّل 20% من السكر بشراب جلوكوز.",
+       "en": "Replace 20% of the sugar with glucose syrup.",
+       "op": {
+        "op": "swap",
+        "from": "sugar",
+        "to": "glucose",
+        "frac": 0.2,
+        "factor": 1.25,
+        "name": {
+         "ar": "شراب جلوكوز",
+         "en": "Glucose syrup"
+        },
+        "comp": {
+         "w": 0.2,
+         "s": 0.8
+        }
+       },
+       "tradeoff": {
+        "ar": "أقل حلاوة وأكثر لزوجة، ويتلون أسرع.",
+        "en": "Less sweet, chewier, and colours faster."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "خزّن كراميل بالتعديل وبدونه أسبوع وقارن.",
+      "en": "Store caramel with and without the change for a week and compare."
+     }
+    },
+    {
+     "id": "humid-storage",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "الرطوبة سحبت السطح للتبلر",
+      "en": "Humidity drew the surface into crystallising"
+     },
+     "why": {
+      "ar": "الكراميل والتوفي يمتصون رطوبة الجو، فيذوب السطح ثم يتبلر كطبقة رملية مع الأيام. هذا شائع في رطوبة الخليج الساحلية.",
+      "en": "Caramels and toffees absorb air moisture, so the surface dissolves and then recrystallises into a sandy layer over days. Common in coastal Gulf humidity."
+     },
+     "answers": {
+      "when": {
+       "later": 3,
+       "cook": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S8"
+       ],
+       "ar": "غلّف كل قطعة بورق محكم، وخزّن في علب مقفلة في مكان مكيّف.",
+       "en": "Wrap each piece tightly and store in sealed boxes in an air-conditioned place.",
+       "tradeoff": {
+        "ar": "تكلفة تغليف.",
+        "en": "Packaging cost."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "خزّن قطعتين أسبوع: مغلّفة ومكشوفة، وقارن السطح.",
+      "en": "Store two pieces for a week, wrapped and unwrapped, and compare the surface."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "أثناء الطبخ: أضف قليل ماء، سخّن حتى يذوب كاملاً، ونظّف الجوانب، ثم كمّل بدون تحريك."
+    ],
+    "en": [
+     "While cooking: add a little water, heat until fully dissolved, brush the sides, then continue without stirring."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ذوبان كامل قبل الغليان.",
+     "فرشاة مبللة للجوانب.",
+     "بدون تحريك بعد الغليان.",
+     "جلوكوز أو سكر محوّل في الوصفة."
+    ],
+    "en": [
+     "Full dissolving before boiling.",
+     "A wet brush for the sides.",
+     "No stirring after boiling.",
+     "Glucose or invert sugar in the recipe."
+    ]
+   },
+   "notFormula": {
+    "ar": "التبلر أثناء الطبخ غالباً من التحريك أو البذور.",
+    "en": "Crystallising during cooking is usually stirring or seeding."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال التحريك أول.",
+    "en": "Answer the stirring question first."
+   }
+  },
+  {
+   "id": "mirror-glaze-fail",
+   "category": "glaze",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "جليز المرآة ما مسك أو طلع فيه فقاعات أو سال",
+    "en": "Mirror glaze will not coat, has bubbles or runs off",
+    "syn": {
+     "ar": [
+      "الجليز سايل",
+      "الجليز ما لصق",
+      "فقاعات في الجليز",
+      "الجليز ثقيل",
+      "الميرور جليز ما ضبط"
+     ],
+     "en": [
+      "mirror glaze too thin",
+      "glaze won't stick",
+      "bubbles in glaze",
+      "glaze too thick"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الجليز يسيل ويطلع شفاف، أو يكون ثقيل ومتكتل، أو فيه فقاعات، أو ما يلصق على الكيكة.",
+    "en": "The glaze runs off and looks see-through, or is thick and lumpy, or has bubbles, or will not stick to the cake."
+   },
+   "questions": [
+    {
+     "id": "temp",
+     "ar": "حرارة الجليز وقت الصب؟",
+     "en": "Glaze temperature when pouring?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "فوق 38°م",
+       "en": "Above 38 °C"
+      },
+      {
+       "id": "ok",
+       "ar": "30 إلى 35°م",
+       "en": "30–35 °C"
+      },
+      {
+       "id": "cold",
+       "ar": "تحت 28°م",
+       "en": "Below 28 °C"
+      }
+     ]
+    },
+    {
+     "id": "cake",
+     "ar": "الكيكة وقت الصب؟",
+     "en": "The cake when pouring?",
+     "options": [
+      {
+       "id": "frozen",
+       "ar": "مجمّدة تماماً",
+       "en": "Fully frozen"
+      },
+      {
+       "id": "soft",
+       "ar": "مبرّدة أو طرية",
+       "en": "Chilled or soft"
+      }
+     ]
+    },
+    {
+     "id": "blend",
+     "ar": "كيف خلطت الجليز؟",
+     "en": "How did you blend the glaze?",
+     "options": [
+      {
+       "id": "surface",
+       "ar": "البلندر طلع فوق السطح",
+       "en": "The blender broke the surface"
+      },
+      {
+       "id": "under",
+       "ar": "البلندر تحت السطح ومصفّى",
+       "en": "Blender kept under, then strained"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "wrong-temp",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "حرارة الصب غلط",
+      "en": "Wrong pouring temperature"
+     },
+     "why": {
+      "ar": "الجليز الحار يسيل ويطلع رقيق وشفاف، والبارد يثقل ويتكتل. أغلب جليزات المرآة تنصب بين 30 و35°م.",
+      "en": "Hot glaze runs thin and see-through; cold glaze turns thick and lumpy. Most mirror glazes are poured at 30–35 °C."
+     },
+     "answers": {
+      "temp": {
+       "hot": 3,
+       "cold": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "صب على 30 إلى 35°م (حسب وصفتك)، وقِس الحرارة قبل كل صب.",
+       "en": "Pour at 30–35 °C (per your recipe), measuring before each pour.",
+       "tradeoff": {
+        "ar": "يحتاج ميزان حرارة.",
+        "en": "Needs a thermometer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "صب على قطعة تجربة مجمّدة عند الحرارة الصحيحة.",
+      "en": "Pour on a frozen test piece at the right temperature."
+     }
+    },
+    {
+     "id": "cake-soft",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "الكيكة مو مجمّدة",
+      "en": "The cake was not frozen"
+     },
+     "why": {
+      "ar": "الجليز يتماسك بسرعة على سطح مجمّد. على سطح طري أو مبرّد بس يسيل وما يلصق.",
+      "en": "The glaze sets fast on a frozen surface. On a soft or merely chilled surface it runs and will not stick."
+     },
+     "answers": {
+      "cake": {
+       "soft": 3,
+       "frozen": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "جمّد الكيكة تماماً (−18°م) وصب الجليز عليها مباشرة من الفريزر.",
+       "en": "Freeze the cake completely (−18 °C) and glaze it straight from the freezer.",
+       "tradeoff": {
+        "ar": "تحتاج تخطيط ووقت تجميد.",
+        "en": "Needs planning and freezing time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صب على قطعة مجمّدة وقطعة مبرّدة.",
+      "en": "Compare pouring on a frozen and a chilled piece."
+     }
+    },
+    {
+     "id": "bubbles",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "هواء دخل وقت الخلط",
+      "en": "Air whipped in while blending"
+     },
+     "why": {
+      "ar": "إذا رأس البلندر طلع فوق السطح، يدخل هواء ويطلع فقاعات على الكيكة.",
+      "en": "If the blender head breaks the surface, air gets in and bubbles appear on the cake."
+     },
+     "answers": {
+      "blend": {
+       "surface": 3,
+       "under": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "خلّ رأس البلندر مغمور ومائل، وصفّ الجليز بمصفاة ناعمة، واتركه يرتاح قبل الصب.",
+       "en": "Keep the blender head submerged and tilted, strain the glaze finely, and let it rest before pouring.",
+       "tradeoff": {
+        "ar": "وقت انتظار.",
+        "en": "Waiting time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "افحص السطح بعد الصفّ قبل الصب.",
+      "en": "Check the surface after straining, before pouring."
+     }
+    },
+    {
+     "id": "gel-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "estimate",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "الجيلاتين قليل في الجليز",
+      "en": "Too little gelatine in the glaze"
+     },
+     "why": {
+      "ar": "الجيلاتين هو اللي يخلي الجليز يمسك على الكيكة. إذا قليل، يسيل حتى على الحرارة الصحيحة.",
+      "en": "Gelatine is what makes the glaze hold on the cake. With too little it runs even at the right temperature."
+     },
+     "rule": {
+      "feat": "gelPct",
+      "when": "below",
+      "range": {
+       "default": [
+        1.2,
+        3
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S4"
+      ],
+      "note": {
+       "ar": "لجليزات المرآة بالجيلاتين؛ نطاق تقديري من وصفات شائعة.",
+       "en": "For gelatine-based mirror glazes; a working range from common formulas."
+      }
+     },
+     "answers": {
+      "temp": {
+       "ok": 1
+      },
+      "cake": {
+       "frozen": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S4"
+       ],
+       "ar": "ارفع الجيلاتين إلى حوالي 1.8% من وزن الجليز.",
+       "en": "Raise the gelatine to about 1.8% of the glaze weight.",
+       "op": {
+        "op": "reach",
+        "role": "gelatin",
+        "feat": "gelPct",
+        "target": 1.8
+       },
+       "tradeoff": {
+        "ar": "الزيادة الكبيرة تعطي جليز مطاطي.",
+        "en": "Too much gives a rubbery glaze."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "صب عيّنة بالنسبة الجديدة على قطعة مجمّدة.",
+      "en": "Pour a sample at the new level on a frozen piece."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الجليز يرجع يتسخّن ويتبرّد: سخّنه بهدوء، اخلطه تحت السطح، صفّه، وصبه على الحرارة الصحيحة.",
+     "الكيكة اللي انصب عليها غلط: شيل الجليز وهو طري، أرجعها للفريزر، وأعد الصب."
+    ],
+    "en": [
+     "Glaze can be rewarmed: heat gently, blend below the surface, strain and pour at the right temperature.",
+     "A badly glazed cake: scrape off the soft glaze, refreeze and pour again."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "صب على 30 إلى 35°م.",
+     "كيكة مجمّدة تماماً.",
+     "بلندر تحت السطح وتصفية."
+    ],
+    "en": [
+     "Pour at 30–35 °C.",
+     "A fully frozen cake.",
+     "Blender below the surface and straining."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب مشاكل جليز المرآة من الحرارة أو حالة الكيكة.",
+    "en": "Most mirror-glaze problems are temperature or the cake's state."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الحرارة أول.",
+    "en": "Answer the temperature question first."
+   }
+  },
+  {
+   "id": "icecream-icy",
+   "category": "frozen",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الآيس كريم فيه ثلج وقوامه خشن",
+    "en": "Ice cream is icy and coarse",
+    "syn": {
+     "ar": [
+      "الآيس كريم فيه ثلج",
+      "الجيلاتو خشن",
+      "بلورات ثلج في الآيس كريم",
+      "الآيس كريم مو كريمي"
+     ],
+     "en": [
+      "icy ice cream",
+      "ice crystals in gelato",
+      "coarse ice cream",
+      "not creamy"
+     ]
+    }
+   },
+   "see": {
+    "ar": "تحس بلورات ثلج على اللسان، والقوام خشن بدل ما يكون ناعم وكريمي.",
+    "en": "You feel ice crystals on the tongue, and the texture is coarse rather than smooth."
+   },
+   "questions": [
+    {
+     "id": "when",
+     "ar": "متى صار فيه ثلج؟",
+     "en": "When did it turn icy?",
+     "options": [
+      {
+       "id": "fresh",
+       "ar": "من أول ما طلع من الماكينة",
+       "en": "Straight from the machine"
+      },
+      {
+       "id": "stored",
+       "ar": "بعد أيام في الفريزر",
+       "en": "After days in the freezer"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "التخزين؟",
+     "en": "Storage?",
+     "options": [
+      {
+       "id": "swing",
+       "ar": "فريزر يتفتح كثير أو عرض وتخزين بحرارة متغيرة",
+       "en": "Freezer opened often, or display and storage at changing temperatures"
+      },
+      {
+       "id": "stable",
+       "ar": "−18°م أو أبرد وثابت",
+       "en": "A steady −18 °C or colder"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "solids-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "المواد الصلبة قليلة (ماء حر كثير)",
+      "en": "Low total solids (too much free water)"
+     },
+     "why": {
+      "ar": "كل ما قلت المواد الصلبة (سكر، دهن، مواد حليب صلبة)، زاد الماء اللي يتجمد كبلورات ثلج كبيرة.",
+      "en": "The lower the solids (sugar, fat, milk solids), the more water freezes into large ice crystals."
+     },
+     "rule": {
+      "feat": "solids",
+      "when": "below",
+      "range": {
+       "default": [
+        32,
+        42
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S11"
+      ],
+      "note": {
+       "ar": "نفس الحد المستعمل في قواعد المنصة للآيس كريم بالحليب.",
+       "en": "The same limit as the platform's rules for milk ice cream."
+      }
+     },
+     "answers": {
+      "when": {
+       "fresh": 2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "ارفع المواد الصلبة بزيادة السكر حتى تصير حوالي 35%، أو أضف بودرة حليب خالي الدسم.",
+       "en": "Raise solids by increasing sugar to about 35%, or add skim milk powder.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "solids",
+        "target": 35
+       },
+       "tradeoff": {
+        "ar": "أحلى وأطرى في الفريزر.",
+        "en": "Sweeter and softer in the freezer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن نعومة عيّنتين بعد يوم في الفريزر.",
+      "en": "Compare smoothness of two samples after a day in the freezer."
+     }
+    },
+    {
+     "id": "heat-shock",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "تقلّب الحرارة (صدمة حرارية)",
+      "en": "Temperature swings (heat shock)"
+     },
+     "why": {
+      "ar": "كل ما ذاب جزء وتجمد من جديد، تكبر بلورات الثلج. فتح الفريزر كثير والنقل والعرض الدافئ تسبب هذا.",
+      "en": "Each partial melt and refreeze grows the ice crystals. Frequent freezer opening, transport and warm display cause it."
+     },
+     "answers": {
+      "store": {
+       "swing": 3,
+       "stable": -2
+      },
+      "when": {
+       "stored": 3,
+       "fresh": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "خزّن على −18°م أو أبرد وثابت، وقلّل فتح الفريزر، واستعمل علب صغيرة للعرض.",
+       "en": "Store at a steady −18 °C or colder, open the freezer less, and use small tubs for display.",
+       "tradeoff": {
+        "ar": "تنظيم المخزون.",
+        "en": "Stock organisation."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن علبة من الفريزر الثابت بعلبة من العرض.",
+      "en": "Compare a tub from steady storage with one from display."
+     }
+    },
+    {
+     "id": "slow-churn",
+     "kind": "equipment",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "تجميد بطيء في الماكينة",
+      "en": "Slow freezing in the machine"
+     },
+     "why": {
+      "ar": "إذا الخليط دافئ أو الماكينة ضعيفة أو حوض التجميد ما برد كفاية، يتجمد ببطء وتكبر البلورات.",
+      "en": "If the mix is warm, the machine weak or the bowl not cold enough, it freezes slowly and crystals grow."
+     },
+     "answers": {
+      "when": {
+       "fresh": 2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "برّد الخليط 4 ساعات على الأقل (4°م) قبل الماكينة، ولا تعبّي الماكينة فوق طاقتها، وانقل الآيس كريم للفريزر السريع مباشرة.",
+       "en": "Age the mix at least 4 hours at 4 °C before churning, do not overfill the machine, and move the ice cream straight to a blast freezer.",
+       "tradeoff": {
+        "ar": "وقت تحضير أطول.",
+        "en": "Longer preparation."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل حرارة الخليط ووقت التجميد في الماكينة.",
+      "en": "Log the mix temperature and churn time."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "ذوّب الآيس كريم وأعد تشغيله في الماكينة، أو استعمله في ميلك شيك."
+    ],
+    "en": [
+     "Melt and re-churn the ice cream, or use it in milkshakes."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "مواد صلبة 32 إلى 42%.",
+     "تبريد الخليط قبل الماكينة.",
+     "تخزين ثابت −18°م أو أبرد."
+    ],
+    "en": [
+     "Solids 32–42%.",
+     "Age the mix before churning.",
+     "Steady storage at −18 °C or colder."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا ظهر الثلج بعد التخزين، فالسبب غالباً تقلب الحرارة.",
+    "en": "If ice appears after storage, the cause is most likely temperature swings."
+   },
+   "unsure": {
+    "ar": "جاوب متى ظهر الثلج.",
+    "en": "Answer when the ice appeared."
+   }
+  },
+  {
+   "id": "icecream-hard",
+   "category": "frozen",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الآيس كريم قاسي وما ينغرف",
+    "en": "Ice cream is too hard to scoop",
+    "syn": {
+     "ar": [
+      "الآيس كريم قاسي",
+      "الجيلاتو ما ينغرف",
+      "الآيس كريم مثل الحجر",
+      "الآيس كريم صلب"
+     ],
+     "en": [
+      "hard ice cream",
+      "won't scoop",
+      "rock-hard gelato"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الآيس كريم صلب جداً على حرارة العرض أو الفريزر، وما ينغرف بسهولة.",
+    "en": "The ice cream is very hard at display or freezer temperature and will not scoop easily."
+   },
+   "questions": [
+    {
+     "id": "temp",
+     "ar": "حرارة العرض أو التخزين؟",
+     "en": "Display or storage temperature?",
+     "options": [
+      {
+       "id": "cold",
+       "ar": "−18°م أو أبرد",
+       "en": "−18 °C or colder"
+      },
+      {
+       "id": "display",
+       "ar": "−11 إلى −14°م (عرض جيلاتو)",
+       "en": "−11 to −14 °C (gelato display)"
+      }
+     ]
+    },
+    {
+     "id": "sugar",
+     "ar": "نوع السكر؟",
+     "en": "Sugar type?",
+     "options": [
+      {
+       "id": "sucrose",
+       "ar": "سكر أبيض فقط",
+       "en": "White sugar only"
+      },
+      {
+       "id": "mix",
+       "ar": "سكر مع دكستروز أو سكر محوّل",
+       "en": "Sugar with dextrose or invert sugar"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "السكر قليل (قوة منع التجمد ضعيفة)",
+      "en": "Too little sugar (low freezing-point depression)"
+     },
+     "why": {
+      "ar": "السكر يخفض نقطة التجمد فيبقى جزء من الماء غير متجمد ويطري القوام. السكر القليل يعطي آيس كريم قاسي.",
+      "en": "Sugar lowers the freezing point so part of the water stays unfrozen and softens the texture. Little sugar gives hard ice cream."
+     },
+     "rule": {
+      "feat": "sugar",
+      "when": "below",
+      "range": {
+       "default": [
+        18,
+        25
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S11"
+      ],
+      "note": {
+       "ar": "السكريات الكلية (مع اللاكتوز) في الآيس كريم بالحليب؛ نفس نطاق محرك التوازن.",
+       "en": "Total sugars (including lactose) in milk ice cream; the same range as the balance engine."
+      }
+     },
+     "answers": {
+      "temp": {
+       "display": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "زد السكر حتى تصير السكريات حوالي 20%، أو بدّل جزء منه بدكستروز (يطري أكثر بحلاوة أقل).",
+       "en": "Increase sugar until sugars are about 20%, or swap part for dextrose (softer with less sweetness).",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "sugar",
+        "target": 20
+       },
+       "tradeoff": {
+        "ar": "أحلى، ويذوب أسرع.",
+        "en": "Sweeter, and melts faster."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اغرف عيّنتين على نفس الحرارة وقارن.",
+      "en": "Scoop two samples at the same temperature and compare."
+     }
+    },
+    {
+     "id": "too-cold",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "حرارة التقديم باردة جداً",
+      "en": "Serving temperature too cold"
+     },
+     "why": {
+      "ar": "الجيلاتو يتصمم يتقدم على حوالي −11 إلى −14°م. من فريزر −18°م أو أبرد يكون قاسي.",
+      "en": "Gelato is designed to be served at about −11 to −14 °C. Straight from a −18 °C or colder freezer it is hard."
+     },
+     "answers": {
+      "temp": {
+       "cold": 3,
+       "display": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "انقل العلبة لثلاجة العرض أو للثلاجة العادية 10 إلى 20 دقيقة قبل التقديم.",
+       "en": "Move the tub to the display cabinet or fridge 10–20 minutes before serving.",
+       "tradeoff": {
+        "ar": "تخطيط مسبق.",
+        "en": "Needs planning."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة الآيس كريم وقت الغرف.",
+      "en": "Measure the ice cream temperature when scooping."
+     }
+    },
+    {
+     "id": "sucrose-only",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "سكر أبيض فقط",
+      "en": "White sugar only"
+     },
+     "why": {
+      "ar": "الدكستروز والسكر المحوّل يخفضان نقطة التجمد أكثر من السكر الأبيض بنفس الوزن، فيطرّيان الآيس كريم.",
+      "en": "Dextrose and invert sugar lower the freezing point more than white sugar for the same weight, softening the ice cream."
+     },
+     "answers": {
+      "sugar": {
+       "sucrose": 3,
+       "mix": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S11"
+       ],
+       "ar": "بدّل 20 إلى 30% من السكر بدكستروز، واستعمل محرك التوازن في المنصة للآيس كريم.",
+       "en": "Replace 20–30% of the sugar with dextrose, and use the platform's ice-cream balance engine.",
+       "tradeoff": {
+        "ar": "يذوب أسرع إذا زاد كثير.",
+        "en": "Melts faster if overdone."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صلابة دفعتين على نفس الحرارة.",
+      "en": "Compare the hardness of two batches at the same temperature."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "خلّ الآيس كريم 10 إلى 20 دقيقة في الثلاجة قبل الغرف."
+    ],
+    "en": [
+     "Leave the ice cream 10–20 minutes in the fridge before scooping."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "سكريات حوالي 18 إلى 25%.",
+     "دكستروز مع السكر.",
+     "قدّم على −11 إلى −14°م."
+    ],
+    "en": [
+     "Sugars about 18–25%.",
+     "Dextrose with the sugar.",
+     "Serve at −11 to −14 °C."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السكر كافي، فالسبب غالباً حرارة التقديم.",
+    "en": "If sugar is enough, the cause is most likely serving temperature."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الحرارة.",
+    "en": "Answer the temperature question."
+   }
+  },
+  {
+   "id": "sorbet-icy",
+   "category": "frozen",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "السوربيه قاسي ومثلّج",
+    "en": "Sorbet is hard and icy",
+    "syn": {
+     "ar": [
+      "السوربيه مثلج",
+      "السوربيه قاسي",
+      "السوربيه مثل الثلج",
+      "الغرانيتا"
+     ],
+     "en": [
+      "icy sorbet",
+      "hard sorbet",
+      "sorbet like ice"
+     ]
+    }
+   },
+   "see": {
+    "ar": "السوربيه قاسي وفيه بلورات ثلج كبيرة بدل ما يكون ناعم.",
+    "en": "The sorbet is hard with large ice crystals instead of smooth."
+   },
+   "questions": [
+    {
+     "id": "fruit",
+     "ar": "الفاكهة؟",
+     "en": "The fruit?",
+     "options": [
+      {
+       "id": "watery",
+       "ar": "مائية (بطيخ، حمضيات)",
+       "en": "Watery (melon, citrus)"
+      },
+      {
+       "id": "pulpy",
+       "ar": "لبية (مانجو، توت)",
+       "en": "Pulpy (mango, berries)"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "التخزين؟",
+     "en": "Storage?",
+     "options": [
+      {
+       "id": "swing",
+       "ar": "حرارة متغيرة",
+       "en": "Changing temperature"
+      },
+      {
+       "id": "stable",
+       "ar": "ثابت",
+       "en": "Steady"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "السكر قليل",
+      "en": "Too little sugar"
+     },
+     "why": {
+      "ar": "السوربيه ما فيه دهن ولا مواد حليب، فالسكر هو اللي يطري القوام ويقلل الثلج.",
+      "en": "Sorbet has no fat or milk solids, so sugar is what softens it and limits ice."
+     },
+     "rule": {
+      "feat": "sugar",
+      "when": "below",
+      "range": {
+       "default": [
+        24,
+        32
+       ]
+      },
+      "evidence": "consensus",
+      "src": [
+       "S11"
+      ],
+      "note": {
+       "ar": "نفس الحد المستعمل في قواعد المنصة للسوربيه (السكريات الكلية مع سكر الفاكهة).",
+       "en": "The same limit as the platform's sorbet rule (total sugars including fruit sugar)."
+      }
+     },
+     "answers": {
+      "fruit": {
+       "watery": 2,
+       "pulpy": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "زد السكر حتى تصير السكريات حوالي 27%.",
+       "en": "Increase sugar until sugars are about 27%.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "sugar",
+        "target": 27
+       },
+       "tradeoff": {
+        "ar": "أحلى، فوازن بالليمون.",
+        "en": "Sweeter, so balance with lemon."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام والغرف بعد يوم.",
+      "en": "Compare texture and scooping after a day."
+     }
+    },
+    {
+     "id": "heat-shock",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "تقلب الحرارة",
+      "en": "Temperature swings"
+     },
+     "why": {
+      "ar": "الذوبان وإعادة التجميد يكبّر البلورات، والسوربيه أكثر حساسية من الآيس كريم لأنه ما فيه دهن.",
+      "en": "Melting and refreezing grows crystals, and sorbet is more sensitive than ice cream because it has no fat."
+     },
+     "answers": {
+      "store": {
+       "swing": 3,
+       "stable": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "خزّن على حرارة ثابتة، وقدّم خلال أيام قليلة.",
+       "en": "Store at a steady temperature and serve within a few days.",
+       "tradeoff": {
+        "ar": "صلاحية أقصر.",
+        "en": "Shorter shelf life."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن علبة طازجة بعلبة تعرضت لتقلب الحرارة.",
+      "en": "Compare a fresh tub with one exposed to swings."
+     }
+    },
+    {
+     "id": "no-stabiliser",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "ما في مثبت",
+      "en": "No stabiliser"
+     },
+     "why": {
+      "ar": "المثبت (ألياف أو بكتين أو صمغ بكمية صغيرة) يمسك الماء ويبطئ نمو بلورات الثلج، خصوصاً في الفواكه المائية.",
+      "en": "A stabiliser (a little fibre, pectin or gum) holds water and slows ice-crystal growth, especially with watery fruits."
+     },
+     "answers": {
+      "fruit": {
+       "watery": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "أضف مثبت بكمية صغيرة (حوالي 0.2 إلى 0.4% من الوزن) مخلوط مع السكر قبل الإضافة.",
+       "en": "Add a small amount of stabiliser (about 0.2–0.4% of the weight) mixed with the sugar before adding.",
+       "tradeoff": {
+        "ar": "الزيادة تعطي قوام مطاطي.",
+        "en": "Too much gives a gummy texture."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعتين بمثبت وبدونه بعد يومين في الفريزر.",
+      "en": "Compare batches with and without stabiliser after two days frozen."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "ذوّبه وأعد تشغيله في الماكينة مع سكر إضافي إذا قليل."
+    ],
+    "en": [
+     "Melt and re-churn it, adding sugar if it was low."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "سكريات 24 إلى 32%.",
+     "مثبت مناسب (مثل ألياف أو بكتين بكمية صغيرة).",
+     "تخزين ثابت."
+    ],
+    "en": [
+     "Sugars 24–32%.",
+     "A suitable stabiliser (a little fibre or pectin).",
+     "Steady storage."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السكر كافي، فالسبب غالباً التخزين.",
+    "en": "If sugar is enough, the cause is most likely storage."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الفاكهة والتخزين.",
+    "en": "Answer the fruit and storage questions."
    }
   }
  ]

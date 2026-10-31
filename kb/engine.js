@@ -55,6 +55,9 @@
       saltFlour: per(g("salt"), flour) * 100,
       /* gluten-free: gums and psyllium on the total flour and starch */
       binderFlour: per(g("binder"), flour + starch) * 100,
+      /* total solids, and the share of invert sugar, glucose and honey among the added sugars (they hinder crystallisation) */
+      solids: T > 0 ? 100 - (W / T) * 100 : NaN,
+      doctorPct: per(g(["invert", "glucose", "honey"]), g(["sugar", "invert", "glucose", "honey"])) * 100,
       flourProtein: fg > 0 ? (fp / fg) * 100 : NaN,
       has: role => rows.some(r => r.role === role && (+r.g || 0) > 0)
     };
@@ -84,6 +87,8 @@
     creamPct: { ar: "الكريمة", en: "cream", u: "%" },
     yeastFlour: { ar: "الخميرة (فورية) من وزن الدقيق", en: "yeast (instant) on flour weight", u: "%" },
     saltFlour: { ar: "الملح من وزن الدقيق", en: "salt on flour weight", u: "%" },
+    solids: { ar: "المواد الصلبة الكلية", en: "total solids", u: "%" },
+    doctorPct: { ar: "الجلوكوز والسكر المحوّل من السكريات", en: "glucose and invert share of the sugars", u: "%" },
     binderFlour: { ar: "الرابط (زانثان أو سيليوم) من الدقيق والنشا", en: "binder (xanthan or psyllium) on flour and starch", u: "%" },
     flourProtein: { ar: "بروتين الدقيق", en: "flour protein", u: "%" }
   };
