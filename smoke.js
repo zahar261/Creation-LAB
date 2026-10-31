@@ -360,7 +360,7 @@ console.log('23) chef name on the PDF');
 console.log('24) guided diagnosis (knowledge base v2)');
 {const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx'))return;sessionStorage.setItem('dx','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'كيك',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'كيك',rows:[['دقيق',250],['سكر',300],['زبدة',200],['بيض',200],['حليب',120],['بيكنج باودر',16]]}}}]));localStorage.setItem('zm-active','"p1"')});
  await p.goto(FILE+'#solve');await p.waitForTimeout(900);await toAr(p);
- ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i[href^="#dx/"]').length===6&&/38/.test((document.querySelector('#p-solve a.dxs-all')||{}).textContent||'')),'the solve page shows six guided diagnoses and a link to all 38');
+ ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i[href^="#dx/"]').length===6&&/44/.test((document.querySelector('#p-solve a.dxs-all')||{}).textContent||'')),'the solve page shows six guided diagnoses and a link to all 44');
  await p.fill('#q','الغاناش انفصل');await p.waitForTimeout(400);
  ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-solve .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/ganache-split'}),'searching in chef words finds the matching guided diagnosis');
  await p.goto(FILE+'#dx/cake-sink');await p.waitForTimeout(800);
@@ -381,7 +381,7 @@ console.log('25) guided diagnosis: creams and ganache, list page, project entry'
 {const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx2'))return;sessionStorage.setItem('dx2','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'موس',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'موس',rows:[['كريمة 35%',500],['حليب',200],['سكر',100],['جيلاتين',4]]}}}]));localStorage.setItem('zm-active','"p1"')});
  await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);
  await p.evaluate(()=>document.querySelector('[data-dxgo]').click());await p.waitForTimeout(800);
- ok(await p.evaluate(()=>location.hash==='#dx'&&document.querySelectorAll('#p-dx .dxs-i').length>=38&&document.querySelectorAll('#p-dx .dxs-g').length>=6),'"Diagnose a problem" in the project opens the grouped list of all diagnoses');
+ ok(await p.evaluate(()=>location.hash==='#dx'&&document.querySelectorAll('#p-dx .dxs-i').length>=44&&document.querySelectorAll('#p-dx .dxs-g').length>=6),'"Diagnose a problem" in the project opens the grouped list of all diagnoses');
  await p.fill('#dxQ','الموس ما مسك');await p.waitForTimeout(300);
  ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-dx .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/mousse-not-set'}),'the list search finds the mousse diagnosis from chef words');
  await p.evaluate(()=>document.querySelector('#p-dx a[href="#dx/mousse-not-set"]').click());await p.waitForTimeout(700);
@@ -430,6 +430,15 @@ console.log('29) guided diagnosis: yeast, laminated, cookies and gluten-free');
  ok(await p.evaluate(()=>{const x=document.querySelector('#p-dx .dx-t');return !!x&&/30\s*20/.test(x.innerText.replace(/\s+/g,' '))}),'the computed fix sets the salt to 2% (30 → 20 g)');
  await p.goto(FILE+'#solve');await p.waitForTimeout(500);await p.fill('#q','الخالي من الغلوتين يتفتت');await p.waitForTimeout(400);
  ok(await p.evaluate(()=>[...document.querySelectorAll('#p-solve .dxs-i')].some(a=>a.getAttribute('href')==='#dx/gf-crumbly')),'chef wording finds the gluten-free diagnosis');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
+console.log('30) guided diagnosis: jams, caramel, glazes and frozen');
+{const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx7'))return;sessionStorage.setItem('dx7','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'كراميل',goal:'',tpl:'cust:1',batch:.85,trials:[],cust:{'cust:1':{name:'كراميل',rows:[['سكر',500],['كريمة 35%',300],['زبدة',50]]}}}]));localStorage.setItem('zm-active','"p1"')});
+ await p.goto(FILE+'#dx/caramel-grainy');await p.waitForTimeout(900);await toAr(p);await p.waitForTimeout(200);
+ ok(await p.evaluate(()=>/الجلوكوز والسكر المحوّل من السكريات في وصفتك 0%/.test(document.getElementById('p-dx').innerText)),'a sugar-only caramel is read as 0% glucose and invert');
+ ok(await p.evaluate(()=>{const x=document.querySelector('#p-dx .dx-t');return !!x&&/جلوكوز/.test(x.innerText)}),'a computed glucose swap is offered');
+ await p.goto(FILE+'#solve');await p.waitForTimeout(500);await p.fill('#q','الآيس كريم فيه ثلج');await p.waitForTimeout(400);
+ ok(await p.evaluate(()=>[...document.querySelectorAll('#p-solve .dxs-i')].some(a=>a.getAttribute('href')==='#dx/icecream-icy')),'chef wording finds the icy ice cream diagnosis');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
