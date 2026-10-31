@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "updated": "2026-10-30",
+ "updated": "2026-10-31",
  "evidence": {
   "established": {
    "ar": "علم ثابت",
@@ -13374,6 +13374,1584 @@
    "unsure": {
     "ar": "جاوب سؤال الفاكهة والتخزين.",
     "en": "Answer the fruit and storage questions."
+   }
+  },
+  {
+   "id": "whipped-ganache-grainy",
+   "category": "ganache",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الغاناش المخفوق (مونتيه) تحبب أو انفصل",
+    "en": "Whipped ganache (montée) went grainy or split",
+    "syn": {
+     "ar": [
+      "الغاناش المخفوق تحبب",
+      "المونتيه انفصل",
+      "الغاناش المخفوق ما انخفق",
+      "الغاناش المخفوق صار زبدة"
+     ],
+     "en": [
+      "whipped ganache grainy",
+      "montee split",
+      "whipped ganache won't whip"
+     ]
+    }
+   },
+   "see": {
+    "ar": "بعد الخفق صار محبب أو مقطّع، أو ما مسك قمم ويبقى سايل.",
+    "en": "After whipping it turned grainy or curdled, or it will not hold peaks and stays runny."
+   },
+   "questions": [
+    {
+     "id": "rest",
+     "ar": "كم برّدت الغاناش قبل الخفق؟",
+     "en": "How long did the ganache chill before whipping?",
+     "options": [
+      {
+       "id": "short",
+       "ar": "أقل من 12 ساعة أو ما زال دافئ",
+       "en": "Under 12 hours or still warm"
+      },
+      {
+       "id": "long",
+       "ar": "12 ساعة أو أكثر في الثلاجة",
+       "en": "12 hours or more chilled"
+      }
+     ]
+    },
+    {
+     "id": "whip",
+     "ar": "كيف خفقت؟",
+     "en": "How did you whip?",
+     "options": [
+      {
+       "id": "long",
+       "ar": "سرعة عالية لين صار قاسي",
+       "en": "High speed until stiff"
+      },
+      {
+       "id": "soft",
+       "ar": "متوسطة وتوقفت عند القمم الناعمة",
+       "en": "Medium, stopping at soft peaks"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overwhipped",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "خفق زايد",
+      "en": "Over-whipped"
+     },
+     "why": {
+      "ar": "مثل الكريمة المخفوقة، الخفق الزايد يجمّع الدهن فيصير محبب ويطلع الماء.",
+      "en": "Like whipped cream, over-whipping clumps the fat so it turns grainy and releases water."
+     },
+     "answers": {
+      "whip": {
+       "long": 3,
+       "soft": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "اخفق على سرعة متوسطة وتوقف عند القمم الناعمة، وكمّل باليد إذا لازم.",
+       "en": "Whip on medium and stop at soft peaks; finish by hand if needed.",
+       "tradeoff": {
+        "ar": "يحتاج مراقبة.",
+        "en": "Needs watching."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا بقي ناعم عند التوقف المبكر، فالسبب كان الخفق.",
+      "en": "If it stays smooth when you stop earlier, whipping was the cause."
+     }
+    },
+    {
+     "id": "not-set",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "ما تبرّد وتبلور كفاية قبل الخفق",
+      "en": "Not chilled and set long enough before whipping"
+     },
+     "why": {
+      "ar": "الغاناش المخفوق يحتاج يتبلور في البرد ساعات طويلة عشان الدهن يمسك الهواء. الدافئ ما ينخفق أو ينفصل.",
+      "en": "Whipped ganache needs long hours in the cold for the fat to crystallise and hold air. Warm ganache will not whip or splits."
+     },
+     "answers": {
+      "rest": {
+       "short": 3,
+       "long": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "برّد الغاناش 12 ساعة على الأقل (4°م) قبل الخفق، واخفقه بارد.",
+       "en": "Chill the ganache at least 12 hours at 4 °C before whipping, and whip it cold.",
+       "tradeoff": {
+        "ar": "تحتاج تحضير من اليوم السابق.",
+        "en": "Needs preparing the day before."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن خفق دفعة بعد 4 ساعات ودفعة بعد ليلة.",
+      "en": "Compare whipping a batch after 4 hours and one after a night."
+     }
+    },
+    {
+     "id": "water-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "الكريمة قليلة مقابل الشوكولاتة",
+      "en": "Too little cream for the chocolate"
+     },
+     "why": {
+      "ar": "الغاناش المخفوق يحتاج كريمة كثيرة (ماء حوالي 35 إلى 52%). إذا الشوكولاتة كثيرة، يصير ثقيل ويتحبب بسرعة.",
+      "en": "Whipped ganache needs plenty of cream (water about 35–52%). With too much chocolate it is heavy and goes grainy fast."
+     },
+     "rule": {
+      "feat": "water",
+      "when": "below",
+      "range": {
+       "default": [
+        35,
+        52
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S4"
+      ],
+      "note": {
+       "ar": "نطاق الغاناش المخفوق من محرك التوازن في المنصة؛ تقدير عمل.",
+       "en": "The whipped-ganache range from the platform's balance engine; a working estimate."
+      }
+     },
+     "answers": {
+      "whip": {
+       "soft": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S4"
+       ],
+       "ar": "زد الكريمة حتى يصير الماء حوالي 38%.",
+       "en": "Increase the cream until water is about 38%.",
+       "op": {
+        "op": "reach",
+        "role": "cream",
+        "feat": "water",
+        "target": 38
+       },
+       "tradeoff": {
+        "ar": "أخف وأقل كثافة في الطعم، وصلاحية أقصر.",
+        "en": "Lighter, less intense, with a shorter shelf life."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اعمل دفعة صغيرة بالنسبة الجديدة وقارن.",
+      "en": "Make a small batch at the new ratio and compare."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "المحبب قليلاً: أضف 10 إلى 15% كريمة سايلة باردة وحرّك باليد.",
+     "المنفصل: ذوّبه، برّده ليلة، واخفقه مرة ثانية."
+    ],
+    "en": [
+     "Slightly grainy: fold in 10–15% cold liquid cream by hand.",
+     "Split: melt it, chill overnight and whip again."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "تبريد 12 ساعة.",
+     "خفق متوسط لين القمم الناعمة.",
+     "كريمة كافية."
+    ],
+    "en": [
+     "Chill 12 hours.",
+     "Medium whipping to soft peaks.",
+     "Enough cream."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب مشاكل الغاناش المخفوق من الخفق أو التبريد.",
+    "en": "Most whipped-ganache problems are whipping or chilling."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال التبريد والخفق.",
+    "en": "Answer the chilling and whipping questions."
+   }
+  },
+  {
+   "id": "ganache-firm",
+   "category": "ganache",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الغاناش قاسي جداً وصعب يتشكّل",
+    "en": "Ganache is too firm and hard to pipe",
+    "syn": {
+     "ar": [
+      "الغاناش قاسي",
+      "الغاناش ما ينسحب في الكيس",
+      "الغاناش صلب",
+      "الحشوة قاسية"
+     ],
+     "en": [
+      "firm ganache",
+      "hard to pipe ganache",
+      "ganache too stiff"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الغاناش صلب ما ينسحب من كيس الحلواني، أو قاسي في الفم.",
+    "en": "The ganache is too stiff to pipe, or hard in the mouth."
+   },
+   "questions": [
+    {
+     "id": "choc",
+     "ar": "بدّلت الشوكولاتة بنوع أعلى كاكاو؟",
+     "en": "Did you switch to a higher-cocoa chocolate?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم (مثلاً من 55% إلى 70%)",
+       "en": "Yes (e.g. from 55% to 70%)"
+      },
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      }
+     ]
+    },
+    {
+     "id": "temp",
+     "ar": "حرارة الاستعمال؟",
+     "en": "Temperature when using it?",
+     "options": [
+      {
+       "id": "cold",
+       "ar": "من الثلاجة مباشرة",
+       "en": "Straight from the fridge"
+      },
+      {
+       "id": "room",
+       "ar": "حرارة الغرفة 18 إلى 22°م",
+       "en": "Room temperature 18–22 °C"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "water-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "الماء قليل لنوع المنتج",
+      "en": "Too little water for the product type"
+     },
+     "why": {
+      "ar": "كل ما قل الماء (الكريمة) مقابل الشوكولاتة، صار الغاناش أقسى.",
+      "en": "The less water (cream) relative to chocolate, the firmer the ganache."
+     },
+     "rule": {
+      "feat": "water",
+      "when": "below",
+      "range": {
+       "default": [
+        14,
+        38
+       ],
+       "gb": [
+        14,
+        22
+       ],
+       "gt": [
+        22,
+        38
+       ],
+       "gw": [
+        35,
+        52
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S4"
+      ],
+      "note": {
+       "ar": "نطاقات الماء لكل نوع غاناش من محرك التوازن؛ تقدير عمل.",
+       "en": "Water ranges per ganache type from the balance engine; working estimates."
+      }
+     },
+     "answers": {
+      "temp": {
+       "room": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S4"
+       ],
+       "ar": "زد الكريمة حتى يصير الماء فوق الحد الأدنى لنوع منتجك.",
+       "en": "Increase the cream until water is above the minimum for your product type.",
+       "op": {
+        "op": "reach",
+        "role": "cream",
+        "feat": "water",
+        "target": {
+         "rel": "lo",
+         "add": 2
+        }
+       },
+       "tradeoff": {
+        "ar": "أطرى، وصلاحية أقصر.",
+        "en": "Softer, with a shorter shelf life."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الصلابة على نفس الحرارة.",
+      "en": "Compare firmness at the same temperature."
+     }
+    },
+    {
+     "id": "cocoa-higher",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "شوكولاتة أعلى كاكاو",
+      "en": "Higher-cocoa chocolate"
+     },
+     "why": {
+      "ar": "الشوكولاتة الأعلى كاكاو فيها زبدة كاكاو ومواد كاكاو صلبة أكثر وتمتص الماء، فتعطي غاناش أقسى بنفس الوصفة.",
+      "en": "Higher-cocoa chocolate has more cocoa butter and cocoa solids that absorb water, giving a firmer ganache from the same recipe."
+     },
+     "answers": {
+      "choc": {
+       "yes": 3,
+       "no": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "إذا بدّلت لشوكولاتة أعلى كاكاو، قلّل وزنها 10 إلى 15% أو زد الكريمة، وأعد ضبط الوصفة بمحرك التوازن.",
+       "en": "When switching to higher-cocoa chocolate, reduce its weight 10–15% or add cream, and rebalance with the balance engine.",
+       "tradeoff": {
+        "ar": "طعم أقوى للكاكاو.",
+        "en": "A stronger cocoa taste."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل نوع الشوكولاتة بنسبتها في المادة، وقارن.",
+      "en": "Record the chocolate with its percentage on the material and compare."
+     }
+    },
+    {
+     "id": "used-cold",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "استعمل وهو بارد",
+      "en": "Used while cold"
+     },
+     "why": {
+      "ar": "زبدة الكاكاو صلبة في البرد. الغاناش من الثلاجة يكون أقسى بكثير من حرارة الغرفة.",
+      "en": "Cocoa butter is hard when cold. Ganache from the fridge is much firmer than at room temperature."
+     },
+     "answers": {
+      "temp": {
+       "cold": 3,
+       "room": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S4"
+       ],
+       "ar": "خلّه يوصل 18 إلى 22°م قبل التشكيل، وحرّكه بهدوء لين يلين.",
+       "en": "Let it reach 18–22 °C before piping, and stir it gently until soft.",
+       "tradeoff": {
+        "ar": "وقت انتظار.",
+        "en": "Waiting time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قس حرارته وقت التشكيل.",
+      "en": "Measure it at piping time."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "دفّه بهدوء إلى 25 إلى 28°م وحرّكه، أو أضف 5% كريمة دافئة واخلطه بالبلندر."
+    ],
+    "en": [
+     "Warm it gently to 25–28 °C and stir, or add 5% warm cream and blend."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "الماء ضمن نطاق المنتج.",
+     "أعد التوازن عند تغيير الشوكولاتة.",
+     "استعمله على حرارة الغرفة."
+    ],
+    "en": [
+     "Water within the product range.",
+     "Rebalance when changing chocolate.",
+     "Use it at room temperature."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الماء ضمن النطاق، فالسبب غالباً حرارة الاستعمال أو نوع الشوكولاتة.",
+    "en": "If water is in range, the cause is most likely use temperature or chocolate type."
+   },
+   "unsure": {
+    "ar": "اختر نوع المنتج في المشروع وجاوب الأسئلة.",
+    "en": "Choose the product type in the project and answer the questions."
+   }
+  },
+  {
+   "id": "tart-tough",
+   "category": "dough",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "قاعدة التارت قاسية وصعبة العض",
+    "en": "Tart shell is tough and hard to bite",
+    "syn": {
+     "ar": [
+      "التارت قاسي",
+      "عجينة التارت قاسية",
+      "التارت مثل البسكويت القاسي",
+      "التارت صعب ينقطع بالشوكة"
+     ],
+     "en": [
+      "tough tart shell",
+      "hard pastry",
+      "tart hard to cut"
+     ]
+    }
+   },
+   "see": {
+    "ar": "القاعدة قاسية ومطاطية، ما تتكسر بنعومة، وصعب تقطعها بالشوكة.",
+    "en": "The shell is hard and chewy, does not break tenderly and is hard to cut with a fork."
+   },
+   "questions": [
+    {
+     "id": "work",
+     "ar": "كيف خلطت العجينة؟",
+     "en": "How did you mix the dough?",
+     "options": [
+      {
+       "id": "long",
+       "ar": "عجنت كثير أو بالخلاط لين صارت ملساء ومطاطية",
+       "en": "Kneaded a lot, or mixed until smooth and elastic"
+      },
+      {
+       "id": "short",
+       "ar": "لين تجمعت بس",
+       "en": "Only until it came together"
+      }
+     ]
+    },
+    {
+     "id": "reroll",
+     "ar": "أعدت فرد البواقي؟",
+     "en": "Did you re-roll scraps?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم، أكثر من مرة",
+       "en": "Yes, more than once"
+      },
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overworked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "عجن زايد",
+      "en": "Overworked"
+     },
+     "why": {
+      "ar": "العجن الزايد وإعادة الفرد يطوّران الغلوتين فتصير العجينة قاسية ومطاطية بعد الخبز.",
+      "en": "Overworking and re-rolling develop gluten, so the pastry turns tough and chewy after baking."
+     },
+     "answers": {
+      "work": {
+       "long": 3,
+       "short": -2
+      },
+      "reroll": {
+       "yes": 2,
+       "no": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخلط لين تتجمع بس، وقلّل إعادة فرد البواقي، ورتّح العجينة باردة.",
+       "en": "Mix only until it comes together, limit re-rolling scraps, and rest the dough cold.",
+       "tradeoff": {
+        "ar": "عجينة أصعب في التشكيل أحياناً.",
+        "en": "Sometimes harder to shape."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن قاعدة من عجينة جديدة بقاعدة من البواقي المعاد فردها.",
+      "en": "Compare a shell from fresh dough with one from re-rolled scraps."
+     }
+    },
+    {
+     "id": "fat-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الزبدة قليلة",
+      "en": "Too little butter"
+     },
+     "why": {
+      "ar": "الدهن يقصّر الغلوتين ويعطي هشاشة. القليل يعطي قاعدة قاسية.",
+      "en": "Fat shortens gluten and gives tenderness. Too little gives a tough shell."
+     },
+     "rule": {
+      "feat": "fatFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.35,
+        0.6
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق الدهن في عجائن التارت.",
+       "en": "Same fat range as tart doughs."
+      }
+     },
+     "answers": {
+      "work": {
+       "short": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "زد الزبدة حتى تصير الدهون 0.45 من وزن الدقيق.",
+       "en": "Increase the butter until fat is 0.45 times the flour weight.",
+       "op": {
+        "op": "reach",
+        "role": "butter",
+        "feat": "fatFlour",
+        "target": 0.45
+       },
+       "tradeoff": {
+        "ar": "أهش وأصعب في الحر.",
+        "en": "Shorter and harder to handle in heat."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صعوبة القطع بالشوكة.",
+      "en": "Compare how easily a fork cuts it."
+     }
+    },
+    {
+     "id": "liquid-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السوائل كثيرة",
+      "en": "Too much liquid"
+     },
+     "why": {
+      "ar": "الماء الزايد يطوّر غلوتين أكثر، فتقسى القاعدة.",
+      "en": "Extra water develops more gluten, so the shell toughens."
+     },
+     "rule": {
+      "feat": "waterFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0.18,
+        0.3
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق انكماش التارت.",
+       "en": "Same range as tart shrinkage."
+      }
+     },
+     "answers": {
+      "work": {
+       "short": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "قلّل الماء أو البيض حتى تصير النسبة 0.25.",
+       "en": "Reduce water or egg until the ratio is 0.25.",
+       "op": {
+        "op": "reach",
+        "role": [
+         "water",
+         "egg",
+         "milk"
+        ],
+        "feat": "waterFlour",
+        "target": 0.25
+       },
+       "tradeoff": {
+        "ar": "أصعب في الفرد.",
+        "en": "Harder to roll."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام بعد الخبز.",
+      "en": "Compare texture after baking."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "القاعدة القاسية ما ترجع، بس تقدر تطحنها لقاعدة فتات."
+    ],
+    "en": [
+     "A tough shell will not soften, but you can grind it into a crumb base."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "خلط قصير.",
+     "بواقي قليلة.",
+     "دهن كافي وسوائل محدودة."
+    ],
+    "en": [
+     "Short mixing.",
+     "Few re-rolls.",
+     "Enough fat, limited liquid."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الدهن والسوائل ضمن النطاق، فالسبب غالباً العجن.",
+    "en": "If fat and liquid are in range, the cause is most likely working the dough."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الخلط.",
+    "en": "Answer the mixing question."
+   }
+  },
+  {
+   "id": "puff-not-rising",
+   "category": "laminated",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "عجينة الميل فاي ما انتفخت",
+    "en": "Puff pastry did not rise",
+    "syn": {
+     "ar": [
+      "الميل فاي ما انتفخ",
+      "البف باستري مسطح",
+      "عجينة البف ما ارتفعت",
+      "الطبقات ما طلعت في البف"
+     ],
+     "en": [
+      "puff pastry flat",
+      "puff did not rise",
+      "no layers in puff"
+     ]
+    }
+   },
+   "see": {
+    "ar": "العجينة انخبزت مسطحة أو انتفخت قليل وبشكل غير متساوي.",
+    "en": "The pastry baked flat or rose little and unevenly."
+   },
+   "questions": [
+    {
+     "id": "room",
+     "ar": "حرارة المطبخ وقت الطيّ؟",
+     "en": "Kitchen temperature when folding?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "فوق 24°م",
+       "en": "Above 24 °C"
+      },
+      {
+       "id": "ok",
+       "ar": "تحت 22°م",
+       "en": "Below 22 °C"
+      }
+     ]
+    },
+    {
+     "id": "oven",
+     "ar": "حرارة الفرن؟",
+     "en": "Oven temperature?",
+     "options": [
+      {
+       "id": "low",
+       "ar": "أقل من 190°م",
+       "en": "Below 190 °C"
+      },
+      {
+       "id": "hot",
+       "ar": "200°م أو أكثر",
+       "en": "200 °C or more"
+      }
+     ]
+    },
+    {
+     "id": "cut",
+     "ar": "كيف قصّيت العجينة؟",
+     "en": "How did you cut the pastry?",
+     "options": [
+      {
+       "id": "dull",
+       "ar": "سكين عادية أو ضغط على الأطراف",
+       "en": "A dull knife, or pressed the edges"
+      },
+      {
+       "id": "sharp",
+       "ar": "سكين حادة بقطع مستقيم",
+       "en": "A sharp knife, straight down"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "butter-merged",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1",
+      "S3"
+     ],
+     "title": {
+      "ar": "الزبدة اختلطت بالعجينة",
+      "en": "The butter merged into the dough"
+     },
+     "why": {
+      "ar": "الانتفاخ يجي من البخار بين طبقات الزبدة والعجينة. إذا لانت الزبدة واختلطت، ما في طبقات تنتفخ.",
+      "en": "The rise comes from steam between butter and dough layers. If the butter softens and merges, there are no layers to lift."
+     },
+     "answers": {
+      "room": {
+       "hot": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اطوِ في مكان بارد، ورتّح العجينة في الثلاجة بين الطيّات، وخلّ الزبدة والعجينة بنفس الليونة.",
+       "en": "Fold somewhere cool, rest the dough chilled between turns, and keep butter and dough equally firm.",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Takes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اقطع العجينة بعد الطيّات وشوف خطوط الزبدة.",
+      "en": "Cut the dough after folding and look for butter lines."
+     }
+    },
+    {
+     "id": "oven-low",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الفرن بارد",
+      "en": "Oven too cool"
+     },
+     "why": {
+      "ar": "الميل فاي يحتاج حرارة عالية في البداية عشان الماء يتحول بخار بسرعة ويرفع الطبقات قبل ما تذوب الزبدة.",
+      "en": "Puff pastry needs high starting heat so water flashes to steam and lifts the layers before the butter melts out."
+     },
+     "answers": {
+      "oven": {
+       "low": 3,
+       "hot": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "ابدأ على 200 إلى 220°م حسب الفرن، ثم خفّض بعد ما ترتفع.",
+       "en": "Start at 200–220 °C depending on the oven, then lower once risen.",
+       "tradeoff": {
+        "ar": "انتبه للتحمير الزايد.",
+        "en": "Watch for over-browning."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صينيتين على حرارتين.",
+      "en": "Compare two trays at two temperatures."
+     }
+    },
+    {
+     "id": "sealed-edges",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الأطراف انختمت",
+      "en": "The edges were sealed"
+     },
+     "why": {
+      "ar": "السكين الثلمة أو الطلاء على الأطراف يلصق الطبقات ببعض فما تنفتح.",
+      "en": "A dull knife or egg wash on the edges glues the layers together so they cannot open."
+     },
+     "answers": {
+      "cut": {
+       "dull": 3,
+       "sharp": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اقطع بسكين حادة جداً بحركة مستقيمة، ولا تطلي الأطراف المقطوعة.",
+       "en": "Cut with a very sharp knife straight down, and do not wash the cut edges.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن قطع بسكين حادة وثلمة.",
+      "en": "Compare pieces cut with a sharp and a dull knife."
+     }
+    },
+    {
+     "id": "butter-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S3"
+     ],
+     "title": {
+      "ar": "زبدة الطبقات قليلة",
+      "en": "Too little laminating butter"
+     },
+     "why": {
+      "ar": "الطبقات تحتاج زبدة كافية تفصلها. إذا قليلة، الانتفاخ ضعيف.",
+      "en": "Layers need enough butter to separate them. With too little the rise is weak."
+     },
+     "rule": {
+      "feat": "fatFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        0.5,
+        0.9
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S3"
+      ],
+      "note": {
+       "ar": "الدهون (أغلبها زبدة الطبقات) للدقيق في الميل فاي؛ 0.5 تقابل تقريباً 600 غ زبدة لكل كيلو دقيق. نطاق تقديري.",
+       "en": "Fat (mostly laminating butter) to flour in puff pastry; 0.5 is roughly 600 g butter per kg flour. A working range."
+      }
+     },
+     "answers": {
+      "room": {
+       "ok": 1
+      },
+      "oven": {
+       "hot": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S3"
+       ],
+       "ar": "زد زبدة الطبقات حتى تصير الدهون 0.6 من وزن الدقيق.",
+       "en": "Increase the laminating butter until fat is 0.6 times the flour weight.",
+       "op": {
+        "op": "reach",
+        "role": "butter",
+        "feat": "fatFlour",
+        "target": 0.6
+       },
+       "tradeoff": {
+        "ar": "تكلفة أعلى وأصعب في الحر.",
+        "en": "Costs more and harder in heat."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الارتفاع بين النسبتين.",
+      "en": "Compare the rise at both ratios."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الميل فاي المسطح يصلح لقواعد أو بسكويت ملفوف بالسكر (بالميه)."
+    ],
+    "en": [
+     "Flat puff pastry works for bases or sugared palmiers."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "مكان بارد للطيّ.",
+     "فرن حار في البداية.",
+     "سكين حادة."
+    ],
+    "en": [
+     "A cool place to fold.",
+     "A hot oven to start.",
+     "A sharp knife."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب مشاكل انتفاخ الميل فاي من الحرارة أو القطع.",
+    "en": "Most puff-pastry rise problems are temperature or cutting."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال المطبخ والفرن.",
+    "en": "Answer the kitchen and oven questions."
+   }
+  },
+  {
+   "id": "mousse-gel-lumps",
+   "category": "mousse",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "في الموس خيوط أو كتل جيلاتين",
+    "en": "Mousse has gelatine strings or lumps",
+    "syn": {
+     "ar": [
+      "خيوط جيلاتين في الموس",
+      "كتل في الموس",
+      "الجيلاتين تكتل",
+      "الموس فيه حبوب مطاطية"
+     ],
+     "en": [
+      "gelatine strings in mousse",
+      "lumpy mousse",
+      "gelatine clumped"
+     ]
+    }
+   },
+   "see": {
+    "ar": "قطع أو خيوط مطاطية داخل الموس، والقوام غير متجانس.",
+    "en": "Rubbery bits or strings inside the mousse, and an uneven texture."
+   },
+   "questions": [
+    {
+     "id": "add",
+     "ar": "كيف أضفت الجيلاتين؟",
+     "en": "How did you add the gelatine?",
+     "options": [
+      {
+       "id": "cold",
+       "ar": "ذوّبته وصبّيته على خليط بارد",
+       "en": "Melted it and poured it into a cold mix"
+      },
+      {
+       "id": "warm",
+       "ar": "ذوّبته في جزء دافئ من الخليط ثم خلطته",
+       "en": "Dissolved it in a warm part of the mix, then combined"
+      }
+     ]
+    },
+    {
+     "id": "bloom",
+     "ar": "نقعت الجيلاتين صح؟",
+     "en": "Did you bloom the gelatine properly?",
+     "options": [
+      {
+       "id": "no",
+       "ar": "لا أو قليل",
+       "en": "No or briefly"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم، في ماء بارد كافي",
+       "en": "Yes, in enough cold water"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "cold-shock",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الجيلاتين انضاف لخليط بارد",
+      "en": "Gelatine added to a cold mix"
+     },
+     "why": {
+      "ar": "الجيلاتين الذايب يتماسك فوراً إذا لمس خليط بارد، فيتحول خيوط قبل ما يتوزع.",
+      "en": "Melted gelatine sets on contact with a cold mix, forming strings before it spreads."
+     },
+     "answers": {
+      "add": {
+       "cold": 3,
+       "warm": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "ذوّب الجيلاتين في جزء دافئ من الخليط (حوالي 40 إلى 50°م)، ثم اخلطه مع الباقي تدريجياً.",
+       "en": "Dissolve the gelatine in a warm part of the mix (about 40–50 °C), then combine with the rest gradually.",
+       "tradeoff": {
+        "ar": "خطوة إضافية.",
+        "en": "An extra step."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا طلع الموس ناعم بهالطريقة، فالسبب كان البرودة.",
+      "en": "If the mousse comes out smooth this way, cold was the cause."
+     }
+    },
+    {
+     "id": "not-bloomed",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الجيلاتين ما انتقع أو ما ذاب",
+      "en": "Gelatine not bloomed or not dissolved"
+     },
+     "why": {
+      "ar": "الجيلاتين لازم ينتقع في ماء بارد ثم يذوب كاملاً. إذا لا، تبقى حبيبات مطاطية.",
+      "en": "Gelatine must bloom in cold water and then dissolve fully. Otherwise rubbery grains remain."
+     },
+     "answers": {
+      "bloom": {
+       "no": 3,
+       "yes": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "انقع الجيلاتين في 5 إلى 6 أضعاف وزنه ماء بارد 5 إلى 10 دقائق، ثم ذوّبه بدون غليان.",
+       "en": "Bloom gelatine in 5–6 times its weight of cold water for 5–10 minutes, then dissolve without boiling.",
+       "tradeoff": {
+        "ar": "ماء النقع يضيف ماء للوصفة.",
+        "en": "The bloom water adds water to the recipe."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "افحص الجيلاتين الذايب: لازم يكون صافي بدون حبيبات.",
+      "en": "Check the melted gelatine: clear, with no grains."
+     }
+    },
+    {
+     "id": "gel-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "estimate",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الجيلاتين كثير",
+      "en": "Too much gelatine"
+     },
+     "why": {
+      "ar": "الجيلاتين الكثير يتماسك بسرعة أكبر، فيصعب توزيعه قبل ما يمسك، ويعطي قوام مطاطي.",
+      "en": "A lot of gelatine sets faster, making it hard to distribute before it grabs, and gives a rubbery texture."
+     },
+     "rule": {
+      "feat": "gelPct",
+      "when": "above",
+      "range": {
+       "default": [
+        0.6,
+        1.5
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق الجيلاتين في الموس.",
+       "en": "Same gelatine range as mousses."
+      }
+     },
+     "answers": {
+      "add": {
+       "warm": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض الجيلاتين إلى حوالي 1.2% من الوزن.",
+       "en": "Lower the gelatine to about 1.2% of the weight.",
+       "op": {
+        "op": "reach",
+        "role": "gelatin",
+        "feat": "gelPct",
+        "target": 1.2
+       },
+       "tradeoff": {
+        "ar": "أطرى، وقد يحتاج تجميد للتقطيع.",
+        "en": "Softer; may need freezing to cut."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن نعومة القوام بين النسبتين.",
+      "en": "Compare smoothness at both levels."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الموس اللي فيه كتل ما يرجع ناعم بعد التماسك؛ للدفعة الجاية صفّ خليط الجيلاتين قبل الإضافة."
+    ],
+    "en": [
+     "A set mousse with lumps will not smooth out; next time strain the gelatine mix before adding."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "انقع الجيلاتين صح.",
+     "ذوّبه في جزء دافئ.",
+     "اخلط تدريجياً وصفّ."
+    ],
+    "en": [
+     "Bloom gelatine properly.",
+     "Dissolve it in a warm portion.",
+     "Combine gradually and strain."
+    ]
+   },
+   "notFormula": {
+    "ar": "الكتل غالباً من طريقة الإضافة.",
+    "en": "Lumps are usually how it was added."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال طريقة الإضافة.",
+    "en": "Answer the adding question."
+   }
+  },
+  {
+   "id": "fruit-sink",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الفاكهة أو الشوكولاتة نزلت لقاع الكيك",
+    "en": "Fruit or chocolate pieces sank to the bottom",
+    "syn": {
+     "ar": [
+      "الفواكه نزلت تحت",
+      "التوت نزل لقاع الكيك",
+      "قطع الشوكولاتة نزلت",
+      "الزبيب تحت"
+     ],
+     "en": [
+      "fruit sank in cake",
+      "chocolate chips sank",
+      "berries at the bottom"
+     ]
+    }
+   },
+   "see": {
+    "ar": "القطع متجمعة في القاع بدل ما تكون موزعة في الكيك.",
+    "en": "The pieces gather at the bottom instead of being spread through the cake."
+   },
+   "questions": [
+    {
+     "id": "pieces",
+     "ar": "القطع؟",
+     "en": "The pieces?",
+     "options": [
+      {
+       "id": "wet",
+       "ar": "مبللة أو مجمّدة أو بشراب، أو كبيرة",
+       "en": "Wet, frozen or syrupy, or large"
+      },
+      {
+       "id": "dry",
+       "ar": "ناشفة وصغيرة ومغطاة بدقيق",
+       "en": "Dry, small and coated in flour"
+      }
+     ]
+    },
+    {
+     "id": "batter",
+     "ar": "قوام الخليط؟",
+     "en": "Batter consistency?",
+     "options": [
+      {
+       "id": "thin",
+       "ar": "سايل",
+       "en": "Runny"
+      },
+      {
+       "id": "thick",
+       "ar": "ثقيل يمسك الملعقة",
+       "en": "Thick, holds the spoon"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "heavy-pieces",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "القطع ثقيلة أو مبللة",
+      "en": "Pieces heavy or wet"
+     },
+     "why": {
+      "ar": "القطع الكبيرة أو المبللة أثقل من الخليط فتنزل قبل ما يتماسك، والشراب على سطحها يخليها تنزلق.",
+      "en": "Large or wet pieces are denser than the batter and sink before it sets; syrup on their surface makes them slip."
+     },
+     "answers": {
+      "pieces": {
+       "wet": 3,
+       "dry": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "نشّف الفاكهة، قطّعها صغيرة، وغطّها بقليل دقيق قبل الإضافة، وأضف جزء منها فوق الخليط في القالب.",
+       "en": "Dry the fruit, chop it small, toss it in a little flour before adding, and scatter some on top of the batter in the pan.",
+       "tradeoff": {
+        "ar": "خطوة إضافية.",
+        "en": "An extra step."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن قطعتين بقطع مغطاة ومو مغطاة.",
+      "en": "Compare cakes with coated and uncoated pieces."
+     }
+    },
+    {
+     "id": "batter-thin",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الخليط سايل",
+      "en": "Batter too thin"
+     },
+     "why": {
+      "ar": "الخليط السايل ما يقدر يحمل القطع الثقيلة.",
+      "en": "A thin batter cannot hold up heavy pieces."
+     },
+     "rule": {
+      "feat": "waterFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0.8,
+        1.4
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق السوائل في كيك الزبدة.",
+       "en": "Same liquid range as butter cakes."
+      }
+     },
+     "answers": {
+      "batter": {
+       "thin": 3,
+       "thick": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "قلّل الحليب حتى تصير النسبة 1.0.",
+       "en": "Reduce the milk until the ratio is 1.0.",
+       "op": {
+        "op": "reach",
+        "role": [
+         "milk",
+         "water"
+        ],
+        "feat": "waterFlour",
+        "target": 1.0
+       },
+       "tradeoff": {
+        "ar": "كيك أكثف قليلاً.",
+        "en": "A slightly denser cake."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن توزيع القطع بعد الخبز.",
+      "en": "Compare how the pieces are spread after baking."
+     }
+    },
+    {
+     "id": "oven-cool",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الفرن بارد",
+      "en": "Oven too cool"
+     },
+     "why": {
+      "ar": "إذا الفرن بارد، الخليط يبقى سايل وقت أطول فتنزل القطع.",
+      "en": "In a cool oven the batter stays fluid longer, so pieces sink."
+     },
+     "answers": {
+      "batter": {
+       "thick": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "تأكد من حرارة الفرن بميزان مستقل.",
+       "en": "Check the oven with an independent thermometer.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة الفرن الفعلية.",
+      "en": "Measure the actual oven temperature."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "اقلب الكيك وقدّم القاعدة فوق، فتصير الفاكهة زينة."
+    ],
+    "en": [
+     "Turn the cake over and serve the base up, so the fruit becomes the decoration."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "فاكهة ناشفة وصغيرة ومغطاة بدقيق.",
+     "خليط ثقيل كفاية.",
+     "فرن مضبوط."
+    ],
+    "en": [
+     "Dry, small, flour-coated fruit.",
+     "A thick enough batter.",
+     "A calibrated oven."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الخليط ثقيل، فالسبب غالباً حجم أو رطوبة القطع.",
+    "en": "If the batter is thick, the cause is most likely piece size or moisture."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال القطع والخليط.",
+    "en": "Answer the pieces and batter questions."
    }
   }
  ]

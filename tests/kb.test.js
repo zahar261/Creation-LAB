@@ -355,5 +355,43 @@ const seed7 = [
 seed7.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS7 = NS6 + seed7.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS7}, top-3 ${t3}/${NS7}`);
+console.log("kb) rules for ganache, tarts, puff, mousse and fruit cakes (batch 8)");
+const wg = c => R({ dark: 200, cream: c });
+trio("whipped ganache: water", "whipped-ganache-grainy", "water-low", wg(150), wg(400), wg(300));
+trio("firm ganache: water (bonbon)", "ganache-firm", "water-low", R({ dark: 300, cream: 50 }), R({ dark: 300, cream: 150 }), R({ dark: 300, cream: 90 }), "gb");
+ok(state("ganache-firm", "water-low", R({ dark: 300, cream: 150 }), "gw") === "fire", "firm ganache follows the product type (the same recipe is too firm for whipped ganache)");
+trio("tart tough: fat", "tart-tough", "fat-low", tt({ butter: 80 }), tt({}), tt({ butter: 100 }));
+trio("tart tough: liquid", "tart-tough", "liquid-high", tt({ water: 40 }), tt({}), tt({ water: 13 }));
+const pf = b => R({ flour: 1000, water: 500, salt: 20, butter: b });
+trio("puff: laminating butter", "puff-not-rising", "butter-low", pf(300), pf(800), pf(620));
+const mgl = g => R({ cream: 500, milk: 300, sugar: 100, gelatin: g });
+trio("mousse lumps: gelatine", "mousse-gel-lumps", "gel-high", mgl(20), mgl(10), mgl(13));
+trio("fruit sink: liquid", "fruit-sink", "batter-thin", ck({ milk: 300 }), ck({}), ck({ milk: 170 }));
+
+console.log("kb) batch 8 fixes");
+{ const r = fixOf("whipped-ganache-grainy", "water-low", wg(150)); ok(r.ok && near(r.after.water, 38, 0.2) && r.diff[0].n === "cream" && r.diff[0].d > 0, "whipped ganache: cream raised until water is 38%"); }
+{ const r = fixOf("ganache-firm", "water-low", R({ dark: 300, cream: 50 }), { ptype: "gb" }); ok(r.ok && near(r.after.water, 16, 0.2), "firm bonbon ganache: cream raised until water is 16% (" + (r.after && r.after.water.toFixed(2)) + ")"); }
+{ const r = fixOf("puff-not-rising", "butter-low", pf(300)); ok(r.ok && near(r.after.fatFlour, 0.6, 0.01), "puff: laminating butter raised to fat 0.6 of flour"); }
+{ const r = fixOf("mousse-gel-lumps", "gel-high", mgl(20)); ok(r.ok && near(r.after.gelPct, 1.2, 0.05), "mousse: gelatine lowered to 1.2%"); }
+{ const r = fixOf("fruit-sink", "batter-thin", ck({ milk: 300 })); ok(r.ok && near(r.after.waterFlour, 1.0, 0.01), "fruit cake: milk reduced to liquid 1.0 of flour"); }
+
+console.log("kb) batch 8 diagnosis");
+const seed8 = [
+  ["whipped-ganache-grainy", wg(400), { answers: { rest: "long", whip: "long" } }, "overwhipped"],
+  ["whipped-ganache-grainy", wg(400), { answers: { rest: "short", whip: "soft" } }, "not-set"],
+  ["ganache-firm", R({ dark: 300, cream: 150 }), { ptype: "gb", answers: { choc: "yes", temp: "room" } }, "cocoa-higher"],
+  ["ganache-firm", R({ dark: 300, cream: 150 }), { ptype: "gb", answers: { choc: "no", temp: "cold" } }, "used-cold"],
+  ["tart-tough", tt({}), { answers: { work: "long", reroll: "yes" } }, "overworked"],
+  ["puff-not-rising", pf(800), { answers: { room: "hot", oven: "hot", cut: "sharp" } }, "butter-merged"],
+  ["puff-not-rising", pf(800), { answers: { room: "ok", oven: "low", cut: "sharp" } }, "oven-low"],
+  ["puff-not-rising", pf(800), { answers: { room: "ok", oven: "hot", cut: "dull" } }, "sealed-edges"],
+  ["mousse-gel-lumps", mgl(10), { answers: { add: "cold", bloom: "yes" } }, "cold-shock"],
+  ["mousse-gel-lumps", mgl(10), { answers: { add: "warm", bloom: "no" } }, "not-bloomed"],
+  ["fruit-sink", ck({}), { answers: { pieces: "wet", batter: "thick" } }, "heavy-pieces"],
+  ["fruit-sink", ck({ milk: 300 }), { answers: { pieces: "dry", batter: "thin" } }, "batter-thin"]
+];
+seed8.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS8 = NS7 + seed8.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS8}, top-3 ${t3}/${NS8}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
