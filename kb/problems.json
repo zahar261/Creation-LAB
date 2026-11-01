@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "evidence": {
   "established": {
    "ar": "علم ثابت",
@@ -14952,6 +14952,1717 @@
    "unsure": {
     "ar": "جاوب سؤال القطع والخليط.",
     "en": "Answer the pieces and batter questions."
+   }
+  },
+  {
+   "id": "macaron-fail",
+   "category": "meringue",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "medium",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الماكرون متشقق أو مجوّف أو بدون أقدام",
+    "en": "Macarons cracked, hollow or without feet",
+    "syn": {
+     "ar": [
+      "الماكرون تشقق",
+      "الماكرون مجوف",
+      "الماكرون بدون رجول",
+      "الماكرون ما طلع له قدم",
+      "الماكرون انفرش",
+      "الماكرون فاضي من جوا"
+     ],
+     "en": [
+      "macarons cracked",
+      "hollow macarons",
+      "macarons no feet",
+      "flat macarons"
+     ]
+    }
+   },
+   "see": {
+    "ar": "القشرة متشققة، أو في فراغ تحت القشرة، أو الحبة مفروشة بدون الحافة المخرّمة (القدم).",
+    "en": "Cracked tops, a gap under the shell, or flat shells without the ruffled foot."
+   },
+   "questions": [
+    {
+     "id": "look",
+     "ar": "وش أوضح عيب؟",
+     "en": "What is the main fault?",
+     "options": [
+      {
+       "id": "crack",
+       "ar": "تشقق السطح",
+       "en": "Cracked tops"
+      },
+      {
+       "id": "hollow",
+       "ar": "فراغ تحت القشرة",
+       "en": "Hollow under the shell"
+      },
+      {
+       "id": "flat",
+       "ar": "مفروش بدون قدم",
+       "en": "Flat, no feet"
+      }
+     ]
+    },
+    {
+     "id": "mix",
+     "ar": "قوام الخليط بعد الماكروناج؟",
+     "en": "Batter after macaronage?",
+     "options": [
+      {
+       "id": "runny",
+       "ar": "سايل وينفرش بسرعة",
+       "en": "Runny, spreads fast"
+      },
+      {
+       "id": "ok",
+       "ar": "ينزل مثل الشريط ويرجع يتسطح خلال 30 ثانية تقريباً",
+       "en": "Flows like a ribbon and settles in about 30 seconds"
+      }
+     ]
+    },
+    {
+     "id": "dry",
+     "ar": "تكوّنت قشرة جافة قبل الخبز (ما يلزق باللمس)؟",
+     "en": "Did a dry skin form before baking (not tacky to touch)?",
+     "options": [
+      {
+       "id": "no",
+       "ar": "لا، أو الجو رطب",
+       "en": "No, or the air is humid"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overmixed",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "ماكروناج زايد",
+      "en": "Over-mixed macaronage"
+     },
+     "why": {
+      "ar": "الخلط الزايد يكسر فقاعات الميرنغ، فيصير الخليط سايل وينفرش وما يرتفع ليكوّن القدم.",
+      "en": "Over-mixing breaks the meringue bubbles, so the batter runs, spreads and cannot lift into feet."
+     },
+     "answers": {
+      "mix": {
+       "runny": 3,
+       "ok": -2
+      },
+      "look": {
+       "flat": 2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخلط على دفعات، وافحص بعد كل بضع حركات: وقّف أول ما ينزل مثل الشريط.",
+       "en": "Fold in stages and test after every few strokes: stop as soon as it flows like a ribbon.",
+       "tradeoff": {
+        "ar": "الخلط الناقص يعطي سطح مدبب وتشقق، فالحد ضيق.",
+        "en": "Under-mixing gives peaked, cracked tops, so the window is narrow."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اسحب حبة تجربة: إذا انفرشت فوراً، الخلط زايد.",
+      "en": "Pipe a test shell: if it spreads at once, it is over-mixed."
+     }
+    },
+    {
+     "id": "no-skin",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "ما تكوّنت قشرة قبل الخبز",
+      "en": "No skin formed before baking"
+     },
+     "why": {
+      "ar": "القشرة الجافة تجبر البخار يطلع من الأسفل فيكوّن القدم. بدونها يطلع من السطح فيتشقق. الرطوبة العالية تأخر تكوّن القشرة.",
+      "en": "A dry skin forces steam out at the base, forming the foot. Without it the steam bursts through the top. High humidity delays the skin."
+     },
+     "answers": {
+      "dry": {
+       "no": 3,
+       "yes": -2
+      },
+      "look": {
+       "crack": 2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خلّ الحبات ترتاح لين ما تلزق باللمس، في مكان مكيّف وجاف، وحط مزيل رطوبة إذا الجو رطب.",
+       "en": "Rest the shells until they are not tacky, somewhere air-conditioned and dry; use a dehumidifier if the air is humid.",
+       "tradeoff": {
+        "ar": "وقت أطول بين السحب والخبز.",
+        "en": "More time between piping and baking."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "المس حبة قبل الخبز: لازم ما تلزق.",
+      "en": "Touch a shell before baking: it must not stick."
+     }
+    },
+    {
+     "id": "oven-heat",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "حرارة الفرن أو وقت الخبز",
+      "en": "Oven temperature or baking time"
+     },
+     "why": {
+      "ar": "الفرن الحار يرفع القشرة بسرعة قبل ما يتماسك الداخل فيصير فراغ، والخبز الناقص يخلي الداخل ينهار بعد التبريد.",
+      "en": "A hot oven lifts the shell before the inside sets, leaving a gap; underbaking lets the inside collapse after cooling."
+     },
+     "answers": {
+      "look": {
+       "hollow": 3,
+       "flat": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "قِس حرارة الفرن بميزان مستقل، وجرّب خفضها 10°م مع إطالة الخبز قليلاً لين تنفصل الحبة عن الورق بسهولة.",
+       "en": "Check the oven with an independent thermometer, try 10 °C lower and bake slightly longer until the shells release from the paper easily.",
+       "tradeoff": {
+        "ar": "كل فرن مختلف؛ يحتاج صواني تجربة.",
+        "en": "Every oven differs; needs test trays."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اكسر حبة بعد التبريد وشوف الفراغ.",
+      "en": "Break a cooled shell and look for the gap."
+     }
+    },
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السكر قليل مقابل البياض",
+      "en": "Too little sugar for the whites"
+     },
+     "why": {
+      "ar": "السكر يثبّت الميرنغ ويقوّي القشرة. القليل يعطي قشرة ضعيفة تتشقق أو تنفصل عن الداخل.",
+      "en": "Sugar stabilises the meringue and strengthens the shell. Too little gives a weak shell that cracks or separates from the inside."
+     },
+     "rule": {
+      "feat": "sugarWhite",
+      "when": "below",
+      "range": {
+       "default": [
+        2.2,
+        3.2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "مجموع السكر (البودرة والعادي) مقابل البياض في وصفات الماكرون الفرنسي والإيطالي الشائعة؛ تقدير عمل.",
+       "en": "Total sugar (icing and granulated) to egg white in common French and Italian macaron recipes; a working estimate."
+      }
+     },
+     "answers": {
+      "look": {
+       "hollow": 1,
+       "crack": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "زد السكر حتى يصير 2.6 من وزن البياض.",
+       "en": "Raise the sugar to 2.6 times the egg-white weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar"
+        ],
+        "base": "white",
+        "target": 2.6
+       },
+       "tradeoff": {
+        "ar": "أحلى.",
+        "en": "Sweeter."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعتين بنفس الخلط والخبز.",
+      "en": "Compare two batches with the same mixing and baking."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الحبات المتشققة تنطحن وتستعمل فتات للتزيين أو في قاعدة."
+    ],
+    "en": [
+     "Cracked shells can be crushed for decoration or a base."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ماكروناج بحذر.",
+     "قشرة جافة قبل الخبز في مكان مكيّف.",
+     "ميزان حرارة للفرن."
+    ],
+    "en": [
+     "Careful macaronage.",
+     "A dry skin before baking, in air-conditioning.",
+     "An oven thermometer."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب عيوب الماكرون من الخلط والرطوبة والفرن، مو من الوصفة.",
+    "en": "Most macaron faults come from mixing, humidity and the oven, not the recipe."
+   },
+   "unsure": {
+    "ar": "اختر العيب الأوضح وجاوب سؤال القشرة.",
+    "en": "Pick the main fault and answer the skin question."
+   }
+  },
+  {
+   "id": "brownie-cakey",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "البراونيز طالع مثل الكيك مو لزج",
+    "en": "Brownies came out cakey, not fudgy",
+    "syn": {
+     "ar": [
+      "البراونيز مثل الكيك",
+      "البراوني ناشف",
+      "البراونيز مو فدجي",
+      "البراونيز منفوخ"
+     ],
+     "en": [
+      "cakey brownies",
+      "brownies not fudgy",
+      "dry brownies"
+     ]
+    }
+   },
+   "see": {
+    "ar": "قوام خفيف ومنفوخ ومسامي مثل الكيك، بدل الداخل الكثيف اللزج.",
+    "en": "A light, risen, open crumb like cake instead of a dense, moist centre."
+   },
+   "questions": [
+    {
+     "id": "beat",
+     "ar": "كيف خفقت البيض والسكر؟",
+     "en": "How did you beat the eggs and sugar?",
+     "options": [
+      {
+       "id": "foam",
+       "ar": "خفق طويل لين صار فاتح ومنفوخ",
+       "en": "Long, until pale and fluffy"
+      },
+      {
+       "id": "stir",
+       "ar": "تقليب بس لين اختلط",
+       "en": "Just stirred together"
+      }
+     ]
+    },
+    {
+     "id": "bake",
+     "ar": "متى طلعته من الفرن؟",
+     "en": "When did you take it out?",
+     "options": [
+      {
+       "id": "clean",
+       "ar": "لما طلع العود نظيف",
+       "en": "When a skewer came out clean"
+      },
+      {
+       "id": "moist",
+       "ar": "والعود عليه فتات رطب",
+       "en": "With moist crumbs on the skewer"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "flour-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الدقيق كثير مقابل الدهون",
+      "en": "Too much flour for the fat"
+     },
+     "why": {
+      "ar": "البراونيز اللزج فيه دهون (زبدة وشوكولاتة) كثيرة ودقيق قليل. الدقيق الزايد يبني هيكل مثل الكيك.",
+      "en": "Fudgy brownies have a lot of fat (butter and chocolate) and little flour. Extra flour builds a cake-like structure."
+     },
+     "rule": {
+      "feat": "fatFlour",
+      "when": "below",
+      "range": {
+       "default": [
+        1.6,
+        3.5
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "الدهون الكلية (مع دهن الشوكولاتة) مقابل الدقيق في براونيز فدجي شائعة؛ نطاق تقديري.",
+       "en": "Total fat (including chocolate fat) to flour in common fudgy brownies; a working range."
+      }
+     },
+     "answers": {
+      "beat": {
+       "stir": 1
+      },
+      "bake": {
+       "moist": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "قلّل الدقيق حتى تصير الدهون ضعفي وزنه.",
+       "en": "Reduce the flour until fat is twice its weight.",
+       "op": {
+        "op": "reach",
+        "role": "flour",
+        "feat": "fatFlour",
+        "target": 2.0
+       },
+       "tradeoff": {
+        "ar": "أطرى وأصعب في التقطيع وهو دافئ.",
+        "en": "Softer and harder to cut while warm."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صينيتين بنفس الخبز.",
+      "en": "Compare two trays baked the same way."
+     }
+    },
+    {
+     "id": "bp-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "بيكنج باودر",
+      "en": "Baking powder"
+     },
+     "why": {
+      "ar": "البراونيز اللزج غالباً بدون رافع أو بكمية قليلة جداً. الرافع يفتح القوام مثل الكيك.",
+      "en": "Fudgy brownies use little or no leavening. Leavening opens the crumb like cake."
+     },
+     "rule": {
+      "feat": "bpFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0,
+        1.5
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "البيكنج باودر (والصودا ×3) من وزن الدقيق؛ تقدير عمل.",
+       "en": "Baking powder (and soda ×3) on flour weight; a working estimate."
+      }
+     },
+     "answers": {
+      "beat": {
+       "stir": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض البيكنج باودر إلى 1% من وزن الدقيق أو احذفه.",
+       "en": "Cut the baking powder to 1% of the flour weight, or leave it out.",
+       "op": {
+        "op": "ratio",
+        "role": "bp",
+        "base": "flour",
+        "target": 0.01
+       },
+       "tradeoff": {
+        "ar": "أكثف وأقل ارتفاعاً.",
+        "en": "Denser and lower."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الارتفاع والمقطع.",
+      "en": "Compare height and crumb."
+     }
+    },
+    {
+     "id": "foamed",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "البيض انخفق كثير",
+      "en": "Eggs beaten to a foam"
+     },
+     "why": {
+      "ar": "خفق البيض والسكر لين ينفخ يدخل هواء كثير، فيرتفع الخليط ويصير مثل الكيك.",
+      "en": "Beating eggs and sugar to a foam adds a lot of air, so the batter rises like cake."
+     },
+     "answers": {
+      "beat": {
+       "foam": 3,
+       "stir": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "قلّب البيض والسكر بالمضرب اليدوي لين يختلطوا بس، وقلّب الدقيق بأقل حركة.",
+       "en": "Whisk eggs and sugar by hand only until combined, and fold in the flour with minimal strokes.",
+       "tradeoff": {
+        "ar": "سطح أقل لمعاناً أحياناً.",
+        "en": "Sometimes a less shiny top."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اعمل دفعة بالتقليب بدل الخفق وقارن.",
+      "en": "Make a batch stirred instead of beaten and compare."
+     }
+    },
+    {
+     "id": "overbaked",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "خبز زايد",
+      "en": "Overbaked"
+     },
+     "why": {
+      "ar": "البراونيز يكمل استواءه بعد الفرن. إذا طلّعته والعود نظيف، يصير ناشف ومثل الكيك.",
+      "en": "Brownies keep cooking after the oven. Taken out when a skewer is clean, they turn dry and cakey."
+     },
+     "answers": {
+      "bake": {
+       "clean": 3,
+       "moist": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "طلّعه والعود عليه فتات رطب (مو خليط سايل)، وخلّه يبرد في الصينية.",
+       "en": "Take it out with moist crumbs on the skewer (not wet batter) and let it cool in the pan.",
+       "tradeoff": {
+        "ar": "يحتاج تبريد قبل التقطيع.",
+        "en": "Needs cooling before cutting."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل الوقت والحرارة وقارن دفعة أقصر بـ 5 دقائق.",
+      "en": "Record time and temperature, and compare a batch 5 minutes shorter."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "البراونيز الناشف يصلح مكعبات للتشيز كيك أو الآيس كريم، أو يرطّب بشراب أو غاناش فوقه."
+    ],
+    "en": [
+     "Dry brownies work as cubes in cheesecake or ice cream, or moistened with syrup or a ganache topping."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "دهون كثيرة ودقيق قليل.",
+     "تقليب بدل خفق.",
+     "طلّعه والعود عليه فتات رطب."
+    ],
+    "en": [
+     "Plenty of fat, little flour.",
+     "Stir, do not beat.",
+     "Pull it with moist crumbs."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الوصفة لزجة أصلاً، فالسبب غالباً الخفق أو الخبز.",
+    "en": "If the recipe is a fudgy one, the cause is most likely beating or baking."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الخفق والخبز.",
+    "en": "Answer the beating and baking questions."
+   }
+  },
+  {
+   "id": "cream-cheese-frosting-runny",
+   "category": "cream",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "كريمة الجبن (الفروستنج) سايلة",
+    "en": "Cream cheese frosting is runny",
+    "syn": {
+     "ar": [
+      "كريمة الجبن سايلة",
+      "فروستنج الجبن سايل",
+      "كريمة التشيز ما تمسك",
+      "كريمة الريد فيلفت سايلة"
+     ],
+     "en": [
+      "runny cream cheese frosting",
+      "cream cheese frosting too soft",
+      "frosting won't hold"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الكريمة لينة ما تمسك شكل، تنزل من على الكيك أو ما تنسحب بالكيس.",
+    "en": "The frosting is soft and will not hold a shape; it slides off the cake or will not pipe."
+   },
+   "questions": [
+    {
+     "id": "cheese",
+     "ar": "نوع الجبن؟",
+     "en": "Which cheese?",
+     "options": [
+      {
+       "id": "tub",
+       "ar": "جبن قابل للدهن في علبة",
+       "en": "Spreadable tub cheese"
+      },
+      {
+       "id": "block",
+       "ar": "جبن كريمي بلوك (للحلويات)",
+       "en": "Block cream cheese (for baking)"
+      }
+     ]
+    },
+    {
+     "id": "beat",
+     "ar": "كم خفقت بعد إضافة الجبن؟",
+     "en": "How long did you beat after adding the cheese?",
+     "options": [
+      {
+       "id": "long",
+       "ar": "طويل على سرعة عالية",
+       "en": "Long, on high"
+      },
+      {
+       "id": "short",
+       "ar": "قصير لين نعم",
+       "en": "Briefly, until smooth"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "tub-cheese",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "جبن قابل للدهن",
+      "en": "Spreadable tub cheese"
+     },
+     "why": {
+      "ar": "جبن العلب القابل للدهن فيه ماء أكثر ومصمم يكون طري، فيعطي كريمة سايلة.",
+      "en": "Spreadable tub cheese has more water and is made to be soft, so it gives runny frosting."
+     },
+     "answers": {
+      "cheese": {
+       "tub": 3,
+       "block": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "استعمل جبن كريمي بلوك مخصص للحلويات وبارد من الثلاجة.",
+       "en": "Use block cream cheese made for baking, cold from the fridge.",
+       "tradeoff": {
+        "ar": "قد يكون أغلى أو أصعب تلقاه.",
+        "en": "May cost more or be harder to find."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اقرأ ملصق الجبن: الدهون والماء.",
+      "en": "Read the cheese label: fat and water."
+     }
+    },
+    {
+     "id": "overbeaten",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "خفق زايد للجبن",
+      "en": "Cheese over-beaten"
+     },
+     "why": {
+      "ar": "الخفق الطويل يدفّي الجبن ويكسر قوامه فيلين ويسيل.",
+      "en": "Long beating warms the cheese and breaks its structure, so it softens and runs."
+     },
+     "answers": {
+      "beat": {
+       "long": 3,
+       "short": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخفق الزبدة والسكر أولاً، ثم أضف الجبن بارد واخفق على سرعة منخفضة لين يختلط بس.",
+       "en": "Beat butter and sugar first, then add the cheese cold and mix on low just until combined.",
+       "tradeoff": {
+        "ar": "أقل هواء.",
+        "en": "Less air."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعة بخفق قصير.",
+      "en": "Compare a briefly beaten batch."
+     }
+    },
+    {
+     "id": "water-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الماء كثير",
+      "en": "Too much water"
+     },
+     "why": {
+      "ar": "الجبن والكريمة والحليب يضيفون ماء. كل ما زاد الماء مقابل الزبدة، صارت الكريمة ألين.",
+      "en": "Cheese, cream and milk add water. The more water relative to butter, the softer the frosting."
+     },
+     "rule": {
+      "feat": "water",
+      "when": "above",
+      "range": {
+       "default": [
+        14,
+        22
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نسبة الماء في كريمة جبن تقليدية (جبن وزبدة وسكر بودرة)؛ تقدير عمل.",
+       "en": "Water in a traditional cream cheese frosting (cheese, butter, icing sugar); a working estimate."
+      }
+     },
+     "answers": {
+      "cheese": {
+       "block": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "قلّل الجبن حتى ينزل الماء إلى حوالي 19%، أو استعمل جبن أقل ماء.",
+       "en": "Reduce the cheese until water falls to about 19%, or use a lower-water cheese.",
+       "op": {
+        "op": "reach",
+        "role": "cheese",
+        "feat": "water",
+        "target": 19
+       },
+       "tradeoff": {
+        "ar": "طعم جبن أخف وأقل حموضة.",
+        "en": "A milder, less tangy cheese flavour."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الثبات بعد ساعة في الثلاجة.",
+      "en": "Compare firmness after an hour chilled."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "برّدها 30 إلى 60 دقيقة ثم حرّكها بهدوء.",
+     "أو اخفق فيها زبدة باردة على دفعات."
+    ],
+    "en": [
+     "Chill 30–60 minutes, then stir gently.",
+     "Or beat in cold butter in stages."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "جبن بلوك بارد.",
+     "خفق قصير بعد الجبن.",
+     "ماء محدود."
+    ],
+    "en": [
+     "Cold block cheese.",
+     "Short mixing after the cheese.",
+     "Limited water."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الوصفة تقليدية، فالسبب غالباً نوع الجبن أو الخفق.",
+    "en": "If the recipe is traditional, the cause is most likely cheese type or beating."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الجبن.",
+    "en": "Answer the cheese question."
+   }
+  },
+  {
+   "id": "panna-cotta-rubbery",
+   "category": "mousse",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "البانا كوتا أو الجيلي مطاطي وقاسي",
+    "en": "Panna cotta or jelly is rubbery and firm",
+    "syn": {
+     "ar": [
+      "البانا كوتا مطاطية",
+      "الجيلي قاسي",
+      "البانا كوتا قاسية",
+      "الجيلاتين كثير"
+     ],
+     "en": [
+      "rubbery panna cotta",
+      "jelly too firm",
+      "too much gelatine"
+     ]
+    }
+   },
+   "see": {
+    "ar": "القوام قاسي ويرتد مثل المطاط، بدل ما يكون ناعم يهتز.",
+    "en": "The texture is firm and bouncy like rubber instead of a soft wobble."
+   },
+   "questions": [
+    {
+     "id": "type",
+     "ar": "غيّرت نوع الجيلاتين (ورق بدل بودرة أو العكس، أو ماركة مختلفة)؟",
+     "en": "Did you change the gelatine (sheets for powder, or another brand)?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      },
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      }
+     ]
+    },
+    {
+     "id": "age",
+     "ar": "متى قدّمتها؟",
+     "en": "When did you serve it?",
+     "options": [
+      {
+       "id": "late",
+       "ar": "بعد أكثر من يوم، أو باردة جداً من الثلاجة",
+       "en": "More than a day later, or very cold from the fridge"
+      },
+      {
+       "id": "same",
+       "ar": "بعد ساعات من التماسك",
+       "en": "Hours after setting"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "gel-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الجيلاتين كثير",
+      "en": "Too much gelatine"
+     },
+     "why": {
+      "ar": "قوة الجل تزيد مع كمية الجيلاتين. البانا كوتا الناعمة تحتاج أقل كمية تخليها تمسك.",
+      "en": "Gel strength rises with the amount of gelatine. A soft panna cotta needs just enough to hold."
+     },
+     "rule": {
+      "feat": "gelPct",
+      "when": "above",
+      "range": {
+       "default": [
+        0.6,
+        1.2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نسبة الجيلاتين في بانا كوتا تتقلب من القالب؛ تقدير عمل، ويختلف بقوة الجيلاتين (Bloom).",
+       "en": "Gelatine for a panna cotta that is unmoulded; a working estimate that depends on gelatine strength (Bloom)."
+      }
+     },
+     "answers": {
+      "type": {
+       "no": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض الجيلاتين إلى حوالي 0.9% من الوزن.",
+       "en": "Lower the gelatine to about 0.9% of the weight.",
+       "op": {
+        "op": "reach",
+        "role": "gelatin",
+        "feat": "gelPct",
+        "target": 0.9
+       },
+       "tradeoff": {
+        "ar": "أطرى؛ إذا تبيها تتقلب من القالب جرّب قبل الإنتاج.",
+        "en": "Softer; test before production if it must unmould."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الاهتزاز بين النسبتين بعد نفس وقت التبريد.",
+      "en": "Compare the wobble at both levels after the same chilling time."
+     }
+    },
+    {
+     "id": "gel-type",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "نوع جيلاتين بقوة مختلفة",
+      "en": "Gelatine of a different strength"
+     },
+     "why": {
+      "ar": "قوة الجيلاتين (Bloom) تختلف بين الأنواع والماركات، فنفس الوزن يعطي جل أقسى أو أطرى.",
+      "en": "Gelatine strength (Bloom) varies between types and brands, so the same weight gives a firmer or softer gel."
+     },
+     "answers": {
+      "type": {
+       "yes": 3,
+       "no": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S1"
+       ],
+       "ar": "اكتب قوة الجيلاتين في المادة (من الملصق أو المورد)، وعدّل الوزن عند التبديل، وجرّب دفعة صغيرة.",
+       "en": "Record the gelatine strength on the material (from the label or supplier), adjust the weight when switching, and test a small batch.",
+       "tradeoff": {
+        "ar": "تجربة إضافية.",
+        "en": "An extra test."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعتين بالنوعين.",
+      "en": "Compare batches with both types."
+     }
+    },
+    {
+     "id": "aged-cold",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "قعدت طويل أو تقدّمت باردة جداً",
+      "en": "Kept long or served very cold"
+     },
+     "why": {
+      "ar": "جل الجيلاتين يقسى مع الوقت في الساعات الأولى، ويكون أقسى وهو بارد جداً.",
+      "en": "A gelatine gel keeps firming over its first hours, and is firmer when very cold."
+     },
+     "answers": {
+      "age": {
+       "late": 3,
+       "same": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "قدّمها خلال يوم، وطلّعها من الثلاجة 10 إلى 15 دقيقة قبل التقديم.",
+       "en": "Serve within a day, and take it out of the fridge 10–15 minutes before serving.",
+       "tradeoff": {
+        "ar": "صلاحية عرض أقصر.",
+        "en": "A shorter display life."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن حبة بعد 6 ساعات وحبة بعد يومين.",
+      "en": "Compare one after 6 hours and one after two days."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الجل القاسي يذوب على حرارة هادئة: ذوّبه، أضف سائل (حليب أو كريمة)، وأعد تبريده."
+    ],
+    "en": [
+     "A firm gel melts on gentle heat: melt it, add liquid (milk or cream) and chill again."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "أقل جيلاتين يمسك.",
+     "سجّل قوة الجيلاتين.",
+     "قدّمها خلال يوم."
+    ],
+    "en": [
+     "Just enough gelatine.",
+     "Record gelatine strength.",
+     "Serve within a day."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا الجيلاتين ضمن النطاق، فالسبب غالباً نوعه أو وقت التخزين.",
+    "en": "If gelatine is in range, the cause is most likely its type or storage time."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال نوع الجيلاتين.",
+    "en": "Answer the gelatine-type question."
+   }
+  },
+  {
+   "id": "cheesecake-grainy",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "التشيز كيك محبب أو فيه كتل",
+    "en": "Cheesecake is grainy or lumpy",
+    "syn": {
+     "ar": [
+      "التشيز كيك محبب",
+      "التشيز كيك فيه كتل",
+      "التشيز كيك مو ناعم",
+      "التشيز كيك قوامه رملي"
+     ],
+     "en": [
+      "grainy cheesecake",
+      "lumpy cheesecake",
+      "cheesecake not smooth"
+     ]
+    }
+   },
+   "see": {
+    "ar": "قوام غير ناعم: كتل جبن بيضاء صغيرة، أو حبيبات مثل البيض المقلّب.",
+    "en": "Not smooth: small white lumps of cheese, or grains like scrambled egg."
+   },
+   "questions": [
+    {
+     "id": "grain",
+     "ar": "شكل العيب؟",
+     "en": "What does it look like?",
+     "options": [
+      {
+       "id": "lumps",
+       "ar": "كتل جبن بيضاء",
+       "en": "White cheese lumps"
+      },
+      {
+       "id": "curd",
+       "ar": "حبيبات وقوام مقطّع، خاصة عند الأطراف",
+       "en": "Grains and a curdled texture, especially at the edges"
+      }
+     ]
+    },
+    {
+     "id": "cheese",
+     "ar": "حرارة الجبن وقت الخلط؟",
+     "en": "Cheese temperature when mixing?",
+     "options": [
+      {
+       "id": "cold",
+       "ar": "من الثلاجة",
+       "en": "From the fridge"
+      },
+      {
+       "id": "room",
+       "ar": "حرارة الغرفة",
+       "en": "Room temperature"
+      }
+     ]
+    },
+    {
+     "id": "bake",
+     "ar": "طريقة الخبز؟",
+     "en": "How was it baked?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "حرارة عالية بدون حمام مائي",
+       "en": "High heat, no water bath"
+      },
+      {
+       "id": "gentle",
+       "ar": "حرارة هادئة أو حمام مائي",
+       "en": "Gentle heat or a water bath"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "cold-cheese",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الجبن بارد",
+      "en": "Cheese too cold"
+     },
+     "why": {
+      "ar": "الجبن البارد ما ينعم، فتبقى كتل ما تذوب بالخبز.",
+      "en": "Cold cheese does not smooth out, leaving lumps that do not melt in the oven."
+     },
+     "answers": {
+      "grain": {
+       "lumps": 3,
+       "curd": -1
+      },
+      "cheese": {
+       "cold": 2,
+       "room": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خلّ الجبن يوصل حرارة الغرفة، واخفقه ناعم مع السكر قبل البيض، وامسح جوانب الوعاء.",
+       "en": "Let the cheese reach room temperature, beat it smooth with the sugar before the eggs, and scrape the bowl.",
+       "tradeoff": {
+        "ar": "وقت انتظار.",
+        "en": "Waiting time."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "صفّ الخليط قبل الخبز: إذا بقيت كتل في المصفاة، فهي السبب.",
+      "en": "Strain the batter before baking: lumps left in the sieve are the cause."
+     }
+    },
+    {
+     "id": "overbaked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1",
+      "S2"
+     ],
+     "title": {
+      "ar": "خبز زايد أو حرارة عالية",
+      "en": "Overbaked or too hot"
+     },
+     "why": {
+      "ar": "التشيز كيك كاسترد بالبيض. الحرارة العالية تخلي بروتين البيض يتخثر ويتحبب.",
+      "en": "Cheesecake is an egg custard. High heat makes the egg proteins curdle into grains."
+     },
+     "answers": {
+      "grain": {
+       "curd": 3,
+       "lumps": -1
+      },
+      "bake": {
+       "hot": 2,
+       "gentle": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخبز على حرارة هادئة أو بحمام مائي، وطلّعه والوسط يهتز قليلاً.",
+       "en": "Bake gently or in a water bath, and take it out while the centre still wobbles slightly.",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Takes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة الوسط: حوالي 65 إلى 70°م كافية.",
+      "en": "Probe the centre: about 65–70 °C is enough."
+     }
+    },
+    {
+     "id": "egg-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "البيض كثير مقابل الجبن",
+      "en": "Too much egg for the cheese"
+     },
+     "why": {
+      "ar": "البيض الكثير يزيد التخثر ويعطي قوام مطاطي محبب.",
+      "en": "Extra egg increases curdling and gives a rubbery, grainy texture."
+     },
+     "rule": {
+      "feat": "eggCheese",
+      "when": "above",
+      "range": {
+       "default": [
+        0.2,
+        0.45
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق البيض للجبن في تشقق التشيز كيك.",
+       "en": "Same egg-to-cheese range as cheesecake cracking."
+      }
+     },
+     "answers": {
+      "grain": {
+       "curd": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض البيض إلى 0.35 من وزن الجبن.",
+       "en": "Lower the egg to 0.35 of the cheese weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "egg",
+         "yolk",
+         "white"
+        ],
+        "base": "cheese",
+        "target": 0.35
+       },
+       "tradeoff": {
+        "ar": "أطرى وأقل تماسكاً.",
+        "en": "Softer and less set."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام بين النسبتين.",
+      "en": "Compare texture at both ratios."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "التشيز كيك المحبب ما يرجع ناعم؛ يصلح للخلط في موس أو كقطع تزيين."
+    ],
+    "en": [
+     "A grainy cheesecake will not turn smooth; use it blended into a mousse or as decoration pieces."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "جبن على حرارة الغرفة.",
+     "خبز هادئ.",
+     "صفّ الخليط."
+    ],
+    "en": [
+     "Room-temperature cheese.",
+     "Gentle baking.",
+     "Strain the batter."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب حالات التحبب من حرارة الجبن أو الخبز.",
+    "en": "Most grainy cheesecakes come from cheese temperature or baking."
+   },
+   "unsure": {
+    "ar": "اختر شكل العيب.",
+    "en": "Choose what the fault looks like."
+   }
+  },
+  {
+   "id": "cake-wet-bottom",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "طبقة لزجة رطبة في قاع الكيكة",
+    "en": "A gummy, wet layer at the bottom of the cake",
+    "syn": {
+     "ar": [
+      "قاع الكيك لزج",
+      "الكيك تحت عجين",
+      "طبقة رطبة تحت الكيك",
+      "الكيك مو مستوي من تحت"
+     ],
+     "en": [
+      "gummy cake bottom",
+      "wet layer at base of cake",
+      "sad streak"
+     ]
+    }
+   },
+   "see": {
+    "ar": "خط كثيف لزج ولونه أغمق في أسفل الكيكة، والباقي طبيعي.",
+    "en": "A dense, gummy, darker band at the bottom of the cake, the rest normal."
+   },
+   "questions": [
+    {
+     "id": "test",
+     "ar": "كيف عرفت إنها استوت؟",
+     "en": "How did you know it was done?",
+     "options": [
+      {
+       "id": "time",
+       "ar": "بالوقت بس",
+       "en": "By time only"
+      },
+      {
+       "id": "probe",
+       "ar": "عود نظيف من الوسط",
+       "en": "A clean skewer from the centre"
+      }
+     ]
+    },
+    {
+     "id": "cool",
+     "ar": "كيف بردت؟",
+     "en": "How did it cool?",
+     "options": [
+      {
+       "id": "pan",
+       "ar": "بقت في القالب لين بردت كاملة",
+       "en": "In the pan until fully cold"
+      },
+      {
+       "id": "rack",
+       "ar": "طلعتها على شبك بعد 10 دقائق",
+       "en": "Out onto a rack after 10 minutes"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "underbaked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "ما استوت كفاية",
+      "en": "Underbaked"
+     },
+     "why": {
+      "ar": "القاع آخر جزء يستوي إذا القالب على رف عالي أو الفرن من فوق أقوى. الخبز الناقص يخلي القاع عجين.",
+      "en": "The base is last to set if the pan sits high or the oven is stronger on top. Underbaking leaves it doughy."
+     },
+     "answers": {
+      "test": {
+       "time": 3,
+       "probe": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخبز على الرف الأوسط وافحص بالعود من الوسط لين يطلع نظيف.",
+       "en": "Bake on the middle rack and test with a skewer from the centre until clean.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة وسط الكيكة: حوالي 95 إلى 98°م.",
+      "en": "Probe the cake centre: about 95–98 °C."
+     }
+    },
+    {
+     "id": "steamed",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "بخار انحبس في القالب",
+      "en": "Steam trapped in the pan"
+     },
+     "why": {
+      "ar": "إذا بردت الكيكة كاملة في القالب، البخار يتكثف تحت ويرطّب القاع.",
+      "en": "Left to cool fully in the pan, steam condenses underneath and wets the base."
+     },
+     "answers": {
+      "cool": {
+       "pan": 3,
+       "rack": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "طلّعها على شبك بعد 10 دقائق تقريباً.",
+       "en": "Turn it out onto a rack after about 10 minutes.",
+       "tradeoff": {
+        "ar": "انتبه للكيك الطري جداً.",
+        "en": "Take care with very soft cakes."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن كيكتين بطريقتي التبريد.",
+      "en": "Compare two cakes cooled each way."
+     }
+    },
+    {
+     "id": "liquid-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السوائل كثيرة",
+      "en": "Too much liquid"
+     },
+     "why": {
+      "ar": "السوائل الزايدة تنزل وتتجمع في القاع قبل ما يتماسك الهيكل.",
+      "en": "Excess liquid settles to the base before the structure sets."
+     },
+     "rule": {
+      "feat": "waterFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0.8,
+        1.4
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق السوائل في كيك الزبدة.",
+       "en": "Same liquid range as butter cakes."
+      }
+     },
+     "answers": {
+      "test": {
+       "probe": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "قلّل الحليب حتى تصير النسبة 1.2.",
+       "en": "Reduce the milk until the ratio is 1.2.",
+       "op": {
+        "op": "reach",
+        "role": [
+         "milk",
+         "water"
+        ],
+        "feat": "waterFlour",
+        "target": 1.2
+       },
+       "tradeoff": {
+        "ar": "أقل رطوبة.",
+        "en": "Less moist."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القاع بعد الخبز.",
+      "en": "Compare the base after baking."
+     }
+    },
+    {
+     "id": "sugar-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "السكر كثير",
+      "en": "Too much sugar"
+     },
+     "why": {
+      "ar": "السكر الزايد يأخر تماسك النشا والبيض، فيبقى القاع لزج.",
+      "en": "Excess sugar delays starch and egg setting, so the base stays gummy."
+     },
+     "rule": {
+      "feat": "sugarFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0.8,
+        1.25
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق السكر في كيك الزبدة.",
+       "en": "Same sugar range as butter cakes."
+      }
+     },
+     "answers": {
+      "test": {
+       "probe": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض السكر إلى 1.1 من وزن الدقيق.",
+       "en": "Lower the sugar to 1.1 times the flour weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar",
+         "invert"
+        ],
+        "base": "flour",
+        "target": 1.1
+       },
+       "tradeoff": {
+        "ar": "أقل حلاوة وأقل رطوبة.",
+        "en": "Less sweet and less moist."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القاع بعد الخبز.",
+      "en": "Compare the base after baking."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "قصّ الطبقة اللزجة واستعمل الباقي في طبقات أو ترايفل."
+    ],
+    "en": [
+     "Trim off the gummy layer and use the rest for layers or trifle."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "رف أوسط وفحص بالعود.",
+     "طلّعها من القالب بعد 10 دقائق.",
+     "سوائل وسكر ضمن النطاق."
+    ],
+    "en": [
+     "Middle rack and a skewer test.",
+     "Unmould after 10 minutes.",
+     "Liquid and sugar in range."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السوائل والسكر ضمن النطاق، فالسبب غالباً الخبز أو التبريد.",
+    "en": "If liquid and sugar are in range, the cause is most likely baking or cooling."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الفحص والتبريد.",
+    "en": "Answer the testing and cooling questions."
    }
   }
  ]
