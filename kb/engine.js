@@ -68,6 +68,7 @@
     water: { ar: "الماء", en: "water", u: "%" },
     fat: { ar: "الدهون", en: "fat", u: "%" },
     sugar: { ar: "السكريات", en: "sugars", u: "%" },
+    protein: { ar: "البروتين", en: "protein", u: "%" },
     addedSugar: { ar: "السكر المضاف", en: "added sugar", u: "%" },
     thickPct: { ar: "النشا (مع الدقيق)", en: "thickening starch", u: "%" },
     flourThick: { ar: "حصة الدقيق من مادة التكثيف", en: "flour share of the thickener", u: "" },

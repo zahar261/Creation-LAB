@@ -16664,6 +16664,1515 @@
     "ar": "جاوب سؤال الفحص والتبريد.",
     "en": "Answer the testing and cooling questions."
    }
+  },
+  {
+   "id": "cheesecake-sink",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "التشيز كيك يهبط بعد الخبز",
+    "en": "Cheesecake sinks after baking",
+    "syn": {
+     "ar": [
+      "التشيز كيك هبط",
+      "التشيز كيك نزل من الوسط",
+      "التشيز كيك انخسف",
+      "التشيز كيك ارتفع ثم نزل"
+     ],
+     "en": [
+      "cheesecake sank",
+      "cheesecake sunk in the middle",
+      "cheesecake collapsed"
+     ]
+    }
+   },
+   "see": {
+    "ar": "ارتفع في الفرن مثل السوفليه، ثم نزل الوسط بعد ما طلع وبرد.",
+    "en": "It puffed in the oven like a soufflé, then the centre dropped after it came out and cooled."
+   },
+   "questions": [
+    {
+     "id": "mix",
+     "ar": "كيف خلطت بعد إضافة البيض؟",
+     "en": "How did you mix after adding the eggs?",
+     "options": [
+      {
+       "id": "fast",
+       "ar": "سرعة عالية أو مدة طويلة",
+       "en": "High speed or for long"
+      },
+      {
+       "id": "slow",
+       "ar": "سرعة منخفضة لين اختلط بس",
+       "en": "Low speed, just until combined"
+      }
+     ]
+    },
+    {
+     "id": "puff",
+     "ar": "ارتفع كثير في الفرن؟",
+     "en": "Did it puff a lot in the oven?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم، انتفخ فوق القالب",
+       "en": "Yes, above the pan"
+      },
+      {
+       "id": "no",
+       "ar": "لا، بقي مستوي",
+       "en": "No, it stayed level"
+      }
+     ]
+    },
+    {
+     "id": "cool",
+     "ar": "كيف بردته؟",
+     "en": "How did you cool it?",
+     "options": [
+      {
+       "id": "fast",
+       "ar": "طلعته من الفرن مباشرة",
+       "en": "Straight out of the oven"
+      },
+      {
+       "id": "slow",
+       "ar": "في الفرن المطفي والباب مفتوح قليلاً",
+       "en": "In the switched-off oven with the door ajar"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "air",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "هواء كثير في الخليط",
+      "en": "Too much air in the batter"
+     },
+     "why": {
+      "ar": "الخفق السريع بعد البيض يدخل هواء، فيتمدد في الفرن ويرفع الكيكة، ثم يطلع ويهبط الوسط.",
+      "en": "Fast mixing after the eggs adds air that expands in the oven and lifts the cake, then escapes and the centre falls."
+     },
+     "answers": {
+      "mix": {
+       "fast": 3,
+       "slow": -2
+      },
+      "puff": {
+       "yes": 2,
+       "no": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخلط بالمضرب الورقي على سرعة منخفضة، وأضف البيض واحدة واحدة لين يختلط بس، ودق القالب خفيف لتطلع الفقاعات.",
+       "en": "Mix with the paddle on low, add the eggs one at a time just until combined, and tap the pan to release bubbles.",
+       "tradeoff": {
+        "ar": "قوام أكثف.",
+        "en": "A denser texture."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا ما ارتفع في الفرن، ما راح يهبط.",
+      "en": "If it does not puff in the oven, it will not sink."
+     }
+    },
+    {
+     "id": "fast-cool",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "تبريد مفاجئ",
+      "en": "Sudden cooling"
+     },
+     "why": {
+      "ar": "الفرق الكبير في الحرارة يخلي الكيكة تنكمش بسرعة قبل ما يثبت الوسط.",
+      "en": "A big temperature drop makes the cake contract quickly before the centre is stable."
+     },
+     "answers": {
+      "cool": {
+       "fast": 3,
+       "slow": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خلّها ساعة في الفرن المطفي والباب مفتوح قليلاً، ثم حرارة الغرفة، ثم الثلاجة.",
+       "en": "Leave it an hour in the switched-off oven with the door ajar, then room temperature, then the fridge.",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Takes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن كيكتين بالطريقتين.",
+      "en": "Compare two cakes cooled each way."
+     }
+    },
+    {
+     "id": "egg-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "البيض كثير مقابل الجبن",
+      "en": "Too much egg for the cheese"
+     },
+     "why": {
+      "ar": "البيض يحبس بخار وينتفخ مثل السوفليه. الكمية الكبيرة تزيد الارتفاع ثم الهبوط.",
+      "en": "Egg traps steam and puffs like a soufflé. A large amount increases the rise and then the fall."
+     },
+     "rule": {
+      "feat": "eggCheese",
+      "when": "above",
+      "range": {
+       "default": [
+        0.2,
+        0.45
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق البيض للجبن في تشقق التشيز كيك.",
+       "en": "Same egg-to-cheese range as cheesecake cracking."
+      }
+     },
+     "answers": {
+      "puff": {
+       "yes": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض البيض إلى 0.35 من وزن الجبن.",
+       "en": "Lower the egg to 0.35 of the cheese weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "egg",
+         "yolk",
+         "white"
+        ],
+        "base": "cheese",
+        "target": 0.35
+       },
+       "tradeoff": {
+        "ar": "أكثف وأقل خفة.",
+        "en": "Denser and less light."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن الارتفاع في الفرن بين النسبتين.",
+      "en": "Compare the oven rise at both ratios."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "عبّي الوسط المنخفض بكريمة مخفوقة أو صوص فواكه أو غاناش، فيصير شكل مقصود."
+    ],
+    "en": [
+     "Fill the dip with whipped cream, fruit sauce or ganache so it looks intended."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "خلط منخفض بعد البيض.",
+     "تبريد تدريجي.",
+     "بيض ضمن النطاق."
+    ],
+    "en": [
+     "Low-speed mixing after the eggs.",
+     "Gradual cooling.",
+     "Egg within range."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا البيض ضمن النطاق، فالسبب غالباً الهواء أو التبريد.",
+    "en": "If egg is in range, the cause is most likely air or cooling."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الخلط والارتفاع.",
+    "en": "Answer the mixing and rise questions."
+   }
+  },
+  {
+   "id": "cake-dark-crust",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "قشرة الكيك غامقة وسميكة والوسط ما استوى",
+    "en": "Cake crust is dark and thick while the centre is underdone",
+    "syn": {
+     "ar": [
+      "الكيك احترق من برا",
+      "الكيك غامق من برا ونيء من جوا",
+      "قشرة الكيك سميكة",
+      "الكيك تحمر بسرعة"
+     ],
+     "en": [
+      "cake dark outside raw inside",
+      "thick dark cake crust",
+      "cake browns too fast"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الأطراف والسطح غامقة وقاسية قبل ما يستوي الوسط.",
+    "en": "The edges and top are dark and hard before the centre is cooked."
+   },
+   "questions": [
+    {
+     "id": "oven",
+     "ar": "حرارة الفرن؟",
+     "en": "Oven temperature?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "180°م أو أكثر، أو فرن ما تعرف دقته",
+       "en": "180 °C or more, or an oven of unknown accuracy"
+      },
+      {
+       "id": "mod",
+       "ar": "160 إلى 170°م ومقاسة بميزان",
+       "en": "160–170 °C, checked with a thermometer"
+      }
+     ]
+    },
+    {
+     "id": "pan",
+     "ar": "القالب؟",
+     "en": "The pan?",
+     "options": [
+      {
+       "id": "dark",
+       "ar": "غامق أو عميق وكبير",
+       "en": "Dark, or deep and large"
+      },
+      {
+       "id": "light",
+       "ar": "ألمنيوم فاتح بحجم عادي",
+       "en": "Light aluminium, normal size"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "oven-hot",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الفرن حار",
+      "en": "Oven too hot"
+     },
+     "why": {
+      "ar": "الحرارة العالية تحمّر السطح بسرعة قبل ما توصل الحرارة للوسط.",
+      "en": "High heat browns the surface fast before heat reaches the centre."
+     },
+     "answers": {
+      "oven": {
+       "hot": 3,
+       "mod": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "قِس الفرن بميزان مستقل، وخفّض 10 إلى 15°م مع وقت أطول.",
+       "en": "Check the oven with an independent thermometer, and lower 10–15 °C with a longer bake.",
+       "tradeoff": {
+        "ar": "وقت خبز أطول.",
+        "en": "A longer bake."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن صينيتين على حرارتين.",
+      "en": "Compare two pans at two temperatures."
+     }
+    },
+    {
+     "id": "pan",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "القالب غامق أو كبير",
+      "en": "Dark or large pan"
+     },
+     "why": {
+      "ar": "القوالب الغامقة تمتص حرارة أكثر، والكبيرة العميقة تخلي الوسط يتأخر كثير عن الأطراف.",
+      "en": "Dark pans absorb more heat, and large deep pans leave the centre far behind the edges."
+     },
+     "answers": {
+      "pan": {
+       "dark": 3,
+       "light": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "استعمل قالب فاتح، أو لفّ القالب بشريط قماش مبلل، أو حط أنبوب حراري في وسط القالب الكبير.",
+       "en": "Use a light pan, wrap it with damp baking strips, or use a heating core in a large pan.",
+       "tradeoff": {
+        "ar": "أدوات إضافية.",
+        "en": "Extra tools."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن قالب فاتح وغامق بنفس الخليط.",
+      "en": "Compare a light and a dark pan with the same batter."
+     }
+    },
+    {
+     "id": "sugar-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S1",
+      "S2"
+     ],
+     "title": {
+      "ar": "السكر كثير",
+      "en": "Too much sugar"
+     },
+     "why": {
+      "ar": "السكر يتكرمل ويدخل في تفاعل ميلارد، فالكثير يغمّق القشرة بسرعة.",
+      "en": "Sugar caramelises and feeds Maillard browning, so a lot of it darkens the crust fast."
+     },
+     "rule": {
+      "feat": "sugarFlour",
+      "when": "above",
+      "range": {
+       "default": [
+        0.8,
+        1.25
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق السكر في كيك الزبدة.",
+       "en": "Same sugar range as butter cakes."
+      }
+     },
+     "answers": {
+      "oven": {
+       "mod": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض السكر إلى 1.1 من وزن الدقيق.",
+       "en": "Lower the sugar to 1.1 times the flour weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "sugar",
+         "invert"
+        ],
+        "base": "flour",
+        "target": 1.1
+       },
+       "tradeoff": {
+        "ar": "أقل حلاوة وأقل رطوبة.",
+        "en": "Less sweet and less moist."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن لون القشرة بنفس الوقت والحرارة.",
+      "en": "Compare crust colour at the same time and temperature."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "قصّ القشرة الغامقة، وغطّ الكيكة بكريمة أو سيروب."
+    ],
+    "en": [
+     "Trim the dark crust and cover the cake with cream or syrup."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "فرن مضبوط بميزان.",
+     "قالب فاتح.",
+     "سكر ضمن النطاق."
+    ],
+    "en": [
+     "An oven checked with a thermometer.",
+     "A light pan.",
+     "Sugar within range."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا السكر ضمن النطاق، فالسبب غالباً الفرن أو القالب.",
+    "en": "If sugar is in range, the cause is most likely the oven or pan."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الفرن والقالب.",
+    "en": "Answer the oven and pan questions."
+   }
+  },
+  {
+   "id": "icecream-sandy",
+   "category": "frozen",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الآيس كريم قوامه رملي",
+    "en": "Ice cream has a sandy texture",
+    "syn": {
+     "ar": [
+      "الآيس كريم رملي",
+      "الآيس كريم فيه حبيبات ما تذوب",
+      "الجيلاتو رملي",
+      "الآيس كريم خشن"
+     ],
+     "en": [
+      "sandy ice cream",
+      "gritty ice cream",
+      "ice cream grains don't melt"
+     ]
+    }
+   },
+   "see": {
+    "ar": "حبيبات صغيرة خشنة ما تذوب بسرعة على اللسان، مختلفة عن بلورات الثلج اللي تذوب فوراً.",
+    "en": "Small gritty grains that do not melt quickly on the tongue, unlike ice crystals that melt at once."
+   },
+   "questions": [
+    {
+     "id": "powder",
+     "ar": "تضيف بودرة حليب؟",
+     "en": "Do you add milk powder?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم، كمية واضحة",
+       "en": "Yes, a noticeable amount"
+      },
+      {
+       "id": "no",
+       "ar": "لا أو قليل",
+       "en": "No or little"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "التخزين؟",
+     "en": "Storage?",
+     "options": [
+      {
+       "id": "swing",
+       "ar": "طويل أو حرارة متقلبة (فتح الفريزر كثير)",
+       "en": "Long, or a fluctuating temperature (freezer opened often)"
+      },
+      {
+       "id": "stable",
+       "ar": "قصير وثابت",
+       "en": "Short and steady"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "lactose-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "مواد الحليب الصلبة كثيرة (لاكتوز)",
+      "en": "Too much milk solids (lactose)"
+     },
+     "why": {
+      "ar": "سكر الحليب (اللاكتوز) قليل الذوبان. إذا زادت مواد الحليب الصلبة، يتبلور في الفريزر ويعطي إحساس رملي.",
+      "en": "Milk sugar (lactose) is poorly soluble. With too much milk solids it crystallises in the freezer and feels sandy."
+     },
+     "rule": {
+      "feat": "protein",
+      "when": "above",
+      "range": {
+       "default": [
+        2.5,
+        4.2
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S11"
+      ],
+      "note": {
+       "ar": "البروتين هنا مؤشر تقريبي لمواد الحليب الصلبة غير الدهنية (البروتين حوالي ثلثها)؛ تقدير عمل.",
+       "en": "Protein is used as a rough proxy for milk solids non-fat (protein is about a third of them); a working estimate."
+      }
+     },
+     "answers": {
+      "powder": {
+       "yes": 2,
+       "no": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S11"
+       ],
+       "ar": "قلّل بودرة الحليب حتى ينزل البروتين إلى حوالي 3.8%.",
+       "en": "Reduce the milk powder until protein falls to about 3.8%.",
+       "op": {
+        "op": "reach",
+        "role": "milkpowder",
+        "feat": "protein",
+        "target": 3.8
+       },
+       "tradeoff": {
+        "ar": "قوام أقل كثافة؛ عوّض المواد الصلبة بسكر أو دكستروز.",
+        "en": "Less body; make up the solids with sugar or dextrose."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "ذوّق: الرمل ما يذوب بسرعة، الثلج يذوب فوراً.",
+      "en": "Taste: sand does not melt quickly, ice melts at once."
+     }
+    },
+    {
+     "id": "heat-shock",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "تذبذب حرارة التخزين",
+      "en": "Fluctuating storage temperature"
+     },
+     "why": {
+      "ar": "كل ما ذاب جزء وتجمد مرة ثانية، تكبر البلورات ويتبلور اللاكتوز أكثر.",
+      "en": "Each partial thaw and refreeze grows crystals and drives more lactose to crystallise."
+     },
+     "answers": {
+      "store": {
+       "swing": 3,
+       "stable": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S11"
+       ],
+       "ar": "خزّن على -18°م أو أبرد بثبات، وقلّل فتح الفريزر، ولا تعيد تجميد الذايب.",
+       "en": "Store steadily at −18 °C or colder, open the freezer less, and never refreeze melted product.",
+       "tradeoff": {
+        "ar": "انضباط في التشغيل.",
+        "en": "Operating discipline."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل حرارة الفريزر يومياً لأسبوع.",
+      "en": "Log the freezer temperature daily for a week."
+     }
+    },
+    {
+     "id": "long-storage",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "تخزين طويل",
+      "en": "Long storage"
+     },
+     "why": {
+      "ar": "حتى على حرارة ثابتة، اللاكتوز يتبلور ببطء مع الوقت.",
+      "en": "Even at a steady temperature, lactose crystallises slowly over time."
+     },
+     "answers": {
+      "store": {
+       "swing": 1,
+       "stable": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "اعمل دفعات أصغر ودوّر المخزون (الأقدم أولاً).",
+       "en": "Make smaller batches and rotate stock (oldest first).",
+       "tradeoff": {
+        "ar": "إنتاج أكثر تكراراً.",
+        "en": "More frequent production."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعة جديدة بدفعة قديمة.",
+      "en": "Compare a fresh batch with an old one."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الآيس كريم الرملي ما يرجع ناعم؛ يصلح للميلك شيك أو يذوّب ويدخل في صوص."
+    ],
+    "en": [
+     "Sandy ice cream will not turn smooth; use it for milkshakes or melt it into a sauce."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "بودرة حليب بحدود.",
+     "حرارة تخزين ثابتة.",
+     "دوران المخزون."
+    ],
+    "en": [
+     "Milk powder in moderation.",
+     "Steady storage temperature.",
+     "Stock rotation."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا ما في بودرة حليب كثيرة، فالسبب غالباً التخزين.",
+    "en": "If there is little milk powder, the cause is most likely storage."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال بودرة الحليب والتخزين.",
+    "en": "Answer the milk powder and storage questions."
+   }
+  },
+  {
+   "id": "icecream-fastmelt",
+   "category": "frozen",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الآيس كريم يذوب بسرعة",
+    "en": "Ice cream melts too fast",
+    "syn": {
+     "ar": [
+      "الآيس كريم يسيح بسرعة",
+      "الجيلاتو يذوب بسرعة",
+      "الآيس كريم ما يصمد في العرض"
+     ],
+     "en": [
+      "ice cream melts fast",
+      "gelato melts quickly",
+      "ice cream won't hold in display"
+     ]
+    }
+   },
+   "see": {
+    "ar": "يسيح بسرعة في الكوب أو العرض، ويصير سايل بدل ما يذوب ببطء ويحافظ على شكله.",
+    "en": "It runs quickly in the cup or display, turning liquid instead of melting slowly and holding its shape."
+   },
+   "questions": [
+    {
+     "id": "stab",
+     "ar": "تستعمل مثبت (ستابلايزر)؟",
+     "en": "Do you use a stabiliser?",
+     "options": [
+      {
+       "id": "none",
+       "ar": "لا",
+       "en": "No"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      }
+     ]
+    },
+    {
+     "id": "display",
+     "ar": "حرارة العرض؟",
+     "en": "Display temperature?",
+     "options": [
+      {
+       "id": "warm",
+       "ar": "أدفأ من -12°م أو غير معروفة",
+       "en": "Warmer than −12 °C, or unknown"
+      },
+      {
+       "id": "ok",
+       "ar": "-12 إلى -14°م",
+       "en": "−12 to −14 °C"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "solids-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "المواد الصلبة قليلة",
+      "en": "Total solids too low"
+     },
+     "why": {
+      "ar": "قلة المواد الصلبة تعني ماء أكثر يتحول ثلج ويذوب بسرعة، وقوام أخف.",
+      "en": "Low solids mean more water that freezes into ice and melts quickly, with a thinner body."
+     },
+     "rule": {
+      "feat": "solids",
+      "when": "below",
+      "range": {
+       "default": [
+        32,
+        42
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S11"
+      ],
+      "note": {
+       "ar": "نفس نطاق المواد الصلبة لآيس كريم الحليب.",
+       "en": "Same solids range as milk ice cream."
+      }
+     },
+     "answers": {
+      "stab": {
+       "yes": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "ارفع المواد الصلبة إلى حوالي 35% بالسكر أو بودرة حليب خالي الدسم.",
+       "en": "Raise solids to about 35% with sugar or skim milk powder.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "solids",
+        "target": 35
+       },
+       "tradeoff": {
+        "ar": "أحلى وأطرى في الفريزر.",
+        "en": "Sweeter and softer in the freezer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الذوبان: حط كرة على شبك على حرارة الغرفة وسجّل الوقت لأول قطرة.",
+      "en": "Melt test: put a scoop on a rack at room temperature and time the first drip."
+     }
+    },
+    {
+     "id": "no-stabiliser",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "بدون مثبت",
+      "en": "No stabiliser"
+     },
+     "why": {
+      "ar": "المثبتات تمسك الماء وتزيد اللزوجة، فتبطئ الذوبان وتقلل السيلان.",
+      "en": "Stabilisers bind water and raise viscosity, slowing melting and dripping."
+     },
+     "answers": {
+      "stab": {
+       "none": 3,
+       "yes": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S11"
+       ],
+       "ar": "أضف مثبت آيس كريم حسب جرعة المورد (عادة أقل من 0.5%)، واخلطه مع السكر قبل الإضافة.",
+       "en": "Add an ice cream stabiliser at the supplier's dose (usually under 0.5%), mixed with the sugar first.",
+       "tradeoff": {
+        "ar": "الزيادة تعطي قوام علكي.",
+        "en": "Too much gives a gummy texture."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الذوبان قبل وبعد.",
+      "en": "A melt test before and after."
+     }
+    },
+    {
+     "id": "warm-display",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "العرض دافئ",
+      "en": "Display too warm"
+     },
+     "why": {
+      "ar": "كل درجة أدفأ في العرض تعني نسبة ماء سايل أكبر داخل الآيس كريم.",
+      "en": "Each degree warmer in display means more liquid water inside the ice cream."
+     },
+     "answers": {
+      "display": {
+       "warm": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "اضبط العرض على حوالي -12 إلى -14°م وقِسه بميزان، وابعده عن الشمس والأبواب.",
+       "en": "Set the display to about −12 to −14 °C, check it with a thermometer, and keep it away from sun and doors.",
+       "tradeoff": {
+        "ar": "أقسى في الغرف إذا أبرد كثير.",
+        "en": "Harder to scoop if colder."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة العرض الفعلية.",
+      "en": "Measure the actual display temperature."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الآيس كريم اللي ذاب لا تعيد تجميده؛ استعمله في ميلك شيك فوراً."
+    ],
+    "en": [
+     "Do not refreeze melted ice cream; use it in milkshakes right away."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "مواد صلبة كافية.",
+     "مثبت بالجرعة الصحيحة.",
+     "عرض على حرارة مضبوطة."
+    ],
+    "en": [
+     "Enough solids.",
+     "Stabiliser at the right dose.",
+     "A correctly set display."
+    ]
+   },
+   "notFormula": {
+    "ar": "في الخليج، حرارة العرض والمكان سبب شائع جداً.",
+    "en": "In the Gulf, display temperature and location are a very common cause."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال المثبت والعرض.",
+    "en": "Answer the stabiliser and display questions."
+   }
+  },
+  {
+   "id": "icecream-gummy",
+   "category": "frozen",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "الآيس كريم مطاطي أو علكي",
+    "en": "Ice cream is gummy or chewy",
+    "syn": {
+     "ar": [
+      "الآيس كريم علكي",
+      "الآيس كريم مطاطي",
+      "الآيس كريم يمط",
+      "الجيلاتو لزج"
+     ],
+     "en": [
+      "gummy ice cream",
+      "chewy ice cream",
+      "stretchy ice cream"
+     ]
+    }
+   },
+   "see": {
+    "ar": "قوام ثقيل يمط ويلزق، وما يذوب بنظافة في الفم.",
+    "en": "A heavy, stretchy, sticky texture that does not melt cleanly in the mouth."
+   },
+   "questions": [
+    {
+     "id": "stab",
+     "ar": "كمية المثبت؟",
+     "en": "Stabiliser amount?",
+     "options": [
+      {
+       "id": "high",
+       "ar": "أكثر من جرعة المورد أو أكثر من نوع",
+       "en": "Above the supplier's dose, or more than one kind"
+      },
+      {
+       "id": "ok",
+       "ar": "حسب الجرعة أو بدون",
+       "en": "At the dose, or none"
+      }
+     ]
+    },
+    {
+     "id": "glucose",
+     "ar": "تستعمل جلوكوز بودرة أو شراب بكمية كبيرة؟",
+     "en": "Do you use a lot of glucose powder or syrup?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      },
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "stab-high",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "مثبت كثير",
+      "en": "Too much stabiliser"
+     },
+     "why": {
+      "ar": "المثبت الزايد يزيد اللزوجة لدرجة القوام العلكي اللي يمط.",
+      "en": "Excess stabiliser raises viscosity to a chewy, stretchy texture."
+     },
+     "answers": {
+      "stab": {
+       "high": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S11"
+       ],
+       "ar": "ارجع لجرعة المورد، ولا تجمع أكثر من مثبت بدون حساب.",
+       "en": "Go back to the supplier's dose, and do not combine stabilisers without calculating.",
+       "tradeoff": {
+        "ar": "يذوب أسرع قليلاً.",
+        "en": "Melts slightly faster."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعة بنصف الكمية.",
+      "en": "Compare a batch with half the amount."
+     }
+    },
+    {
+     "id": "glucose-high",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "جلوكوز كثير",
+      "en": "Too much glucose"
+     },
+     "why": {
+      "ar": "الجلوكوز (خاصة منخفض DE) يزيد اللزوجة والمطاطية.",
+      "en": "Glucose (especially low DE) increases viscosity and chewiness."
+     },
+     "answers": {
+      "glucose": {
+       "yes": 3,
+       "no": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S11"
+       ],
+       "ar": "بدّل جزء من الجلوكوز بسكر أو دكستروز، مع إعادة حساب نقطة التجمد.",
+       "en": "Replace part of the glucose with sugar or dextrose, recalculating the freezing point.",
+       "tradeoff": {
+        "ar": "يتغير القوام والحلاوة.",
+        "en": "Texture and sweetness change."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعتين.",
+      "en": "Compare two batches."
+     }
+    },
+    {
+     "id": "solids-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S11"
+     ],
+     "title": {
+      "ar": "المواد الصلبة كثيرة",
+      "en": "Total solids too high"
+     },
+     "why": {
+      "ar": "المواد الصلبة الكثيرة تعطي قوام ثقيل ولزج.",
+      "en": "Very high solids give a heavy, sticky body."
+     },
+     "rule": {
+      "feat": "solids",
+      "when": "above",
+      "range": {
+       "default": [
+        32,
+        42
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S11"
+      ],
+      "note": {
+       "ar": "نفس نطاق المواد الصلبة لآيس كريم الحليب.",
+       "en": "Same solids range as milk ice cream."
+      }
+     },
+     "answers": {
+      "stab": {
+       "ok": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S11"
+       ],
+       "ar": "خفّض بودرة الحليب والجلوكوز والسكر حتى تنزل المواد الصلبة إلى حوالي 40%.",
+       "en": "Reduce milk powder, glucose and sugar until solids fall to about 40%.",
+       "op": {
+        "op": "reach",
+        "role": [
+         "milkpowder",
+         "glucose",
+         "sugar"
+        ],
+        "feat": "solids",
+        "target": 40
+       },
+       "tradeoff": {
+        "ar": "أقل حلاوة وأقسى قليلاً.",
+        "en": "Less sweet and slightly harder."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام بعد يوم في الفريزر.",
+      "en": "Compare texture after a day in the freezer."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "القوام العلكي ما يتصلح بعد التجميد؛ عدّل الدفعة الجاية."
+    ],
+    "en": [
+     "A gummy texture cannot be fixed after freezing; adjust the next batch."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "مثبت بالجرعة.",
+     "جلوكوز بحدود.",
+     "مواد صلبة ضمن النطاق."
+    ],
+    "en": [
+     "Stabiliser at the dose.",
+     "Glucose in moderation.",
+     "Solids within range."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب حالات القوام العلكي من المثبت أو الجلوكوز.",
+    "en": "Most gummy ice cream comes from stabiliser or glucose."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال المثبت.",
+    "en": "Answer the stabiliser question."
+   }
+  },
+  {
+   "id": "italian-meringue-crystal",
+   "category": "meringue",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الشراب يتبلور عند عمل الميرنغ الإيطالي",
+    "en": "Syrup crystallises when making Italian meringue",
+    "syn": {
+     "ar": [
+      "شيرة الميرنغ تبلورت",
+      "الشراب صار سكر",
+      "الميرنغ الإيطالي محبب",
+      "القطر تسكّر"
+     ],
+     "en": [
+      "italian meringue syrup crystallised",
+      "sugar syrup grainy",
+      "grainy italian meringue"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الشراب صار عكر وتجمد سكر في القدر، أو الميرنغ طلع محبب.",
+    "en": "The syrup turned cloudy and set into sugar in the pot, or the meringue came out grainy."
+   },
+   "questions": [
+    {
+     "id": "stir",
+     "ar": "حرّكت الشراب بعد ما غلى؟",
+     "en": "Did you stir the syrup after it boiled?",
+     "options": [
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      },
+      {
+       "id": "no",
+       "ar": "لا",
+       "en": "No"
+      }
+     ]
+    },
+    {
+     "id": "walls",
+     "ar": "جوانب القدر؟",
+     "en": "The sides of the pot?",
+     "options": [
+      {
+       "id": "crystals",
+       "ar": "عليها حبيبات سكر",
+       "en": "Sugar crystals on them"
+      },
+      {
+       "id": "clean",
+       "ar": "نظيفة أو مسحتها بفرشاة مبللة",
+       "en": "Clean, or brushed with a wet brush"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "seeding",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "بلورة بذرة بدأت التبلور",
+      "en": "A seed crystal started crystallisation"
+     },
+     "why": {
+      "ar": "حبة سكر على الجدار أو التحريك بعد الغليان تكفي تبدأ تبلور الشراب كله.",
+      "en": "A sugar crystal on the wall, or stirring after boiling, is enough to start the whole syrup crystallising."
+     },
+     "answers": {
+      "stir": {
+       "yes": 3,
+       "no": -1
+      },
+      "walls": {
+       "crystals": 3,
+       "clean": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "ذوّب السكر كامل قبل الغليان، لا تحرّك بعد الغليان، وامسح الجوانب بفرشاة مبللة.",
+       "en": "Dissolve the sugar fully before boiling, do not stir after it boils, and brush the sides with a wet brush.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "إذا بقي الشراب صافي، فالسبب كان البذور.",
+      "en": "If the syrup stays clear, seeding was the cause."
+     }
+    },
+    {
+     "id": "doctor-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "بدون جلوكوز في الشراب",
+      "en": "No glucose in the syrup"
+     },
+     "why": {
+      "ar": "قليل من الجلوكوز يعيق تبلور السكروز ويعطي هامش أمان.",
+      "en": "A little glucose hinders sucrose crystallisation and gives a safety margin."
+     },
+     "rule": {
+      "feat": "doctorPct",
+      "when": "below",
+      "range": {
+       "default": [
+        5,
+        30
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "الجلوكوز والسكر المحوّل من السكريات المضافة؛ نطاق أمان تقديري، والميرنغ ينجح بدونه إذا الطريقة صحيحة.",
+       "en": "Glucose and invert as a share of added sugars; a working safety range — meringue also works without it if the method is right."
+      }
+     },
+     "answers": {
+      "walls": {
+       "clean": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "بدّل 10% من السكر بشراب جلوكوز.",
+       "en": "Replace 10% of the sugar with glucose syrup.",
+       "op": {
+        "op": "swap",
+        "from": "sugar",
+        "to": "glucose",
+        "frac": 0.1,
+        "factor": 1.25,
+        "name": {
+         "ar": "شراب جلوكوز",
+         "en": "Glucose syrup"
+        },
+        "comp": {
+         "w": 0.2,
+         "s": 0.8
+        }
+       },
+       "tradeoff": {
+        "ar": "أقل حلاوة قليلاً.",
+        "en": "Slightly less sweet."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعتين بنفس الطريقة.",
+      "en": "Compare two batches made the same way."
+     }
+    },
+    {
+     "id": "poured-wrong",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "الشراب انصب على المضرب أو الجدار",
+      "en": "Syrup poured onto the whisk or bowl wall"
+     },
+     "why": {
+      "ar": "الشراب اللي يلمس المضرب أو الجدار البارد يتجمد خيوط وحبيبات سكر داخل الميرنغ.",
+      "en": "Syrup hitting the whisk or a cold bowl wall sets into sugar threads and grains in the meringue."
+     },
+     "answers": {
+      "stir": {
+       "no": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "صب الشراب بخيط رفيع بين المضرب وجدار الوعاء، والخلاط على سرعة متوسطة.",
+       "en": "Pour the syrup in a thin stream between the whisk and the bowl wall, with the mixer on medium.",
+       "tradeoff": {
+        "ar": "يحتاج تركيز.",
+        "en": "Needs focus."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "افحص الوعاء بعد الخفق: هل في سكر متجمد على الجدار؟",
+      "en": "Check the bowl after whipping: is there set sugar on the wall?"
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الشراب المتبلور: أضف ماء، ذوّبه كامل، وابدأ من جديد."
+    ],
+    "en": [
+     "Crystallised syrup: add water, dissolve it fully, and start again."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "لا تحرّك بعد الغليان.",
+     "فرشاة مبللة للجوانب.",
+     "صب صحيح."
+    ],
+    "en": [
+     "No stirring after boiling.",
+     "A wet brush for the sides.",
+     "Correct pouring."
+    ]
+   },
+   "notFormula": {
+    "ar": "التبلور غالباً من الطريقة، والجلوكوز هامش أمان فقط.",
+    "en": "Crystallisation is usually method; glucose is only a safety margin."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال التحريك والجوانب.",
+    "en": "Answer the stirring and sides questions."
+   }
   }
  ]
 }

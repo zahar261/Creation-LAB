@@ -19,7 +19,8 @@ const C = {
   water: { w: 1, f: 0, s: 0, p: 0 }, bp: { w: 0, f: 0, s: 0, p: 0 },
   white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 },
   cheese: { w: .55, f: .34, s: .03, p: .06 }, cocoabutter: { w: 0, f: 1, s: 0, p: 0 },
-  salt: { w: 0, f: 0, s: 0, p: 0 }, yeast: { w: .05, f: 0, s: 0, p: .4 }, yeastfresh: { w: .7, f: 0, s: 0, p: .12 }, binder: { w: .1, f: 0, s: 0, p: 0 }, fruit: { w: .86, f: 0, s: .07, p: .01 }
+  salt: { w: 0, f: 0, s: 0, p: 0 }, yeast: { w: .05, f: 0, s: 0, p: .4 }, yeastfresh: { w: .7, f: 0, s: 0, p: .12 }, binder: { w: .1, f: 0, s: 0, p: 0 }, fruit: { w: .86, f: 0, s: .07, p: .01 },
+  milkpowder: { w: .035, f: .01, s: .52, p: .36 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -436,5 +437,42 @@ const seed9 = [
 seed9.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS9 = NS8 + seed9.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS9}, top-3 ${t3}/${NS9}`);
+console.log("kb) rules for cheesecake, crusts, ice cream and Italian meringue (batch 10)");
+trio("cheesecake sink: egg", "cheesecake-sink", "egg-high", sc(300), sc(200), sc(250));
+trio("dark crust: sugar", "cake-dark-crust", "sugar-high", ck({ sugar: 350 }), ck({}), ck({ sugar: 300 }));
+const sy = m => R({ milk: 600, cream: 250, sugar: 150, milkpowder: m });
+trio("sandy ice cream: milk solids", "icecream-sandy", "lactose-high", sy(60), sy(0), sy(45));
+const im = x => R({ milk: 600, cream: 250, sugar: x });
+trio("fast melt: solids", "icecream-fastmelt", "solids-low", im(60), im(250), im(150));
+const gm = x => R({ milk: 600, cream: 250, sugar: x, milkpowder: 60, glucose: 60 });
+trio("gummy ice cream: solids", "icecream-gummy", "solids-high", gm(350), im(150), im(300));
+const it = g => R({ sugar: 300, glucose: g, water: 100 });
+trio("Italian meringue: glucose share", "italian-meringue-crystal", "doctor-low", it(0), it(40), it(20));
+
+console.log("kb) batch 10 fixes");
+{ const r = fixOf("icecream-sandy", "lactose-high", sy(60)); ok(r.ok && near(r.after.protein, 3.8, 0.05) && r.rows.find(x => x.role === "milkpowder").g < 60, "sandy ice cream: milk powder reduced until protein is 3.8%"); }
+{ const r = fixOf("icecream-fastmelt", "solids-low", im(60)); ok(r.ok && near(r.after.solids, 35, 0.2), "fast melt: sugar raised until solids are 35%"); }
+{ const r = fixOf("icecream-gummy", "solids-high", gm(350)); ok(r.ok && near(r.after.solids, 40, 0.2), "gummy ice cream: solids brought down to 40%"); }
+{ const r = fixOf("italian-meringue-crystal", "doctor-low", it(0)); const g = r.rows.find(x => x.added && x.role === "glucose");
+  ok(r.ok && g && g.g === 38 && r.rows.find(x => x.role === "sugar" && !x.added).g === 270, "Italian meringue: 30 g of sugar swapped for 38 g glucose syrup"); }
+{ const r = fixOf("cheesecake-sink", "egg-high", sc(300)); ok(r.ok && r.rows.find(x => x.role === "egg").g === 210, "cheesecake sink: egg set to 210 g"); }
+
+console.log("kb) batch 10 diagnosis");
+const seed10 = [
+  ["cheesecake-sink", sc(200), { answers: { mix: "fast", puff: "yes", cool: "slow" } }, "air"],
+  ["cheesecake-sink", sc(200), { answers: { mix: "slow", puff: "no", cool: "fast" } }, "fast-cool"],
+  ["cake-dark-crust", ck({}), { answers: { oven: "hot", pan: "light" } }, "oven-hot"],
+  ["cake-dark-crust", ck({}), { answers: { oven: "mod", pan: "dark" } }, "pan"],
+  ["icecream-sandy", sy(0), { answers: { powder: "no", store: "swing" } }, "heat-shock"],
+  ["icecream-sandy", sy(60), { answers: { powder: "yes", store: "stable" } }, "lactose-high"],
+  ["icecream-fastmelt", im(250), { answers: { stab: "none", display: "ok" } }, "no-stabiliser"],
+  ["icecream-fastmelt", im(250), { answers: { stab: "yes", display: "warm" } }, "warm-display"],
+  ["icecream-gummy", im(150), { answers: { stab: "high", glucose: "no" } }, "stab-high"],
+  ["icecream-gummy", im(150), { answers: { stab: "ok", glucose: "yes" } }, "glucose-high"],
+  ["italian-meringue-crystal", it(40), { answers: { stir: "yes", walls: "crystals" } }, "seeding"]
+];
+seed10.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS10 = NS9 + seed10.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS10}, top-3 ${t3}/${NS10}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
