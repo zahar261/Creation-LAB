@@ -393,5 +393,48 @@ const seed8 = [
 seed8.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS8 = NS7 + seed8.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS8}, top-3 ${t3}/${NS8}`);
+console.log("kb) rules for macarons, brownies, frostings, panna cotta and cheesecake (batch 9)");
+const mc = x => R({ sugar: x, white: 100 });
+trio("macaron: sugar to white", "macaron-fail", "sugar-low", mc(150), mc(280), mc(230));
+const bw = (fl, bp) => R({ butter: 250, dark: 200, sugar: 400, egg: 200, flour: fl, bp: bp || 0 });
+trio("brownie: fat to flour", "brownie-cakey", "flour-high", bw(250), bw(120), bw(180));
+trio("brownie: baking powder", "brownie-cakey", "bp-high", bw(120, 3), bw(120, 0), bw(120, 1.7));
+const fr = c => R({ cheese: c, butter: 125, sugar: 500 });
+trio("frosting: water", "cream-cheese-frosting-runny", "water-high", fr(450), fr(250), fr(350));
+const pn = g => R({ cream: 500, milk: 400, sugar: 100, gelatin: g });
+trio("panna cotta: gelatine", "panna-cotta-rubbery", "gel-high", pn(15), pn(8), pn(11.5));
+const sc = e => R({ cheese: 600, sugar: 180, egg: e });
+trio("cheesecake grainy: egg", "cheesecake-grainy", "egg-high", sc(300), sc(200), sc(250));
+trio("wet bottom: liquid", "cake-wet-bottom", "liquid-high", ck({ milk: 300 }), ck({}), ck({ milk: 170 }));
+trio("wet bottom: sugar", "cake-wet-bottom", "sugar-high", ck({ sugar: 350 }), ck({}), ck({ sugar: 300 }));
+
+console.log("kb) batch 9 fixes");
+{ const r = fixOf("macaron-fail", "sugar-low", mc(150)); ok(r.ok && r.rows.find(x => x.role === "sugar").g === 260, "macaron: sugar raised to 2.6 x 100 g white = 260 g"); }
+{ const r = fixOf("brownie-cakey", "flour-high", bw(250)); ok(r.ok && near(r.after.fatFlour, 2.0, 0.02) && r.rows.find(x => x.role === "flour").g < 250, "brownie: flour reduced until fat is twice the flour"); }
+{ const r = fixOf("brownie-cakey", "bp-high", bw(120, 3)); ok(r.ok && near(r.rows.find(x => x.role === "bp").g, 1.2, 0.1), "brownie: baking powder cut to 1% of flour"); }
+{ const r = fixOf("cream-cheese-frosting-runny", "water-high", fr(450)); ok(r.ok && near(r.after.water, 19, 0.2) && r.rows.find(x => x.role === "cheese").g < 450, "frosting: cheese reduced until water is 19%"); }
+{ const r = fixOf("panna-cotta-rubbery", "gel-high", pn(15)); ok(r.ok && near(r.after.gelPct, 0.9, 0.05), "panna cotta: gelatine lowered to 0.9%"); }
+{ const r = fixOf("cheesecake-grainy", "egg-high", sc(300)); ok(r.ok && r.rows.find(x => x.role === "egg").g === 210, "cheesecake: egg set to 0.35 x 600 g cheese = 210 g"); }
+{ const r = fixOf("cake-wet-bottom", "liquid-high", ck({ milk: 300 })); ok(r.ok && near(r.after.waterFlour, 1.2, 0.01), "wet bottom: milk reduced to liquid 1.2 of flour"); }
+
+console.log("kb) batch 9 diagnosis");
+const seed9 = [
+  ["macaron-fail", mc(280), { answers: { look: "flat", mix: "runny", dry: "yes" } }, "overmixed"],
+  ["macaron-fail", mc(280), { answers: { look: "crack", mix: "ok", dry: "no" } }, "no-skin"],
+  ["macaron-fail", mc(280), { answers: { look: "hollow", mix: "ok", dry: "yes" } }, "oven-heat"],
+  ["brownie-cakey", bw(120), { answers: { beat: "foam", bake: "moist" } }, "foamed"],
+  ["brownie-cakey", bw(120), { answers: { beat: "stir", bake: "clean" } }, "overbaked"],
+  ["cream-cheese-frosting-runny", fr(250), { answers: { cheese: "tub", beat: "short" } }, "tub-cheese"],
+  ["cream-cheese-frosting-runny", fr(250), { answers: { cheese: "block", beat: "long" } }, "overbeaten"],
+  ["panna-cotta-rubbery", pn(8), { answers: { type: "yes", age: "same" } }, "gel-type"],
+  ["panna-cotta-rubbery", pn(8), { answers: { type: "no", age: "late" } }, "aged-cold"],
+  ["cheesecake-grainy", sc(200), { answers: { grain: "lumps", cheese: "cold", bake: "gentle" } }, "cold-cheese"],
+  ["cheesecake-grainy", sc(200), { answers: { grain: "curd", cheese: "room", bake: "hot" } }, "overbaked"],
+  ["cake-wet-bottom", ck({}), { answers: { test: "time", cool: "rack" } }, "underbaked"],
+  ["cake-wet-bottom", ck({}), { answers: { test: "probe", cool: "pan" } }, "steamed"]
+];
+seed9.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS9 = NS8 + seed9.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS9}, top-3 ${t3}/${NS9}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
