@@ -18173,6 +18173,1607 @@
     "ar": "جاوب سؤال التحريك والجوانب.",
     "en": "Answer the stirring and sides questions."
    }
+  },
+  {
+   "id": "bonbon-ferment",
+   "category": "chocolate",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "high",
+   "rescuable": false,
+   "symptom": {
+    "ar": "قشرة البونبون تتشقق أو الحشوة تتسرب أو تتخمر",
+    "en": "Bonbon shells crack, or the filling leaks or ferments",
+    "syn": {
+     "ar": [
+      "البونبون تشقق",
+      "حشوة البونبون تخمرت",
+      "البونبون يسرب",
+      "ريحة حموضة في البونبون",
+      "فقاعات في حشوة البونبون"
+     ],
+     "en": [
+      "bonbon shell cracked",
+      "bonbon filling fermented",
+      "bonbons leaking",
+      "sour bonbons"
+     ]
+    }
+   },
+   "see": {
+    "ar": "شقوق في القشرة، أو حشوة طالعة، أو فقاعات وريحة حامضة أو كحولية بعد أيام.",
+    "en": "Cracks in the shell, filling seeping out, or bubbles and a sour or alcoholic smell after some days."
+   },
+   "questions": [
+    {
+     "id": "sign",
+     "ar": "وش تلاحظ؟",
+     "en": "What do you notice?",
+     "options": [
+      {
+       "id": "sour",
+       "ar": "ريحة حامضة أو كحولية، أو فقاعات",
+       "en": "A sour or alcoholic smell, or bubbles"
+      },
+      {
+       "id": "crack",
+       "ar": "شقوق أو تسريب بدون ريحة",
+       "en": "Cracks or leaks with no smell"
+      }
+     ]
+    },
+    {
+     "id": "shell",
+     "ar": "سماكة القشرة؟",
+     "en": "Shell thickness?",
+     "options": [
+      {
+       "id": "thin",
+       "ar": "رقيقة أو تتكسر بسهولة",
+       "en": "Thin, or breaks easily"
+      },
+      {
+       "id": "ok",
+       "ar": "متوسطة ومتساوية",
+       "en": "Medium and even"
+      }
+     ]
+    },
+    {
+     "id": "fill",
+     "ar": "حرارة الحشوة وقت التعبئة؟",
+     "en": "Filling temperature when piping?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "أكثر من 30°م أو ما قستها",
+       "en": "Above 30 °C, or not measured"
+      },
+      {
+       "id": "ok",
+       "ar": "حوالي 27 إلى 29°م",
+       "en": "About 27–29 °C"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "water-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S4"
+     ],
+     "title": {
+      "ar": "ماء حر كثير في الحشوة",
+      "en": "Too much free water in the filling"
+     },
+     "why": {
+      "ar": "الماء الكثير في الحشوة يسمح للخمائر والعفن تنمو، والغاز الناتج يكسر القشرة ويطلع الحشوة.",
+      "en": "Too much water in the filling lets yeasts and moulds grow; the gas they make cracks the shell and pushes out the filling."
+     },
+     "rule": {
+      "feat": "water",
+      "when": "above",
+      "range": {
+       "default": [
+        14,
+        22
+       ],
+       "gb": [
+        14,
+        22
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S4"
+      ],
+      "note": {
+       "ar": "نطاق ماء غاناش البونبون من محرك التوازن؛ تقدير عمل. الأدق قياس النشاط المائي (aw).",
+       "en": "Bonbon ganache water range from the balance engine; a working estimate. Measuring water activity (aw) is more accurate."
+      }
+     },
+     "answers": {
+      "sign": {
+       "sour": 2,
+       "crack": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S4"
+       ],
+       "ar": "قلّل الكريمة حتى ينزل الماء إلى حوالي 20%، أو بدّل جزء من السكر بسكر محوّل لتخفيض النشاط المائي.",
+       "en": "Reduce the cream until water is about 20%, or replace part of the sugar with invert sugar to lower water activity.",
+       "op": {
+        "op": "reach",
+        "role": "cream",
+        "feat": "water",
+        "target": 20
+       },
+       "tradeoff": {
+        "ar": "حشوة أقسى.",
+        "en": "A firmer filling."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس النشاط المائي للحشوة إذا متاح، أو قارن الصلاحية بين الوصفتين.",
+      "en": "Measure the filling's water activity if possible, or compare shelf life between the two recipes."
+     }
+    },
+    {
+     "id": "hygiene",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S6"
+     ],
+     "title": {
+      "ar": "تلوث أثناء التحضير",
+      "en": "Contamination during making"
+     },
+     "why": {
+      "ar": "كريمة ما غلت، أو أدوات وأكياس مو نظيفة، أو فاكهة طازجة، تدخل خمائر تتكاثر داخل الحشوة.",
+      "en": "Cream not boiled, unclean tools or bags, or fresh fruit introduce yeasts that multiply in the filling."
+     },
+     "answers": {
+      "sign": {
+       "sour": 3,
+       "crack": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S6"
+       ],
+       "ar": "اغلِ الكريمة أو البيوريه، استعمل أكياس وأدوات نظيفة ومعقمة، وغطّ الحشوة وهي تبرد.",
+       "en": "Boil the cream or purée, use clean, sanitised bags and tools, and cover the filling while it cools.",
+       "tradeoff": {
+        "ar": "انضباط إضافي.",
+        "en": "Extra discipline."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "سجّل تاريخ الإنتاج وتابع أول يوم يظهر فيه التخمر.",
+      "en": "Record the production date and note the first day fermentation appears."
+     }
+    },
+    {
+     "id": "thin-shell",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "القشرة رقيقة أو غير مقسّاة",
+      "en": "Shell thin or untempered"
+     },
+     "why": {
+      "ar": "القشرة الرقيقة أو غير المقسّاة ما تتحمل تمدد الحشوة أو الصدمات.",
+      "en": "A thin or untempered shell cannot withstand filling movement or knocks."
+     },
+     "answers": {
+      "shell": {
+       "thin": 3,
+       "ok": -2
+      },
+      "sign": {
+       "crack": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "اعمل القشرة بشوكولاتة مقسّاة صح، وصب طبقتين إذا لزم، وافحص السماكة عند الأطراف.",
+       "en": "Make the shell with properly tempered chocolate, cast two coats if needed, and check thickness at the edges.",
+       "tradeoff": {
+        "ar": "شوكولاتة أكثر لكل حبة.",
+        "en": "More chocolate per piece."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اكسر حبة وشوف السماكة.",
+      "en": "Break one and look at the thickness."
+     }
+    },
+    {
+     "id": "hot-filling",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "الحشوة حارة وقت التعبئة",
+      "en": "Filling too warm when piped"
+     },
+     "why": {
+      "ar": "الحشوة فوق حوالي 30°م تذوّب القشرة من الداخل فتضعف وتسرب.",
+      "en": "Filling above about 30 °C melts the shell from inside, weakening it so it leaks."
+     },
+     "answers": {
+      "fill": {
+       "hot": 3,
+       "ok": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "عبّي الحشوة على حوالي 27 إلى 29°م، وخلّ مسافة 1 إلى 2 ملم تحت الحافة للغطاء.",
+       "en": "Pipe the filling at about 27–29 °C, leaving 1–2 mm under the rim for the cap.",
+       "tradeoff": {
+        "ar": "انتظار لين تبرد.",
+        "en": "Waiting for it to cool."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة الحشوة بميزان.",
+      "en": "Measure the filling with a thermometer."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "أي حبة فيها ريحة أو فقاعات لازم تنرمى ولا تنباع. افحص باقي الدفعة."
+    ],
+    "en": [
+     "Any piece with a smell or bubbles must be discarded, never sold. Check the rest of the batch."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ماء الحشوة ضمن النطاق.",
+     "نظافة وغلي.",
+     "قشرة مقسّاة متساوية.",
+     "تعبئة على 27 إلى 29°م."
+    ],
+    "en": [
+     "Filling water in range.",
+     "Hygiene and boiling.",
+     "An even, tempered shell.",
+     "Pipe at 27–29 °C."
+    ]
+   },
+   "notFormula": {
+    "ar": "إذا ما في ريحة، فالسبب غالباً القشرة أو حرارة التعبئة.",
+    "en": "If there is no smell, the cause is most likely the shell or filling temperature."
+   },
+   "unsure": {
+    "ar": "اختر وش تلاحظ.",
+    "en": "Choose what you notice."
+   }
+  },
+  {
+   "id": "caramel-hard",
+   "category": "caramel",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "الكراميل أقسى من المطلوب",
+    "en": "Caramel is harder than wanted",
+    "syn": {
+     "ar": [
+      "الكراميل قاسي",
+      "الكراميل الطري صار قاسي",
+      "صوص الكراميل جمد",
+      "الكراميل يلزق بالأسنان وقاسي"
+     ],
+     "en": [
+      "caramel too hard",
+      "soft caramels hard",
+      "caramel sauce set hard"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الكراميل الطري صار قاسي، أو الصوص يجمد بعد ما يبرد.",
+    "en": "Soft caramels turned hard, or the sauce sets once cool."
+   },
+   "questions": [
+    {
+     "id": "temp",
+     "ar": "كيف عرفت إنه استوى؟",
+     "en": "How did you judge doneness?",
+     "options": [
+      {
+       "id": "eye",
+       "ar": "باللون أو الوقت",
+       "en": "By colour or time"
+      },
+      {
+       "id": "probe",
+       "ar": "بميزان حرارة مضبوط",
+       "en": "With a calibrated thermometer"
+      }
+     ]
+    },
+    {
+     "id": "serve",
+     "ar": "حرارة الاستعمال؟",
+     "en": "Temperature when used?",
+     "options": [
+      {
+       "id": "cold",
+       "ar": "من الثلاجة",
+       "en": "From the fridge"
+      },
+      {
+       "id": "room",
+       "ar": "حرارة الغرفة أو دافئ",
+       "en": "Room temperature or warm"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overcooked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "طبخ على حرارة أعلى",
+      "en": "Cooked too hot"
+     },
+     "why": {
+      "ar": "كل ما زادت الحرارة النهائية، تبخر ماء أكثر وصار الكراميل أقسى. فرق درجتين ثلاث يغيّر القوام بوضوح.",
+      "en": "The higher the final temperature, the more water evaporates and the harder the caramel. Two or three degrees change the texture clearly."
+     },
+     "answers": {
+      "temp": {
+       "eye": 3,
+       "probe": -1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "اطبخ لحرارة محددة بميزان مضبوط، وسجّلها في الوصفة، وخفّضها 2°م إذا تبيه أطرى.",
+       "en": "Cook to a set temperature with a calibrated thermometer, record it in the recipe, and lower it 2 °C for a softer result.",
+       "tradeoff": {
+        "ar": "يحتاج ميزان موثوق.",
+        "en": "Needs a reliable thermometer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار الماء البارد: نقطة في ماء بارد وشوف قوامها.",
+      "en": "Cold-water test: drop some into cold water and feel it."
+     }
+    },
+    {
+     "id": "fat-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "الكريمة والزبدة قليلة",
+      "en": "Too little cream and butter"
+     },
+     "why": {
+      "ar": "الدهن يقطع شبكة السكر ويعطي طراوة. القليل يعطي كراميل أقسى وأقرب للحلوى الصلبة.",
+      "en": "Fat interrupts the sugar network and gives tenderness. Too little makes a harder caramel, closer to hard candy."
+     },
+     "rule": {
+      "feat": "fat",
+      "when": "below",
+      "range": {
+       "default": [
+        12,
+        25
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "الدهون في خليط كراميل طري أو صوص قبل الطبخ؛ تقدير عمل.",
+       "en": "Fat in a soft caramel or sauce mix before cooking; a working estimate."
+      }
+     },
+     "answers": {
+      "temp": {
+       "probe": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S8"
+       ],
+       "ar": "زد الكريمة حتى تصير الدهون حوالي 15%.",
+       "en": "Increase the cream until fat is about 15%.",
+       "op": {
+        "op": "reach",
+        "role": "cream",
+        "feat": "fat",
+        "target": 15
+       },
+       "tradeoff": {
+        "ar": "طبخ أطول لتبخير الماء الزايد.",
+        "en": "Longer cooking to evaporate the extra water."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام بنفس الحرارة النهائية.",
+      "en": "Compare texture at the same final temperature."
+     }
+    },
+    {
+     "id": "used-cold",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "استعمل وهو بارد",
+      "en": "Used cold"
+     },
+     "why": {
+      "ar": "الكراميل يقسى كثير في البرد بسبب الدهن والسكر.",
+      "en": "Caramel firms a lot in the cold because of its fat and sugar."
+     },
+     "answers": {
+      "serve": {
+       "cold": 3,
+       "room": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S8"
+       ],
+       "ar": "دفّ الصوص بهدوء قبل الاستعمال، وقدّم الكراميل الطري على حرارة الغرفة.",
+       "en": "Warm the sauce gently before use, and serve soft caramels at room temperature.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن القوام بارد ودافئ.",
+      "en": "Compare texture cold and warm."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "رجّعه للنار مع قليل كريمة أو ماء، ذوّبه، واطبخه لحرارة أقل بدرجتين."
+    ],
+    "en": [
+     "Return it to the heat with a little cream or water, melt it, and cook to two degrees lower."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "ميزان حرارة.",
+     "دهون كافية.",
+     "سجّل الحرارة النهائية."
+    ],
+    "en": [
+     "A thermometer.",
+     "Enough fat.",
+     "Record the final temperature."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب قساوة الكراميل من الحرارة النهائية.",
+    "en": "Most hard caramel comes from the final temperature."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الحرارة.",
+    "en": "Answer the temperature question."
+   }
+  },
+  {
+   "id": "praline-oily",
+   "category": "chocolate",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "البرالين زيتي والزيت ينفصل على السطح",
+    "en": "Praline is oily, with oil separating on top",
+    "syn": {
+     "ar": [
+      "البرالين زيتي",
+      "زيت فوق البرالين",
+      "البرالين انفصل",
+      "معجون البندق زيتي"
+     ],
+     "en": [
+      "oily praline",
+      "praline oil separating",
+      "praline paste split"
+     ]
+    }
+   },
+   "see": {
+    "ar": "طبقة زيت فوق البرالين أو الحشوة، والقوام ناعم جداً وسايل.",
+    "en": "A layer of oil on the praline or filling, with a very runny texture."
+   },
+   "questions": [
+    {
+     "id": "grind",
+     "ar": "كم طحنت؟",
+     "en": "How long did you grind?",
+     "options": [
+      {
+       "id": "long",
+       "ar": "طويل لين صار سايل وحار",
+       "en": "Long, until runny and hot"
+      },
+      {
+       "id": "short",
+       "ar": "لين نعم بس",
+       "en": "Only until smooth"
+      }
+     ]
+    },
+    {
+     "id": "store",
+     "ar": "حرارة التخزين؟",
+     "en": "Storage temperature?",
+     "options": [
+      {
+       "id": "warm",
+       "ar": "أكثر من 25°م",
+       "en": "Above 25 °C"
+      },
+      {
+       "id": "cool",
+       "ar": "16 إلى 20°م",
+       "en": "16–20 °C"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "overground",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "طحن زايد وحرارة",
+      "en": "Over-grinding and heat"
+     },
+     "why": {
+      "ar": "الطحن الطويل يكسر خلايا المكسرات ويطلع زيتها ويسخّن المعجون، فينفصل الزيت.",
+      "en": "Long grinding breaks the nut cells, releases their oil and heats the paste, so the oil separates."
+     },
+     "answers": {
+      "grind": {
+       "long": 3,
+       "short": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "اطحن على دفعات قصيرة وخلّه يبرد بينها، ووقف أول ما ينعم.",
+       "en": "Grind in short bursts with cooling breaks, and stop as soon as it is smooth.",
+       "tradeoff": {
+        "ar": "أبطأ.",
+        "en": "Slower."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة المعجون بعد الطحن.",
+      "en": "Measure the paste temperature after grinding."
+     }
+    },
+    {
+     "id": "warm-storage",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "تخزين دافئ",
+      "en": "Warm storage"
+     },
+     "why": {
+      "ar": "في الحرارة يذوب الدهن ويطلع للسطح، خاصة في الصيف عندنا.",
+      "en": "In heat the fat melts and rises to the surface, especially in a Gulf summer."
+     },
+     "answers": {
+      "store": {
+       "warm": 3,
+       "cool": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "خزّن على 16 إلى 20°م، وقلّب البرالين قبل الاستعمال.",
+       "en": "Store at 16–20 °C, and stir the praline before use.",
+       "tradeoff": {
+        "ar": "يحتاج مكان مكيّف.",
+        "en": "Needs an air-conditioned space."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن عينتين في مكانين.",
+      "en": "Compare two samples in two places."
+     }
+    },
+    {
+     "id": "fat-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S5"
+     ],
+     "title": {
+      "ar": "نسبة المكسرات عالية",
+      "en": "High nut share"
+     },
+     "why": {
+      "ar": "المكسرات فيها دهن كثير (البندق حوالي 60%). كل ما زادت نسبتها مقابل الكراميل، زاد الزيت الحر.",
+      "en": "Nuts are very fatty (hazelnuts about 60%). The higher their share against the caramel, the more free oil."
+     },
+     "rule": {
+      "feat": "fat",
+      "when": "above",
+      "range": {
+       "default": [
+        25,
+        35
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S5"
+      ],
+      "note": {
+       "ar": "الدهون الكلية في برالين كلاسيكي (مكسرات وكراميل بالتساوي) حوالي 30%؛ تقدير عمل.",
+       "en": "Total fat in a classic praline (equal nuts and caramel) is about 30%; a working estimate."
+      }
+     },
+     "answers": {
+      "grind": {
+       "short": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S5"
+       ],
+       "ar": "ثبّت البرالين بإضافة 5 إلى 10% شوكولاتة أو زبدة كاكاو مذوّبة ومقسّاة، أو زد نسبة الكراميل.",
+       "en": "Stabilise the praline with 5–10% melted, tempered chocolate or cocoa butter, or raise the caramel share.",
+       "tradeoff": {
+        "ar": "يتغير الطعم والقوام.",
+        "en": "Taste and texture change."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن انفصال الزيت بعد يومين.",
+      "en": "Compare oil separation after two days."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "قلّب الزيت مرة ثانية في البرالين، وأضف قليل زبدة كاكاو مقسّاة لتثبيته."
+    ],
+    "en": [
+     "Stir the oil back in, and add a little tempered cocoa butter to hold it."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "طحن قصير.",
+     "تخزين بارد.",
+     "تثبيت بزبدة كاكاو."
+    ],
+    "en": [
+     "Short grinding.",
+     "Cool storage.",
+     "Stabilise with cocoa butter."
+    ]
+   },
+   "notFormula": {
+    "ar": "بعض الزيت طبيعي في البرالين؛ المشكلة إذا يتجمع بسرعة.",
+    "en": "Some oil is normal in praline; the problem is when it pools quickly."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الطحن والتخزين.",
+    "en": "Answer the grinding and storage questions."
+   }
+  },
+  {
+   "id": "cheesecake-weep",
+   "category": "cake",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "التشيز كيك يعرق أو يطلع ماء على السطح",
+    "en": "Cheesecake weeps, with water on the surface",
+    "syn": {
+     "ar": [
+      "التشيز كيك يعرق",
+      "ماء فوق التشيز كيك",
+      "التشيز كيك يطلع ماء",
+      "نقاط ماء على التشيز كيك"
+     ],
+     "en": [
+      "cheesecake weeping",
+      "water on cheesecake",
+      "cheesecake sweating"
+     ]
+    }
+   },
+   "see": {
+    "ar": "نقاط أو طبقة ماء على السطح أو في القاع بعد التبريد.",
+    "en": "Drops or a film of water on the top or at the base after chilling."
+   },
+   "questions": [
+    {
+     "id": "cover",
+     "ar": "متى غطيته؟",
+     "en": "When did you cover it?",
+     "options": [
+      {
+       "id": "warm",
+       "ar": "وهو دافئ",
+       "en": "While still warm"
+      },
+      {
+       "id": "cold",
+       "ar": "بعد ما برد كامل",
+       "en": "After it cooled completely"
+      }
+     ]
+    },
+    {
+     "id": "bake",
+     "ar": "طريقة الخبز؟",
+     "en": "How was it baked?",
+     "options": [
+      {
+       "id": "hot",
+       "ar": "حرارة عالية أو لين ثبت الوسط كامل",
+       "en": "High heat, or until the centre was fully firm"
+      },
+      {
+       "id": "gentle",
+       "ar": "حرارة هادئة والوسط يهتز قليلاً",
+       "en": "Gentle heat, centre still slightly wobbly"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "condensation",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "تكثّف تحت الغطاء",
+      "en": "Condensation under the cover"
+     },
+     "why": {
+      "ar": "إذا تغطى وهو دافئ، البخار يتكثف على الغطاء وينزل على السطح.",
+      "en": "Covered while warm, steam condenses on the cover and drips onto the surface."
+     },
+     "answers": {
+      "cover": {
+       "warm": 3,
+       "cold": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "consensus",
+       "src": [
+        "S1"
+       ],
+       "ar": "خلّه يبرد كامل مكشوف، ثم غطّه وحطّه في الثلاجة.",
+       "en": "Let it cool completely uncovered, then cover and chill.",
+       "tradeoff": {
+        "ar": "انتبه للروائح في الثلاجة.",
+        "en": "Watch for fridge odours."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن كيكتين بالطريقتين.",
+      "en": "Compare two cakes each way."
+     }
+    },
+    {
+     "id": "overbaked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S1",
+      "S2"
+     ],
+     "title": {
+      "ar": "خبز زايد",
+      "en": "Overbaked"
+     },
+     "why": {
+      "ar": "بروتين البيض إذا انطبخ زيادة ينكمش ويعصر الماء للخارج.",
+      "en": "Overcooked egg proteins tighten and squeeze water out."
+     },
+     "answers": {
+      "bake": {
+       "hot": 3,
+       "gentle": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S1"
+       ],
+       "ar": "اخبز على حرارة هادئة أو حمام مائي، وطلّعه والوسط يهتز.",
+       "en": "Bake gently or in a water bath, and take it out while the centre wobbles.",
+       "tradeoff": {
+        "ar": "وقت أطول.",
+        "en": "Takes longer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس حرارة الوسط: حوالي 65 إلى 70°م.",
+      "en": "Probe the centre: about 65–70 °C."
+     }
+    },
+    {
+     "id": "egg-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "consensus",
+     "src": [
+      "S1"
+     ],
+     "title": {
+      "ar": "البيض كثير مقابل الجبن",
+      "en": "Too much egg for the cheese"
+     },
+     "why": {
+      "ar": "البيض الكثير يزيد الانكماش وطرد الماء عند الخبز الزايد.",
+      "en": "More egg means more shrinking and water loss when overbaked."
+     },
+     "rule": {
+      "feat": "eggCheese",
+      "when": "above",
+      "range": {
+       "default": [
+        0.2,
+        0.45
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S1"
+      ],
+      "note": {
+       "ar": "نفس نطاق البيض للجبن في تشقق التشيز كيك.",
+       "en": "Same egg-to-cheese range as cheesecake cracking."
+      }
+     },
+     "answers": {
+      "bake": {
+       "hot": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S1"
+       ],
+       "ar": "خفّض البيض إلى 0.35 من وزن الجبن.",
+       "en": "Lower the egg to 0.35 of the cheese weight.",
+       "op": {
+        "op": "ratio",
+        "role": [
+         "egg",
+         "yolk",
+         "white"
+        ],
+        "base": "cheese",
+        "target": 0.35
+       },
+       "tradeoff": {
+        "ar": "أطرى.",
+        "en": "Softer."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن بعد يوم في الثلاجة.",
+      "en": "Compare after a day chilled."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "نشّف السطح بورق مطبخ بلطف، وغطّه بطبقة صوص أو جيلي."
+    ],
+    "en": [
+     "Blot the surface gently with kitchen paper and cover it with a sauce or jelly layer."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "تبريد مكشوف ثم تغطية.",
+     "خبز هادئ.",
+     "بيض ضمن النطاق."
+    ],
+    "en": [
+     "Cool uncovered, then cover.",
+     "Gentle baking.",
+     "Egg within range."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب حالات التعرق من التغطية أو الخبز.",
+    "en": "Most weeping comes from covering or baking."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال التغطية.",
+    "en": "Answer the covering question."
+   }
+  },
+  {
+   "id": "pate-fruit-unset",
+   "category": "jam",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": true,
+   "symptom": {
+    "ar": "حلوى الفاكهة (باط دو فروي) ما تتماسك أو لزجة",
+    "en": "Pâte de fruit will not set or is sticky",
+    "syn": {
+     "ar": [
+      "باط دو فروي ما مسك",
+      "حلوى الفاكهة لزجة",
+      "جيلي الفاكهة ما تماسك",
+      "باتي دو فروي طري"
+     ],
+     "en": [
+      "pate de fruit not setting",
+      "sticky fruit jellies",
+      "fruit paste soft"
+     ]
+    }
+   },
+   "see": {
+    "ar": "القطع طرية ما تنقص بنظافة، أو لزجة وتعرق بعد التقطيع.",
+    "en": "Pieces are soft and will not cut cleanly, or sticky and weeping after cutting."
+   },
+   "questions": [
+    {
+     "id": "cook",
+     "ar": "كيف عرفت إنها استوت؟",
+     "en": "How did you judge doneness?",
+     "options": [
+      {
+       "id": "time",
+       "ar": "بالوقت أو بالعين",
+       "en": "By time or by eye"
+      },
+      {
+       "id": "measure",
+       "ar": "بميزان حرارة أو ريفراكتوميتر",
+       "en": "With a thermometer or refractometer"
+      }
+     ]
+    },
+    {
+     "id": "pectin",
+     "ar": "كيف أضفت البكتين؟",
+     "en": "How did you add the pectin?",
+     "options": [
+      {
+       "id": "lumps",
+       "ar": "مباشرة، أو صار كتل",
+       "en": "Straight in, or it formed lumps"
+      },
+      {
+       "id": "mixed",
+       "ar": "مخلوط مع جزء من السكر قبل الإضافة",
+       "en": "Mixed with part of the sugar first"
+      }
+     ]
+    },
+    {
+     "id": "acid",
+     "ar": "أضفت الحمض (حمض الستريك) في النهاية؟",
+     "en": "Did you add the acid (citric) at the end?",
+     "options": [
+      {
+       "id": "no",
+       "ar": "لا أو نسيت",
+       "en": "No, or forgot"
+      },
+      {
+       "id": "yes",
+       "ar": "نعم",
+       "en": "Yes"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "undercooked",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "ما انطبخت كفاية",
+      "en": "Not cooked enough"
+     },
+     "why": {
+      "ar": "التماسك يحتاج تركيز سكر عالي (حوالي 75 بريكس). الطبخ الناقص يخلي ماء كثير فما تمسك.",
+      "en": "Setting needs a high sugar concentration (about 75 °Brix). Undercooking leaves too much water to set."
+     },
+     "answers": {
+      "cook": {
+       "time": 3,
+       "measure": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "اطبخ لين توصل حوالي 75 بريكس بالريفراكتوميتر، أو الحرارة المكتوبة في وصفتك بميزان مضبوط.",
+       "en": "Cook until about 75 °Brix on a refractometer, or your recipe's temperature on a calibrated thermometer.",
+       "tradeoff": {
+        "ar": "يحتاج أداة قياس.",
+        "en": "Needs a measuring tool."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "اختبار صحن بارد: نقطة تمسك وما تنفرش.",
+      "en": "Cold-plate test: a drop holds and does not spread."
+     }
+    },
+    {
+     "id": "pectin-lumps",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "البكتين تكتل أو نوعه غلط",
+      "en": "Pectin clumped or wrong type"
+     },
+     "why": {
+      "ar": "البكتين إذا انضاف مباشرة يتكتل وما يشتغل. والبكتين الأصفر (للباط دو فروي) يختلف عن NH.",
+      "en": "Pectin added straight in clumps and does not work. Yellow pectin (for pâte de fruit) differs from NH pectin."
+     },
+     "answers": {
+      "pectin": {
+       "lumps": 3,
+       "mixed": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "اخلط البكتين مع 5 إلى 10 أضعاف وزنه سكر، وأضفه للبيوريه الدافئ مع التحريك، واستعمل البكتين الأصفر حسب وصفتك.",
+       "en": "Mix the pectin with 5–10 times its weight of sugar, add it to warm purée while whisking, and use yellow pectin as your recipe says.",
+       "tradeoff": {
+        "ar": "ما في.",
+        "en": "None."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "افحص البيوريه بعد إضافة البكتين: لازم بدون كتل.",
+      "en": "Check the purée after adding pectin: no lumps."
+     }
+    },
+    {
+     "id": "acid-missing",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "الحمض ناقص",
+      "en": "Acid missing"
+     },
+     "why": {
+      "ar": "البكتين الأصفر يحتاج حمض في النهاية عشان يتماسك.",
+      "en": "Yellow pectin needs acid at the end to set."
+     },
+     "answers": {
+      "acid": {
+       "no": 3,
+       "yes": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "أضف محلول حمض الستريك في آخر الطبخ وصبّ فوراً.",
+       "en": "Add citric acid solution at the end of cooking and pour at once.",
+       "tradeoff": {
+        "ar": "يمسك بسرعة، فجهّز القالب.",
+        "en": "It sets fast, so have the frame ready."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن دفعة بحمض ودفعة بدون.",
+      "en": "Compare a batch with and without acid."
+     }
+    },
+    {
+     "id": "sugar-low",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "السكر قليل في الوصفة",
+      "en": "Too little sugar in the recipe"
+     },
+     "why": {
+      "ar": "إذا السكر قليل من البداية، تحتاج طبخ طويل جداً لتوصل التركيز، والطعم يتأثر.",
+      "en": "With little sugar from the start, very long cooking is needed to reach the concentration, and flavour suffers."
+     },
+     "rule": {
+      "feat": "sugar",
+      "when": "below",
+      "range": {
+       "default": [
+        55,
+        70
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "السكريات الكلية في الخليط قبل الطبخ (مع سكر الفاكهة)؛ نفس نطاق المربى، تقدير عمل.",
+       "en": "Total sugars in the mix before cooking (including fruit sugar); same as the jam range, a working estimate."
+      }
+     },
+     "answers": {
+      "cook": {
+       "measure": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S8"
+       ],
+       "ar": "زد السكر حتى تصير السكريات 60% قبل الطبخ.",
+       "en": "Increase the sugar until sugars are 60% before cooking.",
+       "op": {
+        "op": "reach",
+        "role": "sugar",
+        "feat": "sugar",
+        "target": 60
+       },
+       "tradeoff": {
+        "ar": "أحلى.",
+        "en": "Sweeter."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس البريكس في النهاية.",
+      "en": "Measure the Brix at the end."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "رجّعها للقدر، أضف قليل ماء، واطبخها لين توصل البريكس الصحيح، ثم الحمض وصبّ."
+    ],
+    "en": [
+     "Return it to the pot with a little water, cook to the right Brix, then add acid and pour."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "قِس البريكس.",
+     "بكتين مخلوط بالسكر.",
+     "حمض في النهاية."
+    ],
+    "en": [
+     "Measure Brix.",
+     "Pectin mixed with sugar.",
+     "Acid at the end."
+    ]
+   },
+   "notFormula": {
+    "ar": "أغلب الحالات من الطبخ أو البكتين.",
+    "en": "Most cases come from cooking or pectin."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال الطبخ.",
+    "en": "Answer the cooking question."
+   }
+  },
+  {
+   "id": "sugar-sticky",
+   "category": "caramel",
+   "status": "draft",
+   "reviewedBy": null,
+   "severity": "low",
+   "rescuable": false,
+   "symptom": {
+    "ar": "ديكورات السكر تلزق وتلين مع الرطوبة",
+    "en": "Sugar decorations turn sticky and soft in humidity",
+    "syn": {
+     "ar": [
+      "ديكور السكر لزق",
+      "السكر المسحوب ذاب",
+      "الإيزومالت لزج",
+      "السكر يعرق"
+     ],
+     "en": [
+      "sugar decorations sticky",
+      "pulled sugar softening",
+      "sugar work sweating"
+     ]
+    }
+   },
+   "see": {
+    "ar": "الديكور يفقد لمعته ويصير لزج وينحني بعد وقت قصير.",
+    "en": "The decoration loses its shine, turns tacky and bends after a short time."
+   },
+   "questions": [
+    {
+     "id": "humid",
+     "ar": "المكان؟",
+     "en": "The room?",
+     "options": [
+      {
+       "id": "humid",
+       "ar": "رطب أو بدون تكييف",
+       "en": "Humid, or not air-conditioned"
+      },
+      {
+       "id": "dry",
+       "ar": "مكيّف وجاف",
+       "en": "Air-conditioned and dry"
+      }
+     ]
+    },
+    {
+     "id": "temp",
+     "ar": "لأي حرارة طبخت الشراب؟",
+     "en": "What temperature did you cook the syrup to?",
+     "options": [
+      {
+       "id": "low",
+       "ar": "ما قستها أو أقل من 150°م",
+       "en": "Not measured, or below 150 °C"
+      },
+      {
+       "id": "hard",
+       "ar": "150 إلى 160°م بميزان",
+       "en": "150–160 °C, measured"
+      }
+     ]
+    }
+   ],
+   "causes": [
+    {
+     "id": "humidity",
+     "kind": "process",
+     "prior": 1,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "رطوبة الجو",
+      "en": "Air humidity"
+     },
+     "why": {
+      "ar": "السكر المطبوخ يمتص الرطوبة من الهواء فيلين ويلزق. الرطوبة عندنا في المناطق الساحلية عالية.",
+      "en": "Cooked sugar absorbs moisture from the air, softening and turning sticky. Coastal Gulf humidity is high."
+     },
+     "answers": {
+      "humid": {
+       "humid": 3,
+       "dry": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "اشتغل في مكان مكيّف، خزّن الديكور في علبة محكمة مع مادة ماصة للرطوبة (سيليكا)، وركّبه آخر شي.",
+       "en": "Work in air-conditioning, store decorations airtight with a desiccant (silica gel), and place them last.",
+       "tradeoff": {
+        "ar": "تكلفة علب ومواد ماصة.",
+        "en": "Cost of boxes and desiccant."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن ديكور في علبة مع سيليكا وديكور مكشوف.",
+      "en": "Compare a decoration boxed with silica and one left open."
+     }
+    },
+    {
+     "id": "undercooked",
+     "kind": "process",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "الشراب ما وصل مرحلة القرمشة",
+      "en": "Syrup not cooked to hard crack"
+     },
+     "why": {
+      "ar": "إذا ما وصل الشراب حوالي 150 إلى 160°م، يبقى فيه ماء فيلين بسرعة.",
+      "en": "If the syrup does not reach about 150–160 °C, it keeps water and softens quickly."
+     },
+     "answers": {
+      "temp": {
+       "low": 3,
+       "hard": -2
+      }
+     },
+     "fixes": [
+      {
+       "type": "process",
+       "evidence": "established",
+       "src": [
+        "S8"
+       ],
+       "ar": "اطبخ لحوالي 155 إلى 160°م بميزان مضبوط، وامسح الجوانب بفرشاة مبللة.",
+       "en": "Cook to about 155–160 °C with a calibrated thermometer, brushing the sides with a wet brush.",
+       "tradeoff": {
+        "ar": "يتلون أكثر إذا زاد.",
+        "en": "Colours more if overdone."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قِس الحرارة النهائية وسجّلها.",
+      "en": "Measure and record the final temperature."
+     }
+    },
+    {
+     "id": "doctor-high",
+     "kind": "formula",
+     "prior": 0,
+     "evidence": "established",
+     "src": [
+      "S8"
+     ],
+     "title": {
+      "ar": "جلوكوز أو سكر محوّل كثير",
+      "en": "Too much glucose or invert sugar"
+     },
+     "why": {
+      "ar": "الجلوكوز والسكر المحوّل يمتصون الرطوبة أكثر من السكر العادي، فالكثير يخلي الديكور يلزق أسرع.",
+      "en": "Glucose and invert sugar absorb moisture more than sucrose, so a lot of them makes decorations sticky faster."
+     },
+     "rule": {
+      "feat": "doctorPct",
+      "when": "above",
+      "range": {
+       "default": [
+        5,
+        30
+       ]
+      },
+      "evidence": "estimate",
+      "src": [
+       "S8"
+      ],
+      "note": {
+       "ar": "حصة الجلوكوز والمحوّل من السكريات المضافة في سكر الديكور؛ تقدير عمل. الإيزومالت بديل أقل امتصاصاً للرطوبة.",
+       "en": "Glucose and invert share of added sugars in decorative sugar; a working estimate. Isomalt is a less moisture-hungry alternative."
+      }
+     },
+     "answers": {
+      "humid": {
+       "dry": 1
+      }
+     },
+     "fixes": [
+      {
+       "type": "recipe",
+       "evidence": "estimate",
+       "src": [
+        "S8"
+       ],
+       "ar": "بدّل نص الجلوكوز بسكر عادي، أو استعمل إيزومالت للديكور.",
+       "en": "Replace half the glucose with sugar, or use isomalt for decorations.",
+       "op": {
+        "op": "swap",
+        "from": "glucose",
+        "to": "sugar",
+        "frac": 0.5,
+        "factor": 0.8,
+        "name": {
+         "ar": "سكر",
+         "en": "Sugar"
+        },
+        "comp": {
+         "s": 1
+        }
+       },
+       "tradeoff": {
+        "ar": "أسهل يتبلور؛ امسح الجوانب ولا تحرّك.",
+        "en": "Crystallises more easily; brush the sides and do not stir."
+       }
+      }
+     ],
+     "verify": {
+      "ar": "قارن ديكورين في نفس المكان.",
+      "en": "Compare two decorations in the same place."
+     }
+    }
+   ],
+   "rescue": {
+    "ar": [
+     "الديكور اللي لان ما يرجع؛ اعمل جديد قبل التقديم مباشرة."
+    ],
+    "en": [
+     "A softened decoration will not recover; make a new one just before serving."
+    ]
+   },
+   "prevent": {
+    "ar": [
+     "مكان مكيّف.",
+     "طبخ لحرارة القرمشة.",
+     "إيزومالت وعلب مع سيليكا."
+    ],
+    "en": [
+     "Air-conditioning.",
+     "Cook to hard crack.",
+     "Isomalt and boxes with silica."
+    ]
+   },
+   "notFormula": {
+    "ar": "في الخليج، الرطوبة هي السبب الأول غالباً.",
+    "en": "In the Gulf, humidity is usually the first cause."
+   },
+   "unsure": {
+    "ar": "جاوب سؤال المكان.",
+    "en": "Answer the room question."
+   }
   }
  ]
 }
