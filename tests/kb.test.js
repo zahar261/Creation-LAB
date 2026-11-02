@@ -20,7 +20,7 @@ const C = {
   white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 },
   cheese: { w: .55, f: .34, s: .03, p: .06 }, cocoabutter: { w: 0, f: 1, s: 0, p: 0 },
   salt: { w: 0, f: 0, s: 0, p: 0 }, yeast: { w: .05, f: 0, s: 0, p: .4 }, yeastfresh: { w: .7, f: 0, s: 0, p: .12 }, binder: { w: .1, f: 0, s: 0, p: 0 }, fruit: { w: .86, f: 0, s: .07, p: .01 },
-  milkpowder: { w: .035, f: .01, s: .52, p: .36 }
+  milkpowder: { w: .035, f: .01, s: .52, p: .36 }, nuts: { w: .05, f: .6, s: .04, p: .15 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -474,5 +474,46 @@ const seed10 = [
 seed10.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS10 = NS9 + seed10.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS10}, top-3 ${t3}/${NS10}`);
+console.log("kb) rules for bonbons, caramel, praline, cheesecake, fruit jellies and sugar work (batch 11)");
+const bb = c => R({ dark: 300, cream: c });
+trio("bonbon: filling water", "bonbon-ferment", "water-high", bb(250), bb(120), bb(170));
+const cr2 = c => R({ sugar: 500, glucose: 150, cream: c, butter: 50 });
+trio("caramel hard: fat", "caramel-hard", "fat-low", cr2(100), cr2(400), cr2(250));
+const pr = n => R({ nuts: n, sugar: 500 });
+trio("praline: fat", "praline-oily", "fat-high", pr(800), pr(300), pr(650));
+trio("cheesecake weep: egg", "cheesecake-weep", "egg-high", sc(300), sc(200), sc(250));
+const pf2 = x => R({ fruit: 1000, sugar: x, glucose: 200 });
+trio("pate de fruit: sugar", "pate-fruit-unset", "sugar-low", pf2(500), pf2(1500), pf2(1000));
+const sw = g => R({ sugar: 500, glucose: g, water: 150 });
+trio("sugar work: glucose share", "sugar-sticky", "doctor-high", sw(250), sw(0), sw(190));
+
+console.log("kb) batch 11 fixes");
+{ const r = fixOf("bonbon-ferment", "water-high", bb(250)); ok(r.ok && near(r.after.water, 20, 0.2) && r.rows.find(x => x.role === "cream").g < 250, "bonbon: cream reduced until water is 20%"); }
+{ const r = fixOf("caramel-hard", "fat-low", cr2(100)); ok(r.ok && near(r.after.fat, 15, 0.2), "caramel: cream raised until fat is 15%"); }
+{ const r = fixOf("pate-fruit-unset", "sugar-low", pf2(500)); ok(r.ok && near(r.after.sugar, 60, 0.2), "pate de fruit: sugar raised until sugars are 60%"); }
+{ const r = fixOf("sugar-sticky", "doctor-high", sw(250)); const a = r.rows.find(x => x.added && x.role === "sugar");
+  ok(r.ok && a && a.g === 100 && r.rows.find(x => x.role === "glucose").g === 125, "sugar work: half the glucose (125 g) swapped for 100 g sugar"); }
+{ const r = fixOf("cheesecake-weep", "egg-high", sc(300)); ok(r.ok && r.rows.find(x => x.role === "egg").g === 210, "cheesecake weep: egg set to 210 g"); }
+
+console.log("kb) batch 11 diagnosis");
+const seed11 = [
+  ["bonbon-ferment", bb(120), { answers: { sign: "sour", shell: "ok", fill: "ok" } }, "hygiene"],
+  ["bonbon-ferment", bb(120), { answers: { sign: "crack", shell: "thin", fill: "ok" } }, "thin-shell"],
+  ["bonbon-ferment", bb(120), { answers: { sign: "crack", shell: "ok", fill: "hot" } }, "hot-filling"],
+  ["caramel-hard", cr2(400), { answers: { temp: "eye", serve: "room" } }, "overcooked"],
+  ["caramel-hard", cr2(400), { answers: { temp: "probe", serve: "cold" } }, "used-cold"],
+  ["praline-oily", pr(500), { answers: { grind: "long", store: "cool" } }, "overground"],
+  ["praline-oily", pr(500), { answers: { grind: "short", store: "warm" } }, "warm-storage"],
+  ["cheesecake-weep", sc(200), { answers: { cover: "warm", bake: "gentle" } }, "condensation"],
+  ["cheesecake-weep", sc(200), { answers: { cover: "cold", bake: "hot" } }, "overbaked"],
+  ["pate-fruit-unset", pf2(1500), { answers: { cook: "time", pectin: "mixed", acid: "yes" } }, "undercooked"],
+  ["pate-fruit-unset", pf2(1500), { answers: { cook: "measure", pectin: "lumps", acid: "yes" } }, "pectin-lumps"],
+  ["pate-fruit-unset", pf2(1500), { answers: { cook: "measure", pectin: "mixed", acid: "no" } }, "acid-missing"],
+  ["sugar-sticky", sw(60), { answers: { humid: "humid", temp: "hard" } }, "humidity"],
+  ["sugar-sticky", sw(60), { answers: { humid: "dry", temp: "low" } }, "undercooked"]
+];
+seed11.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS11 = NS10 + seed11.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS11}, top-3 ${t3}/${NS11}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
