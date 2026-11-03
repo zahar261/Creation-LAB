@@ -834,6 +834,39 @@ html[data-page=home] header.top .wm b i{color:#8CC4C0}
 .seg button[aria-selected=true]{background:var(--s1);color:var(--ink);font-weight:600;box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(4,13,16,.3)}
 :root[data-theme=light] .seg button[aria-selected=true]{background:#fff}
 @media(min-width:980px){.ws[data-tab=ing] .seg [data-wstab$="#bal"]{background:var(--s1);color:var(--ink);font-weight:600;box-shadow:0 0 0 1px var(--line),0 1px 2px rgba(4,13,16,.3)}:root[data-theme=light] .ws[data-tab=ing] .seg [data-wstab$="#bal"]{background:#fff}}
+
+/* projects overview (direction A) */
+.dv-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:0 0 20px;flex-wrap:wrap}
+.dv-top small{color:var(--muted);font-size:13px}.dv-top h1{font-size:clamp(26px,3.4vw,32px);margin:2px 0 0}
+.dv-acts{display:flex;gap:8px}
+.dv-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 14px}
+.dv-kpi>div{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.dv-kpi small{color:var(--muted);font-size:13px}.dv-kpi b{display:block;font-size:28px;font-weight:700;margin:4px 0 2px;font-variant-numeric:tabular-nums;text-align:start}
+.dv-kpi span{font-size:12.5px;color:var(--acc);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.dv-kpi span.w{color:#D2A24C}
+:root[data-theme=light] .dv-kpi span.w{color:#9A6B12}
+.dv-g{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:12px;margin:0 0 16px}
+.dv-c{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+.dv-c h3{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 10px;font-size:15px}.dv-c h3 .small,.dv-c h3 a{color:var(--muted);font-weight:400}
+.dv-tw{overflow-x:auto}
+.dv-t{width:100%;border-collapse:collapse;font-size:14px}
+.dv-t th{text-align:start;color:var(--muted);font-weight:400;font-size:12.5px;padding:0 6px 8px}
+.dv-t td{padding:10px 6px;border-top:1px solid var(--line);vertical-align:middle}
+.dv-t td button{display:grid;gap:1px;background:none;border:0;padding:0;font:inherit;color:var(--ink);text-align:start;cursor:pointer}
+.dv-t td button:hover b{color:var(--acc)}.dv-t td small{color:var(--muted);font-size:12px}
+.dv-bar{display:block;width:96px;height:6px;border-radius:9px;background:color-mix(in srgb,var(--ink) 10%,transparent);overflow:hidden}.dv-bar i{display:block;height:100%;border-radius:9px;background:#5FA8A5}
+.dv-bar.warn i{background:#D2A24C}.dv-bar.bad i{background:#D9644F}
+.dv-ch{display:inline-block;font-size:12px;border-radius:6px;padding:2px 8px;white-space:nowrap;background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--muted)}
+.dv-ch.ok{background:rgba(95,163,122,.15);color:#7CC497}.dv-ch.warn{background:rgba(210,162,76,.15);color:#E0B562}.dv-ch.bad{background:rgba(217,100,79,.15);color:#E98472}
+:root[data-theme=light] .dv-ch.ok{color:#2F7D4F}:root[data-theme=light] .dv-ch.warn{color:#8A5E0E}:root[data-theme=light] .dv-ch.bad{color:#B23A26}
+.dv-dx{display:flex;flex-direction:column;gap:10px}
+.dv-q{display:flex;gap:6px}.dv-q .field{flex:1;min-width:0;margin:0}.dv-q .btn{flex:none}
+.dv-row{display:flex;align-items:center;gap:10px;width:100%;text-align:start;font:inherit;color:var(--ink);background:var(--s2);border:1px solid transparent;border-radius:10px;padding:10px 12px;cursor:pointer}
+.dv-row:hover{border-color:var(--acc)}.dv-row span{display:grid;gap:1px;min-width:0}.dv-row small{color:var(--muted);font-size:12.5px}
+.dv-row em{margin-inline-start:auto;font-style:normal;font-size:12px;font-weight:600;white-space:nowrap}.dv-row em.warn{color:#E0B562}.dv-row em.bad{color:#E98472}
+:root[data-theme=light] .dv-row em.warn{color:#8A5E0E}:root[data-theme=light] .dv-row em.bad{color:#B23A26}
+.dv-none{margin:4px 0 0;color:var(--muted)}
+:root[data-theme=light] .dv-kpi>div,:root[data-theme=light] .dv-c{background:#fff}
+@media (max-width:800px){.dv-kpi{grid-template-columns:1fr 1fr}.dv-g{grid-template-columns:1fr}.dv-hm{display:none}.dv-kpi b{font-size:24px}}
 </style>
 </head>
 <body>
@@ -854,7 +887,7 @@ html[data-page=home] header.top .wm b i{color:#8CC4C0}
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
 <polygon transform="translate(0,0)" fill="currentColor" points="0,0 170,0 170,38 46,202 170,202 170,240 0,240 0,202 124,38 0,38"/><g transform="translate(210,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(440,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><rect y="101.0" width="170" height="38"/></g><g transform="translate(650,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(880,0)"><rect width="38" height="240" fill="currentColor"/><path d="M19,19 H100 A47,47 0 0 1 100,113 H19" fill="none" stroke="currentColor" stroke-width="38"/><polygon fill="currentColor" points="38,38 76,38 164,240 120,240"/></g><g transform="translate(1206,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(1436,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><polygon points="0,0 52,0 170,240 118,240"/></g><g transform="translate(1646,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><path transform="translate(1876,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/><path transform="translate(2094,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/>
 
-</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.11.03-d</span></div></footer>
+</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.11.03-e</span></div></footer>
 <dialog id="pal" aria-label="Search"><input id="pal-in" class="pal-in" autocomplete="off"><ul id="pal-list" class="pal-list"></ul><div style="padding:8px 16px;color:var(--muted);font-size:13px" id="palhint"></div></dialog>
 <script>
 (function(){try{if(window.top!==window.self&&/(^|\.)zaharcreationlab\.com$|\.github\.io$/i.test(location.hostname)){try{window.top.location.href=location.href}catch(e){document.documentElement.style.display="none"}}}catch(e){}})();
@@ -1336,11 +1369,10 @@ function renderLibrary(){
 let PJ=LS("zm-projects",LS("eq-projects",[])),PJSEL=null,PJHIDE=null,PJTPL="cust:new";
 const tplName=x=>pick(x.name);
 const srcTag=x=>x.src==="c"?t("d_course"):x.src==="b"?t("d_book"):t("d_est");
-function renderDev(){const pd=$("#p-dev"),ws=!!(PJSEL&&PJ.some(z=>z.id===PJSEL)&&PJHIDE!==PJSEL);pd.dataset.mode=ws?"ws":"list";
+function renderDev(){try{window.sbFill&&sbFill()}catch(_){}const pd=$("#p-dev"),ws=!!(PJSEL&&PJ.some(z=>z.id===PJSEL)&&PJHIDE!==PJSEL);pd.dataset.mode=ws?"ws":"list";
   if(ws){pd.innerHTML=`<div class="wrap wsw">${shareCard()}<div id="pjView"></div></div>`;renderPjView();foldInit();return}
-  let h=`<div class="wrap"><h1 style="font-size:clamp(30px,5vw,46px)">${esc(t("d_h"))}</h1><p class="lead">${esc(t("d_lead"))}</p>${shareCard()}`;
-  if(PJ.length)h+=`<div class="card"><h2>${esc(t("d_mine"))}</h2><ul class="list">${PJ.map(p=>`<li><button data-pj="${esc(p.id)}"><span>${esc(p.name)}</span><i>${p.trials.length} ${esc(t("d_trials"))} ${L==="ar"?"‹":"›"}</i></button></li>`).join("")}</ul></div>`;
-  h+=`  <div class="card"><h2>1) ${esc(t("d_new"))}</h2><div class="grid2"><div><label for="pjn">${esc(t("d_name"))}</label><input id="pjn" class="field" placeholder="${esc(t("d_nameph"))}"></div>
+  let h=`<div class="wrap">`+(PJ.length&&window.devOverview?devOverview():`<h1 style="font-size:clamp(30px,5vw,46px)">${esc(t("d_h"))}</h1><p class="lead">${esc(t("d_lead"))}</p>`)+shareCard();
+  h+=`  <div class="card" id="pjNewCard"><h2>${PJ.length?"":"1) "}${esc(t("d_new"))}</h2><div class="grid2"><div><label for="pjn">${esc(t("d_name"))}</label><input id="pjn" class="field" placeholder="${esc(t("d_nameph"))}"></div>
   <div><label for="pjg">${esc(t("d_goal"))}</label><input id="pjg" class="field" placeholder="${esc(t("d_goalph"))}"></div></div>
   <label style="margin-top:12px">${esc(X("وش نوع المنتج؟ (عشان نوازنه لك)","What kind of product? (so we can balance it)"))}</label><div class="typ">${[["gb","🍫"],["gt","🥧"],["gw","☁️"],["ic","🍨"],["so","🍧"],["","🍰"]].map(([k,ic])=>`<button type="button" data-ptype="${k}" aria-pressed="${(window.PTYPE||"")===k}">${ic} ${esc(k&&window.BALP?X(window.BALP[k].ar,window.BALP[k].en):X("منتج آخر","Other product"))}</button>`).join("")}</div>
   <label style="margin-top:12px">${esc(t("d_base"))}</label><div class="tplgrid"><button class="tpl" data-tpl="cust:new" aria-pressed="${PJTPL==="cust:new"}"><strong>${esc(U("blank"))}</strong><span>${esc(U("mine"))}</span></button>${TPL.map(x=>`<button class="tpl" data-tpl="${x.id}" aria-pressed="${x.id===PJTPL}"><strong>${esc(tplName(x))}</strong><span>${esc(x.src==="c"?t("d_course"):t("d_est"))}</span></button>`).join("")}</div>
@@ -3246,7 +3278,26 @@ document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest
 function sbFill(){const e=document.getElementById("sbPj");if(!e)return;const cur=(location.hash||"#home").slice(1).split("/")[0];
  const tl=[["solve",X("حل مشكلة","Fix a problem")],["calc",X("الحاسبة","Calculator")],["materials",X("المواد","Materials")],["suppliers",X("الموردون","Suppliers")]];
  e.innerHTML=`<div class="sb-h">${esc(X("الأدوات","Tools"))}</div>`+tl.map(([k,t])=>`<a href="#${k}" data-sbp="${k}"${(cur===k||(k==="solve"&&cur==="dx"))?' aria-current="page"':""}>${esc(t)}</a>`).join("")+(PJ.length?`<div class="sb-h">${esc(X("المنتجات النشطة","Active products"))}</div>`:"")+PJ.slice(0,6).map(p=>{let st="";try{const r=recsOf(p).find(z=>BALP[balPid(p,z)]&&z.rows.some(q=>(+q.m||0)>0));if(r){const q=balScore(balVals(p,r,r.rows),BALP[balPid(p,r)].t);st=q.bad?"bad":"ok"}}catch(_){}return `<button type="button" data-pjopen="${esc(p.id)}"><i class="sb-d ${st}"></i><span>${esc(p.name)}</span></button>`}).join("")}
-window.sbFill=sbFill;
+window.sbFill=sbFill;try{sbFill()}catch(_){}
+/* ===== Projects overview (workspace direction A): key numbers, projects table, quick diagnosis ===== */
+function pjState(p){const rs=recsOf(p),r=rs.find(z=>BALP[balPid(p,z)]&&z.rows.some(q=>(+q.m||0)>0));const v=rs.reduce((n,z)=>n+(z.hist||[]).length,0);
+ if(!r)return{st:"none",n:0,ok:0,type:"",v,rc:rs.length};const P=BALP[balPid(p,r)],q=balScore(balVals(p,r,r.rows),P.t);
+ return{st:q.bad===0?"ok":q.bad<=Math.ceil(q.n/3)?"warn":"bad",n:q.n,ok:q.n-q.bad,type:X(P.ar,P.en),v,rc:rs.length}}
+function devOverview(){let dt="";try{dt=new Date().toLocaleDateString(L==="ar"?"ar-u-ca-gregory-nu-latn":"en-GB",{weekday:"long",day:"numeric",month:"long"})}catch(_){}
+ const R=PJ.map(p=>[p,pjState(p)]),S0={pj:PJ.length,rc:R.reduce((n,[,z])=>n+z.rc,0),vc:R.reduce((n,[,z])=>n+z.v,0),ty:R.filter(([,z])=>z.n).length,bal:R.filter(([,z])=>z.st==="ok").length},att=R.filter(([,z])=>z.st==="bad"||z.st==="warn"),tr=PJ.reduce((n,p)=>n+(p.trials||[]).length,0);
+ const lab={ok:X("متوازن","Balanced"),warn:X("قريب من الحد","Near the edge"),bad:X("خارج النطاق","Out of range"),none:X("بدون نوع","No type")};
+ const kpi=[[X("المشاريع","Projects"),S0.pj,X(S0.rc+" وصفة",S0.rc+" recipes"),""],[X("منتجات متوازنة","Balanced products"),S0.bal+"/"+S0.ty,S0.ty?Math.round(S0.bal/S0.ty*100)+"%":X("اختر نوع المنتج","Pick a product type"),""],[X("النسخ المحفوظة","Saved versions"),S0.vc,X(tr+" تجربة مسجّلة",tr+" logged trials"),""],[X("تحتاج انتباه","Need attention"),att.length,att.length?att.slice(0,2).map(([p])=>p.name).join(X("، ",", ")):X("كل شي ضمن النطاق","All in range"),att.length?"w":""]];
+ return `<div class="dv-top"><div><small>${esc(dt)}</small><h1>${esc(t("d_mine"))}</h1></div><div class="dv-acts"><button type="button" class="btn" data-imp="new">${esc(X("استيراد وصفة","Import a recipe"))}</button><button type="button" class="btn pri" data-dvnew="1">${esc(X("+ مشروع جديد","+ New project"))}</button></div></div>
+ <div class="dv-kpi">${kpi.map(([a,b,c,w])=>`<div><small>${esc(a)}</small><b><bdi dir="ltr">${esc(String(b))}</bdi></b><span class="${w}">${esc(c)}</span></div>`).join("")}</div>
+ <div class="dv-g"><section class="dv-c"><h3>${esc(X("المشاريع","Projects"))}<span class="small">${PJ.length}</span></h3><div class="dv-tw"><table class="dv-t"><thead><tr><th>${esc(X("المنتج","Product"))}</th><th>${esc(X("التوازن","Balance"))}</th><th class="dv-hm">${esc(X("النسخ","Versions"))}</th><th>${esc(X("الحالة","Status"))}</th></tr></thead><tbody>
+ ${R.map(([p,z])=>`<tr><td><button type="button" data-pj="${esc(p.id)}"><b>${esc(p.name)}</b><small>${esc(z.type||X(z.rc+" وصفة",z.rc+" recipes"))}</small></button></td><td>${z.n?`<span class="dv-bar ${z.st}" title="${z.ok}/${z.n}"><i style="width:${Math.round(z.ok/z.n*100)}%"></i></span>`:`<span class="small">—</span>`}</td><td class="dv-hm" dir="ltr">${z.v?"v"+z.v:"—"}</td><td><span class="dv-ch ${z.st}">${esc(lab[z.st])}</span></td></tr>`).join("")}
+ </tbody></table></div></section>
+ <section class="dv-c dv-dx"><h3>${esc(X("تشخيص سريع","Quick diagnosis"))}<a class="small" href="#dx">${esc(X("كل المشاكل","All problems"))}</a></h3>
+ <form class="dv-q" data-dashq="1" role="search"><input type="search" class="field" placeholder="${esc(X("صف المشكلة… الموس ما تماسك","Describe it… mousse did not set"))}" aria-label="${esc(X("ابحث عن مشكلة","Search a problem"))}" autocomplete="off"><button type="submit" class="btn pri">${esc(X("شخّص","Diagnose"))}</button></form>
+ ${att.length?att.slice(0,4).map(([p,z])=>`<button type="button" class="dv-row" data-pj="${esc(p.id)}"><span><b>${esc(p.name)}</b><small>${esc(X((z.n-z.ok)+" من "+z.n+" مؤشرات خارج النطاق",(z.n-z.ok)+" of "+z.n+" indicators out of range"))}</small></span><em class="${z.st}">${esc(lab[z.st])}</em></button>`).join(""):`<p class="small dv-none">${esc(X("ما في مشروع يحتاج انتباه. إذا صار عندك عيب في الإنتاج، صفه فوق.","No project needs attention. If something goes wrong in production, describe it above."))}</p>`}
+ </section></div>`}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dvnew]");if(!b)return;const c=document.getElementById("pjNewCard");if(c){c.scrollIntoView({behavior:"smooth",block:"start"});const i=document.getElementById("pjn");if(i)setTimeout(()=>i.focus({preventScroll:true}),350)}});
+window.devOverview=devOverview;/* the projects page may have rendered before this script loaded */try{const pd=document.getElementById("p-dev");if(pd&&pd.dataset.mode==="list"&&PJ.length&&!pd.querySelector(".dv-kpi"))renderDev()}catch(_){}
 document.addEventListener("submit",e=>{const f=e.target;if(!f||!f.dataset||!f.dataset.dashq)return;e.preventDefault();const q=((f.querySelector("input")||{}).value||"").trim();S.q=q;S.prob=null;S.type=null;location.hash="#solve";try{renderSolve()}catch(_){}setTimeout(()=>{const i=document.getElementById("q");if(i){i.focus();const n=i.value.length;try{i.setSelectionRange(n,n)}catch(_){}}window.scrollTo({top:0})},120)});
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dashact]");if(!b)return;const k=b.dataset.dashact;
  if(!PJ.length){toast(X("أنشئ مشروعاً أولاً، وبعدها تقدر تسوي "+(k==="lbl"?"الملصق":"خطة الإنتاج"),"Create a project first, then you can make "+(k==="lbl"?"its label":"its production plan")));const n=document.querySelector("[data-newpj]");if(n)n.click();return}

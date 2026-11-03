@@ -493,4 +493,15 @@ console.log('35) design v4: brand home and workspace sidebar');
  ok(await p.evaluate(()=>[...document.querySelectorAll('#sbPj [data-pjopen]')].some(b=>/غاناش بندق/.test(b.textContent))&&!!document.querySelector('#sbPj a[href="#solve"]')),'the side bar lists the tools and the active products');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
+console.log('36) projects overview: key numbers, table, quick diagnosis');
+{const p=await mk(1280);await p.addInitScript(()=>{if(sessionStorage.getItem('dv5'))return;sessionStorage.setItem('dv5','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'غاناش بندق',goal:'',tpl:'cust:1',batch:1,trials:[],ptype:'gb',cust:{'cust:1':{name:'غاناش',rows:[['شوكولاتة داكنة 70%',300],['كريمة 35%',300]]}}},{id:'p2',name:'موس',goal:'',tpl:'cust:2',batch:1,trials:[],cust:{'cust:2':{name:'موس',rows:[['كريمة 35%',500],['سكر',100]]}}}]));localStorage.removeItem('zm-active')});
+ await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);await p.evaluate(()=>{const b=document.querySelector('[data-wsback]');if(b)b.click()});await p.waitForTimeout(500);
+ ok(await p.evaluate(()=>document.querySelectorAll('.dv-kpi>div').length===4&&document.querySelectorAll('.dv-t tbody tr').length===2),'the projects page shows four key numbers and a row per project');
+ ok(await p.evaluate(()=>/خارج النطاق|قريب من الحد/.test(document.querySelector('.dv-t').innerText)&&!!document.querySelector('.dv-dx .dv-row[data-pj="p1"]')),'an unbalanced project is flagged in the table and in the quick diagnosis panel');
+ await p.click('[data-dvnew]');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>document.activeElement&&document.activeElement.id==='pjn'),'"+ New project" jumps to the new project form');
+ await p.click('.dv-t [data-pj="p2"]');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>document.getElementById('p-dev').dataset.mode==='ws'),'a project row opens the project');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
