@@ -2,7 +2,7 @@
    Pages: network first (always fresh when online), cache as fallback.
    Static files (icons, vendored PDF libraries): cache first.
    Cloud sync calls (Supabase) are never cached. */
-const VERSION = "cl-v24";
+const VERSION = "cl-v25";
 const CORE = ["./", "index.html", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"];
 const LAZY = ["vendor/jspdf-2.5.1.umd.min.js", "vendor/html2canvas-1.4.1.min.js", "kb/engine.js", "kb/problems.js", "fonts/plex-arabic-400.woff2", "fonts/plex-arabic-600.woff2", "fonts/plex-arabic-700.woff2", "fonts/plex-latin-400.woff2", "fonts/plex-latin-600.woff2", "fonts/plex-latin-700.woff2"];
 
