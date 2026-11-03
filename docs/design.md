@@ -46,18 +46,24 @@ What already works and must be kept: the burgundy brand colour, bilingual RTL, t
 All tokens become CSS variables on `:root`, redefined for light and dark.
 
 ### Colour
-| Token | Dark | Light | Use |
+Palette (Nov 2026, from the owner's reference): deep sea `#0E2931`, dark teal `#12484C`, teal `#2B7574`, red `#861211`, off-white `#E2E2E0`. Dark stays the default theme. Tints marked * are derived from the palette for contrast.
+
+| Token (in `index.html`) | Dark | Light | Use |
 |---|---|---|---|
-| `--bg` | `#141012` | `#F7F5F2` | page |
-| `--surface-1` | `#1C1719` | `#FFFFFF` | panels |
-| `--surface-2` | `#241E20` | `#F1EEEA` | inputs, table stripes |
-| `--line` | `#3A3134` | `#E2DDD6` | hairlines (1 px) |
-| `--ink` | `#F2EEE9` | `#1D1A1B` | primary text |
-| `--ink-2` | `#B9B0A8` | `#5E5753` | secondary text, units |
-| `--accent` | `#A3223F` | `#8E1A33` | the single brand accent: primary button, focus, selection |
+| `--bg` | `#0E2931` | `#E2E2E0` | page |
+| `--s1` | `#12393E`* | `#F2F2F0`* | panels |
+| `--s2` | `#12484C` | `#D2D7D5`* | inputs, table stripes |
+| `--line` | `#1F5A5D`* | `#B6C3C2`* | hairlines (1 px) |
+| `--ink` | `#E2E2E0` | `#0E2931` | primary text |
+| `--muted` | `#9DB5B3`* | `#4E6466`* | secondary text, units |
+| `--hot` | `#861211` | `#861211` | the single brand accent: primary button, focus, selection |
+| `--acc` | `#5FA8A5`* | `#12484C` | links, highlights, active items |
+| `--acc2` | `#8FA9A7`* | `#2B7574` | secondary accents |
 | `--ok` | `#5FA37A` | `#2F7D4F` | in range |
 | `--watch` | `#D2A24C` | `#9A6B12` | near the edge |
 | `--bad` | `#D9644F` | `#B23A26` | out of range |
+
+Food colours in the 3D cake model (biscuit, mousse, glaze) are not brand colours and stay as they are.
 
 All text and status pairs are checked for WCAG AA (4.5:1 for body, 3:1 for large figures and UI).
 
