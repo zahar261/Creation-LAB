@@ -68,6 +68,7 @@ Food colours in the 3D cake model (biscuit, mousse, glaze) are not brand colours
 All text and status pairs are checked for WCAG AA (4.5:1 for body, 3:1 for large figures and UI).
 
 ### Type
+- Status (Nov 2026): implemented. IBM Plex Sans Arabic and IBM Plex Sans (400, 600, 700) are self-hosted in `fonts/` with their OFL licence; about 190 KB, cached offline by the service worker. Home tiles and header use line icons instead of emoji.
 - Arabic: **IBM Plex Sans Arabic** (400, 500, 600). Latin and figures: **IBM Plex Sans** with `font-variant-numeric: tabular-nums`. Both are open-licence (OFL), self-hosted and subsetted. Target about 90 KB in total.
 - Scale (px): 12 · 13 · 15 (body) · 17 · 20 · 24 · 32. Line height is 1.5 for body and 1.2 for figures.
 - Big figures (scores, totals): 24–32 px, weight 600. Units at 0.7 em in `--ink-2`.
