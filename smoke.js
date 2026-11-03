@@ -481,4 +481,16 @@ console.log('34) guided diagnosis: bonbons, caramel, praline, cheesecake, fruit 
  ok(await p.evaluate(()=>[...document.querySelectorAll('#p-solve .dxs-i')].some(a=>a.getAttribute('href')==='#dx/sugar-sticky')),'chef wording finds the sticky sugar work diagnosis');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
+console.log('35) design v4: brand home and workspace sidebar');
+{const p=await mk(1440);await p.addInitScript(()=>{if(sessionStorage.getItem('dv4'))return;sessionStorage.setItem('dv4','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'غاناش بندق',goal:'',tpl:'cust:1',batch:1,trials:[],ptype:'gb',cust:{'cust:1':{name:'غاناش',rows:[['شوكولاتة داكنة 70%',300],['كريمة 35%',200]]}}}]));localStorage.setItem('zm-active','"p1"')});
+ await p.goto(FILE+'#home');await p.waitForTimeout(900);await toAr(p);await p.waitForTimeout(200);
+ ok(await p.evaluate(()=>document.documentElement.dataset.page==='home'&&!!document.querySelector('.dash-hero .dh-art')&&document.querySelectorAll('.dh-chips button').length===4),'the home page shows the brand art and four example problems');
+ ok(await p.evaluate(()=>getComputedStyle(document.querySelector('header.top')).position!=='fixed'),'the home page keeps the top header (no sidebar)');
+ await p.click('.dh-chips button');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>location.hash==='#solve'&&(document.getElementById('q')||{}).value==='الموس ما تماسك'),'an example problem on the home page opens the search with it');
+ await p.goto(FILE+'#dev');await p.waitForTimeout(800);
+ ok(await p.evaluate(()=>{const h=document.querySelector('header.top'),r=h.getBoundingClientRect();return getComputedStyle(h).position==='fixed'&&r.height>800&&r.width<300}),'other pages use the side bar on a wide screen');
+ ok(await p.evaluate(()=>[...document.querySelectorAll('#sbPj [data-pjopen]')].some(b=>/غاناش بندق/.test(b.textContent))&&!!document.querySelector('#sbPj a[href="#solve"]')),'the side bar lists the tools and the active products');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
