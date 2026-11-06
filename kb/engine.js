@@ -197,7 +197,14 @@
       const fixes = (c.fixes || []).map(fx => {
         if (fx.type !== "recipe") return Object.assign({}, fx);
         if (rule && rule.state === "clear") return Object.assign({}, fx, { result: { ok: false, why: { ar: "وصفتك ضمن النطاق، فما في حاجة لهذا التعديل.", en: "Your recipe is in range, so this change is not needed." } } });
-        return Object.assign({}, fx, { result: applyOp(fx.op, rows || [], rule) });
+        const res = applyOp(fx.op, rows || [], rule);
+        /* a near-range recipe can sit on the safe side of the fix's target; never propose a change that pushes the indicator the wrong way */
+        if (res.ok && rule && c.rule && fx.op.op === "reach" && fx.op.feat === c.rule.feat && res.before && res.after && isFinite(res.before[c.rule.feat]) && isFinite(res.after[c.rule.feat])) {
+          const b0 = res.before[c.rule.feat], a0 = res.after[c.rule.feat];
+          if ((c.rule.when === "above" && a0 >= b0) || (c.rule.when === "below" && a0 <= b0))
+            return Object.assign({}, fx, { result: { ok: false, why: { ar: "وصفتك ضمن النطاق، فما في حاجة لهذا التعديل.", en: "Your recipe is in range, so this change is not needed." } } });
+        }
+        return Object.assign({}, fx, { result: res });
       });
       out.push({ id: c.id, kind: c.kind, title: c.title, why: c.why, evidence: c.evidence, src: c.src, score, conf: CONF(score), rule, explain: why, fixes, verify: c.verify });
     });

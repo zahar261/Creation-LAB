@@ -504,4 +504,11 @@ console.log('36) projects overview: key numbers, table, quick diagnosis');
  ok(await p.evaluate(()=>document.getElementById('p-dev').dataset.mode==='ws'),'a project row opens the project');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
+console.log('37) project page: header chips and key numbers');
+{const p=await mk(1280);await p.addInitScript(()=>{if(sessionStorage.getItem('dv6'))return;sessionStorage.setItem('dv6','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'غاناش بندق',goal:'حشوة طرية',tpl:'cust:1',batch:1,trials:[],ptype:'gb',cust:{'cust:1':{name:'غاناش',rows:[['شوكولاتة داكنة 70%',300],['كريمة 35%',150]]}}}]));localStorage.setItem('zm-active','"p1"')});
+ await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);await p.waitForTimeout(300);
+ ok(await p.evaluate(()=>document.querySelectorAll('.ws-kpi>div').length===4&&/\d+\/\d+/.test(document.querySelector('.ws-kpi b').textContent)),'the project page shows four key numbers with the balance score');
+ ok(await p.evaluate(()=>{const c=document.querySelector('.ws-chips');return !!c&&/غاناش بونبون/.test(c.textContent)}),'the project header shows its product type');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()

@@ -550,5 +550,9 @@ const seed12 = [
 seed12.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS12 = NS11 + seed12.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS12}, top-3 ${t3}/${NS12}`);
+console.log("kb) a fix never pushes an indicator the wrong way");
+{ const rows = R({ dark: 300, cream: 230, invert: 40, butter: 30 });
+  const r = fixOf("ganache-split", "fat-high", rows, { ptype: "gb" });
+  ok(!r.ok && /in range|ضمن/.test(r.why.en + r.why.ar), "bonbon ganache at 38.5% fat (inside 30-40%) gets no cream change, not a cut that raises fat"); }
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
