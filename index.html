@@ -867,6 +867,36 @@ html[data-page=home] header.top .wm b i{color:#8CC4C0}
 .dv-none{margin:4px 0 0;color:var(--muted)}
 :root[data-theme=light] .dv-kpi>div,:root[data-theme=light] .dv-c{background:#fff}
 @media (max-width:800px){.dv-kpi{grid-template-columns:1fr 1fr}.dv-g{grid-template-columns:1fr}.dv-hm{display:none}.dv-kpi b{font-size:24px}}
+
+/* project page (direction A) */
+.ws-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;margin:0 0 16px}
+.ws-ttl{min-width:0}.ws-ttl [data-wsback]{min-height:30px;padding:2px 10px;border:0;color:var(--muted);margin-inline-start:-10px}
+.ws-ttl [data-wsback]:hover{color:var(--ink);background:var(--s2)}
+.ws-head h1{font-size:clamp(24px,3.4vw,32px);margin:2px 0 6px}
+.ws-chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
+.ws-head .lead{font-size:14px;color:var(--muted);margin:0}
+.ws-acts{margin:0;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.ws-acts .btn{min-height:38px;padding:6px 14px;font-size:14px}
+.ws-head #pdfMsg{flex-basis:100%;margin:0}.ws-head #pdfMsg:empty{display:none}
+.ws-kpi{margin:0 0 14px}
+.recb.ws{padding:18px 20px;border-radius:12px}
+.ws-h h2{font-size:16px}
+.ws-score{background:transparent;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.ws-ind{gap:10px}.ws-ind div{background:transparent;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.ws-ind span{font-size:12px}.ws-ind b{font-size:14.5px;margin-top:2px}
+.seg{background:var(--s2);border-radius:10px;padding:4px}
+.dtab.ingt th{font-weight:400;font-size:12px;padding:0 6px 8px;border-bottom:1px solid var(--line)}
+.dtab.ingt td{padding:6px 4px}
+.dtab.ingt td .field{background:transparent;border-color:transparent;box-shadow:none}
+.dtab.ingt tr:hover td .field{border-color:var(--line)}
+.dtab.ingt td .field:focus{background:color-mix(in srgb,var(--bg) 70%,var(--s1));border-color:var(--acc);box-shadow:var(--ring)}
+:root[data-theme=light] .dtab.ingt td .field{background:transparent}:root[data-theme=light] .dtab.ingt td .field:focus{background:#fff}
+.dtab.ingt .c-g .field{background:var(--s2);border-color:transparent}
+:root[data-theme=light] .dtab.ingt .c-g .field{background:#ECEFEE}
+.srbox{background:transparent;border:1px solid var(--line);border-radius:12px}
+.plan,#pj-add,#studio3d{border-radius:12px}
+:root[data-theme=light] .recb.ws,:root[data-theme=light] .ws-kpi>div{background:#fff}
+@media (max-width:700px){.ws-kpi{grid-template-columns:repeat(4,1fr);gap:6px}.ws-kpi>div{padding:8px 6px;text-align:center}.ws-kpi small{font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ws-kpi b{font-size:18px;text-align:center;margin:2px 0 0}.ws-kpi span{display:none}.ws-head{align-items:stretch}.ws-acts{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto}}
 </style>
 </head>
 <body>
@@ -887,7 +917,7 @@ html[data-page=home] header.top .wm b i{color:#8CC4C0}
 <footer><div class="wrap ft"><div class="ft-b"><span class="brand" style="pointer-events:none"><span class="mark"><svg class="mk" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5h12M20 5v13.5L8.6 37.6A4 4 0 0 0 12 44h24a4 4 0 0 0 3.4-6.4L28 18.5V5"/><path d="M13 30h22" stroke-width="2"/><g stroke-width="2"><path d="M24 33.5 17.8 39M24 33.5l6.2 5.5"/></g><circle cx="24" cy="32" r="2.8" fill="currentColor" stroke="none"/><circle cx="17" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="31" cy="39.5" r="2.2" fill="currentColor" stroke="none"/><circle cx="24" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="27" cy="22" r="1.2" fill="currentColor" stroke="none"/></svg></span><span class="wm"><b>CREATION<i>LAB</i></b><small>BY ZAHAR ANASS</small></span></span><p id="fnote"></p><span class="ft-sig"><svg viewBox="-6 -6 2290 252" role="img" aria-label="ZAHAR ANASS" fill="currentColor">
 <polygon transform="translate(0,0)" fill="currentColor" points="0,0 170,0 170,38 46,202 170,202 170,240 0,240 0,202 124,38 0,38"/><g transform="translate(210,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(440,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><rect y="101.0" width="170" height="38"/></g><g transform="translate(650,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(880,0)"><rect width="38" height="240" fill="currentColor"/><path d="M19,19 H100 A47,47 0 0 1 100,113 H19" fill="none" stroke="currentColor" stroke-width="38"/><polygon fill="currentColor" points="38,38 76,38 164,240 120,240"/></g><g transform="translate(1206,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><g transform="translate(1436,0)" fill="currentColor"><rect width="38" height="240"/><rect x="132" width="38" height="240"/><polygon points="0,0 52,0 170,240 118,240"/></g><g transform="translate(1646,0)"><path d="M19,240 V95 A76,76 0 0 1 171,95 V240" fill="none" stroke="currentColor" stroke-width="38"/><rect x="19" y="150" width="152" height="38" fill="currentColor"/></g><path transform="translate(1876,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/><path transform="translate(2094,0)" d="M146.3,40.5 A70,50.5 0 1 0 89,120 A70,50.5 0 1 1 31.7,199.5" fill="none" stroke="currentColor" stroke-width="38"/>
 
-</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.11.06-a</span></div></footer>
+</svg></span></div><nav class="ft-n" id="ftNav"></nav><div class="ft-c" id="ftCon"></div></div><div class="wrap ft-bot"><span id="ftCopy"></span> <span class="ver" style="opacity:.55;font-size:12px;margin-inline-start:10px">v2026.11.06-b</span></div></footer>
 <dialog id="pal" aria-label="Search"><input id="pal-in" class="pal-in" autocomplete="off"><ul id="pal-list" class="pal-list"></ul><div style="padding:8px 16px;color:var(--muted);font-size:13px" id="palhint"></div></dialog>
 <script>
 (function(){try{if(window.top!==window.self&&/(^|\.)zaharcreationlab\.com$|\.github\.io$/i.test(location.hostname)){try{window.top.location.href=location.href}catch(e){document.documentElement.style.display="none"}}}catch(e){}})();
@@ -1441,7 +1471,7 @@ function renderPjView(){
   const p=PJ.find(z=>z.id===PJSEL),v=$("#pjView");if(!v)return;
   if(!p||PJHIDE===PJSEL){v.innerHTML="";return}
   const R=recsOf(p);
-  v.innerHTML=`<datalist id="dlmat">${DATA.ING_DEFAULTS.map(m=>`<option value="${esc(ingName(m))}">`).join("")}</datalist><div class="ws-head"><button type="button" class="btn sm ghost noprint" data-wsback="1">${L==="ar"?"›":"‹"} ${esc(X("مشاريعي","My projects"))}</button><h1>${esc(p.name)}</h1>${p.goal?`<p class="lead">${esc(p.goal)}</p>`:""}<div class="bar ws-acts noprint"><button class="btn pri" data-pdf="1">${esc(U("pdf"))}</button><button class="btn" data-lbopen="1">${esc(X("ملصق المنتج","Product label"))}</button><button class="btn" data-vsave="all">${esc(X("احفظ نسخة","Save version"))}</button><button class="btn" data-shr="make">${esc(B("shr"))}</button><button class="btn ghost" data-costtog="1" aria-pressed="${p.showCost?"true":"false"}">${esc(p.showCost?X("إخفاء التكلفة","Hide cost"):X("التكلفة وهامش الربح","Cost and margin"))}</button></div><p class="note" id="pdfMsg" role="status"></p></div>
+  v.innerHTML=`<datalist id="dlmat">${DATA.ING_DEFAULTS.map(m=>`<option value="${esc(ingName(m))}">`).join("")}</datalist><div class="ws-head"><div class="ws-ttl"><button type="button" class="btn sm ghost noprint" data-wsback="1">${L==="ar"?"›":"‹"} ${esc(X("مشاريعي","My projects"))}</button><h1>${esc(p.name)}</h1>${window.wsChips?wsChips(p):""}${p.goal?`<p class="lead">${esc(p.goal)}</p>`:""}</div><div class="bar ws-acts noprint"><button class="btn pri" data-pdf="1">${esc(U("pdf"))}</button><button class="btn" data-lbopen="1">${esc(X("ملصق المنتج","Product label"))}</button><button class="btn" data-vsave="all">${esc(X("احفظ نسخة","Save version"))}</button><button class="btn" data-shr="make">${esc(B("shr"))}</button><button class="btn ghost" data-costtog="1" aria-pressed="${p.showCost?"true":"false"}">${esc(p.showCost?X("إخفاء التكلفة","Hide cost"):X("التكلفة وهامش الربح","Cost and margin"))}</button></div><p class="note" id="pdfMsg" role="status"></p></div>${window.wsKpi?wsKpi(p):""}
   <div id="pj-recs">${R.map((r,i)=>recBlock(p,r,i,R.length)).join("")}</div>
   ${window.planCard?window.planCard(p):""}
   <div class="card noprint" id="pj-add"><h2>${esc(U("add"))}</h2><div class="grid2"><div><input class="field" id="addq" type="search" placeholder="${esc(X("ابحث عن وصفة (مثال: جاناش، موس، عجينة)…","Search a recipe (e.g. ganache, mousse, dough)…"))}" aria-label="search" style="margin-bottom:6px"><select id="addrec" class="field">${addOpts()}</select></div><div class="bar" style="margin:0"><button class="btn pri" data-addrec="1">${esc(U("add"))}</button><button class="btn" data-addblank="1">${esc(U("blank"))}</button><button class="btn" type="button" data-imp="add">${esc(X("لصق وصفة","Paste a recipe"))}</button></div></div></div>
@@ -3297,7 +3327,13 @@ function devOverview(){let dt="";try{dt=new Date().toLocaleDateString(L==="ar"?"
  ${att.length?att.slice(0,4).map(([p,z])=>`<button type="button" class="dv-row" data-pj="${esc(p.id)}"><span><b>${esc(p.name)}</b><small>${esc(X((z.n-z.ok)+" من "+z.n+" مؤشرات خارج النطاق",(z.n-z.ok)+" of "+z.n+" indicators out of range"))}</small></span><em class="${z.st}">${esc(lab[z.st])}</em></button>`).join(""):`<p class="small dv-none">${esc(X("ما في مشروع يحتاج انتباه. إذا صار عندك عيب في الإنتاج، صفه فوق.","No project needs attention. If something goes wrong in production, describe it above."))}</p>`}
  </section></div>`}
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dvnew]");if(!b)return;const c=document.getElementById("pjNewCard");if(c){c.scrollIntoView({behavior:"smooth",block:"start"});const i=document.getElementById("pjn");if(i)setTimeout(()=>i.focus({preventScroll:true}),350)}});
-window.devOverview=devOverview;/* the projects page may have rendered before this script loaded */try{const pd=document.getElementById("p-dev");if(pd&&pd.dataset.mode==="list"&&PJ.length&&!pd.querySelector(".dv-kpi"))renderDev()}catch(_){}
+window.devOverview=devOverview;
+/* project page (workspace direction A): type and status chips, and a strip of key numbers */
+function wsChips(p){const z=pjState(p),lab={ok:X("متوازن","Balanced"),warn:X("قريب من الحد","Near the edge"),bad:X("يحتاج موازنة","Needs balancing"),none:X("بدون نوع","No type")};return `<div class="ws-chips">${z.type?`<span class="dv-ch">${esc(z.type)}</span>`:""}<span class="dv-ch ${z.st}">${esc(lab[z.st])}</span></div>`}
+function wsKpi(p){const z=pjState(p),tr=(p.trials||[]).length;
+ return `<div class="dv-kpi ws-kpi noprint">${[[X("التوازن","Balance"),z.n?z.ok+"/"+z.n:"—",z.n?X(z.n-z.ok?(z.n-z.ok)+" مؤشرات خارج النطاق":"كل المؤشرات ضمن النطاق",z.n-z.ok?(z.n-z.ok)+" indicators out of range":"All indicators in range"):X("اختر نوع المنتج","Pick a product type"),z.st==="ok"?"":"w"],[X("الوصفات","Recipes"),z.rc,X("داخل هذا المشروع","in this project"),""],[X("النسخ المحفوظة","Saved versions"),z.v,X("احفظ نسخة بعد كل تعديل","Save after each change"),""],[X("التجارب","Trials"),tr,tr?X("آخرها مسجّلة في الطريقة والنسخ","Latest under Method and versions"):X("سجّل أول تجربة","Log your first trial"),""]].map(([a,b,c,w])=>`<div><small>${esc(a)}</small><b><bdi dir="ltr">${esc(String(b))}</bdi></b><span class="${w}">${esc(c)}</span></div>`).join("")}</div>`}
+window.wsChips=wsChips;window.wsKpi=wsKpi;
+try{const pd=document.getElementById("p-dev");if(pd&&pd.dataset.mode==="ws"&&!pd.querySelector(".ws-kpi")&&typeof renderPjView==="function")renderPjView()}catch(_){}/* the projects page may have rendered before this script loaded */try{const pd=document.getElementById("p-dev");if(pd&&pd.dataset.mode==="list"&&PJ.length&&!pd.querySelector(".dv-kpi"))renderDev()}catch(_){}
 document.addEventListener("submit",e=>{const f=e.target;if(!f||!f.dataset||!f.dataset.dashq)return;e.preventDefault();const q=((f.querySelector("input")||{}).value||"").trim();S.q=q;S.prob=null;S.type=null;location.hash="#solve";try{renderSolve()}catch(_){}setTimeout(()=>{const i=document.getElementById("q");if(i){i.focus();const n=i.value.length;try{i.setSelectionRange(n,n)}catch(_){}}window.scrollTo({top:0})},120)});
 document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-dashact]");if(!b)return;const k=b.dataset.dashact;
  if(!PJ.length){toast(X("أنشئ مشروعاً أولاً، وبعدها تقدر تسوي "+(k==="lbl"?"الملصق":"خطة الإنتاج"),"Create a project first, then you can make "+(k==="lbl"?"its label":"its production plan")));const n=document.querySelector("[data-newpj]");if(n)n.click();return}
