@@ -20,7 +20,7 @@ const C = {
   white: { w: .88, f: 0, s: .007, p: .11 }, gelatin: { w: .12, f: 0, s: 0, p: .86 },
   cheese: { w: .55, f: .34, s: .03, p: .06 }, cocoabutter: { w: 0, f: 1, s: 0, p: 0 },
   salt: { w: 0, f: 0, s: 0, p: 0 }, yeast: { w: .05, f: 0, s: 0, p: .4 }, yeastfresh: { w: .7, f: 0, s: 0, p: .12 }, binder: { w: .1, f: 0, s: 0, p: 0 }, fruit: { w: .86, f: 0, s: .07, p: .01 },
-  milkpowder: { w: .035, f: .01, s: .52, p: .36 }, nuts: { w: .05, f: .6, s: .04, p: .15 }
+  milkpowder: { w: .035, f: .01, s: .52, p: .36 }, nuts: { w: .05, f: .6, s: .04, p: .15 }, agar: { w: .1, f: 0, s: 0, p: 0 }
 };
 const ROLE = { strong: "flour", dark: "chocolate" };
 const R = spec => Object.entries(spec).map(([k, g]) => ({ n: k, g, role: ROLE[k] || k, comp: C[k] }));
@@ -515,5 +515,40 @@ const seed11 = [
 seed11.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
 const NS11 = NS10 + seed11.length;
 console.log(`  all seed cases: top-1 ${t1}/${NS11}, top-3 ${t3}/${NS11}`);
+console.log("kb) rules for bloom, glazes, fondant, caramel and agar (batch 12)");
+trio("chocolate bloom: filling fat", "choc-bloom", "fat-migration", pr(800), pr(300), pr(650));
+const gz = g => R({ glucose: 300, sugar: 300, water: 150, cream: 200, gelatin: g });
+trio("glaze bubbles: gelatine", "glaze-bubbles", "gel-high", gz(40), gz(10), gz(28));
+const fd = w => R({ sugar: 1000, glucose: 100, gelatin: 10, water: w });
+trio("fondant: water", "fondant-crack", "water-low", fd(20), fd(150), fd(55));
+trio("caramel seize: glucose share", "caramel-seize-cream", "doctor-low", cm(500, 0), cm(400, 100), cm(440, 60));
+const ag = a => R({ fruit: 1000, sugar: 100, agar: a });
+trio("agar: amount", "agar-weep", "agar-low", ag(2), ag(14), ag(6));
+
+console.log("kb) batch 12 fixes");
+{ const r = fixOf("glaze-bubbles", "gel-high", gz(40)); ok(r.ok && near(r.after.gelPct, 2.4, 0.05), "glaze: gelatine lowered to 2.4%"); }
+{ const r = fixOf("fondant-crack", "water-low", fd(20)); ok(r.ok && near(r.after.water, 8, 0.2), "fondant: water raised to 8%"); }
+{ const r = fixOf("agar-weep", "agar-low", ag(2)); ok(r.ok && near(r.after.agarPct, 0.8, 0.03), "agar: raised to 0.8%"); }
+{ const r = fixOf("caramel-seize-cream", "doctor-low", cm(500, 0)); const g = r.rows.find(x => x.added && x.role === "glucose"); ok(r.ok && g && g.g === 125, "caramel seize: 100 g sugar swapped for 125 g glucose syrup"); }
+
+console.log("kb) batch 12 diagnosis");
+const seed12 = [
+  ["choc-bloom", pr(300), { answers: { look: "sugar", when: "soon", store: "fridge" } }, "sugar-bloom"],
+  ["choc-bloom", pr(300), { answers: { look: "fat", when: "soon", store: "stable" } }, "untempered"],
+  ["choc-bloom", pr(300), { answers: { look: "fat", when: "late", store: "swing" } }, "temp-swing"],
+  ["glaze-bubbles", gz(20), { answers: { blend: "surface", rest: "yes", temp: "ok" } }, "air-blended"],
+  ["glaze-bubbles", gz(20), { answers: { blend: "deep", rest: "no", temp: "ok" } }, "not-rested"],
+  ["glaze-bubbles", gz(20), { answers: { blend: "deep", rest: "yes", temp: "cold" } }, "wrong-temp"],
+  ["fondant-crack", fd(90), { answers: { kind: "crack", air: "yes", fridge: "no" } }, "dried"],
+  ["fondant-crack", fd(90), { answers: { kind: "sweat", air: "no", fridge: "yes" } }, "condensation"],
+  ["caramel-seize-cream", cm(400, 100), { answers: { cream: "cold", pour: "slow" } }, "cold-cream"],
+  ["caramel-seize-cream", cm(400, 100), { answers: { cream: "hot", pour: "once" } }, "all-at-once"],
+  ["agar-weep", ag(10), { answers: { boil: "no", cut: "no", acid: "none" } }, "not-boiled"],
+  ["agar-weep", ag(10), { answers: { boil: "yes", cut: "yes", acid: "none" } }, "broken-gel"],
+  ["agar-weep", ag(10), { answers: { boil: "yes", cut: "no", acid: "acid" } }, "acid-frozen"]
+];
+seed12.forEach(([id, rows, opt, want]) => { const c = top(id, rows, opt).map(x => x.id); if (c[0] === want) t1++; if (c.slice(0, 3).includes(want)) t3++; ok(c.slice(0, 3).includes(want), id + ": expected " + want + " in the top 3, got " + c.slice(0, 3).join(", ")); });
+const NS12 = NS11 + seed12.length;
+console.log(`  all seed cases: top-1 ${t1}/${NS12}, top-3 ${t3}/${NS12}`);
 console.log(`\nkb: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

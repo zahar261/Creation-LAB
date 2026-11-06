@@ -44,6 +44,7 @@
       /* sugars per gram of water: sucrose saturates near 2 g per g of water at room temperature */
       sugarWater: per(S, W),
       gelPct: pct(g("gelatin")),
+      agarPct: pct(g("agar")),
       eggCheese: per(egg + yolk + white, g("cheese")),
       /* fat content of the butter used (Codex minimum is 80%; many pastry butters are 82% or more) */
       butterFat: bg > 0 ? (bf / bg) * 100 : NaN,
@@ -81,6 +82,7 @@
     fatWater: { ar: "الدهون مقابل الماء", en: "fat to water", u: "" },
     sugarWater: { ar: "السكريات مقابل الماء", en: "sugars to water", u: "" },
     gelPct: { ar: "الجيلاتين", en: "gelatine", u: "%" },
+    agarPct: { ar: "الأجار", en: "agar", u: "%" },
     eggCheese: { ar: "البيض مقابل الجبن", en: "egg to cheese", u: "" },
     butterFat: { ar: "دهن الزبدة المستعملة", en: "fat in the butter used", u: "%" },
     sugarWhite: { ar: "السكر مقابل البياض", en: "sugar to egg white", u: "" },
