@@ -47,7 +47,7 @@ function probHtml(p, n) {
   ${p.notFormula ? `<p class="nf"><b>متى المشكلة مو من الوصفة:</b> ${esc(ar(p.notFormula))}</p>` : ""}</section>`;
 }
 
-const ART = `<svg class="art" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice"><rect width="1440" height="640" fill="#0E2931"/><path d="M-40 640C120 520 160 360 300 300S520 260 600 120 760-40 760-40H-40Z" fill="#12484C"/><path d="M-40 640C60 560 100 420 240 360S470 320 535 185 680-40 680-40H-40Z" fill="#2B7574" opacity=".85"/><path d="M-40 640C30 580 70 450 210 390S440 350 500 220 640-40 640-40H-40Z" fill="#12484C" opacity=".9"/><path d="M60 640C150 590 200 520 330 480S600 420 690 300 860 120 900-40L960-40C920 140 820 330 720 420S470 520 380 560 230 640 200 640Z" fill="#E2E2E0"/><path d="M200 640C230 640 330 580 400 560S660 500 750 410 950 140 990-40L1100-40C1040 160 950 380 840 470S560 580 470 610 360 640 300 640Z" fill="#861211"/><path d="M300 640C380 640 470 620 520 605S820 530 905 455 1110 180 1160-40L1500-40V640Z" fill="#0E2931"/></svg>`;
+const ART = `<svg class="art" viewBox="0 0 600 420" preserveAspectRatio="none"><rect width="600" height="420" fill="#0E2931"/><path d="M0 0H300C240 100 150 170 0 240Z" fill="#12484C"/><path d="M0 0H200C160 70 90 125 0 170Z" fill="#2B7574"/><path d="M0 0H110C90 40 50 75 0 100Z" fill="#12484C"/><path d="M462 0H530C498 150 372 262 0 352V300C330 222 440 128 462 0Z" fill="#E2E2E0"/><path d="M540 0H600V18C562 176 420 296 0 402V362C378 270 508 152 540 0Z" fill="#861211"/></svg>`;
 
 let n = 0;
 const html = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>دليل التشخيص — CREATION LAB</title><style>
@@ -57,11 +57,10 @@ const html = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-
 *{box-sizing:border-box}body{margin:0;font-family:PA,PL,sans-serif;color:#0E2931;font-size:10.2pt;line-height:1.65;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 bdi,.src,.pn{font-family:PL,PA}
 .cover{height:265mm;position:relative;overflow:hidden;border-radius:6mm;color:#E2E2E0;page-break-after:always;display:flex;flex-direction:column;justify-content:flex-end;padding:18mm 16mm}
-.cover .art{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
-.cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,41,49,0) 18%,rgba(14,41,49,.9) 46%,#0E2931 62%)}
-.brand{position:absolute;top:16mm;right:16mm;font:700 13pt PL;letter-spacing:.3em}.brand span{color:#8CC4C0}
+.cover{background:#0E2931}.cover .art{position:absolute;top:0;left:0;width:100%;height:58%;z-index:0}.cover>*:not(.art):not(.brand){position:relative;z-index:1}
+.brand{position:absolute;z-index:1;top:14mm;left:14mm;font:700 13pt PL;letter-spacing:.3em}.brand span{color:#8CC4C0}
 .cover h1{font-size:34pt;line-height:1.15;margin:0 0 4mm;color:#fff}.cover .sub{font-size:13pt;color:#C4CFCE;margin:0 0 9mm;max-width:150mm}
-.stats{display:flex;gap:4mm;margin-bottom:9mm}.stats div{border:1px solid rgba(226,226,224,.25);border-radius:3mm;padding:3mm 5mm;background:rgba(10,31,37,.5)}.stats b{display:block;font:700 20pt PL}.stats span{font-size:9pt;color:#9DB5B3}
+.stats{display:flex;gap:4mm;margin-bottom:9mm}.stats div{border:1px solid #2B4A4F;border-radius:3mm;padding:3mm 5mm;background:#0B2229}.stats b{display:block;font:700 20pt PL}.stats span{font-size:9pt;color:#9DB5B3}
 .meta{font-size:9pt;color:#9DB5B3}.meta b{color:#E08A84}
 .intro{page-break-after:always}
 h1.sec{font-size:20pt;margin:0 0 4mm;border-bottom:2px solid #861211;padding-bottom:2mm;display:inline-block}
@@ -78,7 +77,7 @@ h3{font-size:11.5pt;margin:4mm 0 2mm;color:#12484C}
 .cause{border:1px solid #C3CDCC;border-inline-start:3px solid #2B7574;border-radius:2.5mm;padding:2.5mm 4mm;margin:0 0 2.5mm;break-inside:avoid}
 .ch{display:flex;align-items:center;gap:2mm;flex-wrap:wrap}.ch b{font-size:11pt}.no{font:700 9pt PL;color:#2B7574}
 .kd,.ev{font-size:8pt;border-radius:1.5mm;padding:0 1.8mm;font-weight:600}.kd.formula{background:#12484C;color:#fff}.kd.process{background:#D9DEDC;color:#12484C}
-.ev.established{background:rgba(47,125,79,.13);color:#2F7D4F}.ev.consensus{background:rgba(43,117,116,.13);color:#12484C}.ev.estimate{background:rgba(210,162,76,.18);color:#8A5E0E}
+.ev.established{background:#E0EDE5;color:#2F7D4F}.ev.consensus{background:#DCE9E8;color:#12484C}.ev.estimate{background:#F4E9D3;color:#8A5E0E}
 .src{margin-inline-start:auto;font-size:8pt;color:#4E6466}
 .why{margin:1.2mm 0}
 .rule{background:#0E2931;color:#E2E2E0;border-radius:2mm;padding:1.8mm 3mm;margin:1.5mm 0;font-size:9.2pt}.rule .rl{color:#8CC4C0;font-weight:700}.rule .rg{margin-inline-end:2mm}.rule .rg bdi{font-weight:700;color:#fff}.rule .rn{color:#9DB5B3;font-size:8.4pt;margin-top:.8mm}
