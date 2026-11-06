@@ -360,7 +360,7 @@ console.log('23) chef name on the PDF');
 console.log('24) guided diagnosis (knowledge base v2)');
 {const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx'))return;sessionStorage.setItem('dx','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'كيك',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'كيك',rows:[['دقيق',250],['سكر',300],['زبدة',200],['بيض',200],['حليب',120],['بيكنج باودر',16]]}}}]));localStorage.setItem('zm-active','"p1"')});
  await p.goto(FILE+'#solve');await p.waitForTimeout(900);await toAr(p);
- ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i[href^="#dx/"]').length===6&&/68/.test((document.querySelector('#p-solve a.dxs-all')||{}).textContent||'')),'the solve page shows six guided diagnoses and a link to all 68');
+ ok(await p.evaluate(()=>document.querySelectorAll('#p-solve .dxs-i[href^="#dx/"]').length===6&&/73/.test((document.querySelector('#p-solve a.dxs-all')||{}).textContent||'')),'the solve page shows six guided diagnoses and a link to all 73');
  await p.fill('#q','الغاناش انفصل');await p.waitForTimeout(400);
  ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-solve .dxs-i')];return a.length>=1&&a.length<=2&&a[0].getAttribute('href')==='#dx/ganache-split'}),'searching in chef words finds the matching guided diagnosis');
  await p.goto(FILE+'#dx/cake-sink');await p.waitForTimeout(800);
@@ -381,7 +381,7 @@ console.log('25) guided diagnosis: creams and ganache, list page, project entry'
 {const p=await mk(390);await p.addInitScript(()=>{if(sessionStorage.getItem('dx2'))return;sessionStorage.setItem('dx2','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'موس',goal:'',tpl:'cust:1',batch:1,trials:[],cust:{'cust:1':{name:'موس',rows:[['كريمة 35%',500],['حليب',200],['سكر',100],['جيلاتين',4]]}}}]));localStorage.setItem('zm-active','"p1"')});
  await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);
  await p.evaluate(()=>document.querySelector('[data-dxgo]').click());await p.waitForTimeout(800);
- ok(await p.evaluate(()=>location.hash==='#dx'&&document.querySelectorAll('#p-dx .dxs-i').length>=68&&document.querySelectorAll('#p-dx .dxs-g').length>=6),'"Diagnose a problem" in the project opens the grouped list of all diagnoses');
+ ok(await p.evaluate(()=>location.hash==='#dx'&&document.querySelectorAll('#p-dx .dxs-i').length>=73&&document.querySelectorAll('#p-dx .dxs-g').length>=6),'"Diagnose a problem" in the project opens the grouped list of all diagnoses');
  await p.fill('#dxQ','الموس ما مسك');await p.waitForTimeout(300);
  ok(await p.evaluate(()=>{const a=[...document.querySelectorAll('#p-dx .dxs-i')];return a.length===1&&a[0].getAttribute('href')==='#dx/mousse-not-set'}),'the list search finds the mousse diagnosis from chef words');
  await p.evaluate(()=>document.querySelector('#p-dx a[href="#dx/mousse-not-set"]').click());await p.waitForTimeout(700);
@@ -491,6 +491,17 @@ console.log('35) design v4: brand home and workspace sidebar');
  await p.goto(FILE+'#dev');await p.waitForTimeout(800);
  ok(await p.evaluate(()=>{const h=document.querySelector('header.top'),r=h.getBoundingClientRect();return getComputedStyle(h).position==='fixed'&&r.height>800&&r.width<300}),'other pages use the side bar on a wide screen');
  ok(await p.evaluate(()=>[...document.querySelectorAll('#sbPj [data-pjopen]')].some(b=>/غاناش بندق/.test(b.textContent))&&!!document.querySelector('#sbPj a[href="#solve"]')),'the side bar lists the tools and the active products');
+ ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
+
+console.log('36) projects overview: key numbers, table, quick diagnosis');
+{const p=await mk(1280);await p.addInitScript(()=>{if(sessionStorage.getItem('dv5'))return;sessionStorage.setItem('dv5','1');localStorage.setItem('zm-projects',JSON.stringify([{id:'p1',name:'غاناش بندق',goal:'',tpl:'cust:1',batch:1,trials:[],ptype:'gb',cust:{'cust:1':{name:'غاناش',rows:[['شوكولاتة داكنة 70%',300],['كريمة 35%',300]]}}},{id:'p2',name:'موس',goal:'',tpl:'cust:2',batch:1,trials:[],cust:{'cust:2':{name:'موس',rows:[['كريمة 35%',500],['سكر',100]]}}}]));localStorage.removeItem('zm-active')});
+ await p.goto(FILE+'#dev');await p.waitForTimeout(900);await toAr(p);await p.evaluate(()=>{const b=document.querySelector('[data-wsback]');if(b)b.click()});await p.waitForTimeout(500);
+ ok(await p.evaluate(()=>document.querySelectorAll('.dv-kpi>div').length===4&&document.querySelectorAll('.dv-t tbody tr').length===2),'the projects page shows four key numbers and a row per project');
+ ok(await p.evaluate(()=>/خارج النطاق|قريب من الحد/.test(document.querySelector('.dv-t').innerText)&&!!document.querySelector('.dv-dx .dv-row[data-pj="p1"]')),'an unbalanced project is flagged in the table and in the quick diagnosis panel');
+ await p.click('[data-dvnew]');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>document.activeElement&&document.activeElement.id==='pjn'),'"+ New project" jumps to the new project form');
+ await p.click('.dv-t [data-pj="p2"]');await p.waitForTimeout(600);
+ ok(await p.evaluate(()=>document.getElementById('p-dev').dataset.mode==='ws'),'a project row opens the project');
  ok(p.errs.length===0,'no JS errors '+p.errs.join(' | '))}
 
 await b.close();console.log('\n'+pass+' passed, '+fail+' failed');process.exit(fail?1:0)})()
